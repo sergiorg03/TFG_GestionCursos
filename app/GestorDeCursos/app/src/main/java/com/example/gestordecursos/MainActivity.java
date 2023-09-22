@@ -19,9 +19,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pantallaInfo(View view) {
-        Intent i = new Intent(this, PantallaInfo.class);
-        startActivity(i);
+        Intent i = new Intent(this, PantallaInfo.class); // Creamos la instancia de la clase intent para pasar a otra pantalla
+        startActivity(i); // Cambiamos de pantalla
 
-        finish();
+        finish(); // Terminamos la pantalla Main
+    }
+
+    public void logIn(View v){
+        /*Intent i = new Intent(this, ); // Creamos la instancia de la clase intent para pasar a otra pantalla
+        startActivity(i); // Cambiamos de pantalla
+        */
+        finish(); // Terminamos la pantalla Main
     }
 }
