@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 	usuario			VARCHAR(15),
 	contra			ENUM('md5'),
 	perfil			CHAR(1),
-	UNIQUE (telefono, email, usuario)
+	UNIQUE (telefono, email, usuario),
 	-- CHECK (REGEXP_LIKE(dni, '^[0-9]{8}[a-zA-Z]$')), -- Comprueba que el DNI tiene el formato correcto
 	-- CHECK (REGEXP_LIKE(email,'^.+@.+\..+$')),		-- Comprueba que el email tiene el formato correcto %@%.%
 	-- CHECK (REGEXP_LIKE(telefono, '^[0-9]{9}$')),	-- Comprueba que el telefono tiene el formato correcto, es decir, 9 números
