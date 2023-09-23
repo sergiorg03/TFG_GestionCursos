@@ -33,7 +33,7 @@ CREATE SCHEMA IF NOT EXISTS gestionCursos DEFAULT CHARACTER SET utf8;
 USE gestionCursos;
 
 -- Tabla Personas
-DROP TABLE IF EXISTS gestionCursos.personas;
+DROP TABLE IF EXISTS gestionCursos.personas CASCADE;
 
 CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 	dni				VARCHAR(9) PRIMARY KEY,
@@ -52,3 +52,10 @@ CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 	-- CHECK (UPPER(perfil) IN UPPER('a', 'g'))  		-- Comprueba que el perfil es alumno o gestor
 );
 
+-- Tabla Cursos
+DROP TABLE IF EXISTS gestionCursos.cursos CASCADE;
+
+CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
+	id 				INT(2) PRIMARY KEY,
+	
+);
