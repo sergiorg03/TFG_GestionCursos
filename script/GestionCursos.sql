@@ -57,5 +57,5 @@ DROP TABLE IF EXISTS gestionCursos.cursos CASCADE;
 
 CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
 	id 				INT(2) PRIMARY KEY,
-	
+	categoria		VARCHAR(10), 
 );
