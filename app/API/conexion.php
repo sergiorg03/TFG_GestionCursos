@@ -1,10 +1,10 @@
 <?php
     /*Datos de la BBDD*/
     $database = [
-        "host" => "localhost"
-        "username" => "tfg_sergio"
-        "password" => "tfg_sergio"
-        "db" => "gestionCursos"
+        "host" => "localhost",
+        "username" => "tfg_sergio",
+        "password" => "tfg_sergio",
+        "db" => "gestionCursos",
     ];
 
     $headerJSON = 'Content-Type: application/json';

@@ -20,18 +20,38 @@ $cfg['Servers'][$i]['user'] = '';
 $cfg['Servers'][$i]['password'] = '';
 */
 
+------------------------------------------
+-- CREACION DEL USUARIO
+------------------------------------------
+
 -- Creación del usuario para la gestion del schema
-REVOKE ALL PRIVILEGES ON  *.* FROM 'tfg_sergio'@'localhost';  
-GRANT ALL PRIVILEGES ON  *.* TO 'tfg_sergio'@'localhost' 
-	REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 
-								   MAX_CONNECTIONS_PER_HOUR 0 
-								   MAX_UPDATES_PER_HOUR 0 
-								   MAX_USER_CONNECTIONS 0;
+DROP USER IF EXISTS 'tfg_sergio'@'localhost';  -- Si existe el usuario previamente
+CREATE USER 'tfg_sergio'@'localhost' 
+	IDENTIFIED VIA mysql_native_password 
+	USING PASSWORD('tfg_sergio');
+GRANT ALL PRIVILEGES 
+	ON *.* 
+	TO 'tfg_sergio'@'localhost' 
+	REQUIRE NONE WITH GRANT OPTION 
+		MAX_QUERIES_PER_HOUR 0 
+		MAX_CONNECTIONS_PER_HOUR 0 
+		MAX_UPDATES_PER_HOUR 0 
+		MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES 
+	ON `tfg\_sergio\_%`.* 
+	TO 'tfg_sergio'@'localhost';
+
+------------------------------------------
+-- CREACION DEL SCHEMA
+------------------------------------------
 
 -- Creamos el schema para la gestion de la Base de Datos
 CREATE SCHEMA IF NOT EXISTS gestionCursos DEFAULT CHARACTER SET utf8;
 USE gestionCursos;
 
+------------------------------------------
+-- CREACION DE TABLAS
+------------------------------------------
 -- Tabla Personas
 DROP TABLE IF EXISTS gestionCursos.personas CASCADE;
 
@@ -59,3 +79,21 @@ CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
 	id 				INT(2) PRIMARY KEY,
 	categoria		VARCHAR(10), 
 );
+
+------------------------------------------
+-- INSERCION DE DATOS 
+------------------------------------------
+
+-- Tabla personas
+INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono, email, usuario, contra, perfil)
+	VALUES
+		(),
+		(),
+		();
+		
+-- Tabla cursos
+INSERT INTO gestionCursos.cursos ()
+	VALUES
+		(),
+		(),
+		();
