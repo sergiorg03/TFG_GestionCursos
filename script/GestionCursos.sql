@@ -77,9 +77,30 @@ DROP TABLE IF EXISTS gestionCursos.cursos CASCADE;
 
 CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
 	id 				INT(2) PRIMARY KEY,
-	categoria		VARCHAR(10), 
+	nombre			VARCHAR(50), 
+	archivo			LONGBLOB 
 );
 
+-- Tabla test
+DROP TABLE IF EXISTS gestionCursos.test CASCADE;
+
+CREATE TABLE IF NOT EXISTS gestionCursos.test(
+	id 				INT(2) PRIMARY KEY,
+	nombre			VARCHAR(50), 
+	archivo			LONGBLOB 
+);
+
+------------------------------------------
+-- CREACION DE SECUENCIAS
+------------------------------------------
+
+CREATE SEQUENCE gestionCursos.idCurso
+	START WITH 1
+	INCREMENT BY 1
+	MAXVALUE 99
+	MINVALUE 1
+	NOCYCLE;
+	
 ------------------------------------------
 -- INSERCION DE DATOS 
 ------------------------------------------
@@ -92,8 +113,9 @@ INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono,
 		();
 		
 -- Tabla cursos
-INSERT INTO gestionCursos.cursos ()
+INSERT INTO gestionCursos.cursos (id, nombre, archivo)
 	VALUES
-		(),
-		(),
-		();
+		(NEXT VALUE FOR idCurso, ),
+		(NEXT VALUE FOR idCurso, ),
+		(NEXT VALUE FOR idCurso, );
+		
