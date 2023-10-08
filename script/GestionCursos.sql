@@ -78,17 +78,18 @@ DROP TABLE IF EXISTS gestionCursos.cursos CASCADE;
 CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
 	id 				INT(2) PRIMARY KEY,
 	nombre			VARCHAR(50), 
-	archivo			LONGBLOB 
+	archivo			LONGBLOB,
+	id_test			INT(2)
 );
 
 -- Tabla test
 DROP TABLE IF EXISTS gestionCursos.test CASCADE;
-
+/*
 CREATE TABLE IF NOT EXISTS gestionCursos.test(
 	id 				INT(2) PRIMARY KEY,
-	nombre			VARCHAR(50), 
-	archivo			LONGBLOB 
-);
+	nombre			VARCHAR(50),
+	respuesta		INT(1)
+);*/
 
 ------------------------------------------
 -- CREACION DE SECUENCIAS
