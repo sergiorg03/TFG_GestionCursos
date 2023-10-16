@@ -73,34 +73,65 @@ CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 );
 
 -- Tabla Cursos
+-- PDF con la teoria a subir 
 DROP TABLE IF EXISTS gestionCursos.cursos CASCADE;
 
 CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
 	id 				INT(2) PRIMARY KEY,
 	nombre			VARCHAR(50), 
 	archivo			LONGBLOB,
-	id_test			INT(2)
+	id_test			INT(3), -- id del test de dicho curso
+	FOREIGN KEY id_test REFERENCES gestionCursos.preguntas
 );
 
 -- Tabla test
-DROP TABLE IF EXISTS gestionCursos.test CASCADE;
-/*
-CREATE TABLE IF NOT EXISTS gestionCursos.test(
-	id 				INT(2) PRIMARY KEY,
-	nombre			VARCHAR(50),
-	respuesta		INT(1)
-);*/
+-- Tabla para los enunciados de los test 
+DROP TABLE IF EXISTS gestionCursos.preguntas CASCADE;
 
+CREATE TABLE IF NOT EXISTS gestionCursos.preguntas(
+	id 				INT(3) PRIMARY KEY,
+	Enunciado		VARCHAR(255)
+);
+
+
+-- Tabla respuestas
+-- Tabla para guardar las opciones de los test y cual de ellas es verdadera
+DROP TABLE IF EXISTS gestionCursos.respuestasTest CASCADE;
+
+CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
+	id				INT(5) PRIMARY KEY,
+	id_pregunta		INT(3), -- Pregunta a la que hace referencia
+	opcion			VARCHAR(255), -- Enunciado de la opcion
+	esCorrecta		INT(1),
+	FOREIGN KEY id_pregunta REFERENCES gestionCursos.Preguntas(id)
+);
 ------------------------------------------
 -- CREACION DE SECUENCIAS
 ------------------------------------------
 
+-- Secuencia para la asignacion de los id de los cursos
 CREATE SEQUENCE gestionCursos.idCurso
 	START WITH 1
 	INCREMENT BY 1
 	MAXVALUE 99
 	MINVALUE 1
 	NOCYCLE;
+	
+-- Secuencia para la asignacion de los id de las preguntas
+CREATE SEQUENCE gestionCursos.idPreguntas
+	START WITH 1
+	INCREMENT BY 1
+	MAXVALUE 999
+	MINVALUE 1
+	NOCYCLE;
+
+-- Secuencia para la asignacion de los id de las opciones de las preguntas
+CREATE SEQUENCE gestionCursos.idOpcion
+	START WITH 1
+	INCREMENT BY 1
+	MAXVALUE 99999
+	MINVALUE 1
+	NOCYCLE;	
 	
 ------------------------------------------
 -- INSERCION DE DATOS 
