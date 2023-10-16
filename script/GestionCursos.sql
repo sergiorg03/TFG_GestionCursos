@@ -152,14 +152,19 @@ CREATE SEQUENCE gestionCursos.idOpcion
 -- Tabla personas
 INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono, email, usuario, contra, perfil)
 	VALUES
-		('33387392V', 'Juan',   'Lopez',   'Perez',     '123456789', 'juan@gmail.com',   'jualopper', MD5('juan'),   'a'),
-		('97939374S', 'Ana',    'Gomez',   'Martinez',  '987654321', 'ana@hotmail.com',  'angomart',  MD5('ana'),    'g'),
-		('29157459Z', 'Carlos', 'Sanchez', 'Rodriguez', '555555555', 'carlos@yahoo.com', 'carsanrod', MD5('carlos'), 'a');
+		('33387392V', 'Juan',   'Lopez',   'Perez',     '123456789', 'juan@gmail.com',   'jualopper', SELECT MD5('juan') FROM DUAL,   'a'),
+		('97939374S', 'Ana',    'Gomez',   'Martinez',  '987654321', 'ana@hotmail.com',  'angomart',  SELECT MD5('ana') FROM DUAL,    'g'),
+		('29157459Z', 'Carlos', 'Sanchez', 'Rodriguez', '555555555', 'carlos@yahoo.com', 'carsanrod', SELECT MD5('carlos') FROM DUAL, 'a');
 		
+		/**
+		
+		SEGUIR MIRANDO EL TEMA DE LAS CONTRASEÑAS
+		
+		*/
 -- Tabla cursos
 INSERT INTO gestionCursos.cursos (id, nombre, ruta_pdf)
 	VALUES
-		(NEXT VALUE FOR idCurso, 'Gestion de archivos en Linux 16.04 LTS', '..\app\GestorDeCursos\app\src\main\res\src\cursos\gestion_archivos_ubuntu.pdf'),
-		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Manipulation Languaje', '..\app\GestorDeCursos\app\src\main\res\src\cursos\dml.pdf'),
-		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Defining Languaje', '..\app\GestorDeCursos\app\src\main\res\src\cursos\ddl.pdf');
+		(NEXT VALUE FOR idCurso, 'Gestion de archivos en Linux 16.04 LTS', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\gestion_archivos_ubuntu.pdf'),
+		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Manipulation Languaje', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\dml.pdf'),
+		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Defining Languaje', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\ddl.pdf');
 		

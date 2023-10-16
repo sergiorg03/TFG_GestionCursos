@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     });*/
     public void logIn(View v){
         String us = String.valueOf(usuario);
+        String pass = String.valueOf(contra);
         /*Intent i = new Intent(this, ); // Creamos la instancia de la clase intent para pasar a otra pantalla
         startActivity(i); // Cambiamos de pantalla
         */
