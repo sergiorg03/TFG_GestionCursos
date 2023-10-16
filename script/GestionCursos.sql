@@ -73,29 +73,32 @@ CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 );
 
 -- Tabla Cursos
--- PDF con la teoria a subir 
+-- PDF con la teoria a subir y su test correspondiente
+
 DROP TABLE IF EXISTS gestionCursos.cursos CASCADE;
 
 CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
 	id 				INT(2) PRIMARY KEY,
 	nombre			VARCHAR(50), 
-	archivo			LONGBLOB,
-	id_test			INT(3), -- id del test de dicho curso
-	FOREIGN KEY id_test REFERENCES gestionCursos.preguntas
+	archivo			LONGBLOB
 );
 
 -- Tabla test
 -- Tabla para los enunciados de los test 
+
 DROP TABLE IF EXISTS gestionCursos.preguntas CASCADE;
 
 CREATE TABLE IF NOT EXISTS gestionCursos.preguntas(
 	id 				INT(3) PRIMARY KEY,
-	Enunciado		VARCHAR(255)
+	Enunciado		VARCHAR(255),
+	id_curso 		INT(2), -- Referencia al id del curso del que se va a evaluar al alumno
+	FOREIGN KEY id_curso REFERENCES gestionCursos.cursos(id)
 );
 
 
 -- Tabla respuestas
 -- Tabla para guardar las opciones de los test y cual de ellas es verdadera
+
 DROP TABLE IF EXISTS gestionCursos.respuestasTest CASCADE;
 
 CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
@@ -140,9 +143,9 @@ CREATE SEQUENCE gestionCursos.idOpcion
 -- Tabla personas
 INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono, email, usuario, contra, perfil)
 	VALUES
-		(),
-		(),
-		();
+		(33387392V, 'Juan',   'Lopez',   'Perez',     '123456789', 'juan@gmail.com',   'jualopper', MD5('juan'),   'a'),
+		(97939374S, 'Ana',    'Gomez',   'Martinez',  '987654321', 'ana@hotmail.com',  'angomart',  MD5('ana'),    'g'),
+		(29157459Z, 'Carlos', 'Sanchez', 'Rodriguez', '555555555', 'carlos@yahoo.com', 'carsanrod', MD5('carlos'), 'a');
 		
 -- Tabla cursos
 INSERT INTO gestionCursos.cursos (id, nombre, archivo)
