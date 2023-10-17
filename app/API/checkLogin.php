@@ -34,7 +34,7 @@
             $consulta->execute();
 
             if ($consulta->rowCount() > 0) { // Si existe el usuario introducido
-                $select2 = 'SELECT usuario, md5(contra)
+                $select2 = 'SELECT usuario, md5(contra), perfil
                                 FROM personas
                                 WHERE UPPER(usuario) = UPPER(:us)
                                   AND UPPER(contra) = UPPER(:contra);';
@@ -44,13 +44,20 @@
                 // Asignamos los parametros a la consulta
                 $consulta->bindParam(':us', $user);
                 $contraMD5 = cadToMD5($contra);
-                print($contraMD5);
+                // print($contraMD5);
                 $consulta->bindParam(':contra', $contraMD5);
 
+                // Ejecutamos la consulta
                 $consulta->execute();
                 
                 if ($consulta->rowCount() > 0) { // la contraseña indicada es correcta 
-                    $jsonDatos = json_encode($consulta->fetch(PDO::FECTH_ASSOC));
+                    // Creamos un array para guardar los datos de la persona
+                    $datos_persona = [];
+                    while ($persona = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        $datos_persona[] = $persona;
+                    }
+                    // Guardamos los datos en un json
+                    $jsonDatos = json_encode($datos_persona);
                     header($headerJSON);
                     header($codigosHTTP['200']);
                 } else { // La contraseña indicada es erronea
@@ -89,5 +96,4 @@
     }
 
     die();
-
 ?>

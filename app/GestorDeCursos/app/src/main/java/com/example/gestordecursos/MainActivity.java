@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     public void logIn(View v){
         String us = String.valueOf(usuario);
         String pass = String.valueOf(contra);
+        // Hacemos una peticion http para ver si el usuario existe y la contraseña es correcta
+        // Obtenemos de la peticion realizada el perfil del usuario
+        
+
         /*Intent i = new Intent(this, ); // Creamos la instancia de la clase intent para pasar a otra pantalla
         startActivity(i); // Cambiamos de pantalla
         */

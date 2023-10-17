@@ -158,7 +158,7 @@ INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono,
 		
 		/**
 		
-		SEGUIR MIRANDO EL TEMA DE LAS CONTRASEÑAS
+			SEGUIR MIRANDO EL TEMA DE LAS CONTRASEÑAS
 		
 		*/
 -- Tabla cursos
