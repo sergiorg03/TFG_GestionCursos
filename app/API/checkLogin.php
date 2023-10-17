@@ -34,7 +34,7 @@
             $consulta->execute();
 
             if ($consulta->rowCount() > 0) { // Si existe el usuario introducido
-                $select2 = 'SELECT usuario, md5(contra), perfil
+                $select2 = 'SELECT usuario, contra, perfil
                                 FROM personas
                                 WHERE UPPER(usuario) = UPPER(:us)
                                   AND UPPER(contra) = UPPER(:contra);';
@@ -64,7 +64,7 @@
                     // Mostramos por la salida el mensaje 404 de Not Found si no existen datos con el id recibido
                     header($headerJSON);
                     header($codigosHTTP['404']);
-                    $errores[] = "La contraseña es erronea";
+                    $errores[] = "La contra es erronea";
                     $jsonDatos = json_encode($errores);
                 }
             }else { // No existe el usuario introducido
@@ -77,7 +77,7 @@
         }else{ // No se pasa la contraseña
             header($headerJSON);
             header($codigosHTTP['404']);
-            $errores[] = "Debe introducir una contraseña";
+            $errores[] = "Debe introducir una contra";
             $jsonDatos = json_encode($errores);
         }
     }else{ // No se pasa el usuario 
