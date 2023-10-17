@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 	telefono		VARCHAR(9),
 	email			VARCHAR(50),
 	usuario			VARCHAR(15),
-	contra			ENUM('md5'),
+	contra			VARCHAR(255),
 	perfil			CHAR(1),
 	UNIQUE (telefono, email, usuario)
 	-- CHECK (REGEXP_LIKE(dni, '^[0-9]{8}[a-zA-Z]$')), -- Comprueba que el DNI tiene el formato correcto
@@ -113,16 +113,16 @@ CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
 -- BORRADO DE SECUENCIAS
 -- ----------------------------------------
 
-DROP SEQUENCE gestionCursos.idCurso;
-DROP SEQUENCE gestionCursos.idPreguntas;
-DROP SEQUENCE gestionCursos.idOpcion;
+DROP SEQUENCE IF EXISTS gestionCursos.idCurso;
+DROP SEQUENCE IF EXISTS gestionCursos.idPreguntas;
+DROP SEQUENCE IF EXISTS gestionCursos.idOpcion;
 
 -- ----------------------------------------
 -- CREACION DE SECUENCIAS
 -- ----------------------------------------
 
 -- Secuencia para la asignacion de los id de los cursos
-CREATE SEQUENCE gestionCursos.idCurso
+CREATE SEQUENCE IF NOT EXISTS gestionCursos.idCurso
 	START WITH 1
 	INCREMENT BY 1
 	MAXVALUE 99
@@ -130,7 +130,7 @@ CREATE SEQUENCE gestionCursos.idCurso
 	NOCYCLE;
 	
 -- Secuencia para la asignacion de los id de las preguntas
-CREATE SEQUENCE gestionCursos.idPreguntas
+CREATE SEQUENCE IF NOT EXISTS gestionCursos.idPreguntas
 	START WITH 1
 	INCREMENT BY 1
 	MAXVALUE 999
@@ -138,7 +138,7 @@ CREATE SEQUENCE gestionCursos.idPreguntas
 	NOCYCLE;
 
 -- Secuencia para la asignacion de los id de las opciones de las preguntas
-CREATE SEQUENCE gestionCursos.idOpcion
+CREATE SEQUENCE IF NOT EXISTS gestionCursos.idOpcion
 	START WITH 1
 	INCREMENT BY 1
 	MAXVALUE 99999
@@ -152,9 +152,9 @@ CREATE SEQUENCE gestionCursos.idOpcion
 -- Tabla personas
 INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono, email, usuario, contra, perfil)
 	VALUES
-		('33387392V', 'Juan',   'Lopez',   'Perez',     '123456789', 'juan@gmail.com',   'jualopper', SELECT MD5('juan') FROM DUAL,   'a'),
-		('97939374S', 'Ana',    'Gomez',   'Martinez',  '987654321', 'ana@hotmail.com',  'angomart',  SELECT MD5('ana') FROM DUAL,    'g'),
-		('29157459Z', 'Carlos', 'Sanchez', 'Rodriguez', '555555555', 'carlos@yahoo.com', 'carsanrod', SELECT MD5('carlos') FROM DUAL, 'a');
+		('33387392V', 'Juan',   'Lopez',   'Perez',     '123456789', 'juan@gmail.com',   'jualopper', (SELECT MD5('juan') FROM DUAL),   'a'),
+		('97939374S', 'Ana',    'Gomez',   'Martinez',  '987654321', 'ana@hotmail.com',  'angomart',  (SELECT MD5('ana') FROM DUAL),    'g'),
+		('29157459Z', 'Carlos', 'Sanchez', 'Rodriguez', '555555555', 'carlos@yahoo.com', 'carsanrod', (SELECT MD5('carlos') FROM DUAL), 'a');
 		
 		/**
 		
