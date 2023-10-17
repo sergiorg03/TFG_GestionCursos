@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView usuario = null;
     TextView contra = null;
+    PeticionesHTTP peticion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
         finish(); // Terminamos la pantalla Main
     }
-    /*new phpClass().getInfo().foreach(i -> {
 
-    });*/
     public void logIn(View v){
         String us = String.valueOf(usuario);
         String pass = String.valueOf(contra);
         // Hacemos una peticion http para ver si el usuario existe y la contraseña es correcta
         // Obtenemos de la peticion realizada el perfil del usuario
-
+        this.peticion = new PeticionesHTTP("checkLogin.php?usuario="+us+"&contra="+pass);
+        String datos = this.peticion.obtenerDatosServidor("GET");
+        System.out.println(datos);
 
         /*Intent i = new Intent(this, ); // Creamos la instancia de la clase intent para pasar a otra pantalla
         startActivity(i); // Cambiamos de pantalla

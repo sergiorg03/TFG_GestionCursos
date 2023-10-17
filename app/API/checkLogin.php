@@ -34,7 +34,7 @@
             $consulta->execute();
 
             if ($consulta->rowCount() > 0) { // Si existe el usuario introducido
-                $select2 = 'SELECT usuario, contra, perfil
+                $select2 = 'SELECT perfil
                                 FROM personas
                                 WHERE UPPER(usuario) = UPPER(:us)
                                   AND UPPER(contra) = UPPER(:contra);';
