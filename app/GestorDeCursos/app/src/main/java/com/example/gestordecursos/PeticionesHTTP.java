@@ -1,5 +1,7 @@
 package com.example.gestordecursos;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.net.URL;
 
 public class PeticionesHTTP {
 
-    private final String urlPeticion = "http://localhost/tfg/app/API/";
+    private final String urlPeticion = "http://Localhost/tfg/app/API/";
     private String urlScript = "";
 
     public PeticionesHTTP(){
@@ -17,8 +19,10 @@ public class PeticionesHTTP {
 
     public PeticionesHTTP(String nombreArchivo){
         this.urlScript = this.urlPeticion+nombreArchivo;
+        System.out.println(this.urlScript);
     }
 
+/*
     public String obtenerDatosServidor(String requestMethod){
         String cadenaADevolver = "";
         try {
@@ -53,9 +57,11 @@ public class PeticionesHTTP {
         }catch (MalformedURLException murle){
             cadenaADevolver = "No se pudo obtener datos";
         } catch (IOException e) {
+            System.out.println("aaaaaaaaaaaa");
+            Log.e("PeticionesHTTP", "Error al realizar la solicitud HTTP: " + e.getMessage());
             cadenaADevolver = "Ocurrio un error a la hora de crear la conexion http";
         }
 
         return cadenaADevolver;
-    }
+    }*/
 }
