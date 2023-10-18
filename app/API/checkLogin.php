@@ -5,8 +5,8 @@
      * 
      */
     
-    require_once("./conexion.php");
-    require_once("./funciones.php");
+    require_once("./utilities/conexion.php");
+    require_once("./utilities/funciones.php");
     $conexion = conectarPDO($database);
     $errores = [];
     
