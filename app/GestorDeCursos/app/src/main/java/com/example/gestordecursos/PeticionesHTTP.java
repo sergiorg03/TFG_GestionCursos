@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class PeticionesHTTP {
 
-    private final String urlPeticion = "http://Localhost/tfg/app/API/";
+    private final String urlPeticion = "http://"+R.string.ip+"/tfg/app/API/";
     private String urlScript = "";
 
     public PeticionesHTTP(){
@@ -22,7 +22,6 @@ public class PeticionesHTTP {
         System.out.println(this.urlScript);
     }
 
-/*
     public String obtenerDatosServidor(String requestMethod){
         String cadenaADevolver = "";
         try {
@@ -63,5 +62,5 @@ public class PeticionesHTTP {
         }
 
         return cadenaADevolver;
-    }*/
+    }
 }
