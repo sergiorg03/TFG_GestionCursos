@@ -20,14 +20,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     TextView usuario = null;
     TextView contra = null;
-    PeticionesHTTP peticion;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,56 +64,105 @@ public class MainActivity extends AppCompatActivity {
 
         // Hacemos una peticion http para ver si el usuario existe y la contraseña es correcta
         // Obtenemos de la peticion realizada el perfil del usuario
-        ObtenerPerfil(new ConsultarDatosCallback() {
+        String perfil = ObtenerPerfil(new ConsultarDatos() {
             @Override
             public void onConsultaExitosa(String rol) {
                 // Creamos la nueva clase
                 try {
-                    Class clase = Class.forName("com.example.gestordecursosr"+rol);
+                    System.out.println(rol);
 
-                    Intent i = new Intent(getApplicationContext(), clase); // Creamos la instancia de la clase intent para pasar a otra pantalla
+                    Class c = null;
+                    if (rol.equalsIgnoreCase("perfilalumno")){
+                        c = perfilAlumno.class;
+                    }else if (rol.equalsIgnoreCase("perfilgestor")){
+                        c = perfilGestor.class;
+                    }
+
+                    Intent i = new Intent(getApplicationContext(), c); // Creamos la instancia de la clase intent para pasar a otra pantalla
                     startActivity(i); // Cambiamos de pantalla
                     finish(); // Terminamos la activity en la que estamos
-                } catch (ClassNotFoundException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onConsultaError(VolleyError error) {}
-        });
-
-
-        // Hacemos una peticion http para ver si el usuario existe y la contraseña es correcta
-        // Obtenemos de la peticion realizada el perfil del usuario
-
+            public void onConsultaError(VolleyError error) {
+                error.printStackTrace();
+            }
+        })[0];
     }
 
-    public interface ConsultarDatosCallback {
-        void onConsultaExitosa(String rol);
+    /**
+     * Funcion que realiza una consulta a la API checkLogin y obtiene el perfil del usuario
+     * @param consultaDatos
+     * @return -- un array de los perfiles obtenidos por la consulta
+     */
+    public String[] ObtenerPerfil(ConsultarDatos consultaDatos) {
+        // Obtenemos los valores de los campos usuario y contra
+        String us = usuario.getText().toString();
+        String pass = contra.getText().toString();
 
-        void onConsultaError(VolleyError error);
-    }
-
-    public String[] ObtenerPerfil(ConsultarDatosCallback callback) {
-        String us = String.valueOf(usuario.getText());
-        String pass = String.valueOf(contra.getText());
-
+        // URL del API a consultar
         final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkLogin.php?usuario=" + us + "&contra=" + pass;
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        // Var para devolver la clase siguiente
         String[] perfil = new String[1];
+
+        /*JsonObjectRequest jor = new JsonObjectRequest(
+                Request.Method.GET, // Metodo de la solicitud
+                URL, // URL a la API
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        /**
+                         *
+                         *
+                         * CODIGOOOOOOOO
+                         *
+                         * /
+
+                        try {
+                            /*JSONArray ja = new JSONArray(response);
+                            JSONObject jo = ja.getJSONObject(0);
+                            System.out.println(jo.getString("perfil"));* /
+                            JSONObject jsonObject = new JSONObject(response);
+                            String perfil_siguiente = jsonObject.getString("Id");
+                            perfil[0] = perfil_siguiente;
+
+                            // perfil[0] = response.getString("perfil");
+                        } catch (Exception e/*JSONException e* /) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }
+        );
+        // Anadimos a la cola de solicitudes a la api la peticion que acabamos de realizar
+        rq.add(jor);*/
+
+        // Creamos un StringRequest con el metodo GET, al que le pasamos la URL de la API y realizamos la consulta
         StringRequest sr = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        JSONObject json = null;
                         try {
-                            json = new JSONObject(response);
+                            JSONArray ja = new JSONArray(response);
+                            JSONObject json = ja.getJSONObject(0);
 
                             String perfil_obtenido = json.getString("perfil");
                             perfil[0] = perfil_obtenido.equalsIgnoreCase("a")? "perfilAlumno" : "perfilGestor";
 
-                            callback.onConsultaExitosa(perfil[0]);
+                            consultaDatos.onConsultaExitosa(perfil[0]);
                         }catch (JSONException e){
                             throw new RuntimeException(e);
                         }
@@ -121,10 +172,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
-                        callback.onConsultaError(error);
+                        consultaDatos.onConsultaError(error);
                     }
                 });
-        RequestQueue rq = Volley.newRequestQueue(this);
+        // Anadimos la request a la cola
         rq.add(sr);
 
         return perfil;
