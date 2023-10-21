@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="false"
+    app:guidelineUseRtl="false"
     tools:context=".signIn">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="64dp"
         android:editable="false"
         android:focusable="false"
@@ -20,6 +21,97 @@
         app:layout_constraintEnd_toStartOf="@+id/dni"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="39dp"
+        android:editable="false"
+        android:focusable="false"
+        android:text="Introduzca su nombre:"
+        app:layout_constraintEnd_toStartOf="@+id/nombre"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dni" />
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="350px"
+        android:layout_height="60px"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="60dp"
+        android:hint="nombre"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dni" />
+
+    <EditText
+        android:id="@+id/apellido1"
+        android:layout_width="350px"
+        android:layout_height="125px"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        android:hint="Primer apellido"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+    <TextView
+        android:id="@+id/textView_primerAp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="46dp"
+        android:editable="false"
+        android:focusable="false"
+        android:text="Introduzca su primer \napellido:"
+        app:layout_constraintEnd_toStartOf="@+id/apellido1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombre" />
+
+    <EditText
+        android:id="@+id/apellido2"
+        android:layout_width="350px"
+        android:layout_height="125px"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="60dp"
+        android:hint="Segundo apellido"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apellido1" />
+
+    <TextView
+        android:id="@+id/textView_segundoAp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="34dp"
+        android:editable="false"
+        android:text="Introduzca su segundo \napellido:"
+        app:layout_constraintEnd_toStartOf="@+id/apellido2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_primerAp" />
+
+    <EditText
+        android:id="@+id/dni"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="350px"
+        android:layout_height="60px"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:editable="true"
+        android:hint="dni"
+        android:inputType="textWebEditText"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -33,109 +125,27 @@
         android:focusable="false"
         android:text="Introduzca su número \nde telefono:"
         app:layout_constraintEnd_toStartOf="@+id/telf"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_segundoAp" />
 
-    <TextView
-        android:id="@+id/textView_primerAp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="46dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca su primer \napellido:"
-        app:layout_constraintEnd_toStartOf="@+id/textView10"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_nombre" />
-
-    <TextView
-        android:id="@+id/textView_nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="39dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca su nombre:"
-        app:layout_constraintEnd_toStartOf="@+id/textView9"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dni" />
-
-    <TextView
+    <EditText
         android:id="@+id/telf"
         android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_height="125px"
+        android:layout_marginTop="31dp"
         android:layout_marginEnd="60dp"
-        android:hint="Numero de telefono"
+        android:hint="telefono"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="60dp"
-        android:hint="Segundo apellido"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView_segundoAp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="34dp"
-        android:editable="false"
-        android:text="Introduzca su segundo \napellido:"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_primerAp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="60dp"
-        android:hint="Nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dni" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="60dp"
-        android:hint="Primer apellido"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/dni"
-        android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="60dp"
-        android:hint="DNI"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/apellido2" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="35dp"
         android:onClick="volver"
@@ -143,7 +153,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/perfil" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView_em"
@@ -156,6 +167,7 @@
         android:focusable="false"
         android:text="Introduzca su email:"
         app:layout_constraintEnd_toStartOf="@+id/email"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_telf" />
 
@@ -164,12 +176,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="42dp"
         android:editable="false"
         android:focusable="false"
         android:text="Introduzca un usuario:"
         app:layout_constraintEnd_toStartOf="@+id/usuario"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_em" />
 
@@ -178,32 +191,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="11dp"
         android:editable="false"
         android:focusable="false"
         android:text="Introduzca una contraseña:"
         app:layout_constraintEnd_toStartOf="@+id/pass_signIn"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_us" />
 
-    <TextView
+    <EditText
         android:id="@+id/email"
         android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_height="80px"
+        android:layout_marginTop="29dp"
         android:layout_marginEnd="60dp"
-        android:hint="Email"
+        android:hint="email"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/telf" />
 
-    <TextView
+    <EditText
         android:id="@+id/usuario"
         android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="80px"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="60dp"
-        android:hint="Usuario"
+        android:hint="usuario"
+        android:inputType="text"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -211,35 +228,48 @@
         android:id="@+id/pass_signIn"
         android:layout_width="350px"
         android:layout_height="18dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="60dp"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="contra"
         android:inputType="textPassword"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usuario" />
 
     <Spinner
         android:id="@+id/perfil"
-        android:layout_width="400px"
+        android:layout_width="350px"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="130dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/pass_signIn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="35dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/perfil" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:text="Elija su perfil:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

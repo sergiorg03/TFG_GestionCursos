@@ -8,4 +8,8 @@
     <string name="previous">Previous</string>
 
     <string name="ip">192.168.1.146</string>
+    <string-array name="perfiles">
+        <item id="0">Gestor</item>
+        <item id="1">Alumno</item>
+    </string-array>
 </resources>

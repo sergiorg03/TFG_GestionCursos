@@ -11,4 +11,8 @@ public class PantallaInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_info);
     }
+
+    /**
+     * TODO add return button to login page
+     */
 }
