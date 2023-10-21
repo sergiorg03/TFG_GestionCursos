@@ -60,6 +60,12 @@ public class MainActivity extends AppCompatActivity{
         finish(); // Terminamos la pantalla Main
     }
 
+    public void signIn (View view){
+        Intent i = new Intent(this, signIn.class);
+        startActivity(i);
+        finish();
+    }
+
     public void logIn(View v) {
 
         // Hacemos una peticion http para ver si el usuario existe y la contraseña es correcta
