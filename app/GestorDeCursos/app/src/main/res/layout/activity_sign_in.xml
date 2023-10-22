@@ -8,268 +8,169 @@
     app:guidelineUseRtl="false"
     tools:context=".signIn">
 
-    <TextView
-        android:id="@+id/tv_dni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="64dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca su DNI:"
-        app:layout_constraintEnd_toStartOf="@+id/dni"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="39dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca su nombre:"
-        app:layout_constraintEnd_toStartOf="@+id/nombre"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dni" />
-
-    <EditText
-        android:id="@+id/nombre"
-        android:layout_width="350px"
-        android:layout_height="60px"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="60dp"
-        android:hint="nombre"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dni" />
-
-    <EditText
-        android:id="@+id/apellido1"
-        android:layout_width="350px"
-        android:layout_height="125px"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="60dp"
-        android:hint="Primer apellido"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
-
-    <TextView
-        android:id="@+id/textView_primerAp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="46dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca su primer \napellido:"
-        app:layout_constraintEnd_toStartOf="@+id/apellido1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_nombre" />
-
-    <EditText
-        android:id="@+id/apellido2"
-        android:layout_width="350px"
-        android:layout_height="125px"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="60dp"
-        android:hint="Segundo apellido"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apellido1" />
-
-    <TextView
-        android:id="@+id/textView_segundoAp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="34dp"
-        android:editable="false"
-        android:text="Introduzca su segundo \napellido:"
-        app:layout_constraintEnd_toStartOf="@+id/apellido2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_primerAp" />
-
-    <EditText
-        android:id="@+id/dni"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="350px"
-        android:layout_height="60px"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
-        android:editable="true"
-        android:hint="dni"
-        android:inputType="textWebEditText"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_telf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="41dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca su número \nde telefono:"
-        app:layout_constraintEnd_toStartOf="@+id/telf"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_segundoAp" />
-
-    <EditText
-        android:id="@+id/telf"
-        android:layout_width="350px"
-        android:layout_height="125px"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="60dp"
-        android:hint="telefono"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apellido2" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="35dp"
-        android:onClick="volver"
-        android:text="Volver"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textView_em"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="54dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca su email:"
-        app:layout_constraintEnd_toStartOf="@+id/email"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_telf" />
-
-    <TextView
-        android:id="@+id/textView_us"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="42dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca un usuario:"
-        app:layout_constraintEnd_toStartOf="@+id/usuario"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_em" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="11dp"
-        android:editable="false"
-        android:focusable="false"
-        android:text="Introduzca una contraseña:"
-        app:layout_constraintEnd_toStartOf="@+id/pass_signIn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_us" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="350px"
-        android:layout_height="80px"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="60dp"
-        android:hint="email"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/telf" />
-
-    <EditText
-        android:id="@+id/usuario"
-        android:layout_width="350px"
-        android:layout_height="80px"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="60dp"
-        android:hint="usuario"
-        android:inputType="text"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
-
-    <EditText
-        android:id="@+id/pass_signIn"
-        android:layout_width="350px"
-        android:layout_height="18dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="60dp"
-        android:ems="10"
-        android:hint="contra"
-        android:inputType="textPassword"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuario" />
-
-    <Spinner
-        android:id="@+id/perfil"
-        android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/pass_signIn"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="35dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
-        android:text="Elija su perfil:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/dni"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="dni"
+                android:inputType="textPersonName"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="220dp"
+                tools:layout_editor_absoluteY="20dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"/>
+
+            <EditText
+                android:id="@+id/nombre"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="nombre"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="220dp"
+                tools:layout_editor_absoluteY="68dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"
+                android:textSize="18sp"
+                />
+
+            <EditText
+                android:id="@+id/ape1"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Primer apellido"
+                android:inputType="textPersonName"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="219dp"
+                tools:layout_editor_absoluteY="120dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"
+                />
+
+            <EditText
+                android:id="@+id/ape2"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Segundo apellido"
+                android:inputType="textPersonName"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="218dp"
+                tools:layout_editor_absoluteY="180dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"/>
+
+            <EditText
+                android:id="@+id/telf"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Telefono"
+                android:inputType="phone"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="217dp"
+                tools:layout_editor_absoluteY="249dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"/>
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="email"
+                android:inputType="textEmailAddress"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="218dp"
+                tools:layout_editor_absoluteY="313dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"/>
+
+            <EditText
+                android:id="@+id/user_signIn"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="usuario"
+                android:inputType="textPersonName"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="219dp"
+                tools:layout_editor_absoluteY="370dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"/>
+
+            <EditText
+                android:id="@+id/pass_signIn"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="218dp"
+                tools:layout_editor_absoluteY="426dp"
+                android:layout_marginLeft="250px"
+                android:layout_marginTop="50px"
+                android:hint="Contraseña"/>
+
+            <Spinner
+                android:id="@+id/perfil"
+                android:layout_width="266dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:layout_marginLeft="250px"
+                app:layout_constraintBottom_toTopOf="@+id/button2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView20"
+                app:layout_constraintTop_toBottomOf="@+id/pass_signIn"
+                app:layout_constraintVertical_bias="0.0"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/volver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="volver"
+                    android:text="Volver"
+                    tools:layout_editor_absoluteX="38dp"
+                    tools:layout_editor_absoluteY="519dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="100dp"/>
+
+                <Button
+                    android:id="@+id/addUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:onClick="insertarUsuario"
+                    android:text="Crear Usuario"
+                    tools:layout_editor_absoluteX="279dp"
+                    tools:layout_editor_absoluteY="520dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onConsultaExitosa(String rol) {
                     // Creamos la nueva clase
                     try {
-                        System.out.println(rol);
+                        // System.out.println(rol);
 
                         Class c = null;
                         if (rol.equalsIgnoreCase("perfilalumno")) {

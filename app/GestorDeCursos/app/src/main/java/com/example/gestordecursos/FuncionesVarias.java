@@ -1,9 +1,15 @@
 package com.example.gestordecursos;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Clase para la creacion de las funciones de validaciones y otras varias.
  */
-public class funcionesVarias {
+public class FuncionesVarias {
 
     final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
@@ -12,8 +18,7 @@ public class funcionesVarias {
      * @param dni -- DNI a comprobar
      * @return -- True si el DNI esta bien formado, False si no.
      */
-    public boolean formatoDNI(String dni)
-    {
+    public boolean formatoDNI(String dni){
         boolean correcto = false;
 
         String numeroDNI = dni.substring(0, 8);
@@ -43,5 +48,28 @@ public class funcionesVarias {
         return lo_es;
     }
 
+    /**
+     * Funcion que comprueba si el formato del email es correcto
+     * @param email -- email a comprobar
+     * @return -- True si el formato del email introducido es correcto, False si no.
+     */
+    public boolean formatoEmail(String email){
+        boolean es_correcto = false;
+        String expr_email = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
+        Pattern p = Pattern.compile(email); // Obtenemos el patron del email
+        Matcher matcher = p.matcher(expr_email); // Comprobamos que el patron del email se corresponde con la expresion regular
+        es_correcto = matcher.matches();
+
+        return es_correcto;
+    }
+
+    /**
+     * Funcion para mostrar un mensaje
+     * @param c -- Clase en la que vamos a mostrar el mensaje
+     * @param mensaje -- mensaje a mostrar
+     */
+    public void mostrarMensaje(Context c, String mensaje) {
+        Toast.makeText(c, mensaje, Toast.LENGTH_LONG).show();
+    }
 }

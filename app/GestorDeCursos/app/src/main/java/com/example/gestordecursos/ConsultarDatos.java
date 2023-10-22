@@ -5,7 +5,7 @@ import com.android.volley.VolleyError;
 // Creacion de la interfaz para la reutilizacion de metodos
 public interface ConsultarDatos {
 
-        void onConsultaExitosa(String rol);
+        void onConsultaExitosa(String a);
 
         void onConsultaError(VolleyError error);
 }

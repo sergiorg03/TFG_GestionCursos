@@ -9,7 +9,8 @@
 
     <string name="ip">192.168.1.146</string>
     <string-array name="perfiles">
-        <item id="0">Gestor</item>
-        <item id="1">Alumno</item>
+        <item id="0">Elija su perfil</item>
+        <item id="1">Gestor</item>
+        <item id="2">Alumno</item>
     </string-array>
 </resources>
