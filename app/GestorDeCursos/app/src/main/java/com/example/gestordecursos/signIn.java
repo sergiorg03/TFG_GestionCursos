@@ -125,12 +125,6 @@ public class signIn extends AppCompatActivity {
         String user = us.getText().toString();
 
         // URL del API a consultar
-        /******
-         *
-         *
-         * CAMBIAR API
-         *
-         */
         final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkUser.php?usuario=" + user;
 
         RequestQueue rq = Volley.newRequestQueue(this);

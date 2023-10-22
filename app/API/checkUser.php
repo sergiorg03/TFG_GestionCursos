@@ -1,3 +1,34 @@
 <?php
 // Devolver existe si el usuario indicado en la app existe, si no existe devolver noexiste
+
+require_once("./utilities/conexion.php");
+require_once("./utilities/funciones.php");
+$conexion = conectarPDO($database);
+$jsonDatos = '';
+
+if ($_SERVER["REQUEST_METHOD"] == 'GET') {
+    if (isset($_GET['usuario'])) {
+        $select = 'SELECT usuario 
+                        FROM personas
+                        WHERE UPPER(usuario) = UPPER(:us);';
+        $consulta = $conexion->prepare($select);
+        $consulta->bindParam(':us', $_GET['usuario']);
+
+        $consulta->execute();
+        if ($consulta->rowCount() == 0) { // El usuario introducido no existe
+            $jsonDatos = json_encode("noexiste");
+            header($headerJSON);
+            header($codigosHTTP['200']);
+        }else { // El usuario introducido existe
+            // Mostramos por la salida el mensaje 404 de Not Found si no existen datos con el id recibido
+            header($headerJSON);
+            header($codigosHTTP['404']);
+            $jsonDatos = json_encode("existe");
+        }
+    }    
+    echo $jsonDatos;
+}
+
+die();
+
 ?>
