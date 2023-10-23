@@ -16,14 +16,16 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
         $consulta->execute();
         if ($consulta->rowCount() == 0) { // El usuario introducido no existe
-            $jsonDatos = json_encode("noexiste");
+            $respuesta["usuario"] = "noexiste";
+            $jsonDatos = json_encode($respuesta);
             header($headerJSON);
             header($codigosHTTP['200']);
         }else { // El usuario introducido existe
             // Mostramos por la salida el mensaje 404 de Not Found si no existen datos con el id recibido
+            $respuesta['usuario'] = 'existe';
+            $jsonDatos = json_encode($respuesta);
             header($headerJSON);
-            header($codigosHTTP['404']);
-            $jsonDatos = json_encode("existe");
+            header($codigosHTTP['200']);
         }
     }    
     echo $jsonDatos;

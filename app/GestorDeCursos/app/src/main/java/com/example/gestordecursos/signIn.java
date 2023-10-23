@@ -35,6 +35,7 @@ public class signIn extends AppCompatActivity {
     TextView us;
     TextView contra;
     FuncionesVarias fv = new FuncionesVarias();
+    String var_existeUsuario = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,13 +69,21 @@ public class signIn extends AppCompatActivity {
 
         // Comprobaciones
         if (dni != null && nombre != null && ap1 != null && ap2 != null && telf != null && email != null && us != null && contra != null){ // Ha rellenado todos los campos
+            //String existeUsuario = existeUser(us);
             if (!perfil.equalsIgnoreCase("Elija su perfil")){ // Ha elegido un perfil valido
                 if (fv.formatoDNI(dni)){// El dni introducido tiene el formato correcto
                     if (fv.esNumerico(telf)){ // el numero de telefono son digitos
                         if (fv.formatoEmail(email)){// El email tiene formato correcto
-                            if (!existeUser(us)){ // comprobamos que no exista el usuario introducido
-                                fv.mostrarMensaje(this, "el usuario no existe");
+                            //System.out.println("Existe el usuario: "+existeUsuario);
+                            //System.out.println("Existe el usuario VAR: "+var_existeUsuario);
+                            if (var_existeUsuario.equalsIgnoreCase("false")){ // comprobamos que no exista el usuario introducido
+                                // false si el usuario indicado no existe, true si el usuario existe
+                                //fv.mostrarMensaje(this, "el usuario no existe");
+                                //System.out.println("Existe el usuario: "+existeUsuario);
+                                //System.out.println("Existe el usuario VAR: "+var_existeUsuario);
+
                             }else fv.mostrarMensaje(this, "El usuario introducido existe, porfavor escoja otro usuario. ");
+                            var_existeUsuario = null;
                         }else fv.mostrarMensaje(this, "El email introducido no tiene formato correcto. "); // El email no tiene formato correcto
                     }else fv.mostrarMensaje(this, "Debe introducir un numero de telefono correcto. "); // El telefono introducido no es correcto
                 }else fv.mostrarMensaje(this, "El DNI introducido no tiene el formato correcto. "); // El dni introducido no es correcto
@@ -99,16 +108,16 @@ public class signIn extends AppCompatActivity {
      * @param user -- usuario a comprobar
      * @return -- True si el usuario existe, False si no.
      */
-    public boolean existeUser(String user){
-        final boolean[] existe = {false};
+    public String existeUser(String user){
+        final String[] existe = {"false"}; // False si el usuario no existe
         String existeUsuario = obtenerUS(new ConsultarDatos() {
             @Override
             public void onConsultaExitosa(String a) {
                 // Creamos la nueva clase
                 try {
-                    if (!a.equalsIgnoreCase("noexiste")){
-                        existe[0] = true;
-                    }
+                    System.out.println("a:"+a);
+                    existe[0] = a;
+                    var_existeUsuario = a;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -141,11 +150,18 @@ public class signIn extends AppCompatActivity {
                     public void onResponse(String response) {
 
                         try {
-                            JSONArray ja = new JSONArray(response);
-                            JSONObject json = ja.getJSONObject(0);
-
+                            // JSONArray ja = new JSONArray(response);
+                            // JSONObject json = ja.getJSONObject(0);
+                            JSONObject json = new JSONObject(response);
                             String usuario_obtenido = json.getString("usuario");
-                            usuario_existente[0] = usuario_obtenido.equalsIgnoreCase("noexiste")? "false": "true";
+                            System.out.println(usuario_obtenido);
+                            // Si el usuario no existe devolvemos FALSE, si el usuario existe devolvemos TRUE
+                            if (usuario_obtenido.equalsIgnoreCase("noexiste")){
+                                usuario_existente[0] = "false";
+                            }else if (usuario_obtenido.equalsIgnoreCase("existe")){
+                                usuario_existente[0] = "true";
+                                System.out.println(usuario_existente[0]);
+                            }
 
                             consultaDatos.onConsultaExitosa(usuario_existente[0]);
                         } catch (JSONException e) {
