@@ -22,7 +22,7 @@ public class FuncionesVarias {
         boolean correcto = false;
 
         String numeroDNI = dni.substring(0, 8);
-        char letraDni = dni.charAt(8);
+        char letraDni = Character.toUpperCase(dni.charAt(8));
 
         if (esNumerico(numeroDNI)){
             if (letraDni == LETRAS[(Integer.parseInt(numeroDNI) % 23)]){
@@ -38,14 +38,12 @@ public class FuncionesVarias {
      * @return -- True si es un numero, False si no
      */
     public boolean esNumerico(String numero){
-        boolean lo_es = false;
-
         try{
             Integer.parseInt(numero);
-            lo_es = true;
-        }catch (NumberFormatException nfe){}
-
-        return lo_es;
+            return true;
+        }catch (NumberFormatException nfe){
+            return false;
+        }
     }
 
     /**
@@ -55,10 +53,10 @@ public class FuncionesVarias {
      */
     public boolean formatoEmail(String email){
         boolean es_correcto = false;
-        String expr_email = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        String expr_email = "^[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+\\.[a-zA-Z]{2,}$";
 
-        Pattern p = Pattern.compile(email); // Obtenemos el patron del email
-        Matcher matcher = p.matcher(expr_email); // Comprobamos que el patron del email se corresponde con la expresion regular
+        Pattern p = Pattern.compile(expr_email); // Compilamos la expresion regular del email
+        Matcher matcher = p.matcher(email); // Comprobamos que el patron del email se corresponde con la expresion regular
         es_correcto = matcher.matches();
 
         return es_correcto;

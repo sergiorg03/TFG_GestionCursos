@@ -55,23 +55,25 @@ public class signIn extends AppCompatActivity {
 
     public void insertarUsuario(View v){
 
-        String dni = this.dni.toString();
-        String nombre = this.nombre.toString();
-        String ap1 = this.ap1.toString();
-        String ap2 = this.ap2.toString();
-        String telf = this.telf.toString();
-        String email = this.email.toString();
-        String us = this.us.toString();
-        String contra = this.contra.toString();
+        // Obtenemos los valores de los campos
+        String dni = this.dni.getText().toString();
+        String nombre = this.nombre.getText().toString();
+        String ap1 = this.ap1.getText().toString();
+        String ap2 = this.ap2.getText().toString();
+        String telf = this.telf.getText().toString();
+        String email = this.email.getText().toString();
+        String us = this.us.getText().toString();
+        String contra = this.contra.getText().toString();
         String perfil = this.perfiles.getSelectedItem().toString();
 
+        // Comprobaciones
         if (dni != null && nombre != null && ap1 != null && ap2 != null && telf != null && email != null && us != null && contra != null){ // Ha rellenado todos los campos
             if (!perfil.equalsIgnoreCase("Elija su perfil")){ // Ha elegido un perfil valido
                 if (fv.formatoDNI(dni)){// El dni introducido tiene el formato correcto
                     if (fv.esNumerico(telf)){ // el numero de telefono son digitos
                         if (fv.formatoEmail(email)){// El email tiene formato correcto
                             if (!existeUser(us)){ // comprobamos que no exista el usuario introducido
-
+                                fv.mostrarMensaje(this, "el usuario no existe");
                             }else fv.mostrarMensaje(this, "El usuario introducido existe, porfavor escoja otro usuario. ");
                         }else fv.mostrarMensaje(this, "El email introducido no tiene formato correcto. "); // El email no tiene formato correcto
                     }else fv.mostrarMensaje(this, "Debe introducir un numero de telefono correcto. "); // El telefono introducido no es correcto
@@ -163,4 +165,5 @@ public class signIn extends AppCompatActivity {
 
         return usuario_existente;
     }
+
 }
