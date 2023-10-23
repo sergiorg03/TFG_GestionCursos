@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -81,7 +82,8 @@ public class signIn extends AppCompatActivity {
                                 //fv.mostrarMensaje(this, "el usuario no existe");
                                 //System.out.println("Existe el usuario: "+existeUsuario);
                                 //System.out.println("Existe el usuario VAR: "+var_existeUsuario);
-
+                                crearUsuario(dni, nombre, ap1, ap2, telf, email, us, contra, perfil); // Insertamos el usuario
+                                vueltaLogIn(v); // Volvemos a la pantalla de LogIn
                             }else fv.mostrarMensaje(this, "El usuario introducido existe, porfavor escoja otro usuario. ");
                             var_existeUsuario = null;
                         }else fv.mostrarMensaje(this, "El email introducido no tiene formato correcto. "); // El email no tiene formato correcto
@@ -180,6 +182,64 @@ public class signIn extends AppCompatActivity {
         rq.add(sr);
 
         return usuario_existente;
+    }
+
+    public void crearUsuario
+            (String dni, String nombre, String ap1, String ap2, String telf, String email, String us, String contra, String perfil)
+    {
+        final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/newPerson.php";
+
+        StringRequest sr = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        fv.mostrarMensaje(signIn.this, "Usuario creado correctamente. ");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        fv.mostrarMensaje(signIn.this, "No se pudo crear el usuario. ");
+                        error.printStackTrace();
+                    }
+                }) {
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+            @Override
+            public byte[] getBody() {
+                JSONObject json = new JSONObject();
+                try {
+                    // ponemos los valores de los campos a introducir
+                    json.put("dni", dni);
+                    json.put("nombre", nombre);
+                    json.put("apellido1", ap1);
+                    json.put("apellido2", ap2);
+                    json.put("telefono", telf);
+                    json.put("email", email);
+                    json.put("usuario", us);
+                    json.put("contra", contra);
+                    json.put("perfil", perfil);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return json.toString().getBytes();
+            }
+        };
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+        rq.add(sr);
+    }
+
+    /**
+     * Funcion para volver a la pantalla de Login
+     * @param v
+     */
+    public void vueltaLogIn(View v){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
 }
