@@ -70,7 +70,7 @@ public class signIn extends AppCompatActivity {
 
         // Comprobaciones
         if (dni != null && nombre != null && ap1 != null && ap2 != null && telf != null && email != null && us != null && contra != null){ // Ha rellenado todos los campos
-            //String existeUsuario = existeUser(us);
+            String existeUsuario = existeUser(us);
             if (!perfil.equalsIgnoreCase("Elija su perfil")){ // Ha elegido un perfil valido
                 if (fv.formatoDNI(dni)){// El dni introducido tiene el formato correcto
                     if (fv.esNumerico(telf)){ // el numero de telefono son digitos
