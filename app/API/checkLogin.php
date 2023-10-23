@@ -1,7 +1,7 @@
 <?php
     /**
      * 
-     * File to check if the user exists, if the user exists gets its profile 
+     * Archivo para comprobar si existe un usuario y obtener su perfil 
      * 
      */
     

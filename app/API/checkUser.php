@@ -1,4 +1,9 @@
 <?php
+/**
+ * 
+ * Archivo para comprobar si un usuario existe o no
+ * 
+ */
 // Devolver existe si el usuario indicado en la app existe, si no existe devolver noexiste
 
 require_once("./utilities/conexion.php");
