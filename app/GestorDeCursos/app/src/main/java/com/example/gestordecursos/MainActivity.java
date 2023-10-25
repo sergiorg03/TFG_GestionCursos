@@ -61,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
         finish(); // Terminamos la pantalla Main
     }
 
+    /**
+     * Metodo para ir a la clase de ayuda
+     * @param view
+     */
+    public void pantallaAyuda(View view) {
+        Intent i = new Intent(this, ayuda.class); // Creamos la instancia de la clase intent para pasar a otra pantalla
+        startActivity(i); // Cambiamos de pantalla
+
+        finish(); // Terminamos la pantalla Main
+    }
+
     public void signIn(View view) {
         Intent i = new Intent(this, signIn.class);
         startActivity(i);

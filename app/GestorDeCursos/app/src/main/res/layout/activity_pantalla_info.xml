@@ -5,5 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PantallaInfo">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="321dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="90dp"
+                android:layout_marginEnd="47dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:text="StudyHub"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/floatingActionButton7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="321dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="47dp"
+                android:layout_marginBottom="350dp"
+                android:layout_marginLeft="20dp"
+                android:text="Aplicación realizada por \nSergio Rodríguez Geniz"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/floatingActionButton7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingConstraints" />
+
+
+            <Button
+                android:id="@+id/volver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="volver"
+                android:text="Volver"
+                tools:layout_editor_absoluteY="20dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="100dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
