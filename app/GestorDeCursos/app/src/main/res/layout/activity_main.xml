@@ -85,21 +85,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <ImageButton
-        android:id="@+id/info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="103dp"
-        android:layout_marginBottom="29dp"
-        android:background="@android:color/white"
-        android:onClick="pantallaInfo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
-        app:srcCompat="@drawable/informacion"
-        tools:ignore="TouchTargetSizeCheck" />
-
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"
@@ -120,13 +105,26 @@
         android:layout_marginStart="162dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="162dp"
-        android:layout_marginBottom="40dp"
         android:onClick="signIn"
         android:text="SIGN IN"
-        app:layout_constraintBottom_toTopOf="@+id/info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login" />
+
+    <ImageButton
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="29dp"
+        android:background="@android:color/white"
+        android:onClick="pantallaInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signIn"
+        app:srcCompat="@drawable/informacion"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ImageButton
         android:id="@+id/imageButton"
