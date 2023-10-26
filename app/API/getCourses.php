@@ -11,7 +11,7 @@ $errores = [];
 $datos = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (isset($_GET['id'])) {// Está definido el id del curso a obtener
+    if (isset($_GET['id_curso'])) {// Está definido el id del curso a obtener
         
     }else { // NO está definida la id del curso
         $SELECT = 'SELECT c.id AS `id_curso`, c.nombre AS `nombre_curso`, c.ruta_pdf AS `ruta_pdf_curso`, p.id AS `id_preguntas`, p.enunciado AS `enunciado_preguntas`, r.id AS `id_respuesta`, r.opcion AS `opcion_respuesta`, r.esCorrecta AS `esCorrecta_respuesta`
