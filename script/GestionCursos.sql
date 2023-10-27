@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS gestionCursos.preguntas(
 -- Tabla para guardar las opciones de los test y cual de ellas es verdadera
 
 CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
-	id				INT(5) AUTO INCREMENT,
+	id				INT(5) AUTO_INCREMENT,
 	id_pregunta		INT(3), -- Pregunta a la que hace referencia
 	opcion			VARCHAR(255), -- Enunciado de la opcion
 	esCorrecta		INT(1),
@@ -120,7 +120,7 @@ DROP SEQUENCE IF EXISTS gestionCursos.idOpcion;
 
 -- Secuencia para la asignacion de los id de los cursos
 CREATE SEQUENCE IF NOT EXISTS gestionCursos.idCurso
-	START WITH 1
+	START WITH 0
 	INCREMENT BY 1
 	MAXVALUE 99
 	MINVALUE 1
@@ -160,3 +160,24 @@ INSERT INTO gestionCursos.cursos (id, nombre, ruta_pdf)
 		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Manipulation Languaje', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\dml.pdf'),
 		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Defining Languaje', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\ddl.pdf');
 		
+/*
+
+
+		DATOS FICTICIOS
+
+
+*/
+INSERT INTO gestionCursos.cursos(id, nombre, ruta_pdf) VALUES
+(1, 'Curso 1', 'ruta/pdf/curso1.pdf'),
+(2, 'Curso 2', 'ruta/pdf/curso2.pdf'),
+(3, 'Curso 3', 'ruta/pdf/curso3.pdf');
+
+INSERT INTO gestionCursos.preguntas(id, Enunciado, id_curso) VALUES
+(1, 'Enunciado 1', 1),
+(2, 'Enunciado 2', 1),
+(3, 'Enunciado 3', 3);
+
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, opcion, esCorrecta) VALUES
+(1, 1, 'Opción 1', 0),
+(2, 2, 'Opción 2', 1),
+(3, 3, 'Opción 3', 0);1366 x 768 16:9
