@@ -162,20 +162,17 @@ INSERT INTO gestionCursos.cursos (id, nombre, ruta_pdf)
 
 
 */
-INSERT INTO gestionCursos.cursos(nombre, ruta_pdf) VALUES
-('Curso 1', 'ruta/pdf/curso1.pdf'),
-('Curso 2', 'ruta/pdf/curso2.pdf'),
-('Curso 3', 'ruta/pdf/curso3.pdf');
+INSERT INTO gestionCursos.cursos(id, nombre, ruta_pdf) VALUES
+(1, 'Curso 1', 'ruta/pdf/curso1.pdf'),
+(2, 'Curso 2', 'ruta/pdf/curso2.pdf'),
+(3, 'Curso 3', 'ruta/pdf/curso3.pdf');
 
-INSERT INTO gestionCursos.preguntas(Enunciado, id_curso) VALUES
-('Enunciado 1', 1),
-('Enunciado 2', 1),
-('Enunciado 3', 3);
+INSERT INTO gestionCursos.preguntas(id, Enunciado, id_curso) VALUES
+(1, 'Enunciado 1', 1),
+(2, 'Enunciado 2', 1),
+(3, 'Enunciado 3', 3);
 
-INSERT INTO gestionCursos.respuestasTest(id_pregunta, opcion, esCorrecta) VALUES
-(1, 'Opción 1', 0),
-(1, 'Opción 2', 1),
-(1, 'Opción 3', 0),
-(2, 'Opción 1', 0),
-(2, 'Opción 2', 1),
-(2, 'Opción 3', 0);
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, opcion, esCorrecta) VALUES
+(1, 1, 'Opción 1', 0),
+(2, 2, 'Opción 2', 1),
+(3, 3, 'Opción 3', 0);1366 x 768 16:9
