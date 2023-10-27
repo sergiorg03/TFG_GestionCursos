@@ -74,10 +74,6 @@ CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 	contra			VARCHAR(255),
 	perfil			CHAR(1),
 	UNIQUE (telefono, email, usuario)
-	-- CHECK (REGEXP_LIKE(dni, '^[0-9]{8}[a-zA-Z]$')), -- Comprueba que el DNI tiene el formato correcto
-	-- CHECK (REGEXP_LIKE(email,'^.+@.+\..+$')),		-- Comprueba que el email tiene el formato correcto %@%.%
-	-- CHECK (REGEXP_LIKE(telefono, '^[0-9]{9}$')),	-- Comprueba que el telefono tiene el formato correcto, es decir, 9 números
-	-- CHECK (UPPER(perfil) IN UPPER('a', 'g'))  		-- Comprueba que el perfil es alumno o gestor
 );
 
 -- Tabla Cursos
@@ -102,10 +98,11 @@ CREATE TABLE IF NOT EXISTS gestionCursos.preguntas(
 -- Tabla para guardar las opciones de los test y cual de ellas es verdadera
 
 CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
-	id				INT(5) PRIMARY KEY,
+	id				INT(5) AUTO INCREMENT,
 	id_pregunta		INT(3), -- Pregunta a la que hace referencia
 	opcion			VARCHAR(255), -- Enunciado de la opcion
 	esCorrecta		INT(1),
+	PRIMARY KEY (id, id_pregunta),
 	FOREIGN KEY (id_pregunta) REFERENCES gestionCursos.preguntas(id) ON DELETE CASCADE
 );
 
