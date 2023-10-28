@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS gestionCursos.personas(
 	email			VARCHAR(50),
 	usuario			VARCHAR(15),
 	contra			VARCHAR(255),
-	perfil			CHAR(1),
+	perfil			CHAR(1) NOT NULL,
 	UNIQUE (telefono, email, usuario)
 );
 
