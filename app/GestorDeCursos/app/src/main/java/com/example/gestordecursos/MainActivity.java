@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView usuario = null;
     TextView contra = null;
-
+    FuncionesVarias fv = new FuncionesVarias();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,10 +98,13 @@ public class MainActivity extends AppCompatActivity {
                         } else if (rol.equalsIgnoreCase("perfilgestor")) {
                             c = perfilGestor.class;
                         }
-
-                        Intent i = new Intent(getApplicationContext(), c); // Creamos la instancia de la clase intent para pasar a otra pantalla
-                        startActivity(i); // Cambiamos de pantalla
-                        finish(); // Terminamos la activity en la que estamos
+                        if (c == null){
+                            fv.mostrarMensaje(MainActivity.this, "El usuario introducido no existe. ");
+                        }else {
+                            Intent i = new Intent(getApplicationContext(), c); // Creamos la instancia de la clase intent para pasar a otra pantalla
+                            startActivity(i); // Cambiamos de pantalla
+                            finish(); // Terminamos la activity en la que estamos
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
