@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS gestionCursos.respuestasTest;
 DROP TABLE IF EXISTS gestionCursos.preguntas;
 DROP TABLE IF EXISTS gestionCursos.cursos;
 DROP TABLE IF EXISTS gestionCursos.realizar;
-DROP TABLE IF EXISTS gestionCursos.gestionar;
+DROP TABLE IF EXISTS gestionCursos.gestion;
 
 -- ----------------------------------------
 -- CREACION DE TABLAS
