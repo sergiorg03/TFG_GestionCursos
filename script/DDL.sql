@@ -88,8 +88,8 @@ CREATE TABLE IF NOT EXISTS gestionCursos.cursos(
 -- Tabla para los enunciados de los test 
 CREATE TABLE IF NOT EXISTS gestionCursos.preguntas(
 	id 				INT(3),
-	Enunciado		VARCHAR(255),
 	id_curso 		INT(2), -- Referencia al id del curso del que se va a evaluar al alumno
+	Enunciado		VARCHAR(255),
 	PRIMARY KEY (id, id_curso),
 	FOREIGN KEY (id_curso) REFERENCES gestionCursos.cursos(id) ON DELETE CASCADE
 );
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
 	id_curso		INT(2), -- curso al que hace referencia
 	opcion			VARCHAR(255), -- Enunciado de la opcion
 	esCorrecta		INT(1),
-	PRIMARY KEY (id, id_pregunta),
+	PRIMARY KEY (id, id_pregunta, id_curso),
 	FOREIGN KEY (id_pregunta, id_curso) REFERENCES gestionCursos.preguntas(id, id_curso) ON DELETE CASCADE
 );
 -- Entidad debil, ya que si no existe una pregunta de test, no existen sus respuestas
@@ -113,7 +113,6 @@ CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
 -- BORRADO DE SECUENCIAS
 -- ----------------------------------------
 
-DROP SEQUENCE IF EXISTS gestionCursos.idCurso;
 DROP SEQUENCE IF EXISTS gestionCursos.idPreguntas;
 DROP SEQUENCE IF EXISTS gestionCursos.idOpcion;
 
@@ -127,7 +126,7 @@ CREATE SEQUENCE IF NOT EXISTS gestionCursos.idPreguntas
 	INCREMENT BY 1
 	MAXVALUE 999
 	MINVALUE 1
-	NOCYCLE;
+	CYCLE;
 
 -- Secuencia para la asignacion de los id de las opciones de las preguntas
 CREATE SEQUENCE IF NOT EXISTS gestionCursos.idOpcion
@@ -135,47 +134,4 @@ CREATE SEQUENCE IF NOT EXISTS gestionCursos.idOpcion
 	INCREMENT BY 1
 	MAXVALUE 99999
 	MINVALUE 1
-	NOCYCLE;	
-	
--- ----------------------------------------
--- INSERCION DE DATOS 
--- ----------------------------------------
-
--- Tabla personas
-INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono, email, usuario, contra, perfil)
-	VALUES
-		('33387392V', 'Juan',   'Lopez',   'Perez',     '123456789', 'juan@gmail.com',   'jualopper', (SELECT MD5('juan') FROM DUAL),   'a'),
-		('97939374S', 'Ana',    'Gomez',   'Martinez',  '987654321', 'ana@hotmail.com',  'angomart',  (SELECT MD5('ana') FROM DUAL),    'g'),
-		('29157459Z', 'Carlos', 'Sanchez', 'Rodriguez', '555555555', 'carlos@yahoo.com', 'carsanrod', (SELECT MD5('carlos') FROM DUAL), 'a');
-
--- Tabla cursos
-INSERT INTO gestionCursos.cursos (id, nombre, ruta_pdf)
-	VALUES
-		(NEXT VALUE FOR idCurso, 'Gestion de archivos en Linux 16.04 LTS', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\gestion_archivos_ubuntu.pdf'),
-		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Manipulation Languaje', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\dml.pdf'),
-		(NEXT VALUE FOR idCurso, 'Bases de datos: Data Defining Languaje', '..\\app\\GestorDeCursos\\app\\src\\main\\res\\src\\cursos\\ddl.pdf');
-		
-/*
-
-
-		DATOS FICTICIOS
-
-
-*/
-INSERT INTO gestionCursos.cursos(nombre, ruta_pdf) VALUES
-('Curso 1', 'ruta/pdf/curso1.pdf'),
-('Curso 2', 'ruta/pdf/curso2.pdf'),
-('Curso 3', 'ruta/pdf/curso3.pdf');
-
-INSERT INTO gestionCursos.preguntas(Enunciado, id_curso) VALUES
-('Enunciado 1', 1),
-('Enunciado 2', 1),
-('Enunciado 3', 3);
-
-INSERT INTO gestionCursos.respuestasTest(id_pregunta, opcion, esCorrecta) VALUES
-(1, 'Opción 1', 0),
-(1, 'Opción 2', 1),
-(1, 'Opción 3', 0),
-(2, 'Opción 1', 0),
-(2, 'Opción 2', 1),
-(2, 'Opción 3', 0);
+	CYCLE;	
