@@ -4,6 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+/**
+ *
+ * Clase para mostrar los cursos
+ *
+ */
 public class perfilAlumno extends AppCompatActivity {
 
     @Override

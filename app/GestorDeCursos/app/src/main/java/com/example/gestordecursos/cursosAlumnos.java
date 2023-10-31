@@ -6,6 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ *
+ * Clase para mostrar los cursos de los alumnos
+ *
+ */
 public class cursosAlumnos extends AppCompatActivity {
 
     FuncionesVarias fv = new FuncionesVarias();
