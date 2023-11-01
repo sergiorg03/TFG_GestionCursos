@@ -55,7 +55,7 @@
                 android:value="" />
         </activity> <!-- android:networkSecurityConfig="@xml/network_security_config" ESTO VA ARRIBA -->
         <activity
-            android:name=".perfilAlumno"
+            android:name=".notasAlumnos"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

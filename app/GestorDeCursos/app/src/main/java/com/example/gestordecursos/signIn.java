@@ -61,10 +61,11 @@ public class signIn extends AppCompatActivity {
         String email = this.email.getText().toString();
         String us = this.us.getText().toString();
         String contra = this.contra.getText().toString();
-        String perfil = this.perfiles.getSelectedItem().toString();
+        String perfil = this.perfiles.getSelectedItem().toString().toLowerCase();
 
         // Comprobaciones
-        if (dni != null && nombre != null && ap1 != null && ap2 != null && telf != null && email != null && us != null && contra != null){ // Ha rellenado todos los campos
+        if (fv.contieneTexto(dni) && fv.contieneTexto(nombre) && fv.contieneTexto(ap1) && fv.contieneTexto(ap2) &&
+                fv.contieneTexto(telf) && fv.contieneTexto(email) && fv.contieneTexto(us) && fv.contieneTexto(contra)){ // Ha rellenado todos los campos
             String existeUsuario = existeUser(us);
             if (!perfil.equalsIgnoreCase("Elija su perfil")){ // Ha elegido un perfil valido
                 if (fv.formatoDNI(dni)){// El dni introducido tiene el formato correcto
