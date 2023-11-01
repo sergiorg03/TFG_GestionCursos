@@ -195,5 +195,5 @@ INSERT INTO gestionCursos.realizar (dni, id_curso, puntuacion)
 INSERT INTO gestionCursos.gestionar (dni, id_curso)
 	VALUES
 		('97939374S', 3),
-		('97939374S', 3),
+		('97939374S', 2),
 		('97939374S', 1);
