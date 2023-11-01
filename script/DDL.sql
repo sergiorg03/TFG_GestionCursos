@@ -53,12 +53,12 @@ USE gestionCursos;
 -- BORRADO DE TABLAS
 -- ----------------------------------------
 
+DROP TABLE IF EXISTS gestionCursos.realizar;
+DROP TABLE IF EXISTS gestionCursos.gestionar;
 DROP TABLE IF EXISTS gestionCursos.personas;
 DROP TABLE IF EXISTS gestionCursos.respuestasTest;
 DROP TABLE IF EXISTS gestionCursos.preguntas;
 DROP TABLE IF EXISTS gestionCursos.cursos;
-DROP TABLE IF EXISTS gestionCursos.realizar;
-DROP TABLE IF EXISTS gestionCursos.gestionar;
 
 -- ----------------------------------------
 -- CREACION DE TABLAS
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS gestionCursos.realizar(
 	FOREIGN KEY (id_curso) REFERENCES gestionCursos.cursos (id) ON DELETE CASCADE
 );
 
---Tabla gestion
+-- Tabla gestion
 CREATE TABLE IF NOT EXISTS gestionCursos.gestionar(
 	dni				VARCHAR(9),
 	id_curso		INT(2),
