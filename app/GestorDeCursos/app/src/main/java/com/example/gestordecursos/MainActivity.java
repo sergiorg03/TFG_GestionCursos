@@ -94,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
                         Class c = null;
                         if (rol.equalsIgnoreCase("perfilalumno")) {
-                            c = perfilAlumno.class;
+                            c = cursosAlumnos.class;
                         } else if (rol.equalsIgnoreCase("perfilgestor")) {
-                            c = perfilGestor.class;
+                            c = cursosGestores.class;
                         }
                         if (c == null){
                             fv.mostrarMensaje(MainActivity.this, "El usuario introducido no existe. ");
