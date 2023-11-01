@@ -70,4 +70,14 @@ public class FuncionesVarias {
     public void mostrarMensaje(Context c, String mensaje) {
         Toast.makeText(c, mensaje, Toast.LENGTH_LONG).show();
     }
+
+    /**
+     * Metodo que comprueba si una cadena introducida por parametro tiene texto o no.
+     * @param cadena -- Cadena a comprobar
+     * @return -- True si  la cadena introducida tiene texto, False si no.
+     */
+    public boolean contieneTexto(String cadena){
+        boolean contiene = (cadena == null || cadena == "")? false : true;
+        return contiene;
+    }
 }

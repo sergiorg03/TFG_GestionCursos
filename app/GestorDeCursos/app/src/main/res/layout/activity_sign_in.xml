@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/dni"
+                android:id="@+id/dni_PA"
                 android:layout_width="266dp"
                 android:layout_height="50dp"
                 android:ems="10"

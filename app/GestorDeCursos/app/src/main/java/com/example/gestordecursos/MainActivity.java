@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         String us = usuario.getText().toString();
         String pass = contra.getText().toString();
         // Comprobamos que ha introducido un usuario y una contraseña
-        if (us == null && pass == null) {
+        if (fv.contieneTexto(us)&& fv.contieneTexto(pass)) {
             // Hacemos una peticion http para ver si el usuario existe y la contraseña es correcta
             // Obtenemos de la peticion realizada el perfil del usuario
             String perfil = ObtenerPerfil(new ConsultarDatos() {
