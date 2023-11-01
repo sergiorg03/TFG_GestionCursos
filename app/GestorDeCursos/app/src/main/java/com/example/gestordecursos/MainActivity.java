@@ -78,11 +78,19 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void checkUsNotNullAndPassNotNull(View v){
+        if (fv.contieneTexto(this.usuario.getText().toString()) && fv.contieneTexto(this.contra.getText().toString())) {
+            logIn(v);
+        }else{
+            fv.mostrarMensaje(this, "Rellene ambos campos para poder iniciar sesion. ");
+        }
+    }
+
     public void logIn(View v) {
         String us = usuario.getText().toString();
         String pass = contra.getText().toString();
         // Comprobamos que ha introducido un usuario y una contraseña
-        if (fv.contieneTexto(us)&& fv.contieneTexto(pass)) {
+        if (fv.contieneTexto(us) && fv.contieneTexto(pass)) {
             // Hacemos una peticion http para ver si el usuario existe y la contraseña es correcta
             // Obtenemos de la peticion realizada el perfil del usuario
             String perfil = ObtenerPerfil(new ConsultarDatos() {
@@ -112,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onConsultaError(VolleyError error) {
-                    error.printStackTrace();
+                    //error.printStackTrace();
+                    fv.mostrarMensaje(MainActivity.this, "Rellene ambos campos para iniciar sesion. ");
                 }
             })[0];
         }else{
@@ -129,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
         // Obtenemos los valores de los campos usuario y contra
         String us = usuario.getText().toString();
         String pass = contra.getText().toString();
+
+        if (fv.contieneTexto(us) && fv.contieneTexto(pass)) {
 
         // URL del API a consultar
         final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkLogin.php?usuario=" + us + "&contra=" + pass;
@@ -168,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
         rq.add(sr);
 
         return perfil;
+        }
+        return null;
     }
 
     public void mostrarMensaje(String mensaje) {

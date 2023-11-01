@@ -20,16 +20,25 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/volverCursosAlumnos"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="107dp"
         android:layout_marginBottom="20dp"
-        android:text="Volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:srcCompat="@drawable/notas_adhesivas" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:onClick="salir"/>
+        app:srcCompat="@drawable/flecha_hacia_atras" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
