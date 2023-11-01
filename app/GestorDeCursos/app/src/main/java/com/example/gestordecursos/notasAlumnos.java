@@ -164,7 +164,8 @@ public class notasAlumnos extends AppCompatActivity {
                      int i = 1;
                     // Añadimos los cursos con sus respectivas notas
                      for (String[] curso : notasCursos) {
-
+                         System.out.println(curso[0]);
+                         System.out.println(curso[1]);
                          cursoConNota.put(curso[0], curso[1]);
                      }
 
@@ -173,46 +174,47 @@ public class notasAlumnos extends AppCompatActivity {
                          // System.out.println("Clave: " + key + " Valor: " + cursoConNota.get(key));
                          switch (i) {
                              case 1:
-                                 tv_curso1.setText(key);
-                                 tv_nota1.setText(cursoConNota.get(key));
+                                 tv_nota1.setText(key);
+                                 tv_curso1.setText(cursoConNota.get(key));
                                  break;
                              case 2:
-                                 tv_curso2.setText(key);
-                                 tv_nota2.setText(cursoConNota.get(key));
+                                 tv_nota2.setText(key);
+                                 tv_curso2.setText(cursoConNota.get(key));
                                  break;
                              case 3:
-                                 tv_curso3.setText(key);
-                                 tv_nota3.setText(cursoConNota.get(key));
+                                 tv_nota3.setText(key);
+                                 tv_curso3.setText(cursoConNota.get(key));
                                  break;
                              case 4:
-                                 tv_curso4.setText(key);
-                                 tv_nota4.setText(cursoConNota.get(key));
+                                 tv_nota4.setText(key);
+                                 tv_curso4.setText(cursoConNota.get(key));
                                  break;
                              case 5:
-                                 tv_curso5.setText(key);
-                                 tv_nota5.setText(cursoConNota.get(key));
+                                 tv_nota5.setText(key);
+                                 tv_curso5.setText(cursoConNota.get(key));
                                  break;
                              case 6:
-                                 tv_curso6.setText(key);
-                                 tv_nota6.setText(cursoConNota.get(key));
+                                 tv_nota6.setText(key);
+                                 tv_curso6.setText(cursoConNota.get(key));
                                  break;
                              case 7:
-                                 tv_curso7.setText(key);
-                                 tv_nota7.setText(cursoConNota.get(key));
+                                 tv_nota7.setText(key);
+                                 tv_curso7.setText(cursoConNota.get(key));
                                  break;
                              case 8:
-                                 tv_curso8.setText(key);
-                                 tv_nota8.setText(cursoConNota.get(key));
+                                 tv_nota8.setText(key);
+                                 tv_curso8.setText(cursoConNota.get(key));
                                  break;
                              case 9:
-                                 tv_curso9.setText(key);
-                                 tv_nota9.setText(cursoConNota.get(key));
+                                 tv_nota9.setText(key);
+                                 tv_curso9.setText(cursoConNota.get(key));
                                  break;
                              case 10:
-                                 tv_curso10.setText(key);
-                                 tv_nota10.setText(cursoConNota.get(key));
+                                 tv_nota10.setText(key);
+                                 tv_curso10.setText(cursoConNota.get(key));
                                  break;
                          }
+                         i++;
                      }
                  }
 
