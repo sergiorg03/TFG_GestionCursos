@@ -32,7 +32,8 @@ import java.util.Map;
 public class notasAlumnos extends AppCompatActivity {
 
     FuncionesVarias fv = new FuncionesVarias();
-    EditText dni;
+    String dni;
+    EditText ET_dni;
     TextView tv_curso1;
     TextView tv_curso2;
     TextView tv_curso3;
@@ -58,7 +59,10 @@ public class notasAlumnos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notas_alumnos);
-        dni = findViewById(R.id.dni_PA);
+        dni = getIntent().getStringExtra("dni");
+        ET_dni = findViewById(R.id.dni_PA);
+        ET_dni.setText(dni);
+
         // TextView de los nombre de los cursos
         tv_curso1 = findViewById(R.id.tv_nombre1);
         tv_curso2 = findViewById(R.id.tv_nombre2);
@@ -148,7 +152,7 @@ public class notasAlumnos extends AppCompatActivity {
      * @param v
      */
     public void getMarks(View v){
-        String dni_us = this.dni.getText().toString(); // Obtenemos el DNI
+        String dni_us = this.dni; // Obtenemos el DNI
          if (fv.contieneTexto(dni_us)){
             // Hacemos la peticion para obtener las puntuaciones de los cursos de la persona
              List<String[]> datosCursos = obtenerDatos(new ConsultarDatos(){
@@ -223,7 +227,7 @@ public class notasAlumnos extends AppCompatActivity {
     }
 
     public List<String[]> obtenerDatos(ConsultarDatos cd){
-        String dni_usu = this.dni.getText().toString();
+        String dni_usu = this.dni;
 
         // url de la API a consulta
         final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/getMarks.php?dni=" + dni_usu;

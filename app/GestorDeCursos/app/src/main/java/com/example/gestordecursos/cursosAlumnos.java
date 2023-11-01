@@ -8,17 +8,20 @@ import android.view.View;
 
 /**
  *
- * Clase para mostrar los cursos de los alumnos
+ * Clase para mostrar los cursos que los alumnos pueden realizar
+ *
  *
  */
 public class cursosAlumnos extends AppCompatActivity {
 
     FuncionesVarias fv = new FuncionesVarias();
-
+    String dni;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cursos_alumnos);
+        dni = getIntent().getStringExtra("dni");
+
     }
 
     /**
@@ -27,6 +30,17 @@ public class cursosAlumnos extends AppCompatActivity {
      */
     public void salir(View v){
         Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    /**
+     * Metodo que me lleva a la clase para poder ver las notas de cada curso
+     * @param v
+     */
+    public void verNotas(View v){
+        Intent i = new Intent(this, notasAlumnos.class);
+        i.putExtra("dni", dni);
         startActivity(i);
         finish();
     }

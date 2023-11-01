@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             // Obtenemos de la peticion realizada el perfil del usuario
             String perfil = ObtenerPerfil(new ConsultarDatos() {
                 @Override
-                public void onConsultaExitosa(String rol) {
+                public void onConsultaExitosa(String rol, String dni) {
                     // Creamos la nueva clase
                     try {
                         // System.out.println(rol);
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                             fv.mostrarMensaje(MainActivity.this, "El usuario introducido no existe. ");
                         }else {
                             Intent i = new Intent(getApplicationContext(), c); // Creamos la instancia de la clase intent para pasar a otra pantalla
+                            i.putExtra("dni", dni);
                             startActivity(i); // Cambiamos de pantalla
                             finish(); // Terminamos la activity en la que estamos
                         }
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue rq = Volley.newRequestQueue(this);
 
         // Var para devolver la clase siguiente
-        String[] perfil = new String[1];
+        String[] perfil = new String[2];
 
         // Creamos un StringRequest con el metodo GET, al que le pasamos la URL de la API y realizamos la consulta
         StringRequest sr = new StringRequest(Request.Method.GET, URL,
@@ -160,9 +161,11 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject json = ja.getJSONObject(0);
 
                             String perfil_obtenido = json.getString("perfil");
+                            String dni = json.getString("dni");
                             perfil[0] = perfil_obtenido.equalsIgnoreCase("a") ? "perfilAlumno" : "perfilGestor";
+                            perfil[1] = dni;
 
-                            consultaDatos.onConsultaExitosa(perfil[0]);
+                            consultaDatos.onConsultaExitosa(perfil[0], perfil[1]);
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }

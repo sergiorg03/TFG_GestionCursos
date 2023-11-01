@@ -101,6 +101,11 @@ public class signIn extends AppCompatActivity {
         finish();
     }
 
+    public interface ConsultarDatos{
+        void onConsultaExitosa(String a);
+        void onConsultaError(VolleyError ve);
+    }
+
     /**
      * Funcion que comprueba si el nombre de usuario introducido existe en la BD o no
      * @param user -- usuario a comprobar
