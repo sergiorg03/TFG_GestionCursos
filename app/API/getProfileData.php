@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * Archivo para mostrar la puntuación en los cursos realizados por un alumno
+ * Archivo para obtener los datos personales de cada usuario
  * 
  */
 require_once("./utilities/conexion.php");
