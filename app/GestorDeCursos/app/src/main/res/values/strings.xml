@@ -7,7 +7,10 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="ip">192.168.1.146</string>
+    <!-- IP sobremesa --> 
+    <string name="ip">192.168.1.156</string>
+    <!-- IP del protatil -->
+    <!-- <string name="ip">192.168.1.146</string> -->
     <string-array name="perfiles">
         <item id="0">Elija su perfil</item>
         <item id="1">Gestor</item>
