@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -33,6 +34,7 @@ public class notasAlumnos extends AppCompatActivity {
 
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
+    ImageButton marks;
     EditText ET_dni;
     TextView tv_curso1;
     TextView tv_curso2;
@@ -130,6 +132,10 @@ public class notasAlumnos extends AppCompatActivity {
         tv_nota8.setHint("");
         tv_nota9.setHint("");
         tv_nota10.setHint("");
+
+        // Llamamos al método para obtener los cursos nada más entrar en la clase
+        marks = findViewById(R.id.marks);
+        getMarks(marks.getRootView());
     }
 
     /**
