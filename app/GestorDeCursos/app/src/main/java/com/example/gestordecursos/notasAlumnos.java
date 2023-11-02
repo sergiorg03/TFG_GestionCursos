@@ -164,8 +164,11 @@ public class notasAlumnos extends AppCompatActivity {
                      int i = 1;
                     // Añadimos los cursos con sus respectivas notas
                      for (String[] curso : notasCursos) {
+                         /*
                          System.out.println(curso[0]);
                          System.out.println(curso[1]);
+                         */
+
                          cursoConNota.put(curso[0], curso[1]);
                      }
 

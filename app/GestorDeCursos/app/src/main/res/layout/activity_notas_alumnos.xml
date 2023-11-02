@@ -52,7 +52,7 @@
                     android:focusableInTouchMode="false"
                     android:focusedByDefault="false"
                     android:text="Nombre del curso"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/Notas"
@@ -65,7 +65,7 @@
                     android:focusableInTouchMode="false"
                     android:focusedByDefault="false"
                     android:text="Puntuacion sobre 10"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <!-- ScrollView para los cursos con las notas -->
@@ -103,7 +103,6 @@
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="Nombre curso"
-                            android:maxLength="18"
                             android:textSize="24sp" />
 
                         <TextView
