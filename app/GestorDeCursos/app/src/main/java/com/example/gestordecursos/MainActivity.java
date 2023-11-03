@@ -189,4 +189,10 @@ public class MainActivity extends AppCompatActivity {
     public void mostrarMensaje(String mensaje) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
     }
+
+    public void inicioRapido(View v){
+        usuario.setText("jualopper");
+        contra.setText("juan");
+        checkUsNotNullAndPassNotNull(findViewById(R.id.login).getRootView());
+    }
 }

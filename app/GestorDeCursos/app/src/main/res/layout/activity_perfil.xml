@@ -6,4 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Perfil">
 
+    <!-- Boton de ida a la clase notas_alumnos -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/flecha_hacia_atras" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

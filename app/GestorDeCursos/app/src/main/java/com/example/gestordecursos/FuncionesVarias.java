@@ -82,4 +82,27 @@ public class FuncionesVarias {
         boolean contiene = (cadena == null || cadena == "")? false : true;
         return contiene;
     }
+
+    /**
+     * Metodo que devuelve la clase a la que se corresponde una cadena de texto
+     * @param claseAnterior -- Cadena a comprobar la clase a la que corresponde
+     * @return -- Clase correspondiente
+     */
+    public Class obtenerClase(String claseAnterior){
+        Class clase = null;
+
+        if (claseAnterior.equalsIgnoreCase("cursosalumnos")){
+            clase = cursosAlumnos.class;
+        }else{
+            if (claseAnterior.equalsIgnoreCase("cursosgestores")){
+                clase = cursosGestores.class;
+            }else {
+                if (claseAnterior.equalsIgnoreCase("perfilgestor")){
+                    clase = perfilGestor.class;
+                }
+            }
+        }
+
+        return clase;
+    }
 }
