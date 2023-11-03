@@ -5,6 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -17,6 +30,25 @@ public class Perfil extends AppCompatActivity {
     String dni;
     String nombreClase;
     Class claseAnterior;
+    String bd_nombre;
+    String bd_ape1;
+    String bd_ap2;
+    String bd_telf;
+    String bd_email;
+    String bd_us;
+    String bd_contra;
+    String bd_perfil;
+
+    // Atributos de la pantalla
+    TextView tv_dni;
+    EditText et_nombre;
+    EditText et_ap1;
+    EditText et_ap2;
+    EditText et_telf;
+    EditText et_email;
+    EditText et_us;
+    EditText et_contra;
+    EditText et_perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +58,23 @@ public class Perfil extends AppCompatActivity {
         dni = getIntent().getStringExtra("dni");
         nombreClase = getIntent().getStringExtra("clase");
         claseAnterior = fv.obtenerClase(nombreClase);
+
+        // Asignamos los EditText a cada View
+        tv_dni = findViewById(R.id.dni_perfil);
+        et_nombre = findViewById(R.id.nombre_p);
+        et_ap1 = findViewById(R.id.apellido1_p);
+        et_ap2 = findViewById(R.id.apellido2_p);
+        et_telf = findViewById(R.id.telefono_p);
+        et_email = findViewById(R.id.email_p);
+        et_us = findViewById(R.id.usuario_p);
+        et_contra = findViewById(R.id.contra_p);
+        et_perfil = findViewById(R.id.perfil_p);
+
+        // Asignamos el valor al TV del dni
+        tv_dni.setText(dni);
+
+        // mostramos los demas datos
+        mostrarDatos();
     }
 
     /**
@@ -39,17 +88,93 @@ public class Perfil extends AppCompatActivity {
         finish();
     }
 
+    public interface ConsultarDatos{
+        void onConsultaExitosa(String [] listaDatos);
+        void onConsultaError(VolleyError ve);
+    }
+
+    /**
+     * Metodo para mostrar los datos de la persona
+     */
+    public void mostrarDatos(){
+        String [] datosPersonales = getDatos(new ConsultarDatos() {
+            @Override
+            public void onConsultaExitosa(String[] listaDatos) {
+                bd_nombre = listaDatos[1];
+                bd_ape1 = listaDatos[2];
+                bd_ap2 = listaDatos[3];
+                bd_telf = listaDatos[4];
+                bd_email = listaDatos[5];
+                bd_us = listaDatos[6];
+                bd_contra = listaDatos[7];
+                bd_perfil = listaDatos[8];
+
+                // Mostramos los datos
+                et_nombre.setText(listaDatos[1]);
+                et_ap1.setText(listaDatos[2]);
+                et_ap2.setText(listaDatos[3]);
+                et_telf.setText(listaDatos[4]);
+                et_email.setText(listaDatos[5]);
+                et_us.setText(listaDatos[6]);
+                et_perfil.setText(listaDatos[8].equalsIgnoreCase("a")? "Alumno": "Gestor");
+            }
+
+            @Override
+            public void onConsultaError(VolleyError ve) {
+                fv.mostrarMensaje(Perfil.this, "No se pudieron recopilar datos. ");
+            }
+        });
+    }
+
+    /**
+     * Metodo para mostrar los datos del usuario
+     */
+    public String[] getDatos(ConsultarDatos cd){
+        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getProfileData.php?dni="+this.dni;
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        String[] datosPersona = new String[9];
+
+        StringRequest sr = new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray ja = new JSONArray(response);
+                            JSONObject json = ja.getJSONObject(0);
+                            datosPersona[0] = json.getString("dni");
+                            datosPersona[1] = json.getString("nombre");
+                            datosPersona[2] = json.getString("apellido1");
+                            datosPersona[3] = json.getString("apellido2");
+                            datosPersona[4] = json.getString("telefono");
+                            datosPersona[5] = json.getString("email");
+                            datosPersona[6] = json.getString("usuario");
+                            datosPersona[7] = json.getString("contra");
+                            datosPersona[8] = json.getString("perfil");
+
+                            cd.onConsultaExitosa(datosPersona);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                cd.onConsultaError(error);
+            }
+        });
+
+        //Añadimos la request a la cola
+        rq.add(sr);
+        return datosPersona;
+    }
+
     /**
      * Método para modificar el perfil
      * @param v
      */
     public void updateProfile(View v){
 
-    }
-
-    /**
-     * Metodo para mostrar los datos del usuario
-     */
-    public void mostrarDatos(){
     }
 }
