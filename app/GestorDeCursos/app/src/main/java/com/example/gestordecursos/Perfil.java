@@ -30,9 +30,10 @@ public class Perfil extends AppCompatActivity {
     String dni;
     String nombreClase;
     Class claseAnterior;
+    // Variables para guardar los datos de la base de datos
     String bd_nombre;
     String bd_ape1;
-    String bd_ap2;
+    String bd_ape2;
     String bd_telf;
     String bd_email;
     String bd_us;
@@ -46,9 +47,9 @@ public class Perfil extends AppCompatActivity {
     EditText et_ap2;
     EditText et_telf;
     EditText et_email;
-    EditText et_us;
+    TextView et_us;
     EditText et_contra;
-    EditText et_perfil;
+    TextView et_perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +103,7 @@ public class Perfil extends AppCompatActivity {
             public void onConsultaExitosa(String[] listaDatos) {
                 bd_nombre = listaDatos[1];
                 bd_ape1 = listaDatos[2];
-                bd_ap2 = listaDatos[3];
+                bd_ape2 = listaDatos[3];
                 bd_telf = listaDatos[4];
                 bd_email = listaDatos[5];
                 bd_us = listaDatos[6];
@@ -176,5 +177,55 @@ public class Perfil extends AppCompatActivity {
      */
     public void updateProfile(View v){
 
+        String [] datosNuevos = asignarValoresDeCambio();
+
+        
+    }
+
+    /**
+     * Metodo para la comprobacion de los valores
+     */
+    public String[] asignarValoresDeCambio(){
+        String nombre = "", ap1 = "", ap2 = "", em = "", telf = "", contra = "";
+        if (bd_nombre.equalsIgnoreCase(et_nombre.getText().toString())){ // El nombre es el mismo
+            nombre = bd_nombre;
+        }else{ // El nombre es diferente
+            nombre = et_nombre.getText().toString();
+        }
+
+        if(bd_ape1.equalsIgnoreCase(et_ap1.getText().toString())){ // El primer apellido es el mismo, no se ha cambiado
+            ap1 = bd_ape1;
+        }else{ //Se ha cambiado el apellido
+            ap1 = et_ap1.getText().toString();
+        }
+
+        if (bd_ape2.equalsIgnoreCase(et_ap2.getText().toString())){ // El segundo apellido es el mismo, no se ha cambiado
+            ap2 = bd_ape2;
+        }else{ // Se  ha modificado
+            ap2 = et_ap2.getText().toString();
+        }
+
+        if (bd_telf.equalsIgnoreCase(et_telf.getText().toString())){ // El telefono no se ha cambiado
+            telf = bd_telf;
+        }else{ // Se ha cambiado el telefono
+            telf = et_telf.getText().toString();
+        }
+
+        if (bd_email.equalsIgnoreCase(et_email.getText().toString())){ // No se ha cambiado el email
+            em = bd_email;
+        }else{// Se ha cambiado el email
+            if (fv.formatoEmail(et_email.getText().toString())) { // El formato del email es correcto
+                em = et_email.getText().toString();
+            }else{
+                fv.mostrarMensaje(this, "El formato del email es incorrecto. ");
+            }
+        }
+
+        if (fv.contieneTexto(et_contra.getText().toString())){ // La contraseña está modificada
+            contra = bd_contra;
+        }
+
+        String [] datos = new String[]{nombre, ap1, ap2, em, telf, contra};
+        return datos;
     }
 }

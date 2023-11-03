@@ -227,10 +227,10 @@
                             android:text="Usuario: "
                             android:textSize="20sp" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/usuario_p"
                             android:layout_width="160dp"
-                            android:layout_height="40dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:editable="false"
@@ -286,10 +286,10 @@
                             android:text="Perfil: "
                             android:textSize="20sp" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/perfil_p"
                             android:layout_width="160dp"
-                            android:layout_height="40dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:editable="true"
