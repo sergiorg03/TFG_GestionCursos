@@ -6,4 +6,326 @@
     android:layout_height="match_parent"
     tools:context=".Perfil">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/dni_perfil"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="210px"
+                android:layout_marginTop="50px"
+                android:editable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="dni"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="22sp" />
+
+            <!-- ScrollView para los cursos con las notas -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                android:paddingBottom="10dp">
+
+
+                <!-- LinearLayout para los cursos con las notas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/nombre"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Nombre: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/nombre_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="true"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Nombre"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/apellido1"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Primer apellido: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/apellido1_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="true"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="apellido1"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/apellido2"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Segundo apellido: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/apellido2_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="apellido2"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/telefono"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Telefono: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/telefono_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Telefono"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Email: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/email_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="email"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/usuario"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Usuario: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/usuario_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="usuario"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/contra"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Contraseña: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/contra_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:inputType="textPassword"
+                            android:hint="contraseña"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/perfil"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="true"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:text="Perfil: "
+                            android:textSize="20sp" />
+
+                        <EditText
+                            android:id="@+id/perfil_p"
+                            android:layout_width="160dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:editable="true"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="perfil"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </ScrollView>
+            <!-- Botones de acciones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/Back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="120dp"
+                    android:onClick="volver"
+                    android:src="@drawable/flecha_hacia_atras" />
+
+                <ImageButton
+                    android:id="@+id/updateProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="15dp"
+                    android:onClick="updateProfile"
+                    android:src="@drawable/update" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
