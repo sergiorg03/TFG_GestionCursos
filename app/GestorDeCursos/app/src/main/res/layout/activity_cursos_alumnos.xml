@@ -17,6 +17,185 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_curso1"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 1"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_curso2"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_curso3"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 3"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_curso4"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 4"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_curso5"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 5"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_curso6"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 6"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_curso7"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 7"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_curso8"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 8"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_curso9"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 9"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_curso10"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 10"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_curso11"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 11"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_curso12"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 12"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_curso13"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 13"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_curso14"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 14"
+                android:textSize="20sp" />
+        </LinearLayout>
 
     </ScrollView>
 
