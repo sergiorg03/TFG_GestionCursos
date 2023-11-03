@@ -144,6 +144,7 @@ public class notasAlumnos extends AppCompatActivity {
      */
     public void volver(View v){
         Intent i = new Intent(this, cursosAlumnos.class);
+        i.putExtra("dni", dni);
         startActivity(i);
         finish();
     }
