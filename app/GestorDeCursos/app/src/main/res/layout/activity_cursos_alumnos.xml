@@ -44,5 +44,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/flecha_hacia_atras" />
 
+    <ImageView
+        android:id="@+id/perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/verNotas"
+        app:srcCompat="@drawable/usuario" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,12 +21,14 @@ public class FuncionesVarias {
     public boolean formatoDNI(String dni){
         boolean correcto = false;
 
-        String numeroDNI = dni.substring(0, 8);
-        char letraDni = Character.toUpperCase(dni.charAt(8));
+        if(dni.length() == 9) {
+            String numeroDNI = dni.substring(0, 8);
+            char letraDni = Character.toUpperCase(dni.charAt(8));
 
-        if (esNumerico(numeroDNI)){
-            if (letraDni == LETRAS[(Integer.parseInt(numeroDNI) % 23)]){
-                correcto = true;
+            if (esNumerico(numeroDNI)) {
+                if (letraDni == LETRAS[(Integer.parseInt(numeroDNI) % 23)]) {
+                    correcto = true;
+                }
             }
         }
         return correcto;
@@ -79,5 +81,28 @@ public class FuncionesVarias {
     public boolean contieneTexto(String cadena){
         boolean contiene = (cadena == null || cadena == "")? false : true;
         return contiene;
+    }
+
+    /**
+     * Metodo que devuelve la clase a la que se corresponde una cadena de texto
+     * @param claseAnterior -- Cadena a comprobar la clase a la que corresponde
+     * @return -- Clase correspondiente
+     */
+    public Class obtenerClase(String claseAnterior){
+        Class clase = null;
+
+        if (claseAnterior.equalsIgnoreCase("cursosalumnos")){
+            clase = cursosAlumnos.class;
+        }else{
+            if (claseAnterior.equalsIgnoreCase("cursosgestores")){
+                clase = cursosGestores.class;
+            }else {
+                if (claseAnterior.equalsIgnoreCase("perfilgestor")){
+                    clase = EditorCursos.class;
+                }
+            }
+        }
+
+        return clase;
     }
 }

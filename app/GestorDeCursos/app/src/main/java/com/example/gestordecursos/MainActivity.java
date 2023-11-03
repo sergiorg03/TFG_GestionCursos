@@ -186,7 +186,24 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * Metodo para mostrar mensajes
+     * @param mensaje -- Mensaje a mostrar
+     */
     public void mostrarMensaje(String mensaje) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * Metodo para poder iniciar sesion automaticamente
+     *
+     * FASE DE DESARROLLO SOLO
+     *
+     * @param v
+     */
+    public void inicioRapido(View v){
+        usuario.setText("jualopper");
+        contra.setText("juan");
+        checkUsNotNullAndPassNotNull(findViewById(R.id.login).getRootView());
     }
 }

@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 /**
  *
@@ -16,19 +13,19 @@ import org.w3c.dom.Text;
  */
 public class Perfil extends AppCompatActivity {
 
-    Class claseAnterior;
+    FuncionesVarias fv = new FuncionesVarias();
     String dni;
-    TextView tv_dni;
+    String nombreClase;
+    Class claseAnterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-        dni = getIntent().getStringExtra("dni");
-        tv_dni = findViewById(R.id.dni_perfil);
-        tv_dni.setText(dni.toUpperCase());
 
-        mostrarDatos();
+        dni = getIntent().getStringExtra("dni");
+        nombreClase = getIntent().getStringExtra("clase");
+        claseAnterior = fv.obtenerClase(nombreClase);
     }
 
     /**
@@ -37,6 +34,7 @@ public class Perfil extends AppCompatActivity {
      */
     public void volver(View v){
         Intent i = new Intent(this, claseAnterior);
+        i.putExtra("dni", dni);
         startActivity(i);
         finish();
     }
@@ -53,6 +51,5 @@ public class Perfil extends AppCompatActivity {
      * Metodo para mostrar los datos del usuario
      */
     public void mostrarDatos(){
-
     }
 }

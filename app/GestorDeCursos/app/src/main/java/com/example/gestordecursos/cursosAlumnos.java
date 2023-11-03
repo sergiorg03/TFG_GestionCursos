@@ -44,4 +44,16 @@ public class cursosAlumnos extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+    /**
+     * Metodo para ir a la clase de perfil
+     * @param v
+     */
+    public void perfil(View v){
+        Intent i = new Intent(this, Perfil.class);
+        i.putExtra("dni", dni);
+        i.putExtra("clase", "cursosAlumnos");
+        startActivity(i);
+        finish();
+    }
 }
