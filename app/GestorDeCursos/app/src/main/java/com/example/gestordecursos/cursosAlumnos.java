@@ -115,7 +115,7 @@ public class cursosAlumnos extends AppCompatActivity {
         tv_curso1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                
             }
         });
 
