@@ -98,7 +98,7 @@ public class FuncionesVarias {
                 clase = cursosGestores.class;
             }else {
                 if (claseAnterior.equalsIgnoreCase("perfilgestor")){
-                    clase = perfilGestor.class;
+                    clase = EditorCursos.class;
                 }
             }
         }
