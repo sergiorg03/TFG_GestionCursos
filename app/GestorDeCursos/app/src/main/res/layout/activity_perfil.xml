@@ -80,8 +80,6 @@
                             android:layout_marginTop="20dp"
                             android:editable="true"
                             android:enabled="true"
-                            android:focusableInTouchMode="false"
-                            android:focusedByDefault="false"
                             android:hint="Nombre"
                             android:textSize="20sp" />
                     </LinearLayout>
@@ -111,8 +109,6 @@
                             android:layout_marginTop="20dp"
                             android:editable="true"
                             android:enabled="true"
-                            android:focusableInTouchMode="false"
-                            android:focusedByDefault="false"
                             android:hint="apellido1"
                             android:textSize="20sp" />
                     </LinearLayout>
@@ -142,8 +138,6 @@
                             android:layout_marginTop="20dp"
                             android:editable="false"
                             android:enabled="true"
-                            android:focusableInTouchMode="false"
-                            android:focusedByDefault="false"
                             android:hint="apellido2"
                             android:textSize="20sp" />
                     </LinearLayout>
@@ -173,8 +167,6 @@
                             android:layout_marginTop="20dp"
                             android:editable="false"
                             android:enabled="true"
-                            android:focusableInTouchMode="false"
-                            android:focusedByDefault="false"
                             android:hint="Telefono"
                             android:textSize="20sp" />
                     </LinearLayout>

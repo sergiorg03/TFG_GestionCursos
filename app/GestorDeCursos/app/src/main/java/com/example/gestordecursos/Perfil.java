@@ -243,11 +243,11 @@ public class Perfil extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         fv.mostrarMensaje(Perfil.this, "Perfil modificado correctamente. ");
-                        /**
-                         *
-                         * RESETEAR CLASE
-                         *
-                         */
+                        Intent i = new Intent(Perfil.this, Perfil.class);
+                        i.putExtra("dni", dni);
+                        i.putExtra("clase", nombreClase);
+                        startActivity(i);
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {
