@@ -38,16 +38,15 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingConstraints" />
 
-                <Button
-                    android:id="@+id/volver"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="volver"
-                    android:text="Volver"
-                    tools:layout_editor_absoluteY="20dp"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginRight="100dp"
-                    />
+            <ImageButton
+                android:id="@+id/Back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="120dp"
+                android:onClick="volver"
+                android:src="@drawable/flecha_hacia_atras" />
 
         </LinearLayout>
     </ScrollView>

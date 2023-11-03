@@ -176,10 +176,7 @@ public class Perfil extends AppCompatActivity {
      * @param v
      */
     public void updateProfile(View v){
-
-        String [] datosNuevos = asignarValoresDeCambio();
-
-        
+        modificarDatosPerfil();
     }
 
     /**
@@ -225,7 +222,62 @@ public class Perfil extends AppCompatActivity {
             contra = bd_contra;
         }
 
-        String [] datos = new String[]{nombre, ap1, ap2, em, telf, contra};
+        String [] datos = new String[]{nombre, ap1, ap2, telf, em, contra};
         return datos;
+    }
+
+    /**
+     * Metodo para modificar los datos del perfil
+     */
+    public void modificarDatosPerfil(){
+
+        // Nuevos valores para modificar
+        String [] datosNuevos = asignarValoresDeCambio();
+
+        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/updateProfileData.php";
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.PUT, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        fv.mostrarMensaje(Perfil.this, "Perfil modificado correctamente. ");
+                        /**
+                         *
+                         * RESETEAR CLASE
+                         *
+                         */
+                    }
+                },
+                new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                fv.mostrarMensaje(Perfil.this, "No se pudo  modificar el perfil. ");
+                            }
+                }){
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+            @Override
+            public byte[] getBody() {
+                JSONObject jsonBody = new JSONObject();
+                try {
+                    jsonBody.put("dni", dni);
+                    jsonBody.put("nombre", datosNuevos[0]);
+                    jsonBody.put("apellido1", datosNuevos[1]);
+                    jsonBody.put("apellido2", datosNuevos[2]);
+                    jsonBody.put("telefono", datosNuevos[3]);
+                    jsonBody.put("email", datosNuevos[4]);
+                    jsonBody.put("contra", datosNuevos[5]);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return jsonBody.toString().getBytes();
+            }
+        };
+        // Añadimos la query a la cola
+        rq.add(sr);
     }
 }

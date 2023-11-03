@@ -147,27 +147,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/volver"
+                <ImageButton
+                    android:id="@+id/Back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="175dp"
                     android:onClick="volver"
-                    android:text="Volver"
-                    tools:layout_editor_absoluteX="38dp"
-                    tools:layout_editor_absoluteY="519dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="100dp"/>
+                    android:src="@drawable/flecha_hacia_atras" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/addUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="15dp"
                     android:onClick="insertarUsuario"
-                    android:text="Crear Usuario"
-                    tools:layout_editor_absoluteX="279dp"
-                    tools:layout_editor_absoluteY="520dp" />
+                    android:src="@drawable/crearcuenta" />
 
             </LinearLayout>
         </LinearLayout>
