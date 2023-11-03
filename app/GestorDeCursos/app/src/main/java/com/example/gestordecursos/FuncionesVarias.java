@@ -21,12 +21,14 @@ public class FuncionesVarias {
     public boolean formatoDNI(String dni){
         boolean correcto = false;
 
-        String numeroDNI = dni.substring(0, 8);
-        char letraDni = Character.toUpperCase(dni.charAt(8));
+        if(dni.length() == 9) {
+            String numeroDNI = dni.substring(0, 8);
+            char letraDni = Character.toUpperCase(dni.charAt(8));
 
-        if (esNumerico(numeroDNI)){
-            if (letraDni == LETRAS[(Integer.parseInt(numeroDNI) % 23)]){
-                correcto = true;
+            if (esNumerico(numeroDNI)) {
+                if (letraDni == LETRAS[(Integer.parseInt(numeroDNI) % 23)]) {
+                    correcto = true;
+                }
             }
         }
         return correcto;
