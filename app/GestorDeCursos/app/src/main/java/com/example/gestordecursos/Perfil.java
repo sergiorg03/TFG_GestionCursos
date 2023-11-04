@@ -282,6 +282,51 @@ public class Perfil extends AppCompatActivity {
     }
 
     public void deleteProfile(View v){
-        
+        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/deleteProfile.php";
+        System.out.println("dni-->"+dni);
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.DELETE, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        fv.mostrarMensaje(Perfil.this, "Perfil borrado correctamente. ");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        fv.mostrarMensaje(Perfil.this, "No se pudo borrar el perfil. ");
+                    }
+                }) {
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+            @Override
+            public byte[] getBody() {
+                JSONObject jsonBody = null;
+                try {
+                    jsonBody = new JSONObject();
+                    jsonBody.put("dni", dni);
+                    System.out.println(jsonBody);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return jsonBody.toString().getBytes();
+            }
+        };
+
+        rq.add(sr);
+
+        //salir();
+    }
+
+    public void salir(){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 }
