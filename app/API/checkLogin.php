@@ -64,27 +64,27 @@
                     // Mostramos por la salida el mensaje 404 de Not Found si no existen datos con el id recibido
                     header($headerJSON);
                     header($codigosHTTP['404']);
-                    $errores[] = "La contra es erronea";
-                    $jsonDatos = json_encode($errores);
+                    $errores["error"] = "contraerronea";
+                    $jsonDatos = json_encode(array($errores));
                 }
             }else { // No existe el usuario introducido
                 // Mostramos por la salida el mensaje 404 de Not Found si no existen datos con el id recibido
                 header($headerJSON);
                 header($codigosHTTP['404']);
-                $errores[] = "El usuario indicado es erroneo";
-                $jsonDatos = json_encode($errores);
+                $errores["error"] = "usuarioerroneo";
+                $jsonDatos = json_encode(array($errores));
             }
         }else{ // No se pasa la contraseña
             header($headerJSON);
             header($codigosHTTP['404']);
-            $errores[] = "Debe introducir una contra";
-            $jsonDatos = json_encode($errores);
+            $errores["error"] = "nocontra";
+            $jsonDatos = json_encode(array($errores));
         }
     }else{ // No se pasa el usuario 
         header($headerJSON);
         header($codigosHTTP['404']);
-        $errores[] = "Debe introducir un usuario";
-        $jsonDatos = json_encode($errores);
+        $errores["error"] = "nous";
+        $jsonDatos = json_encode(array($errores));
     }
 
     
