@@ -321,7 +321,7 @@ public class Perfil extends AppCompatActivity {
 
         rq.add(sr);
 
-        
+        salir();
     }
 
     public void salir(){
