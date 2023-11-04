@@ -305,9 +305,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginRight="120dp"
+                    android:layout_marginRight="60dp"
                     android:onClick="volver"
                     android:src="@drawable/flecha_hacia_atras" />
+
+                <ImageButton
+                    android:id="@+id/delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:onClick="deleteProfile"
+                    android:src="@drawable/eliminar_cuenta" />
 
                 <ImageButton
                     android:id="@+id/updateProfile"

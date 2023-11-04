@@ -280,4 +280,8 @@ public class Perfil extends AppCompatActivity {
         // Añadimos la query a la cola
         rq.add(sr);
     }
+
+    public void deleteProfile(View v){
+        
+    }
 }
