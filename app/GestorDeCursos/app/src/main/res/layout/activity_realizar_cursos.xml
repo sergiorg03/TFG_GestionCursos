@@ -6,4 +6,397 @@
     android:layout_height="match_parent"
     tools:context=".RealizarCursos">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="529dp"
+        app:layout_constraintEnd_toEndOf="@id/botonera"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Pregunta 1 -->
+            <TextView
+                android:id="@+id/pregunta1"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta1: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 2 -->
+            <TextView
+                android:id="@+id/pregunta2"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta2: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 3 -->
+            <TextView
+                android:id="@+id/pregunta3"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta3: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 4 -->
+            <TextView
+                android:id="@+id/pregunta4"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta4: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 5 -->
+            <TextView
+                android:id="@+id/pregunta5"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta5: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 6 -->
+            <TextView
+                android:id="@+id/pregunta6"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta6: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 7 -->
+            <TextView
+                android:id="@+id/pregunta7"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta7: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 8 -->
+            <TextView
+                android:id="@+id/pregunta8"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta8: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 9 -->
+            <TextView
+                android:id="@+id/pregunta9"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta9: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op2_p9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+                <RadioButton
+                    android:id="@+id/op3_p9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </RadioGroup>
+
+            <!-- Pregunta 10 -->
+            <TextView
+                android:id="@+id/pregunta10"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta10: "
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/op1_p10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="op1" />
+                <RadioButton
+                    android:id="@+id/op2_p10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="op2" />
+                <RadioButton
+                    android:id="@+id/op3_p10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="op3" />
+            </RadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
+    <!-- Botones de acciones -->
+    <LinearLayout
+        android:id="@+id/botonera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <ImageButton
+            android:id="@+id/Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="120dp"
+            android:onClick="volver"
+            android:src="@drawable/flecha_hacia_atras" />
+
+        <ImageButton
+            android:id="@+id/comprobarRespuestas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:onClick="comprobarRespuestas"
+            android:src="@drawable/comprobarrespuestas" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     
     $id_curso = $_GET['idCurso'];
 
-    $SELECT_PREGUNTAS = 'SELECT p.id AS id_pregunta, p.enunciado AS enunciado_preguntas, p.id_curso AS idCurso
+    $SELECT_PREGUNTAS = 'SELECT p.id AS id_pregunta, p.enunciado AS enunciado_preguntas
                             FROM preguntas AS p
                             WHERE p.id_curso = :idCurso;';
     $SELECT_OPCIONES = 'SELECT r.id AS id_respuesta, r.opcion AS opcion_respuesta, r.esCorrecta AS esCorrecta_respuesta
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
             // Asignamos el parametro a la consulta
             $consulta_op->bindParam(':idPreg', $pregunta['id_pregunta']);
-            $consulta_op->bindParam(':id_curso', $pregunta['idCurso']);
+            $consulta_op->bindParam(':id_curso', $id_curso);
 
             //Ejecutamos la consulta
             $consulta_op->execute();
