@@ -33,9 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     if ($consulta_preg->rowCount() > 0) {
         $preguntas = [];
-
         while ($pregunta = $consulta_preg->fetch(PDO::FETCH_ASSOC)) {
-            $preguntas[] = $pregunta;
+            $preguntas[] = array($pregunta);
+            
             // Preparamos la consulta para obtener las opciones de la pregunta
             $consulta_op = $conexion->prepare($SELECT_OPCIONES);
 
@@ -45,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
             //Ejecutamos la consulta
             $consulta_op->execute();
-
             $opciones = [];
             while ($opcion = $consulta_op->fetch(PDO::FETCH_ASSOC)) {
                 $opciones[] = $opcion;

@@ -13,6 +13,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,12 +24,6 @@ import java.util.Map;
 
 public class RealizarCursos extends AppCompatActivity {
 
-    /**
-     *
-     * Recopilar los datos de la clase cursos alumnos
-     *
-     *
-     */
 
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
@@ -64,15 +62,15 @@ public class RealizarCursos extends AppCompatActivity {
     }
 
     public interface ConsultarDatos{
-        void onConsultaExitosa();
+        void onConsultaExitosa(Map<String[], List<String[]>> preguntas);
         void onConsultaError(VolleyError e);
     }
 
     public void cargarPreguntas(){
         // Preguntas --> pregunta[id_pregunta, enunciado_preguntas] : [id_respuesta, opcion_respuesta, esCorrecta_respuesta]
-        List<Map<String[], String[]>> preguntas = getPreguntas(new ConsultarDatos() {
+        Map<String[], List<String[]>> preguntas = getPreguntas(new ConsultarDatos() {
             @Override
-            public void onConsultaExitosa() {
+            public void onConsultaExitosa(Map<String[], List<String[]>> preguntas) {
 
             }
 
@@ -127,25 +125,56 @@ public class RealizarCursos extends AppCompatActivity {
         });
     }*/
 
-    public List<Map<String[], String[]>> getPreguntas(ConsultarDatos cd){
+    public Map<String[], List<String[]>> getPreguntas(ConsultarDatos cd){
 
         final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getTest.php?idCurso="+id_curso;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
-        List<Map<String[], String[]>> preguntas = new ArrayList<>();
+        Map<String[], List<String[]>> test = new HashMap();
 
         StringRequest sr = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        try {
+                            JSONArray ja = new JSONArray(response);
 
+                            for (int i = 0; i < ja.length(); i = i+2) {
+                                JSONArray ja_preguntas = ja.getJSONArray(i);
+                                JSONArray ja_opciones = ja.getJSONArray(i+1);
+
+                                String [] pregunta = new String[2];
+                                for (int j = 0; j < ja_preguntas.length(); j++) {
+                                    JSONObject json = ja_preguntas.getJSONObject(j);
+
+                                    pregunta[0] = json.getString("id_pregunta");
+                                    pregunta[1] = json.getString("enunciado_preguntas");
+                                }
+
+                                List<String[]> Lista_opciones = new ArrayList<>();
+                                for (int j = 0; j < ja_opciones.length(); j++) {
+                                    JSONObject json = ja_opciones.getJSONObject(j);
+                                    String [] opciones = new String[3];
+                                    opciones[0] = json.getString("id_respuesta");
+                                    opciones[1] = json.getString("opcion_respuesta");
+                                    opciones[2] = json.getString("esCorrecta_respuesta");
+                                    Lista_opciones.add(opciones);
+                                }
+                                test.put(pregunta, Lista_opciones);
+                            }
+
+                            // Añadimos el mapa con los valores
+                            cd.onConsultaExitosa(test);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        cd.onConsultaError(error);
                     }
                 }
         );
@@ -153,6 +182,6 @@ public class RealizarCursos extends AppCompatActivity {
         // Añadimos la request a la cola
         rq.add(sr);
 
-        return preguntas;
+        return test;
     }
 }
