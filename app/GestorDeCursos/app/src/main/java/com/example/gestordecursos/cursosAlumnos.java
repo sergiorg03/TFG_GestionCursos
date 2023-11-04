@@ -3,8 +3,8 @@ package com.example.gestordecursos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.TextView;
 
@@ -23,7 +23,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,6 +84,7 @@ public class cursosAlumnos extends AppCompatActivity {
     TextView tv_curso12;
     TextView tv_curso13;
     TextView tv_curso14;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -337,8 +337,8 @@ public class cursosAlumnos extends AppCompatActivity {
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso1.getText().toString())){
                     downloadPDF(ruta_pdf_curso1);
+                    nextClass(id_curso1);
                 }
-                // nextClass(id_curso1);
             }
         });
 
@@ -347,7 +347,7 @@ public class cursosAlumnos extends AppCompatActivity {
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso2.getText().toString())){
                     downloadPDF(ruta_pdf_curso2);
-                    nextClass(id_curso2);
+                    //nextClass(id_curso2);
                 }
             }
         });
@@ -488,29 +488,48 @@ public class cursosAlumnos extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Metodo para descargar los cursos en el almacenamiento interno del dispositivo.
+     * Se descarga en la carperta downloads>cursos
+     * @param ruta -- nombre del archivo
+     */
     public void downloadPDF(String ruta){
         try {
-
             int id = getResources().getIdentifier(ruta, "raw", getPackageName());
 
+            // Trazas
+            /*System.out.println("Id Archivo--> "+R.raw.gestion_archivos_ubuntu);
+            System.out.println("Id personal--> "+ id);
+            System.out.println("packageName--> "+ getPackageName());*/
+
             InputStream is = getResources().openRawResource(id);
-            File archivo = new File(getFilesDir(), ruta);
 
-            OutputStream out = new FileOutputStream(archivo);
+            File carpetaCursos = new File("/storage/self/primary/Download" + File.separator + "cursos");
+            if (!carpetaCursos.exists()) {
+                carpetaCursos.mkdir();
+            }
+            //System.out.println("Ruta carpeta cursos--> "+carpetaCursos.getAbsolutePath());
 
-            // Copia el archivo al almacenamiento interno
+            File archivo = new File(carpetaCursos.getPath().toString()+ File.separator + ruta +".pdf");
+
+            //System.out.println(archivo.getAbsolutePath());
+
+            FileOutputStream fos = new FileOutputStream(archivo, false);
+
+            // Copiamos el archivo al almacenamiento interno
             byte[] buffer = new byte[1024];
-            int read;
-            while ((read = is.read(buffer)) != -1) {
-                out.write(buffer, 0, read);
+            int i;
+            while ((i = is.read(buffer)) != -1) {
+                fos.write(buffer, 0, i);
             }
 
-            // Cierra los flujos
+            // Cerramos las instancias
             is.close();
-            out.close();
+            fos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        fv.mostrarMensaje(this, "PDF del curso descargado correctamente.");
+        fv.mostrarMensaje(this, "El curso se descargo en la carpeta cursos dentro de descargas. ");
     }
 }

@@ -12,9 +12,9 @@ INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono,
 -- Tabla cursos
 INSERT INTO gestionCursos.cursos (id, nombre, ruta_pdf)
 	VALUES
-		(1, 'Gestion de archivos en Linux 16.04 LTS', 'gestion_archivos_ubuntu.pdf'),
-		(2, 'Bases de datos: Data Manipulation Languaje', 'dml.pdf'),
-		(3, 'Bases de datos: Data Defining Languaje', 'ddl.pdf');
+		(1, 'Gestion de archivos en Linux 16.04 LTS', 'gestion_archivos_ubuntu'),
+		(2, 'Bases de datos: Data Manipulation Languaje', 'dml'),
+		(3, 'Bases de datos: Data Defining Languaje', 'ddl');
 
 -- ----------------------------------------
 -- Curso Gestion de archivos en Linux 16.04 LTS
