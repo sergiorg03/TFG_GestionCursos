@@ -328,13 +328,16 @@ public class cursosAlumnos extends AppCompatActivity {
     }
 
     /**
-     *Metodo para asignar listener a los textViews
+     * Metodo para asignar listener a los textViews
      */
     public void setListeners(){
+
         tv_curso1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                downloadPDF(ruta_pdf_curso1);
+                if(fv.contieneTexto(tv_curso1.getText().toString())){
+                    downloadPDF(ruta_pdf_curso1);
+                }
                 // nextClass(id_curso1);
             }
         });
@@ -342,91 +345,132 @@ public class cursosAlumnos extends AppCompatActivity {
         tv_curso2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso2);
+                if(fv.contieneTexto(tv_curso2.getText().toString())){
+                    downloadPDF(ruta_pdf_curso2);
+                    nextClass(id_curso2);
+                }
             }
         });
 
         tv_curso3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso3);
+                if(fv.contieneTexto(tv_curso3.getText().toString())){
+                    downloadPDF(ruta_pdf_curso3);
+                    nextClass(id_curso3);
+                }
             }
         });
 
         tv_curso4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso4);
+                if(fv.contieneTexto(tv_curso4.getText().toString())){
+                    downloadPDF(ruta_pdf_curso4);
+                    nextClass(id_curso4);
+                }
             }
         });
 
         tv_curso5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso5);
+                if(fv.contieneTexto(tv_curso5.getText().toString())){
+                    downloadPDF(ruta_pdf_curso5);
+                    nextClass(id_curso5);
+                }
             }
         });
 
         tv_curso6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso6);
+                if(fv.contieneTexto(tv_curso6.getText().toString())){
+                    downloadPDF(ruta_pdf_curso6);
+                    nextClass(id_curso6);
+                }
+
             }
         });
 
         tv_curso7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso7);
+                if(fv.contieneTexto(tv_curso7.getText().toString())){
+                    downloadPDF(ruta_pdf_curso7);
+                    nextClass(id_curso7);
+                }
+
             }
         });
 
         tv_curso8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso8);
+                if(fv.contieneTexto(tv_curso8.getText().toString())){
+                    downloadPDF(ruta_pdf_curso8);
+                    nextClass(id_curso8);
+                }
             }
         });
 
         tv_curso9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso9);
+                if(fv.contieneTexto(tv_curso9.getText().toString())){
+                    downloadPDF(ruta_pdf_curso9);
+                    nextClass(id_curso9);
+                }
             }
         });
 
         tv_curso10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso10);
+                if(fv.contieneTexto(tv_curso10.getText().toString())){
+                    downloadPDF(ruta_pdf_curso10);
+                    nextClass(id_curso10);
+                }
             }
         });
 
         tv_curso11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso11);
+                if(fv.contieneTexto(tv_curso11.getText().toString())){
+                    downloadPDF(ruta_pdf_curso11);
+                    nextClass(id_curso11);
+                }
             }
         });
 
         tv_curso12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso12);
+                if(fv.contieneTexto(tv_curso12.getText().toString())){
+                    downloadPDF(ruta_pdf_curso12);
+                    nextClass(id_curso12);
+                }
             }
         });
 
         tv_curso13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso13);
+                if(fv.contieneTexto(tv_curso13.getText().toString())){
+                    downloadPDF(ruta_pdf_curso13);
+                    nextClass(id_curso13);
+                }
             }
         });
 
         tv_curso14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nextClass(id_curso14);
+                if(fv.contieneTexto(tv_curso14.getText().toString())){
+                    downloadPDF(ruta_pdf_curso14);
+                    nextClass(id_curso14);
+                }
             }
         });
     }
