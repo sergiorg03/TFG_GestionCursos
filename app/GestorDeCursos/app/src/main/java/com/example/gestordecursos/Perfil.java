@@ -287,7 +287,7 @@ public class Perfil extends AppCompatActivity {
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
-        StringRequest sr = new StringRequest(Request.Method.DELETE, URL,
+        StringRequest sr = new StringRequest(/*Request.Method.DELETE*/ Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -321,7 +321,7 @@ public class Perfil extends AppCompatActivity {
 
         rq.add(sr);
 
-        //salir();
+        
     }
 
     public void salir(){

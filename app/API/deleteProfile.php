@@ -10,7 +10,7 @@ $conexion = conectarPDO($database);
 $errores = [];
 $datos = '';
 
-if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+if ($_SERVER['REQUEST_METHOD'] == 'DELETE' || $_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $datos = json_decode(file_get_contents('php://input'), true);
     //Obtenemos el dni del perfil a borrar 
