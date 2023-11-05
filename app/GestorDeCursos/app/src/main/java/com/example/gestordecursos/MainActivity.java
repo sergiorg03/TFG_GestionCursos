@@ -202,8 +202,8 @@ public class MainActivity extends AppCompatActivity {
      * @param v
      */
     public void inicioRapido(View v){
-        usuario.setText("jualopper");
-        contra.setText("juan");
+        usuario.setText("angomart");
+        contra.setText("ana");
         checkUsNotNullAndPassNotNull(findViewById(R.id.login).getRootView());
     }
 }
