@@ -15,6 +15,20 @@ INSERT INTO gestionCursos.cursos (id, nombre, ruta_pdf)
 		(1, 'Gestion de archivos en Linux 16.04 LTS', 'gestion_archivos_ubuntu'),
 		(2, 'Bases de datos: Data Manipulation Languaje', 'dml'),
 		(3, 'Bases de datos: Data Defining Languaje', 'ddl');
+		
+-- Tabla realizar
+INSERT INTO gestionCursos.realizar (dni, id_curso, puntuacion)
+	VALUES
+		('33387392V', 3, 5),
+		('29157459Z', 3, 10),
+		('33387392V', 1, 3);
+		
+-- Tabla gestionar
+INSERT INTO gestionCursos.gestionar (dni, id_curso)
+	VALUES
+		('97939374S', 3),
+		('97939374S', 2),
+		('97939374S', 1);
 
 -- ----------------------------------------
 -- Curso Gestion de archivos en Linux 16.04 LTS
@@ -188,12 +202,65 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(1, 5, 2, 'FILTER', 0),
 		(2, 5, 2, 'WHERE', 1),
 		(3, 5, 2, 'RESTRICT', 0);
+		
+-- Pregunta 6
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(6, 2, '¿Qué instrucción SQL se utiliza para combinar datos de dos tablas en una sola tabla?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 6, 2, 'JOIN', 1),
+		(2, 6, 2, 'COMBINE', 0),
+		(3, 6, 2, 'MERGE', 0);
+
+-- Pregunta 7
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(7, 2, '¿Qué instrucción SQL se utiliza para agregar una nueva columna a una tabla existente?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 7, 2, 'APPEND COLUMN', 0),
+		(2, 7, 2, 'ADD COLUMN', 1),
+		(3, 7, 2, 'INSERT COLUMN', 0);
+
+-- Pregunta 8
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(8, 2, '¿Qué instrucción SQL se utiliza para eliminar una columna de una tabla?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 8, 2, 'DROP COLUMN', 1),
+		(2, 8, 2, 'REMOVE COLUMN', 0),
+		(3, 8, 2, 'DELETE COLUMN', 0);
+
+-- Pregunta 9
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(9, 2, '¿Qué instrucción SQL se utiliza para modificar datos existentes en una tabla?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 9, 2, 'MODIFY', 0),
+		(2, 9, 2, 'CHANGE', 0),
+		(3, 9, 2, 'UPDATE', 1);
+
+-- Pregunta 10
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(10, 2, '¿Qué instrucción SQL se utiliza para ordenar los resultados de una consulta?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 10, 2, 'ARRANGE BY', 0),
+		(2, 10, 2, 'SORT BY', 0),
+		(3, 10, 2, 'ORDER BY', 1);
 
 -- ----------------------------------------
 -- Bases de datos: Data Defining Languaje
 -- ----------------------------------------
-
--- Curso Introducción al Lenguaje de Definición de Datos (DDL)
 
 -- Pregunta 1
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -250,16 +317,58 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(2, 5, 3, 'DROP COLUMN', 1),
 		(3, 5, 3, 'REMOVE COLUMN', 0);
 
--- Tabla realizar
-INSERT INTO gestionCursos.realizar (dni, id_curso, puntuacion)
+--Pregunta 6
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
 	VALUES
-		('33387392V', 3, 5),
-		('29157459Z', 3, 10),
-		('33387392V', 1, 3);
+		(6, 3, '¿Qué comando SQL se utiliza para añadir una restricción de clave primaria a una tabla?');
+
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 6, 3, 'ADD PRIMARY', 0),
+		(2, 6, 3, 'PRIMARY KEY', 1),
+		(3, 6, 3, 'INSERT KEY', 0);
+
+-- Pregunta 7
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(7, 3, '¿Qué comando SQL se utiliza para eliminar una restricción de clave primaria de una tabla?');
 		
--- Tabla gestionar
-INSERT INTO gestionCursos.gestionar (dni, id_curso)
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		('97939374S', 3),
-		('97939374S', 2),
-		('97939374S', 1);
+		(1, 7, 3, 'REMOVE KEY', 0),
+		(2, 7, 3, 'DELETE PRIMARY', 0),
+		(3, 7, 3, 'DROP PRIMARY KEY', 1);
+
+-- Pregunta 8
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(8, 3, '¿Qué comando SQL se utiliza para agregar un índice a una tabla?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 8, 3, 'ADD INDEX', 0),
+		(2, 8, 3, 'CREATE INDEX', 1),
+		(3, 8, 3, 'INSERT INDEX', 0);
+
+-- Pregunta 9
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(9, 3, '¿Qué comando SQL se utiliza para eliminar un índice de una tabla?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 9, 3, 'REMOVE INDEX', ),
+		(2, 9, 3, 'DELETE INDEX', 0),
+		(3, 9, 3, 'DROP INDEX', 1);
+
+-- Pregunta 10
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
+	VALUES
+		(10, 3, '¿Qué comando SQL se utiliza para renombrar una tabla existente?');
+
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 10, 3, 'RENAME TABLE', 1),
+		(2, 10, 3, 'ALTER TABLE', 0),
+		(3, 10, 3, 'CHANGE TABLE', 0);
+		
