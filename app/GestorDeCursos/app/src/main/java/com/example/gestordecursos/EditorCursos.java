@@ -11,9 +11,18 @@ import android.os.Bundle;
  */
 public class EditorCursos extends AppCompatActivity {
 
+    FuncionesVarias fv = new FuncionesVarias();
+    String dni;
+    String clase;
+    Class claseAnterior;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor_cursos);
+
+        dni = getIntent().getStringExtra("dni");
+        clase = getIntent().getStringExtra("clase");
+        claseAnterior = fv.obtenerClase(clase);
     }
 }
