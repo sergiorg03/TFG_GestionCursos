@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class RealizarCursos extends AppCompatActivity {
 
-
+    // Variables de la clase
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
     String nombreClase;
