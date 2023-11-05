@@ -654,7 +654,52 @@ public class RealizarCursos extends AppCompatActivity {
 
     public void addMarks(String puntuacion){
 
-        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/addMarks.php";
+        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        fv.mostrarMensaje(RealizarCursos.this,"Nota guardada correctamente. ");
+                        volver(findViewById(R.id.Back).getRootView());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("Error POST");
+                        error.printStackTrace();
+                        error.getMessage();
+                        updateMarks(puntuacion);
+
+                    }
+                }){
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+            @Override
+            public byte[] getBody() {
+                JSONObject jsonBody = new JSONObject();
+                try {
+                    jsonBody.put("dni", dni);
+                    jsonBody.put("id_curso", id_curso);
+                    jsonBody.put("puntuacion", puntuacion);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return jsonBody.toString().getBytes();
+            }
+        };
+        // Añadimos la query a la cola
+        rq.add(sr);
+    }
+
+    public void updateMarks(String puntuacion){
+        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -663,15 +708,16 @@ public class RealizarCursos extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        fv.mostrarMensaje(RealizarCursos.this,"Nota guardada correctamente. ");
-                        //volver(findViewById(R.id.Back).getRootView());
+                        fv.mostrarMensaje(RealizarCursos.this,"Nota actualizada correctamente. ");
+                        volver(findViewById(R.id.Back).getRootView());
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        System.out.println("Error PUT");
                         error.printStackTrace();
-                        fv.mostrarMensaje(RealizarCursos.this, "No se pudo  guardar su nota. ");
+                        fv.mostrarMensaje(RealizarCursos.this, "No se pudo  actualizar su nota. ");
                     }
                 }){
             public String getBodyContentType() {
