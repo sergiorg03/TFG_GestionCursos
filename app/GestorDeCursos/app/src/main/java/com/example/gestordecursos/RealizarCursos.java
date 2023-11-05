@@ -245,6 +245,9 @@ public class RealizarCursos extends AppCompatActivity {
         void onConsultaError(VolleyError e);
     }
 
+    /**
+     * Metodo para mostrar las preguntas del test
+     */
     public void cargarPreguntas(){
         // Preguntas --> pregunta[id_pregunta, enunciado_preguntas] : [id_respuesta, opcion_respuesta, esCorrecta_respuesta]
         Map<String[], List<String[]>> preguntas = getPreguntas(new ConsultarDatos() {
@@ -375,6 +378,13 @@ public class RealizarCursos extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metodo para asignar la opcion correcta
+     * @param op1
+     * @param op2
+     * @param op3
+     * @return -- Opcion correcta
+     */
     public int opcionCorrecta(String op1, String op2, String op3){
         int respuesta = 0;
         if (op1.equalsIgnoreCase("1")){
@@ -392,6 +402,11 @@ public class RealizarCursos extends AppCompatActivity {
         return respuesta;
     }
 
+    /**
+     * Metodo para obtener las preguntas
+     * @param cd -- ConsultarDatos
+     * @return --
+     */
     public Map<String[], List<String[]>> getPreguntas(ConsultarDatos cd){
 
         final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getTest.php?idCurso="+id_curso;
@@ -652,6 +667,10 @@ public class RealizarCursos extends AppCompatActivity {
         return suma;
     }
 
+    /**
+     * Metodo para añadir la nota del curso obtenida por el usuario en la base de datos
+     * @param puntuacion
+     */
     public void addMarks(String puntuacion){
 
         final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
@@ -698,6 +717,10 @@ public class RealizarCursos extends AppCompatActivity {
         rq.add(sr);
     }
 
+    /**
+     * Metodo para modificar la nota obtenida por el usuario en el curso
+     * @param puntuacion
+     */
     public void updateMarks(String puntuacion){
         final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
 
