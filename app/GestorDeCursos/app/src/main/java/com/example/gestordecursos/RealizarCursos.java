@@ -653,7 +653,6 @@ public class RealizarCursos extends AppCompatActivity {
     }
 
     public void addMarks(String puntuacion){
-        // Nuevos valores para modificar
 
         final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/addMarks.php";
 
@@ -664,12 +663,14 @@ public class RealizarCursos extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-
+                        fv.mostrarMensaje(RealizarCursos.this,"Nota guardada correctamente. ");
+                        //volver(findViewById(R.id.Back).getRootView());
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
                         fv.mostrarMensaje(RealizarCursos.this, "No se pudo  guardar su nota. ");
                     }
                 }){
