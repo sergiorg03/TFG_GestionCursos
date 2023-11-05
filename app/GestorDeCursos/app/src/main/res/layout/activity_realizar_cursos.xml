@@ -22,7 +22,7 @@
             <!-- Pregunta 1 -->
             <TextView
                 android:id="@+id/pregunta1"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -57,7 +57,7 @@
             <!-- Pregunta 2 -->
             <TextView
                 android:id="@+id/pregunta2"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -92,7 +92,7 @@
             <!-- Pregunta 3 -->
             <TextView
                 android:id="@+id/pregunta3"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -127,7 +127,7 @@
             <!-- Pregunta 4 -->
             <TextView
                 android:id="@+id/pregunta4"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -162,7 +162,7 @@
             <!-- Pregunta 5 -->
             <TextView
                 android:id="@+id/pregunta5"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -197,7 +197,7 @@
             <!-- Pregunta 6 -->
             <TextView
                 android:id="@+id/pregunta6"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -232,7 +232,7 @@
             <!-- Pregunta 7 -->
             <TextView
                 android:id="@+id/pregunta7"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -267,7 +267,7 @@
             <!-- Pregunta 8 -->
             <TextView
                 android:id="@+id/pregunta8"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -302,7 +302,7 @@
             <!-- Pregunta 9 -->
             <TextView
                 android:id="@+id/pregunta9"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
@@ -337,7 +337,7 @@
             <!-- Pregunta 10 -->
             <TextView
                 android:id="@+id/pregunta10"
-                android:layout_width="160dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
