@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE' || $_SERVER['REQUEST_METHOD'] == 'POS
             //Escribimos la cabecera de peticion correcta
             header($headerJSON);
             header($codigosHTTP['200']);
-        } else { // No existe el id introducido
+        } else { // No existe el dni introducido
             header($headerJSON);
             header($codigosHTTP['404']);
         }
