@@ -32,4 +32,12 @@ public class cursosGestores extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+    public void perfil(View v){
+        Intent i = new Intent(this, Perfil.class);
+        i.putExtra("dni", dni);
+        i.putExtra("clase", "cursosgestores");
+        startActivity(i);
+        finish();
+    }
 }
