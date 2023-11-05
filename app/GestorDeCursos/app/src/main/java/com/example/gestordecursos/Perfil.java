@@ -19,6 +19,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * Clase que muestra el perfil de la persona
@@ -311,7 +314,6 @@ public class Perfil extends AppCompatActivity {
                 try {
                     jsonBody = new JSONObject();
                     jsonBody.put("dni", dni);
-                    System.out.println(jsonBody);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
