@@ -317,7 +317,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(2, 5, 3, 'DROP COLUMN', 1),
 		(3, 5, 3, 'REMOVE COLUMN', 0);
 
---Pregunta 6
+-- Pregunta 6
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
 	VALUES
 		(6, 3, '¿Qué comando SQL se utiliza para añadir una restricción de clave primaria a una tabla?');
@@ -357,7 +357,7 @@ INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 9, 3, 'REMOVE INDEX', ),
+		(1, 9, 3, 'REMOVE INDEX', 0),
 		(2, 9, 3, 'DELETE INDEX', 0),
 		(3, 9, 3, 'DROP INDEX', 1);
 
