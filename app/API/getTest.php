@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $SELECT_PREGUNTAS = 'SELECT p.id AS id_pregunta, p.enunciado AS enunciado_preguntas
                             FROM preguntas AS p
-                            WHERE p.id_curso = :idCurso;';
+                            WHERE p.id_curso = :idCurso
+                            LIMIT 10;';
     $SELECT_OPCIONES = 'SELECT r.id AS id_respuesta, r.opcion AS opcion_respuesta, r.esCorrecta AS esCorrecta_respuesta
                             FROM respuestasTest AS r
                             WHERE r.id_pregunta = :idPreg

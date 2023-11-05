@@ -63,6 +63,72 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(1, 4, 1, 'rm', 1),
 		(2, 4, 1, 'rd', 0),
 		(3, 4, 1, 'del', 0);
+
+-- Pregunta 5
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
+	VALUES
+		(5, 1, '¿Qué comando se utiliza para buscar archivos en un directorio en Linux?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 5, 1, 'find', 1),
+		(2, 5, 1, 'locate', 0),
+		(3, 5, 1, 'search', 0);
+
+-- Pregunta 6
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
+	VALUES
+		(6, 1, '¿Cuál comando se usa para mostrar el contenido de un archivo en Linux?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 6, 1, 'read', 0),
+		(2, 6, 1, 'show', 0),
+		(3, 6, 1, 'cat', 1);
+
+-- Pregunta 7
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
+	VALUES
+		(7, 1, '¿Qué comando se utiliza para cambiar el directorio actual en Linux?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 7, 1, 'change', 0),
+		(2, 7, 1, 'cd', 1),
+		(3, 7, 1, 'switchdir', 0);
+
+-- Pregunta 8
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
+	VALUES
+		(8, 1, '¿Cuál comando se utiliza para listar todos los procesos en ejecución en Linux?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 8, 1, 'ps', 1),
+		(2, 8, 1, 'top', 0),
+		(3, 8, 1, 'processlist', 0);
+
+-- Pregunta 9
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
+	VALUES
+		(9, 1, '¿Qué comando se usa para comprimir archivos en un archivo zip en Linux?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 9, 1, 'zip', 1),
+		(2, 9, 1, 'gzip', 0),
+		(3, 9, 1, 'compress', 0);
+
+-- Pregunta 10
+INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
+	VALUES
+		(10, 1, '¿Cuál comando se utiliza para cambiar la contraseña de un usuario en Linux?');
+		
+INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
+	VALUES
+		(1, 10, 1, 'userpass', 0),
+		(2, 10, 1, 'changepass', 0),
+		(3, 10, 1, 'passwd', 1);
 		
 -- ----------------------------------------
 -- Curso Bases de datos: Data Manipulation Languaje
