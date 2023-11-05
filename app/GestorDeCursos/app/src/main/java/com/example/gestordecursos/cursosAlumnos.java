@@ -256,22 +256,22 @@ public class cursosAlumnos extends AppCompatActivity {
                             break;
                         case 11:
                             id_curso11 = key;
-                            tv_curso7.setText(todoDatosCurso.get(key)[0]);
+                            tv_curso11.setText(todoDatosCurso.get(key)[0]);
                             ruta_pdf_curso11 = todoDatosCurso.get(key)[1];
                             break;
                         case 12:
                             id_curso12 = key;
-                            tv_curso8.setText(todoDatosCurso.get(key)[0]);
+                            tv_curso12.setText(todoDatosCurso.get(key)[0]);
                             ruta_pdf_curso12 = todoDatosCurso.get(key)[1];
                             break;
                         case 13:
                             id_curso13 = key;
-                            tv_curso9.setText(todoDatosCurso.get(key)[0]);
+                            tv_curso13.setText(todoDatosCurso.get(key)[0]);
                             ruta_pdf_curso13 = todoDatosCurso.get(key)[1];
                             break;
                         case 14:
                             id_curso14 = key;
-                            tv_curso10.setText(todoDatosCurso.get(key)[0]);
+                            tv_curso14.setText(todoDatosCurso.get(key)[0]);
                             ruta_pdf_curso14 = todoDatosCurso.get(key)[1];
                             break;
                     }
