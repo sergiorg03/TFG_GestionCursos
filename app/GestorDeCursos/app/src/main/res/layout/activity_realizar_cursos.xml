@@ -34,6 +34,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -69,6 +70,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -104,6 +106,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -139,6 +142,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -174,6 +178,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -209,6 +214,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -244,6 +250,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -279,6 +286,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -314,6 +322,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -349,6 +358,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/grupo10"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 

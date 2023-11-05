@@ -347,7 +347,7 @@ public class cursosAlumnos extends AppCompatActivity {
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso2.getText().toString())){
                     downloadPDF(ruta_pdf_curso2);
-                    //nextClass(id_curso2);
+                    nextClass(id_curso2);
                 }
             }
         });
