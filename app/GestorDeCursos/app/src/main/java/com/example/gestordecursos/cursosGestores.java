@@ -423,6 +423,7 @@ public class cursosGestores extends AppCompatActivity {
 
         // Añadimos la peticion a la cola
         rq.add(sr);
+        resetClass();
     }
 
     public interface ConsultarDatos{
@@ -645,5 +646,11 @@ public class cursosGestores extends AppCompatActivity {
 
     public void ib_DelCurso14(View v){
         borrarCurso(id_curso13);
+    }
+    public void resetClass(){
+        Intent i = new Intent(cursosGestores.this, cursosGestores.class);
+        i.putExtra("dni", dni);
+        startActivity(i);
+        finish();
     }
 }
