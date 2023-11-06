@@ -45,7 +45,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso1"
+                    android:onClick="ib_ed1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -86,7 +86,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso2"
+                    android:onClick="ib_ed2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -169,7 +169,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso4"
+                    android:onClick="ib_ed4"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -210,7 +210,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso5"
+                    android:onClick="ib_ed5"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -250,7 +250,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso6"
+                    android:onClick="ib_ed6"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -290,7 +290,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso7"
+                    android:onClick="ib_ed7"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -330,7 +330,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso8"
+                    android:onClick="ib_ed8"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -370,7 +370,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso9"
+                    android:onClick="ib_ed9"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -410,7 +410,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso10"
+                    android:onClick="ib_ed10"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -450,7 +450,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso11"
+                    android:onClick="ib_ed11"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -490,7 +490,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso12"
+                    android:onClick="ib_ed12"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -530,7 +530,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso13"
+                    android:onClick="ib_ed13"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
@@ -570,7 +570,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:onClick="editCurso14"
+                    android:onClick="ib_ed14"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/editar" />
