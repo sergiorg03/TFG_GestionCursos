@@ -111,4 +111,23 @@ public class FuncionesVarias {
 
         return clase;
     }
+
+    public String nombreCurso(Uri ruta){
+
+        System.out.println("FV > nombreCurso--> nombre--> "+ quitarEspaciosEnBlanco(ruta.getLastPathSegment()));
+
+        return quitarEspaciosEnBlanco(ruta.getLastPathSegment());
+    }
+
+    public String quitarEspaciosEnBlanco(String cadena) {
+        String cadenaADevolver = "";
+
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.charAt(i) == ' '){
+                cadenaADevolver = cadenaADevolver+"_";
+            }else cadenaADevolver = cadenaADevolver+cadena.charAt(i);
+        }
+
+        return cadenaADevolver;
+    }
 }

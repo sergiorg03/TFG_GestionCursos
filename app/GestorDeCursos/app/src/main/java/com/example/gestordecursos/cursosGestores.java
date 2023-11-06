@@ -3,9 +3,10 @@ package com.example.gestordecursos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -735,5 +743,56 @@ public class cursosGestores extends AppCompatActivity {
         i.putExtra("dni", dni);
         startActivity(i);
         finish();
+    }
+
+    /**
+     * Metodo para añadir un curso (PDF) desde el dispositivo
+     * @param v
+     */
+    public void addCourse(View v){
+            /*Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Downloads.EXTERNAL_CONTENT_URI);
+            i.setType("pdf/");
+            startActivityForResult(i.createChooser(i, "Seleccione el curso a subir: "), 10);*/
+
+        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+        i.setType("application/pdf");// Asignamos el tipo de archivo
+        startActivityForResult(i, 10);// Comenzamos el intent para obtener el pdf
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 10 && resultCode == RESULT_OK && data != null) {
+            Uri pdf = data.getData();
+            System.out.println(pdf);
+            copiarPDF(pdf);
+        }else{
+            fv.mostrarMensaje(this, "Debe elegir un curso para subir. ");
+        }
+    }
+
+    public void copiarPDF(Uri url) {
+        try {
+            System.out.println("url.toStrong--> " + url.toString());
+
+            File pdfAGuardarCursos = new File(getExternalFilesDir(null), /*"/storage/self/primary/Download"+ File.separator + "cursos/"+*/fv.nombreCurso(url) + ".pdf");
+
+            System.out.println("Ruta archivo pdfAGuardar--> "+pdfAGuardarCursos.getPath());
+
+            InputStream is = getContentResolver().openInputStream(url);
+            OutputStream os = new FileOutputStream(pdfAGuardarCursos);
+            byte[] bite = new byte[1024];
+            int i;
+            while ((i = is.read(bite)) > 0){
+                os.write(bite, 0, i);
+            }
+
+            is.close();
+            os.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
