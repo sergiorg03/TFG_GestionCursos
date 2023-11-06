@@ -592,6 +592,10 @@ public class cursosGestores extends AppCompatActivity {
         return listaCursos;
     }
 
+    /**
+     * Metodo para ir a la pantalla de edicion del curso
+     * @param id_curso -- Id del curso a editar
+     */
     public void editCurso(String id_curso){
         Intent i = new Intent(this, EditorCursos.class);
         i.putExtra("dni", dni);
