@@ -769,6 +769,7 @@ public class cursosGestores extends AppCompatActivity {
     }
 
     public void copiarPDF(Uri url) {
+        fv.mostrarMensaje(this, "TERMINAR METODOOOOOO.   ");
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
         /*try {
@@ -791,5 +792,8 @@ public class cursosGestores extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+
+        // Añadir curso a la API
+        // crearTest(); Enviar dni, id_curso, clase
     }
 }

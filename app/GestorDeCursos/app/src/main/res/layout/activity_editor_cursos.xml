@@ -6,17 +6,188 @@
     android:layout_height="match_parent"
     tools:context=".EditorCursos">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="205dp"
-        android:layout_marginEnd="219dp"
-        android:layout_marginBottom="379dp"
-        android:text="Gestor"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Pregunta 1 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta1"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta1: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 2 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta2"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta2: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 3 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta3"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta3: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 4 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta4"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta4: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 5 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta5"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta5: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 6 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta6"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta6: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 7 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta7"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta7: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 8 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta8"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta8: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 9 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta9"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta9: "
+                android:textSize="20sp" />
+
+            <!-- Pregunta 10 -->
+            <EditText
+                android:id="@+id/tv_ec_pregunta10"
+                android:layout_width="365dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:text="Pregunta10: "
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Boton de vuelta a la clase anterior -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="salir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/flecha_hacia_atras" />
+
+    <ImageView
+        android:id="@+id/perfil1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:srcCompat="@drawable/usuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>
