@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,8 +21,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -772,15 +769,17 @@ public class cursosGestores extends AppCompatActivity {
     }
 
     public void copiarPDF(Uri url) {
-        try {
+        // Ruta a la carpeta donde estan todos los cursos almacenados.
+        final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
+        /*try {
             System.out.println("url.toStrong--> " + url.toString());
 
-            File pdfAGuardarCursos = new File(getExternalFilesDir(null), /*"/storage/self/primary/Download"+ File.separator + "cursos/"+*/fv.nombreCurso(url) + ".pdf");
+            File pdf = new File(getExternalFilesDir(null), fv.nombreCurso(url) + ".pdf");
 
-            System.out.println("Ruta archivo pdfAGuardar--> "+pdfAGuardarCursos.getPath());
+            System.out.println("Ruta archivo pdfAGuardar--> "+ pdf.getPath());
 
             InputStream is = getContentResolver().openInputStream(url);
-            OutputStream os = new FileOutputStream(pdfAGuardarCursos);
+            OutputStream os = new FileOutputStream(pdf);
             byte[] bite = new byte[1024];
             int i;
             while ((i = is.read(bite)) > 0){
@@ -789,10 +788,8 @@ public class cursosGestores extends AppCompatActivity {
 
             is.close();
             os.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
