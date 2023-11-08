@@ -265,6 +265,8 @@ public class cursosGestores extends AppCompatActivity {
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg1.getText().toString())){
                     //System.out.println("Hola");
+                    // Ir a la clase EditorCursos mandar id_curso
+                    editarCurso(id_curso1);
                 }
             }
         });
@@ -273,7 +275,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg2.getText().toString())){
-
+                    editarCurso(id_curso2);
                 }
             }
         });
@@ -282,7 +284,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg3.getText().toString())){
-
+                    editarCurso(id_curso3);
                 }
             }
         });
@@ -291,7 +293,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg4.getText().toString())){
-
+                    editarCurso(id_curso4);
                 }
             }
         });
@@ -300,7 +302,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg5.getText().toString())){
-
+                    editarCurso(id_curso5);
                 }
             }
         });
@@ -309,9 +311,8 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg6.getText().toString())){
-
+                    editarCurso(id_curso6);
                 }
-
             }
         });
 
@@ -319,9 +320,8 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg7.getText().toString())){
-
+                    editarCurso(id_curso7);
                 }
-
             }
         });
 
@@ -329,7 +329,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg8.getText().toString())){
-
+                    editarCurso(id_curso8);
                 }
             }
         });
@@ -338,7 +338,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg9.getText().toString())){
-
+                    editarCurso(id_curso8);
                 }
             }
         });
@@ -347,7 +347,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg10.getText().toString())){
-
+                    editarCurso(id_curso10);
                 }
             }
         });
@@ -356,7 +356,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg11.getText().toString())){
-
+                    editarCurso(id_curso11);
                 }
             }
         });
@@ -365,7 +365,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg12.getText().toString())){
-
+                    editarCurso(id_curso12);
                 }
             }
         });
@@ -374,7 +374,7 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg13.getText().toString())){
-
+                    editarCurso(id_curso13);
                 }
             }
         });
@@ -383,12 +383,29 @@ public class cursosGestores extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg14.getText().toString())){
-
+                    editarCurso(id_curso14);
                 }
             }
         });
     }
 
+    /**
+     * Metodo para dirigirnos a la clase de editar cursos
+     * @param id_curso
+     */
+    public void editarCurso(String id_curso){
+        Intent i = new Intent(this, EditorCursos.class);
+        i.putExtra("dni", dni);
+        i.putExtra("clase", "cursosgestores");
+        i.putExtra("id_curso", id_curso);
+        startActivity(i);
+        finish();
+    }
+
+    /**
+     * Metodo para borrar el curso indicado
+     * @param id_curso
+     */
     public void borrarCurso(String id_curso){
         final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/deleteCourse.php";
 
@@ -431,11 +448,15 @@ public class cursosGestores extends AppCompatActivity {
         resetClass();
     }
 
+    // Interfaz para obtener los datos
     public interface ConsultarDatos{
             void onConsultaExitosa(List<String[]> lista);
             void onConsultaError(VolleyError ve);
     }
 
+    /**
+     * Metodo para mostrar todos los cursos
+     */
     public void mostrarTodosCursos(){
 
         List<String []> cursos = getCursos(new ConsultarDatos() {
