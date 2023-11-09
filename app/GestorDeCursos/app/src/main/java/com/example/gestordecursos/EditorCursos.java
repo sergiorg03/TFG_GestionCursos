@@ -250,7 +250,7 @@ public class EditorCursos extends AppCompatActivity {
                     String enun_op3 = preguntas.get(test).get(2)[1];
                     String esCorrecta_op3 = preguntas.get(test).get(2)[2];
 
-                    switch (id_preg){
+                    /*switch (id_preg){
                         case 1:
                             et_p1.setText(enunciado_preg);
                             op1_p1.setText("Opcion 1");
@@ -321,7 +321,7 @@ public class EditorCursos extends AppCompatActivity {
                             op3_p10.setText("Opcion 3");
                             bd_opCor_p10 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
                             break;
-                    }
+                    }*/
                 }
             }
 

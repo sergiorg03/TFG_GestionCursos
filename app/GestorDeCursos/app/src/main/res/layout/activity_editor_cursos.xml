@@ -29,10 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
                 android:text="Pregunta1: "
                 android:textSize="20sp" />
 
@@ -151,10 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
                 android:text="Pregunta2: "
                 android:textSize="20sp" />
 
@@ -165,10 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
                 android:text="Pregunta3: "
                 android:textSize="20sp" />
 
@@ -179,10 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
                 android:text="Pregunta4: "
                 android:textSize="20sp" />
 
@@ -193,10 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
                 android:text="Pregunta5: "
                 android:textSize="20sp" />
 
@@ -209,8 +194,6 @@
                 android:layout_marginTop="20dp"
                 android:editable="false"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
                 android:text="Pregunta6: "
                 android:textSize="20sp" />
 

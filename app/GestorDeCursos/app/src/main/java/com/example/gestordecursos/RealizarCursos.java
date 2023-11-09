@@ -30,8 +30,6 @@ public class RealizarCursos extends AppCompatActivity {
     // Variables de la clase
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
-    String nombreClase;
-    Class claseAnterior;
     String id_curso;
     TextView pregunta1;
     TextView pregunta2;
@@ -125,8 +123,6 @@ public class RealizarCursos extends AppCompatActivity {
         setContentView(R.layout.activity_realizar_cursos);
 
         dni = getIntent().getStringExtra("dni");
-        nombreClase = getIntent().getStringExtra("clase");
-        claseAnterior = fv.obtenerClase(nombreClase);
         id_curso = getIntent().getStringExtra("idCurso");
 
         inicializarVars();
@@ -222,7 +218,7 @@ public class RealizarCursos extends AppCompatActivity {
      * @param v
      */
     public void volver(View v){
-        Intent i = new Intent(this, claseAnterior);
+        Intent i = new Intent(this, MainActivity.class);
         i.putExtra("dni", dni);
         startActivity(i);
         finish();

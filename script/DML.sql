@@ -7,6 +7,7 @@ INSERT INTO gestionCursos.personas (dni, nombre, apellido1, apellido2, telefono,
 	VALUES
 		('33387392V', 'Juan',   'Lopez',   'Perez',     '123456789', 'juan@gmail.com',   'jualopper', (SELECT MD5('juan') FROM DUAL),   'a'),
 		('97939374S', 'Ana',    'Gomez',   'Martinez',  '987654321', 'ana@hotmail.com',  'angomart',  (SELECT MD5('ana') FROM DUAL),    'g'),
+		('32097880T', 'Ana',    'Romero',   'Raposo',  '987654321', 'anita@gmail.com',  'anapiquitos',  (SELECT MD5('piquitos') FROM DUAL),    'a'),
 		('29157459Z', 'Carlos', 'Sanchez', 'Rodriguez', '555555555', 'carlos@yahoo.com', 'carsanrod', (SELECT MD5('carlos') FROM DUAL), 'a');
 
 -- Tabla cursos
