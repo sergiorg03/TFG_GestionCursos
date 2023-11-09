@@ -117,7 +117,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                
+                <RadioGroup
+                    android:id="@+id/grupo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/op1_p1"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/op2_p1"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/op3_p1"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <!-- Pregunta 2 -->
