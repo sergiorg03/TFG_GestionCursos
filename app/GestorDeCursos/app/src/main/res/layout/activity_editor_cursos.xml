@@ -287,6 +287,19 @@
         app:srcCompat="@drawable/flecha_hacia_atras" />
 
     <ImageView
+        android:id="@+id/crear_modif_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="109dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="add_modif_test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/perfil1"
+        app:layout_constraintStart_toEndOf="@+id/atra"
+        app:srcCompat="@drawable/crear_modif_test" />
+
+    <ImageView
         android:id="@+id/perfil1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

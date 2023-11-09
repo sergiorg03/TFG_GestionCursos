@@ -37,6 +37,7 @@ public class EditorCursos extends AppCompatActivity {
     String id_curso;
     String clase;
     Class claseAnterior;
+    boolean existe;
 
     // Variables XML
     EditText et_p1;
@@ -326,7 +327,8 @@ public class EditorCursos extends AppCompatActivity {
 
             @Override
             public void onConsultaError(VolleyError e) {
-                fv.mostrarMensaje(EditorCursos.this, "No se pudieron recopilar datos. ");
+                //fv.mostrarMensaje(EditorCursos.this, "No se pudieron recopilar datos. ");
+                existe = false;
             }
         });
     }
@@ -421,5 +423,29 @@ public class EditorCursos extends AppCompatActivity {
         }
         System.out.println(respuesta);
         return respuesta;
+    }
+
+    /**
+     * Metodo para añadir o modificar los tests
+     * @param v
+     */
+    public void add_modif_test(View v){
+        if (!this.existe) {
+            crearTest();
+        }else modificarTest();
+    }
+
+    /**
+     * Metodo para crear los test
+     */
+    public void crearTest(){
+
+    }
+
+    /**
+     * Metodo para modificar el test de un curso
+     */
+    public void modificarTest(){
+
     }
 }
