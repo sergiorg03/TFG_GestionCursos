@@ -121,19 +121,19 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/op1_p1"
+                        android:id="@+id/ec_op1_p1"
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:text="Opción 1"
                         android:layout_marginStart="60dp"/>
                     <RadioButton
-                        android:id="@+id/op2_p1"
+                        android:id="@+id/ec_op2_p1"
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:text="Opción 2"
                         android:layout_marginStart="10dp"/>
                     <RadioButton
-                        android:id="@+id/op3_p1"
+                        android:id="@+id/ec_op3_p1"
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:text="Opción 3"
