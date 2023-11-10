@@ -30,7 +30,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:enabled="true"
-                android:text="Pregunta1: "
+                android:hint="Pregunta1: "
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -38,7 +38,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/imageView1"
+                    android:id="@+id/imageView1_p1"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="5dp"
@@ -50,10 +50,8 @@
                     android:id="@+id/tv_ec_op1_p1"
                     android:layout_width="290dp"
                     android:layout_height="45dp"
-                    android:editable="false"
+                    android:editable="true"
                     android:enabled="true"
-                    android:focusableInTouchMode="false"
-                    android:focusedByDefault="false"
                     android:hint="Opcion 1 "
                     android:textSize="20sp" />
             </LinearLayout>
@@ -63,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imageView2_p1"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="10dp"
@@ -75,11 +73,9 @@
                     android:id="@+id/tv_ec_op2_p1"
                     android:layout_width="290dp"
                     android:layout_height="45dp"
-                    android:editable="false"
+                    android:editable="true"
                     android:enabled="true"
                     android:layout_marginTop="5dp"
-                    android:focusableInTouchMode="false"
-                    android:focusedByDefault="false"
                     android:hint="Opcion 2 "
                     android:textSize="20sp" />
             </LinearLayout>
@@ -89,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imageView3_p1"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="10dp"
@@ -101,11 +97,9 @@
                     android:id="@+id/tv_ec_op3_p1"
                     android:layout_width="290dp"
                     android:layout_height="45dp"
-                    android:editable="false"
+                    android:editable="true"
                     android:enabled="true"
                     android:layout_marginTop="5dp"
-                    android:focusableInTouchMode="false"
-                    android:focusedByDefault="false"
                     android:hint="Opcion 3 "
                     android:textSize="20sp" />
             </LinearLayout>
@@ -149,8 +143,110 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:enabled="true"
-                android:text="Pregunta2: "
+                android:hint="Pregunta2: "
                 android:textSize="20sp" />
+
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p2"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p2"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p2"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p2"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p2"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p2"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
 
             <!-- Pregunta 3 -->
             <EditText
@@ -160,8 +256,110 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:enabled="true"
-                android:text="Pregunta3: "
+                android:hint="Pregunta3: "
                 android:textSize="20sp" />
+				
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p3"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p3"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p3"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p3"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p3"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p3"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
 
             <!-- Pregunta 4 -->
             <EditText
@@ -171,8 +369,110 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:enabled="true"
-                android:text="Pregunta4: "
+                android:hint="Pregunta4: "
                 android:textSize="20sp" />
+
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p4"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p4"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p4"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p4"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p4"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p4"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
 
             <!-- Pregunta 5 -->
             <EditText
@@ -182,8 +482,110 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:enabled="true"
-                android:text="Pregunta5: "
+                android:hint="Pregunta5: "
                 android:textSize="20sp" />
+
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p5"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p5"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p5"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p5"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p5"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p5"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
 
             <!-- Pregunta 6 -->
             <EditText
@@ -194,9 +596,111 @@
                 android:layout_marginTop="20dp"
                 android:editable="false"
                 android:enabled="true"
-                android:text="Pregunta6: "
+                android:hint="Pregunta6: "
                 android:textSize="20sp" />
+			
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p6"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p6"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p6"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p6"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p6"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p6"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p6"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p6"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p6"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
+			
             <!-- Pregunta 7 -->
             <EditText
                 android:id="@+id/tv_ec_pregunta7"
@@ -204,12 +708,112 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
+                android:editable="true"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
-                android:text="Pregunta7: "
+                android:hint="Pregunta7: "
                 android:textSize="20sp" />
+
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p7"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p7"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p7"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p7"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p7"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p7"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p7"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p7"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p7"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
 
             <!-- Pregunta 8 -->
             <EditText
@@ -218,13 +822,113 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
+                android:editable="true"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
-                android:text="Pregunta8: "
+                android:hint="Pregunta8: "
                 android:textSize="20sp" />
+			
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p8"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p8"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p8"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p8"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p8"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p8"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p8"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p8"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p8"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
+			
             <!-- Pregunta 9 -->
             <EditText
                 android:id="@+id/tv_ec_pregunta9"
@@ -232,13 +936,113 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
+                android:editable="true"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
-                android:text="Pregunta9: "
+                android:hint="Pregunta9: "
                 android:textSize="20sp" />
+			
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p9"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p9"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p9"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p9"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p9"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p9"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p9"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p9"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p9"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
+			
             <!-- Pregunta 10 -->
             <EditText
                 android:id="@+id/tv_ec_pregunta10"
@@ -246,13 +1050,112 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:editable="false"
+                android:editable="true"
                 android:enabled="true"
-                android:focusableInTouchMode="false"
-                android:focusedByDefault="false"
-                android:text="Pregunta10: "
+                android:hint="Pregunta10: "
                 android:textSize="20sp" />
+				
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView1_p10"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero1"/>
+                <EditText
+                    android:id="@+id/tv_ec_op1_p10"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:hint="Opcion 1 "
+                    android:textSize="20sp" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView2_p10"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero2"/>
+                <EditText
+                    android:id="@+id/tv_ec_op2_p10"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 2 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageView3_p10"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/numero3" />
+                <EditText
+                    android:id="@+id/tv_ec_op3_p10"
+                    android:layout_width="290dp"
+                    android:layout_height="45dp"
+                    android:editable="true"
+                    android:enabled="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Opcion 3 "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/grupo10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ec_op1_p10"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 1"
+                        android:layout_marginStart="60dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op2_p10"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 2"
+                        android:layout_marginStart="10dp"/>
+                    <RadioButton
+                        android:id="@+id/ec_op3_p10"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:text="Opción 3"
+                        android:layout_marginStart="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
