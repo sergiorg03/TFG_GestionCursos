@@ -119,8 +119,14 @@ public class FuncionesVarias {
         return quitarEspaciosEnBlanco(ruta.getLastPathSegment());
     }
 
+    /**
+     * Metodo que quita los espacios en blanco de una cadena
+     * @param cadena -- Cadena a quitar los espacios en blanco
+     * @return -- Devuelve la cadena sin espacios en blanco
+     */
     public String quitarEspaciosEnBlanco(String cadena) {
         String cadenaADevolver = "";
+        cadena = cadena.trim();
 
         for (int i = 0; i < cadena.length(); i++) {
             if (cadena.charAt(i) == ' '){
@@ -128,6 +134,19 @@ public class FuncionesVarias {
             }else cadenaADevolver = cadenaADevolver+cadena.charAt(i);
         }
 
+        return cadenaADevolver;
+    }
+
+    /**
+     * Metodo que comprueba si una cadena introducida por parametro tiene texto y si no, devuelve una cadena vacia estandar
+     * @param cadena -- Cadena a comprobar si tiene o no texto
+     * @return -- Devuelve la cadena introducida si está contiene texto, si no, devuelve "Texto por defecto"
+     */
+    public String textoFinal(String cadena){
+        String cadenaADevolver = "Texto por defecto";
+        if (contieneTexto(cadena)){
+            cadenaADevolver = cadena;
+        }
         return cadenaADevolver;
     }
 }
