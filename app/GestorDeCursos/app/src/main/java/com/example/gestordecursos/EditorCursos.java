@@ -285,6 +285,8 @@ public class EditorCursos extends AppCompatActivity {
         Intent i = new Intent(this, Perfil.class);
         i.putExtra("dni", dni);
         i.putExtra("clase", clase);
+        startActivity(i);
+        finish();
     }
 
     public interface ConsultarDatos{
@@ -327,13 +329,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p1.setText("Opcion 2");
                             op3_p1.setText("Opcion 3");
                             bd_opCor_p1 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            if (bd_opCor_p1 == 1){
-                                op1_p1.setSelected(true);
-                                System.out.println("EditorCursos: seleccionarOpcionCor: op1 correcta. ");
-                            }else if(bd_opCor_p1 == 2){
-                                op2_p1.setSelected(true);
-                            }else if(bd_opCor_p1 == 3) op3_p1.setSelected(true);
-                            //seleccionarOpcionCor(bd_opCor_p1, op1_p1, op2_p1, op3_p1);
+                            seleccionarOpcionCor(bd_opCor_p1, op1_p1, op2_p1, op3_p1);
                             break;
                         case 2:
                             et_p2.setText(enunciado_preg);
@@ -344,7 +340,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p2.setText("Opcion 2");
                             op3_p2.setText("Opcion 3");
                             bd_opCor_p2 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p2, op1_p2, op2_p2, op3_p2);
+                            seleccionarOpcionCor(bd_opCor_p2, op1_p2, op2_p2, op3_p2);
                             break;
                         case 3:
                             et_p3.setText(enunciado_preg);
@@ -355,7 +351,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p3.setText("Opcion 2");
                             op3_p3.setText("Opcion 3");
                             bd_opCor_p3 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p3, op1_p3, op2_p3, op3_p3);
+                            seleccionarOpcionCor(bd_opCor_p3, op1_p3, op2_p3, op3_p3);
                             break;
                         case 4:
                             et_p4.setText(enunciado_preg);
@@ -366,7 +362,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p4.setText("Opcion 2");
                             op3_p4.setText("Opcion 3");
                             bd_opCor_p4 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p4, op1_p4, op2_p4, op3_p4);
+                            seleccionarOpcionCor(bd_opCor_p4, op1_p4, op2_p4, op3_p4);
                             break;
                         case 5:
                             et_p5.setText(enunciado_preg);
@@ -377,7 +373,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p5.setText("Opcion 2");
                             op3_p5.setText("Opcion 3");
                             bd_opCor_p5 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p5, op1_p5, op2_p5, op3_p5);
+                            seleccionarOpcionCor(bd_opCor_p5, op1_p5, op2_p5, op3_p5);
                             break;
                         case 6:
                             et_p6.setText(enunciado_preg);
@@ -388,7 +384,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p6.setText("Opcion 2");
                             op3_p6.setText("Opcion 3");
                             bd_opCor_p6 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p6, op1_p6, op2_p6, op3_p6);
+                            seleccionarOpcionCor(bd_opCor_p6, op1_p6, op2_p6, op3_p6);
                             break;
                         case 7:
                             et_p7.setText(enunciado_preg);
@@ -399,7 +395,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p7.setText("Opcion 2");
                             op3_p7.setText("Opcion 3");
                             bd_opCor_p7 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p7, op1_p7, op2_p7, op3_p7);
+                            seleccionarOpcionCor(bd_opCor_p7, op1_p7, op2_p7, op3_p7);
                             break;
                         case 8:
                             et_p8.setText(enunciado_preg);
@@ -410,7 +406,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p8.setText("Opcion 2");
                             op3_p8.setText("Opcion 3");
                             bd_opCor_p8 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p8, op1_p8, op2_p8, op3_p8);
+                            seleccionarOpcionCor(bd_opCor_p8, op1_p8, op2_p8, op3_p8);
                             break;
                         case 9:
                             et_p9.setText(enunciado_preg);
@@ -421,7 +417,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p9.setText("Opcion 2");
                             op3_p9.setText("Opcion 3");
                             bd_opCor_p9 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p9, op1_p9, op2_p9, op3_p9);
+                            seleccionarOpcionCor(bd_opCor_p9, op1_p9, op2_p9, op3_p9);
                             break;
                         case 10:
                             et_p10.setText(enunciado_preg);
@@ -432,7 +428,7 @@ public class EditorCursos extends AppCompatActivity {
                             op2_p10.setText("Opcion 2");
                             op3_p10.setText("Opcion 3");
                             bd_opCor_p10 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            //seleccionarOpcionCor(bd_opCor_p10, op1_p10, op2_p10, op3_p10);
+                            seleccionarOpcionCor(bd_opCor_p10, op1_p10, op2_p10, op3_p10);
                             break;
                     }
                 }
@@ -446,13 +442,24 @@ public class EditorCursos extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metodo para mostrar la opcion correcta obtenida de la Base de datos
+     * @param opcion -- Opcion correcta
+     * @param r1 -- RadioButton de la opcion 1
+     * @param r2 -- RadioButton de la opcion 2
+     * @param r3 -- RadioButton de la opcion 3
+     */
     public void seleccionarOpcionCor(int opcion, RadioButton r1, RadioButton r2, RadioButton r3){
         if (opcion == 1){
-            r1.setSelected(true);
-            System.out.println("EditorCursos: seleccionarOpcionCor: op1 correcta. ");
+            r1.setChecked(true);
+            System.out.println("EditorCursos: seleccionarOpcionCor: op1 correcta. "+r1.isSelected());
         }else if(opcion == 2){
-            r2.setSelected(true);
-        }else if(opcion == 3) r3.setSelected(true);
+            System.out.println("EditorCursos: seleccionarOpcionCor: op2 correcta. ");
+            r2.setChecked(true);
+        }else if(opcion == 3) {
+            r3.setChecked(true);
+            System.out.println("EditorCursos: seleccionarOpcionCor: op3 correcta. ");
+        }
     }
 
     /**
