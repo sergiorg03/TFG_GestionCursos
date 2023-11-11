@@ -298,7 +298,7 @@ public class EditorCursos extends AppCompatActivity {
         Map<String[], List<String[]>> preguntas = getPreguntas(new ConsultarDatos() {
             @Override
             public void onConsultaExitosa(Map<String[], List<String[]>> preguntas) {
-
+                existe = true;
                 for (String[] test: preguntas.keySet()) {
 
                     //Var para obtener el id de la pregunta y el enunciado
@@ -437,7 +437,7 @@ public class EditorCursos extends AppCompatActivity {
             @Override
             public void onConsultaError(VolleyError e) {
                 //fv.mostrarMensaje(EditorCursos.this, "No se pudieron recopilar datos. ");
-                existe = false;
+                existe = false; // No existe el test
             }
         });
     }
@@ -452,7 +452,7 @@ public class EditorCursos extends AppCompatActivity {
     public void seleccionarOpcionCor(int opcion, RadioButton r1, RadioButton r2, RadioButton r3){
         if (opcion == 1){
             r1.setChecked(true);
-            System.out.println("EditorCursos: seleccionarOpcionCor: op1 correcta. "+r1.isSelected());
+            System.out.println("EditorCursos: seleccionarOpcionCor: op1 correcta. ");
         }else if(opcion == 2){
             System.out.println("EditorCursos: seleccionarOpcionCor: op2 correcta. ");
             r2.setChecked(true);
@@ -559,9 +559,12 @@ public class EditorCursos extends AppCompatActivity {
      * @param v
      */
     public void add_modif_test(View v){
+        System.out.println("Existe el curso--> "+existe);
         if (!this.existe) {
             crearTest();
-        }else modificarTest();
+        }else{
+            modificarTest();
+        }
     }
 
     /**
@@ -572,7 +575,15 @@ public class EditorCursos extends AppCompatActivity {
 
         Map<String[], List<String[]>> datosNuevos = obtenerNuevosDatos();
 
-        List<String[]> preguntas = new ArrayList<>(datosNuevos.keySet());
+        List<String[]> preguntas = new ArrayList<>();
+        for (Map.Entry<String[], List<String[]>> entry : datosNuevos.entrySet()) {
+            String[] datos = entry.getKey();
+            System.out.println(datos[0]+"-->"+datos[1]);
+            preguntas.add(datos);
+        }
+        for (int i = 0; i < preguntas.size(); i++) {
+            System.out.println("EditorCursos: crearTest: "+preguntas.get(i)[0] +" ---------> "+ preguntas.get(i)[1]);
+        }
         List<String[]> opciones = new ArrayList<>();
         for (List<String[]> valores : datosNuevos.values()) {
             opciones.addAll(valores);
@@ -882,24 +893,6 @@ public class EditorCursos extends AppCompatActivity {
                     jsonBody.put("id_op1_p1", opciones.get(0)[0]);
                     jsonBody.put("enun_op1_p1", opciones.get(0)[3]);
                     jsonBody.put("escor_op1_p1", opciones.get(0)[4]);
-                    // Opcion 1
-                    jsonBody.put("id_op1_p1", opciones.get(0)[0]);
-                    jsonBody.put("enun_op1_p1", opciones.get(0)[3]);
-                    jsonBody.put("escor_op1_p1", opciones.get(0)[4]);
-                    // Opcion 2
-                    jsonBody.put("id_op2_p1", opciones.get(1)[0]);
-                    jsonBody.put("enun_op2_p1", opciones.get(1)[3]);
-                    jsonBody.put("escor_op2_p1", opciones.get(1)[4]);
-                    // Opcion 2
-                    jsonBody.put("id_op2_p1", opciones.get(2)[0]);
-                    jsonBody.put("enun_op2_p1", opciones.get(2)[3]);
-                    jsonBody.put("escor_op2_p1", opciones.get(2)[4]);
-
-                    // Pregunta 1
-                    // Opcion 1
-                    jsonBody.put("id_op1_p1", opciones.get(0)[0]);
-                    jsonBody.put("enun_op1_p1", opciones.get(0)[3]);
-                    jsonBody.put("escor_op1_p1", opciones.get(0)[4]);
                     // Opcion 2
                     jsonBody.put("id_op2_p1", opciones.get(1)[0]);
                     jsonBody.put("enun_op2_p1", opciones.get(1)[3]);
@@ -1166,58 +1159,57 @@ public class EditorCursos extends AppCompatActivity {
      */
     public List<String[]> obtenerPreguntas(){
         List<String[]> listaEnunciadosPreguntas = new ArrayList<>();
-        String[] datosPreguntas = new String[2];
+        String[] datosPreguntas1 = new String[2];
+        String[] datosPreguntas2 = new String[2];
+        String[] datosPreguntas3 = new String[2];
+        String[] datosPreguntas4 = new String[2];
+        String[] datosPreguntas5 = new String[2];
+        String[] datosPreguntas6 = new String[2];
+        String[] datosPreguntas7 = new String[2];
+        String[] datosPreguntas8 = new String[2];
+        String[] datosPreguntas9 = new String[2];
+        String[] datosPreguntas10 = new String[2];
+
         // Añadimos las preguntas a la lista
-        if (fv.contieneTexto(et_p1.getText().toString())){
-            datosPreguntas[0] = "1"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p1.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p2.getText().toString())){
-            datosPreguntas[0] = "2"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p2.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p3.getText().toString())){
-            datosPreguntas[0] = "3"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p3.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p4.getText().toString())){
-            datosPreguntas[0] = "4"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p4.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p5.getText().toString())){
-            datosPreguntas[0] = "5"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p5.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p6.getText().toString())){
-            datosPreguntas[0] = "6"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p6.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p7.getText().toString())){
-            datosPreguntas[0] = "7"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p7.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p8.getText().toString())){
-            datosPreguntas[0] = "8"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p8.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p9.getText().toString())){
-            datosPreguntas[0] = "9"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p9.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
-        if (fv.contieneTexto(et_p10.getText().toString())){
-            datosPreguntas[0] = "10"; // ID
-            datosPreguntas[1] = fv.textoFinal(et_p10.getText().toString());
-        }
-        listaEnunciadosPreguntas.add(datosPreguntas);
+        datosPreguntas1[0] = "1"; // ID
+        datosPreguntas1[1] = fv.textoFinal(et_p1.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas1);
+
+        datosPreguntas2[0] = "2"; // ID
+        datosPreguntas2[1] = fv.textoFinal(et_p2.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas2);
+
+        datosPreguntas3[0] = "3"; // ID
+        datosPreguntas3[1] = fv.textoFinal(et_p3.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas3);
+
+        datosPreguntas4[0] = "4"; // ID
+        datosPreguntas4[1] = fv.textoFinal(et_p4.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas4);
+
+        datosPreguntas5[0] = "5"; // ID
+        datosPreguntas5[1] = fv.textoFinal(et_p5.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas5);
+
+        datosPreguntas6[0] = "6"; // ID
+        datosPreguntas6[1] = fv.textoFinal(et_p6.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas6);
+
+        datosPreguntas7[0] = "7"; // ID
+        datosPreguntas7[1] = fv.textoFinal(et_p7.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas7);
+
+        datosPreguntas8[0] = "8"; // ID
+        datosPreguntas8[1] = fv.textoFinal(et_p8.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas8);
+
+        datosPreguntas9[0] = "9"; // ID
+        datosPreguntas9[1] = fv.textoFinal(et_p9.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas9);
+
+        datosPreguntas10[0] = "10"; // ID
+        datosPreguntas10[1] = fv.textoFinal(et_p10.getText().toString());
+        listaEnunciadosPreguntas.add(datosPreguntas10);
 
         return listaEnunciadosPreguntas;
     }
