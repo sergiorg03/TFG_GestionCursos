@@ -109,7 +109,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo1"
+                    android:id="@+id/ec_grupo1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -222,7 +222,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo2"
+                    android:id="@+id/ec_grupo2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -335,7 +335,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo3"
+                    android:id="@+id/ec_grupo3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -448,7 +448,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo4"
+                    android:id="@+id/ec_grupo4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -561,7 +561,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo5"
+                    android:id="@+id/ec_grupo5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -675,7 +675,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo6"
+                    android:id="@+id/ec_grupo6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -789,7 +789,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo7"
+                    android:id="@+id/ec_grupo7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -903,7 +903,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo8"
+                    android:id="@+id/ec_grupo8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -1017,7 +1017,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo9"
+                    android:id="@+id/ec_grupo9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -1131,7 +1131,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioGroup
-                    android:id="@+id/grupo10"
+                    android:id="@+id/ec_grupo10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">

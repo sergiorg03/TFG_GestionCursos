@@ -40,6 +40,7 @@ public class EditorCursos extends AppCompatActivity {
     boolean existe;
 
     // Variables XML
+    //Preguntas
     EditText et_p1;
     EditText et_p2;
     EditText et_p3;
@@ -50,6 +51,39 @@ public class EditorCursos extends AppCompatActivity {
     EditText et_p8;
     EditText et_p9;
     EditText et_p10;
+
+    // Opciones
+    EditText tv_ec_op1_p1;
+    EditText tv_ec_op2_p1;
+    EditText tv_ec_op3_p1;
+    EditText tv_ec_op1_p2;
+    EditText tv_ec_op2_p2;
+    EditText tv_ec_op3_p2;
+    EditText tv_ec_op1_p3;
+    EditText tv_ec_op2_p3;
+    EditText tv_ec_op3_p3;
+    EditText tv_ec_op1_p4;
+    EditText tv_ec_op2_p4;
+    EditText tv_ec_op3_p4;
+    EditText tv_ec_op1_p5;
+    EditText tv_ec_op2_p5;
+    EditText tv_ec_op3_p5;
+    EditText tv_ec_op1_p6;
+    EditText tv_ec_op2_p6;
+    EditText tv_ec_op3_p6;
+    EditText tv_ec_op1_p7;
+    EditText tv_ec_op2_p7;
+    EditText tv_ec_op3_p7;
+    EditText tv_ec_op1_p8;
+    EditText tv_ec_op2_p8;
+    EditText tv_ec_op3_p8;
+    EditText tv_ec_op1_p9;
+    EditText tv_ec_op2_p9;
+    EditText tv_ec_op3_p9;
+    EditText tv_ec_op1_p10;
+    EditText tv_ec_op2_p10;
+    EditText tv_ec_op3_p10;
+
     // RadioGroups
     RadioGroup grupo1;
     RadioGroup grupo2;
@@ -132,6 +166,7 @@ public class EditorCursos extends AppCompatActivity {
      */
     public void inicializarVariables(){
         // Variables
+        // Preguntas
         et_p1   = findViewById(R.id.tv_ec_pregunta1);
         et_p2   = findViewById(R.id.tv_ec_pregunta2);
         et_p3   = findViewById(R.id.tv_ec_pregunta3);
@@ -142,16 +177,48 @@ public class EditorCursos extends AppCompatActivity {
         et_p8   = findViewById(R.id.tv_ec_pregunta8);
         et_p9   = findViewById(R.id.tv_ec_pregunta9);
         et_p10  = findViewById(R.id.tv_ec_pregunta10);
-        /*grupo1  = findViewById(R.id.ec_g);
-        grupo2  = findViewById(R.id.ec_g);
-        grupo3  = findViewById(R.id.ec_g);
-        grupo4  = findViewById(R.id.ec_g);
-        grupo5  = findViewById(R.id.ec_g);
-        grupo6  = findViewById(R.id.ec_g);
-        grupo7  = findViewById(R.id.ec_g);
-        grupo8  = findViewById(R.id.ec_g);
-        grupo9  = findViewById(R.id.ec_g);
-        grupo10 = findViewById(R.id.ec_g);
+        // Opciones
+        tv_ec_op1_p1    = findViewById(R.id.tv_ec_op1_p1);
+        tv_ec_op2_p1    = findViewById(R.id.tv_ec_op2_p1);
+        tv_ec_op3_p1    = findViewById(R.id.tv_ec_op3_p1);
+        tv_ec_op1_p2    = findViewById(R.id.tv_ec_op1_p2);
+        tv_ec_op2_p2    = findViewById(R.id.tv_ec_op2_p2);
+        tv_ec_op3_p2    = findViewById(R.id.tv_ec_op3_p2);
+        tv_ec_op1_p3    = findViewById(R.id.tv_ec_op1_p3);
+        tv_ec_op2_p3    = findViewById(R.id.tv_ec_op2_p3);
+        tv_ec_op3_p3    = findViewById(R.id.tv_ec_op3_p3);
+        tv_ec_op1_p4    = findViewById(R.id.tv_ec_op1_p4);
+        tv_ec_op2_p4    = findViewById(R.id.tv_ec_op2_p4);
+        tv_ec_op3_p4    = findViewById(R.id.tv_ec_op3_p4);
+        tv_ec_op1_p5    = findViewById(R.id.tv_ec_op1_p5);
+        tv_ec_op2_p5    = findViewById(R.id.tv_ec_op2_p5);
+        tv_ec_op3_p5    = findViewById(R.id.tv_ec_op3_p5);
+        tv_ec_op1_p6    = findViewById(R.id.tv_ec_op1_p6);
+        tv_ec_op2_p6    = findViewById(R.id.tv_ec_op2_p6);
+        tv_ec_op3_p6    = findViewById(R.id.tv_ec_op3_p6);
+        tv_ec_op1_p7    = findViewById(R.id.tv_ec_op1_p7);
+        tv_ec_op2_p7    = findViewById(R.id.tv_ec_op2_p7);
+        tv_ec_op3_p7    = findViewById(R.id.tv_ec_op3_p7);
+        tv_ec_op1_p8    = findViewById(R.id.tv_ec_op1_p8);
+        tv_ec_op2_p8    = findViewById(R.id.tv_ec_op2_p8);
+        tv_ec_op3_p8    = findViewById(R.id.tv_ec_op3_p8);
+        tv_ec_op1_p9    = findViewById(R.id.tv_ec_op1_p9);
+        tv_ec_op2_p9    = findViewById(R.id.tv_ec_op2_p9);
+        tv_ec_op3_p9    = findViewById(R.id.tv_ec_op3_p9);
+        tv_ec_op1_p10   = findViewById(R.id.tv_ec_op1_p10);
+        tv_ec_op2_p10   = findViewById(R.id.tv_ec_op2_p10);
+        tv_ec_op3_p10   = findViewById(R.id.tv_ec_op3_p10);
+        // Grupos para la eleccion de la respuesta correcta
+        grupo1  = findViewById(R.id.ec_grupo1);
+        grupo2  = findViewById(R.id.ec_grupo2);
+        grupo3  = findViewById(R.id.ec_grupo3);
+        grupo4  = findViewById(R.id.ec_grupo4);
+        grupo5  = findViewById(R.id.ec_grupo5);
+        grupo6  = findViewById(R.id.ec_grupo6);
+        grupo7  = findViewById(R.id.ec_grupo7);
+        grupo8  = findViewById(R.id.ec_grupo8);
+        grupo9  = findViewById(R.id.ec_grupo9);
+        grupo10 = findViewById(R.id.ec_grupo10);
         // Asignamos los RadioButton a su rec
         op1_p1  = findViewById(R.id.ec_op1_p1);
         op2_p1  = findViewById(R.id.ec_op2_p1);
@@ -182,7 +249,7 @@ public class EditorCursos extends AppCompatActivity {
         op3_p9  = findViewById(R.id.ec_op3_p9);
         op1_p10 = findViewById(R.id.ec_op1_p10);
         op2_p10 = findViewById(R.id.ec_op2_p10);
-        op3_p10 = findViewById(R.id.ec_op3_p10);*/
+        op3_p10 = findViewById(R.id.ec_op3_p10);
 
         bd_opCor_p1     = -1;
         bd_opCor_p2     = -1;
@@ -250,78 +317,124 @@ public class EditorCursos extends AppCompatActivity {
                     String enun_op3 = preguntas.get(test).get(2)[1];
                     String esCorrecta_op3 = preguntas.get(test).get(2)[2];
 
-                    /*switch (id_preg){
+                    switch (id_preg){
                         case 1:
                             et_p1.setText(enunciado_preg);
+                            tv_ec_op1_p1.setText(enun_op1);
+                            tv_ec_op2_p1.setText(enun_op2);
+                            tv_ec_op3_p1.setText(enun_op3);
                             op1_p1.setText("Opcion 1");
                             op2_p1.setText("Opcion 2");
                             op3_p1.setText("Opcion 3");
                             bd_opCor_p1 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            if (bd_opCor_p1 == 1){
+                                op1_p1.setSelected(true);
+                                System.out.println("EditorCursos: seleccionarOpcionCor: op1 correcta. ");
+                            }else if(bd_opCor_p1 == 2){
+                                op2_p1.setSelected(true);
+                            }else if(bd_opCor_p1 == 3) op3_p1.setSelected(true);
+                            //seleccionarOpcionCor(bd_opCor_p1, op1_p1, op2_p1, op3_p1);
                             break;
                         case 2:
                             et_p2.setText(enunciado_preg);
+                            tv_ec_op1_p2.setText(enun_op1);
+                            tv_ec_op2_p2.setText(enun_op2);
+                            tv_ec_op3_p2.setText(enun_op3);
                             op1_p2.setText("Opcion 1");
                             op2_p2.setText("Opcion 2");
                             op3_p2.setText("Opcion 3");
                             bd_opCor_p2 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p2, op1_p2, op2_p2, op3_p2);
                             break;
                         case 3:
                             et_p3.setText(enunciado_preg);
+                            tv_ec_op1_p3.setText(enun_op1);
+                            tv_ec_op2_p3.setText(enun_op2);
+                            tv_ec_op3_p3.setText(enun_op3);
                             op1_p3.setText("Opcion 1");
                             op2_p3.setText("Opcion 2");
                             op3_p3.setText("Opcion 3");
                             bd_opCor_p3 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p3, op1_p3, op2_p3, op3_p3);
                             break;
                         case 4:
                             et_p4.setText(enunciado_preg);
+                            tv_ec_op1_p4.setText(enun_op1);
+                            tv_ec_op2_p4.setText(enun_op2);
+                            tv_ec_op3_p4.setText(enun_op3);
                             op1_p4.setText("Opcion 1");
                             op2_p4.setText("Opcion 2");
                             op3_p4.setText("Opcion 3");
                             bd_opCor_p4 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p4, op1_p4, op2_p4, op3_p4);
                             break;
                         case 5:
                             et_p5.setText(enunciado_preg);
+                            tv_ec_op1_p5.setText(enun_op1);
+                            tv_ec_op2_p5.setText(enun_op2);
+                            tv_ec_op3_p5.setText(enun_op3);
                             op1_p5.setText("Opcion 1");
                             op2_p5.setText("Opcion 2");
                             op3_p5.setText("Opcion 3");
                             bd_opCor_p5 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p5, op1_p5, op2_p5, op3_p5);
                             break;
                         case 6:
                             et_p6.setText(enunciado_preg);
+                            tv_ec_op1_p6.setText(enun_op1);
+                            tv_ec_op2_p6.setText(enun_op2);
+                            tv_ec_op3_p6.setText(enun_op3);
                             op1_p6.setText("Opcion 1");
                             op2_p6.setText("Opcion 2");
                             op3_p6.setText("Opcion 3");
                             bd_opCor_p6 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p6, op1_p6, op2_p6, op3_p6);
                             break;
                         case 7:
                             et_p7.setText(enunciado_preg);
+                            tv_ec_op1_p7.setText(enun_op1);
+                            tv_ec_op2_p7.setText(enun_op2);
+                            tv_ec_op3_p7.setText(enun_op3);
                             op1_p7.setText("Opcion 1");
                             op2_p7.setText("Opcion 2");
                             op3_p7.setText("Opcion 3");
                             bd_opCor_p7 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p7, op1_p7, op2_p7, op3_p7);
                             break;
                         case 8:
                             et_p8.setText(enunciado_preg);
+                            tv_ec_op1_p8.setText(enun_op1);
+                            tv_ec_op2_p8.setText(enun_op2);
+                            tv_ec_op3_p8.setText(enun_op3);
                             op1_p8.setText("Opcion 1");
                             op2_p8.setText("Opcion 2");
                             op3_p8.setText("Opcion 3");
                             bd_opCor_p8 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p8, op1_p8, op2_p8, op3_p8);
                             break;
                         case 9:
                             et_p9.setText(enunciado_preg);
+                            tv_ec_op1_p9.setText(enun_op1);
+                            tv_ec_op2_p9.setText(enun_op2);
+                            tv_ec_op3_p9.setText(enun_op3);
                             op1_p9.setText("Opcion 1");
                             op2_p9.setText("Opcion 2");
                             op3_p9.setText("Opcion 3");
                             bd_opCor_p9 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p9, op1_p9, op2_p9, op3_p9);
                             break;
                         case 10:
                             et_p10.setText(enunciado_preg);
+                            tv_ec_op1_p10.setText(enun_op1);
+                            tv_ec_op2_p10.setText(enun_op2);
+                            tv_ec_op3_p10.setText(enun_op3);
                             op1_p10.setText("Opcion 1");
                             op2_p10.setText("Opcion 2");
                             op3_p10.setText("Opcion 3");
                             bd_opCor_p10 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            //seleccionarOpcionCor(bd_opCor_p10, op1_p10, op2_p10, op3_p10);
                             break;
-                    }*/
+                    }
                 }
             }
 
@@ -331,6 +444,15 @@ public class EditorCursos extends AppCompatActivity {
                 existe = false;
             }
         });
+    }
+
+    public void seleccionarOpcionCor(int opcion, RadioButton r1, RadioButton r2, RadioButton r3){
+        if (opcion == 1){
+            r1.setSelected(true);
+            System.out.println("EditorCursos: seleccionarOpcionCor: op1 correcta. ");
+        }else if(opcion == 2){
+            r2.setSelected(true);
+        }else if(opcion == 3) r3.setSelected(true);
     }
 
     /**
@@ -409,7 +531,7 @@ public class EditorCursos extends AppCompatActivity {
      * @return -- Opcion correcta
      */
     public int opcionCorrecta(String op1, String op2, String op3){
-        int respuesta = 0;
+        int respuesta = -1;
         if (op1.equalsIgnoreCase("1")){
             respuesta = 1;
         }else{
