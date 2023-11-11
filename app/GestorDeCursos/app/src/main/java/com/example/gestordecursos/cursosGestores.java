@@ -394,7 +394,7 @@ public class cursosGestores extends AppCompatActivity {
      * @param id_curso
      */
     public void editarCurso(String id_curso){
-        Intent i = new Intent(this, EditorCursos.class);
+        Intent i = new Intent(this, informacionEditarCursos.class);
         i.putExtra("dni", dni);
         i.putExtra("clase", "cursosgestores");
         i.putExtra("id_curso", id_curso);
@@ -619,19 +619,6 @@ public class cursosGestores extends AppCompatActivity {
     }
 
     /**
-     * Metodo para ir a la pantalla de edicion del curso
-     * @param id_curso -- Id del curso a editar
-     */
-    public void editCurso(String id_curso){
-        Intent i = new Intent(this, EditorCursos.class);
-        i.putExtra("dni", dni);
-        i.putExtra("curso", id_curso);
-        i.putExtra("clase", "cursosgestores");
-        startActivity(i);
-        finish();
-    }
-
-    /**
      *
      * METODOS PARA ELIMINAR UN CURSO
      *
@@ -698,59 +685,59 @@ public class cursosGestores extends AppCompatActivity {
      *
      */
     public void ib_ed1(View v){
-        editCurso(id_curso1);
+        editarCurso(id_curso1);
     }
 
     public void ib_ed2(View v){
-        editCurso(id_curso2);
+        editarCurso(id_curso2);
     }
 
     public void ib_ed3(View v){
-        editCurso(id_curso3);
+        editarCurso(id_curso3);
     }
 
     public void ib_ed4(View v){
-        editCurso(id_curso4);
+        editarCurso(id_curso4);
     }
 
     public void ib_ed5(View v){
-        editCurso(id_curso5);
+        editarCurso(id_curso5);
     }
 
     public void ib_ed6(View v){
-        editCurso(id_curso6);
+        editarCurso(id_curso6);
     }
 
     public void ib_ed7(View v){
-        editCurso(id_curso7);
+        editarCurso(id_curso7);
     }
 
     public void ib_ed8(View v){
-        editCurso(id_curso8);
+        editarCurso(id_curso8);
     }
 
     public void ib_ed9(View v){
-        editCurso(id_curso9);
+        editarCurso(id_curso9);
     }
 
     public void ib_ed10(View v){
-        editCurso(id_curso10);
+        editarCurso(id_curso10);
     }
 
     public void ib_ed11(View v){
-        editCurso(id_curso11);
+        editarCurso(id_curso11);
     }
 
     public void ib_ed12(View v){
-        editCurso(id_curso12);
+        editarCurso(id_curso12);
     }
 
     public void ib_ed13(View v){
-        editCurso(id_curso13);
+        editarCurso(id_curso13);
     }
 
     public void ib_ed14(View v){
-        editCurso(id_curso13);
+        editarCurso(id_curso13);
     }
 
     /**

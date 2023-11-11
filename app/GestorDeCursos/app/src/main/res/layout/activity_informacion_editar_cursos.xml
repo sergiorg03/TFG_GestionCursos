@@ -7,6 +7,7 @@
     tools:context=".informacionEditarCursos">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="80dp"
@@ -21,15 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="321dp"
                 android:layout_height="165dp"
                 android:layout_marginStart="47dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="150dp"
                 android:layout_marginEnd="47dp"
                 android:layout_marginBottom="190dp"
-                android:layout_marginLeft="20dp"
                 android:text="Introduzca su nombre de usuario y su contraseña y haga clic sobre el botón &quot;Log In&quot;, si no dispone de una cuenta haga clic sobre el boton &quot;Sign Up&quot; y rellene todos sus datos pertinentes para la creación de la cuenta."
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -40,21 +42,35 @@
                 tools:ignore="MissingConstraints" />
 
 
-
         </LinearLayout>
     </ScrollView>
 
     <!-- Boton de vuelta a la clase anterior -->
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/back_iec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
+        android:layout_marginTop="19dp"
         android:layout_marginBottom="20dp"
-        android:onClick="salir"
+        android:onClick="volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         app:srcCompat="@drawable/flecha_hacia_atras"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/comprobarRespuestas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="242dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="irEditarCurso"
+        android:src="@drawable/siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/back_iec" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

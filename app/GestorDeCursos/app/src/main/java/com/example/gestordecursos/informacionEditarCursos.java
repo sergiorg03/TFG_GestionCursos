@@ -20,6 +20,7 @@ public class informacionEditarCursos extends AppCompatActivity {
         setContentView(R.layout.activity_informacion_editar_cursos);
         dni = getIntent().getStringExtra("dni");
         id_curso = getIntent().getStringExtra("id_curso");
+        clase = getIntent().getStringExtra("clase");
         claseAnterior = fv.obtenerClase(clase);
     }
 
