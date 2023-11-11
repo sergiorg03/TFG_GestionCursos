@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Capturamos el error producido
         $errorDescription = $exception->getMessage();
         $datos = array('error' => $errorDescription);
-        // Creamos JSON con datos recibidos y el nuevo id
+        // Creamos JSON con datos recibidos
         $jsonDatos = json_encode($datos);
         // Cabeceras de error en la ejecución de la consulta
         header($headerJSON);
