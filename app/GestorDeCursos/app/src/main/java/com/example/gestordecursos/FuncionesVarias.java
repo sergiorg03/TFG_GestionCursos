@@ -103,9 +103,7 @@ public class FuncionesVarias {
             }else {
                 if (claseAnterior.equalsIgnoreCase("editorcursos")){
                     clase = EditorCursos.class;
-                }/*else{
-
-                }*/
+                }
             }
         }
 
@@ -143,9 +141,9 @@ public class FuncionesVarias {
      * @return -- Devuelve la cadena introducida si está contiene texto, si no, devuelve "Texto por defecto"
      */
     public String textoFinal(String cadena){
-        String cadenaADevolver = "Texto por defecto";
-        if (contieneTexto(cadena)){
-            cadenaADevolver = cadena;
+        final String cadenaADevolver = "Texto por defecto";
+        if (!cadena.isEmpty()){
+            return cadena;
         }
         return cadenaADevolver;
     }
