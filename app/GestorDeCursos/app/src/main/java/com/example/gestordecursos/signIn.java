@@ -16,8 +16,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class signIn extends AppCompatActivity {
 
@@ -32,6 +36,7 @@ public class signIn extends AppCompatActivity {
     TextView contra;
     FuncionesVarias fv = new FuncionesVarias();
     String var_existeUsuario = "";
+    List<String> listaUsuarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class signIn extends AppCompatActivity {
         contra = findViewById(R.id.pass_signIn);
         perfiles = findViewById(R.id.perfil);
         perfiles.setAdapter(contenidoSpinner);
+        listaUsuarios = listaDeUsuarios();
     }
 
     public void insertarUsuario(View v){
@@ -66,14 +72,14 @@ public class signIn extends AppCompatActivity {
         // Comprobaciones
         if (fv.contieneTexto(dni) && fv.contieneTexto(nombre) && fv.contieneTexto(ap1) && fv.contieneTexto(ap2) &&
                 fv.contieneTexto(telf) && fv.contieneTexto(email) && fv.contieneTexto(us) && fv.contieneTexto(contra)){ // Ha rellenado todos los campos
-            String existeUsuario = existeUser(us);
+            boolean existeUsuario = existeUser(us);
             if (!perfil.equalsIgnoreCase("Elija su perfil")){ // Ha elegido un perfil valido
                 if (fv.formatoDNI(dni)){// El dni introducido tiene el formato correcto
                     if (fv.esNumerico(telf)){ // el numero de telefono son digitos
                         if (fv.formatoEmail(email)){// El email tiene formato correcto
                             //System.out.println("Existe el usuario: "+existeUsuario);
                             //System.out.println("Existe el usuario VAR: "+var_existeUsuario);
-                            if (var_existeUsuario.equalsIgnoreCase("false")){ // comprobamos que no exista el usuario introducido
+                            if (!existeUsuario){ // comprobamos que no exista el usuario introducido
                                 // false si el usuario indicado no existe, true si el usuario existe
                                 //fv.mostrarMensaje(this, "el usuario no existe");
                                 //System.out.println("Existe el usuario: "+existeUsuario);
@@ -81,7 +87,6 @@ public class signIn extends AppCompatActivity {
                                 crearUsuario(dni, nombre, ap1, ap2, telf, email, us, contra, perfil); // Insertamos el usuario
                                 vueltaLogIn(v); // Volvemos a la pantalla de LogIn
                             }else fv.mostrarMensaje(this, "El usuario introducido existe, porfavor escoja otro usuario. ");
-                            var_existeUsuario = null;
                         }else fv.mostrarMensaje(this, "El email introducido no tiene formato correcto. "); // El email no tiene formato correcto
                     }else fv.mostrarMensaje(this, "Debe introducir un numero de telefono correcto. "); // El telefono introducido no es correcto
                 }else fv.mostrarMensaje(this, "El DNI introducido no tiene el formato correcto. "); // El dni introducido no es correcto
@@ -111,8 +116,8 @@ public class signIn extends AppCompatActivity {
      * @param user -- usuario a comprobar
      * @return -- True si el usuario existe, False si no.
      */
-    public String existeUser(String user){
-        final String[] existe = {"false"}; // False si el usuario no existe
+    /*public String existeUser(String user){
+        String[] existe = {"false"}; // False si el usuario no existe
         String existeUsuario = obtenerUS(new ConsultarDatos() {
             @Override
             public void onConsultaExitosa(String a) {
@@ -131,10 +136,26 @@ public class signIn extends AppCompatActivity {
                 error.printStackTrace();
             }
         })[0];
+
+
+
         return existe[0];
+    }*/
+
+    /**
+     * Metodo que comprueba si el usuario introducido existe o no
+     * @param user -- Usuario a comprobar
+     * @return -- False si el usuario no existe, True si si existe.
+     */
+    public boolean existeUser(String user){
+        boolean existe = false;
+        if (listaUsuarios.contains(user)){
+            existe = true;
+        }
+        return existe;
     }
 
-    public String[] obtenerUS(ConsultarDatos consultaDatos) {
+    /*public String[] obtenerUS(ConsultarDatos consultaDatos) {
 
         String user = us.getText().toString();
 
@@ -183,7 +204,7 @@ public class signIn extends AppCompatActivity {
         rq.add(sr);
 
         return usuario_existente;
-    }
+    }*/
 
     public void crearUsuario
             (String dni, String nombre, String ap1, String ap2, String telf, String email, String us, String contra, String perfil)
@@ -243,4 +264,61 @@ public class signIn extends AppCompatActivity {
         finish();
     }
 
+    public interface ConsultarDatosUsuarios{
+        void onConsultaExitosa(List<String> lista);
+        void onConsultaError(VolleyError v);
+    }
+
+    public List<String> obtenerUsuarios(ConsultarDatosUsuarios cdu){
+        final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkUser.php";
+
+        List<String> listaUsuarios = new ArrayList<>();
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray ja = new JSONArray(response);
+                            JSONObject json = new JSONObject();
+                            for (int i = 0; i < ja.length(); i++) {
+                                json = ja.getJSONObject(i);
+                                listaUsuarios.add(json.getString("usuario"));
+                            }
+                            cdu.onConsultaExitosa(listaUsuarios);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        cdu.onConsultaError(error);
+                    }
+                });
+
+        rq.add(sr);
+
+        return listaUsuarios;
+    }
+
+    public List<String> listaDeUsuarios(){
+        List<String> usuarios = obtenerUsuarios(new ConsultarDatosUsuarios() {
+            @Override
+            public void onConsultaExitosa(List<String> lista) {
+                for (int i = 0; i < listaUsuarios.size(); i++) {
+                    System.out.println("SignIn: onCreate: "+listaUsuarios.get(i));
+                }
+            }
+
+            @Override
+            public void onConsultaError(VolleyError v) {
+
+            }
+        });
+        return usuarios;
+    }
 }

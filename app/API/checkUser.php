@@ -32,7 +32,25 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
             header($headerJSON);
             header($codigosHTTP['200']);
         }
-    }    
+    }  else {
+        $SELECT = 'SELECT usuario 
+                        FROM personas;';
+        
+        $consulta = $conexion->prepare($SELECT);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            $respuesta = [];
+            while ($usuario = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                $respuesta[] = $usuario;
+            }
+            $jsonDatos = json_encode($respuesta);
+            header($headerJSON);
+            header($codigosHTTP['200']);
+        }else {
+            header($headerJSON);
+            header($codigosHTTP['404']);
+        }
+    }  
     echo $jsonDatos;
 }
 
