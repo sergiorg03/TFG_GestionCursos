@@ -83,7 +83,7 @@ public class FuncionesVarias {
      * @return -- True si  la cadena introducida tiene texto, False si no.
      */
     public boolean contieneTexto(String cadena){
-        boolean contiene = (cadena == null || cadena == "")? false : true;
+        boolean contiene = (cadena == null || cadena == "" || cadena.isEmpty())? false : true;
         return contiene;
     }
 

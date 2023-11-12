@@ -68,24 +68,35 @@ public class MainActivity extends AppCompatActivity {
     public void pantallaAyuda(View view) {
         Intent i = new Intent(this, ayuda.class); // Creamos la instancia de la clase intent para pasar a otra pantalla
         startActivity(i); // Cambiamos de pantalla
-
         finish(); // Terminamos la pantalla Main
     }
 
+    /**
+     * Metodo para ir a la clase signIn (Crear cuenta)
+     * @param view
+     */
     public void signIn(View view) {
         Intent i = new Intent(this, signIn.class);
         startActivity(i);
         finish();
     }
 
+    /**
+     * Metodo que se ejecuta al pulsar el boton de LogIn y comprueba si los TV tiene texto, y si no salta un error
+     * @param v -- View del boton pulsado
+     */
     public void checkUsNotNullAndPassNotNull(View v){
-        if (fv.contieneTexto(this.usuario.getText().toString()) && fv.contieneTexto(this.contra.getText().toString())) {
+        if (fv.contieneTexto(this.usuario.getText().toString().trim()) && fv.contieneTexto(this.contra.getText().toString().trim())) {
             logIn(v);
         }else{
             fv.mostrarMensaje(this, "Rellene ambos campos para poder iniciar sesion. ");
         }
     }
 
+    /**
+     * Metodo para hacer LogIn
+     * @param v 
+     */
     public void logIn(View v) {
         String us = usuario.getText().toString();
         String pass = contra.getText().toString();
@@ -122,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onConsultaError(VolleyError error) {
                     //error.printStackTrace();
-                    fv.mostrarMensaje(MainActivity.this, "Rellene ambos campos para iniciar sesion. ");
                 }
             })[0];
         }else{
@@ -175,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
+                        fv.mostrarMensaje(MainActivity.this, "El usuario introducido no existe, cree una cuenta para iniciar sesion.");
                         consultaDatos.onConsultaError(error);
                     }
                 });
