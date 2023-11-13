@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE' || $_SERVER['REQUEST_METHOD'] == 'POS
     //Obtenemos el id del curso a borrar
     $id_curso = $datos['id_curso'];
 
-    //Creamos la consulta para borrar el dato
+    //Creamos la consulta para borrar el curso
     $DELETE = 'DELETE FROM cursos
                     WHERE id = :id';
 

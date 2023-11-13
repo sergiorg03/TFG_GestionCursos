@@ -13,8 +13,10 @@ $datos = '';
 if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
     // Se transforma el json de entrada
     $datos = json_decode(file_get_contents('php://input'), true);
+	// Obtenemos el id del curso
     $id_curso = $datos['id_curso'];
 
+	// Creamos las sentencias de modificación de datos de las preguntas y las opciones
     $UPDATE_PREGUNTAS = 'UPDATE preguntas
                             SET Enunciado = :enun
                           WHERE id = :id

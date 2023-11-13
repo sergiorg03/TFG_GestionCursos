@@ -12,7 +12,8 @@ $datos = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (isset($_GET['dni'])) {
+    if (isset($_GET['dni'])) {// Está definido el dni
+		// Creamos la consulta
         $SELECT = 'SELECT dni, nombre, apellido1, apellido2, telefono, email, usuario, contra, perfil
                         FROM personas
                         WHERE UPPER(dni) = UPPER(:dni);';
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             header($headerJSON);
             header($codigosHTTP['200']);
             $jsonDatos = json_encode($datosPersona);
-        }else {
+        }else {// No devolvió nada la consulta
             header($headerJSON);
             header($codigosHTTP['404']);
             $errores[] = 'no hay datos';

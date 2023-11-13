@@ -11,12 +11,12 @@ $errores = [];
 $datos = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    
+    // Creamos la consulta para obtener todos los cursos
     $SELECT = 'SELECT id, nombre, ruta_pdf
                     FROM cursos;';
-
+	// Preparamos la consulta
     $consulta = $conexion->prepare($SELECT);
-
+	// Ejecutamos la consulta
     $consulta->execute();
 
     if ($consulta->rowCount() > 0) {
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
         header($headerJSON);
         header($codigosHTTP['200']);
-        $jsonDatos = json_encode($cursos);
+        $jsonDatos = json_encode($cursos);// Si hay datos, los añadimos a la var jsonDatos
     }
 
     //Cerramos la consulta y la conexion

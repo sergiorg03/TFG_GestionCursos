@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // Transformamos el JSON de entrada de datos a un array asociativo 
     $datos = json_decode(file_get_contents('php://input'), true);
     $id_curso = intval($datos['id_curso']);
-    // consulta preparada 
+    // consultas para la insercion de tests y sus opciones
     $INSERT_PREGUNTAS = 'INSERT INTO gestionCursos.preguntas (id, id_curso, enunciado)
                             VALUES
                                 (:id, :curso, :enun);';

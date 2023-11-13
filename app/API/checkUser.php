@@ -26,13 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
             header($headerJSON);
             header($codigosHTTP['200']);
         }else { // El usuario introducido existe
-            // Mostramos por la salida el mensaje 404 de Not Found si no existen datos con el id recibido
+            // Devolvemos un codigo 200 ya que la consulta dse realizó correctamente y devolvemos que existe el usuario
             $respuesta['usuario'] = 'existe';
             $jsonDatos = json_encode($respuesta);
             header($headerJSON);
             header($codigosHTTP['200']);
         }
-    }  else {
+    }  else {// Si no se define el usuario, creamos una consulta que devuelva todos los usuarios
         $SELECT = 'SELECT usuario 
                         FROM personas;';
         

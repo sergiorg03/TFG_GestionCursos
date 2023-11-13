@@ -11,9 +11,10 @@ $errores = [];
 $datos = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    
+    //Obtenemos el id del curso
     $id_curso = $_GET['idCurso'];
 
+	// Creamos las consultas para la obtencion de los tests y sus opciones
     $SELECT_PREGUNTAS = 'SELECT p.id AS id_pregunta, p.enunciado AS enunciado_preguntas
                             FROM preguntas AS p
                             WHERE p.id_curso = :idCurso
@@ -56,15 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         header($headerJSON);
         header($codigosHTTP['200']);
-        $jsonDatos = json_encode($preguntas);
-    }else{
+        $jsonDatos = json_encode($preguntas); // Añadimos las preguntas con sus opciones
+    }else{ // Se produjo un error y no hay test
         header($headerJSON);
         header($codigosHTTP['404']);
         $errores[] = 'No se pudo obtener datos del curso';
         $jsonDatos = json_encode($errores);
     }
 
-    echo $jsonDatos;
+    echo $jsonDatos;// Devolvemos los datos recaudados
 
     // Cerramos la conexion y las consultas
     $consulta_op = null;
