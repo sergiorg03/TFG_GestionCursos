@@ -10,11 +10,11 @@
     <!-- IP portatil Toshiba Linux -->
     <!-- <string name="ip">192.168.1.36</string> -->
     <!-- IP sobremesa -->
-    <!-- <string name="ip">192.168.1.156</string> -->
+    <string name="ip">192.168.1.156</string>
     <!-- IP del protatil -->
     <!-- <string name="ip">192.168.1.146</string> -->
     <!-- IP WIFI Movil -->
-    <string name="ip">192.168.135.37</string>
+    <!-- <string name="ip">192.168.135.37</string> -->
     <string-array name="perfiles">
         <item id="0">Elija su perfil</item>
         <item id="1">Gestor</item>

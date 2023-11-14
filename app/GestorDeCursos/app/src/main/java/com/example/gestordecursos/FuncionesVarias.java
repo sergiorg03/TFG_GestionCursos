@@ -15,7 +15,16 @@ import java.util.regex.Pattern;
  */
 public class FuncionesVarias {
 
+    private final String IP = "192.168.1.156";
     final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+
+    /**
+     * Metodo get
+     * @return -- Devuelve el valor de la IP
+     */
+    public String getIP(){
+        return IP;
+    }
 
     /**
      * Funcion que comprueba si el DNI esta bien formado o no

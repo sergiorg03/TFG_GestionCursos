@@ -139,7 +139,8 @@ public class MainActivity extends AppCompatActivity {
         if (fv.contieneTexto(us) && fv.contieneTexto(pass)) {
 
         // URL del API a consultar
-        final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkLogin.php?usuario=" + us + "&contra=" + pass;
+        // final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkLogin.php?usuario=" + us + "&contra=" + pass;
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/checkLogin.php?usuario=" + us + "&contra=" + pass;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
