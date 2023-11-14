@@ -407,7 +407,8 @@ public class cursosGestores extends AppCompatActivity {
      * @param id_curso
      */
     public void borrarCurso(String id_curso){
-        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/deleteCourse.php";
+        //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/deleteCourse.php";
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/deleteCourse.php";
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -582,7 +583,8 @@ public class cursosGestores extends AppCompatActivity {
 
         List<String[]> listaCursos = new ArrayList<>();
 
-        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getAllCourses.php";
+        //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getAllCourses.php";
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/getAllCourses.php";
 
         RequestQueue rq = Volley.newRequestQueue(this);
 

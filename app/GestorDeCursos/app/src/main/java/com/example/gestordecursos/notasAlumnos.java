@@ -242,7 +242,8 @@ public class notasAlumnos extends AppCompatActivity {
         String dni_usu = this.dni;
 
         // url de la API a consulta
-        final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/getMarks.php?dni=" + dni_usu;
+        // final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/getMarks.php?dni=" + dni_usu;
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/getMarks.php?dni=" + dni_usu;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 

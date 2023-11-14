@@ -160,7 +160,7 @@ public class signIn extends AppCompatActivity {
         String user = us.getText().toString();
 
         // URL del API a consultar
-        final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkUser.php?usuario=" + user;
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/checkUser.php?usuario=" + user;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -209,7 +209,8 @@ public class signIn extends AppCompatActivity {
     public void crearUsuario
             (String dni, String nombre, String ap1, String ap2, String telf, String email, String us, String contra, String perfil)
     {
-        final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/newPerson.php";
+        // final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/newPerson.php";
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/newPerson.php";
 
         StringRequest sr = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
@@ -270,7 +271,8 @@ public class signIn extends AppCompatActivity {
     }
 
     public List<String> obtenerUsuarios(ConsultarDatosUsuarios cdu){
-        final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkUser.php";
+        // final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkUser.php";
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/checkUser.php";
 
         List<String> listaUsuarios = new ArrayList<>();
 

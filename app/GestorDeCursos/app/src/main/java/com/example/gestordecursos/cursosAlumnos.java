@@ -288,7 +288,8 @@ public class cursosAlumnos extends AppCompatActivity {
 
     public List<String []> getCursos(ConsultarDatos cd){
 
-        final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getAllCourses.php";
+        // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getAllCourses.php";
+        final String URL = "http://" + fv.getIP() + "/tfg/app/API/getAllCourses.php";
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
