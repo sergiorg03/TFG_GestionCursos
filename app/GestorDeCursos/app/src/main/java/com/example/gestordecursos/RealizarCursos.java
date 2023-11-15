@@ -31,6 +31,8 @@ public class RealizarCursos extends AppCompatActivity {
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
     String id_curso;
+    String clase;
+    Class claseAnterior;
     TextView pregunta1;
     TextView pregunta2;
     TextView pregunta3;
@@ -124,7 +126,8 @@ public class RealizarCursos extends AppCompatActivity {
 
         dni = getIntent().getStringExtra("dni");
         id_curso = getIntent().getStringExtra("idCurso");
-
+        clase = getIntent().getStringExtra("clase");
+        claseAnterior = fv.obtenerClase(clase);
         inicializarVars();
     }
 
@@ -218,7 +221,7 @@ public class RealizarCursos extends AppCompatActivity {
      * @param v
      */
     public void volver(View v){
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, claseAnterior);
         i.putExtra("dni", dni);
         startActivity(i);
         finish();
@@ -680,7 +683,7 @@ public class RealizarCursos extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        fv.mostrarMensaje(RealizarCursos.this,"Nota guardada correctamente. ");
+                        fv.mostrarMensaje(RealizarCursos.this,"Su nota fue guardada correctamente. ");
                         volver(findViewById(R.id.Back).getRootView());
                     }
                 },
@@ -730,7 +733,7 @@ public class RealizarCursos extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        fv.mostrarMensaje(RealizarCursos.this,"Nota actualizada correctamente. ");
+                        fv.mostrarMensaje(RealizarCursos.this,"Su nota fue guardada correctamente. ");
                         volver(findViewById(R.id.Back).getRootView());
                     }
                 },
