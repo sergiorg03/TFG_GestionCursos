@@ -135,7 +135,7 @@ public class Perfil extends AppCompatActivity {
      */
     public String[] getDatos(ConsultarDatos cd){
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getProfileData.php?dni="+this.dni;
-        final String URL = "http://" + fv.getIP() + "/tfg/app/API/getProfileData.php?dni="+this.dni;
+        final String URL = fv.getURL()+"getProfileData.php?dni="+this.dni;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -239,7 +239,7 @@ public class Perfil extends AppCompatActivity {
         String [] datosNuevos = asignarValoresDeCambio();
 
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/updateProfileData.php";
-        final String URL = "http://" + fv.getIP() + "/tfg/app/API/updateProfileData.php";
+        final String URL = fv.getURL()+"updateProfileData.php";
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -288,7 +288,7 @@ public class Perfil extends AppCompatActivity {
 
     public void deleteProfile(View v){
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/deleteProfile.php";
-        final String URL = "http://" + fv.getIP() + "/tfg/app/API/deleteProfile.php";
+        final String URL = fv.getURL()+"deleteProfile.php";
         System.out.println("dni-->"+dni);
 
         RequestQueue rq = Volley.newRequestQueue(this);

@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class FuncionesVarias {
 
     private final String IP = "192.168.135.37";
-    private final String URL = "http://" + getIP() + "/tfg/app/API/";
+    private final String URL = setURL();
     final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
     /**
@@ -24,7 +24,23 @@ public class FuncionesVarias {
      * @return -- Devuelve el valor de la IP
      */
     public String getIP(){
-        return IP;
+        return this.IP;
+    }
+
+    /**
+     * Metodo para montar la URL
+     * @return -- Devuelve la URL
+     */
+    private String setURL(){
+        return "http://" + getIP() + "/tfg/app/API/";
+    }
+
+    /**
+     * Metodo para obtener la URL en las diferentes clases
+     * @return -- Devuelve la URL
+     */
+    public String getURL(){
+        return this.URL;
     }
 
     /**

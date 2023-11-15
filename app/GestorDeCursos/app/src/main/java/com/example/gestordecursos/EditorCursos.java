@@ -470,7 +470,7 @@ public class EditorCursos extends AppCompatActivity {
     public Map<String[], List<String[]>> getPreguntas(ConsultarDatos cd){
 
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getTest.php?idCurso="+id_curso;
-        final String URL = "http://" + fv.getIP() + "/tfg/app/API/getTest.php?idCurso="+id_curso;
+        final String URL = fv.getURL()+"getTest.php?idCurso="+id_curso;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -573,7 +573,7 @@ public class EditorCursos extends AppCompatActivity {
      */
     public void crearTest(){
         //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/addTest.php";
-        final String URL = "http://" + fv.getIP() + "/tfg/app/API/addTest.php";
+        final String URL = fv.getURL()+"addTest.php";
 
         Map<String[], List<String[]>> datosNuevos = obtenerNuevosDatos();
 
@@ -818,7 +818,7 @@ public class EditorCursos extends AppCompatActivity {
      */
     public void modificarTest(){
         //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/updateTest.php";
-        final String URL = "http://" + fv.getIP() + "/tfg/app/API/updateTest.php";
+        final String URL = fv.getURL()+"updateTest.php";
 
         Map<String[], List<String[]>> datosNuevos = obtenerNuevosDatos();
 
