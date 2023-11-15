@@ -38,7 +38,7 @@ INSERT INTO gestionCursos.gestionar (dni, id_curso)
 -- Pregunta 1
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
 	VALUES
-		(1, 1, '¿Cuál comando se utiliza para mostrar el contenido de un directorio en Linux?');
+		(1, 1, '¿Cuál comando se utiliza para mostrar el contenido de un directorio?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -49,18 +49,18 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 2
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(2, 1, '¿Qué comando se usa para cambiar los permisos de un archivo en Linux?');
+		(2, 1, '¿Qué ruta se corresponde con una ruta absoluta?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 2, 1, 'chmod', 1),
-		(2, 2, 1, 'chown', 0),
-		(3, 2, 1, 'permisos', 0);
+		(1, 2, 1, './documentos/file.txt', 0),
+		(2, 2, 1, '/home/usuario/documentos/file.txt', 1),
+		(3, 2, 1, 'ninguna es correcta', 0);
 		
 -- Pregunta 3
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(3, 1, '¿Qué comando se usa para crear un directorio en Linux?');
+		(3, 1, '¿Qué comando se usa para crear un directorio?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -71,7 +71,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 4
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(4, 1, '¿Cuál comando se utiliza para eliminar un archivo en Linux?');
+		(4, 1, '¿Cuál comando se utiliza para eliminar un archivo?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -82,29 +82,29 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 5
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(5, 1, '¿Qué comando se utiliza para buscar archivos en un directorio en Linux?');
+		(5, 1, '¿Qué comando se utiliza para buscar archivos en un directorio?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 5, 1, 'find', 1),
-		(2, 5, 1, 'locate', 0),
+		(1, 5, 1, 'locate', 0),
+		(2, 5, 1, 'find', 1),
 		(3, 5, 1, 'search', 0);
 
 -- Pregunta 6
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(6, 1, '¿Cuál comando se usa para mostrar el contenido de un archivo en Linux?');
+		(6, 1, '¿Qué comando se usa ir al directorio raiz?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 6, 1, 'read', 0),
-		(2, 6, 1, 'show', 0),
-		(3, 6, 1, 'cat', 1);
+		(1, 6, 1, 'cd c:', 0),
+		(2, 6, 1, '/', 0),
+		(3, 6, 1, 'cd /', 1);
 
 -- Pregunta 7
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(7, 1, '¿Qué comando se utiliza para cambiar el directorio actual en Linux?');
+		(7, 1, '¿Qué comando se utiliza para cambiar el directorio actual?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -115,35 +115,35 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 8
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(8, 1, '¿Cuál comando se utiliza para listar todos los procesos en ejecución en Linux?');
+		(8, 1, '¿Cuál comando se utiliza para crear una copia de seguridad?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 8, 1, 'ps', 1),
-		(2, 8, 1, 'top', 0),
-		(3, 8, 1, 'processlist', 0);
+		(1, 8, 1, 'duplicity', 1),
+		(2, 8, 1, 'BackUp', 0),
+		(3, 8, 1, 'save', 0);
 
 -- Pregunta 9
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(9, 1, '¿Qué comando se usa para comprimir archivos en un archivo zip en Linux?');
+		(9, 1, '¿Qué comando se usa para mostrar el contenido de archivos?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 9, 1, 'zip', 1),
-		(2, 9, 1, 'gzip', 0),
-		(3, 9, 1, 'compress', 0);
+		(1, 9, 1, 'cat', 0),
+		(2, 9, 1, 'more', 0),
+		(3, 9, 1, 'Ambas son correctas', 1);
 
 -- Pregunta 10
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(10, 1, '¿Cuál comando se utiliza para cambiar la contraseña de un usuario en Linux?');
+		(10, 1, '¿Cuál comando se utiliza para copiar archivos y directorios?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 10, 1, 'userpass', 0),
-		(2, 10, 1, 'changepass', 0),
-		(3, 10, 1, 'passwd', 1);
+		(1, 10, 1, 'cop', 0),
+		(2, 10, 1, 'copyDir', 0),
+		(3, 10, 1, 'cp', 1);
 		
 -- ----------------------------------------
 -- Curso Bases de datos: Data Manipulation Languaje
@@ -196,7 +196,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 5
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(5, 2, '¿Qué cláusula SQL se usa para filtrar resultados en una consulta SELECT?');
+		(5, 2, '¿Qué cláusula SQL se usa para filtrar resultados en una consulta?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -211,9 +211,9 @@ INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 6, 2, 'JOIN', 1),
-		(2, 6, 2, 'COMBINE', 0),
-		(3, 6, 2, 'MERGE', 0);
+		(1, 6, 2, 'JOIN', 0),
+		(2, 6, 2, ',', 0),
+		(3, 6, 2, 'Ambas son correctas', 1);
 
 -- Pregunta 7
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
@@ -281,9 +281,9 @@ INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 2, 3, 'DROP TABLE', 1),
+		(1, 2, 3, 'REMOVE TABLE', 0),
 		(2, 2, 3, 'DELETE TABLE', 0),
-		(3, 2, 3, 'REMOVE TABLE', 0);
+		(3, 2, 3, 'DROP TABLE', 1);
 		
 -- Pregunta 3
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -303,9 +303,9 @@ INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
-		(1, 4, 3, 'ALTER TABLE', 1),
+		(1, 4, 3, 'INSERT COLUMN', 0),
 		(2, 4, 3, 'ADD COLUMN', 0),
-		(3, 4, 3, 'INSERT COLUMN', 0);
+		(3, 4, 3, 'ALTER TABLE', 1);
 		
 -- Pregunta 5
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -372,4 +372,3 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(1, 10, 3, 'RENAME TABLE', 1),
 		(2, 10, 3, 'ALTER TABLE', 0),
 		(3, 10, 3, 'CHANGE TABLE', 0);
-		
