@@ -32,7 +32,7 @@ public class FuncionesVarias {
      * @return -- Devuelve la URL
      */
     private String setURL(){
-        return "http://" + getIP() + "/tfg/app/API/";
+        return "http://"+getIP()+"/tfg/app/API/";
     }
 
     /**
