@@ -293,7 +293,7 @@ public class Perfil extends AppCompatActivity {
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
-        StringRequest sr = new StringRequest(/*Request.Method.DELETE*/ Request.Method.POST, URL,
+        StringRequest sr = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
