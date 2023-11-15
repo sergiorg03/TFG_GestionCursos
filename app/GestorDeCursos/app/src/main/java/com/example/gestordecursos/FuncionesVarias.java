@@ -38,9 +38,9 @@ public class FuncionesVarias {
      * Metodo para montar la URL
      * @return -- Devuelve la URL
      */
-    /*private String setURL(){
+    private String setURL(){
         return "http://"+IP+"/tfg/app/API/";
-    }*/
+    }
 
     /**
      * Metodo para obtener la URL en las diferentes clases
