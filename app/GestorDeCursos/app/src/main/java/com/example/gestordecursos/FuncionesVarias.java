@@ -1,12 +1,8 @@
 package com.example.gestordecursos;
 
-import android.app.DownloadManager;
 import android.content.Context;
 import android.net.Uri;
-import android.os.Environment;
 import android.widget.Toast;
-
-import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,9 +16,15 @@ public class FuncionesVarias {
     //IP conexion portátil Movistar-334D
     //private final String IP = "192.168.1.156";
     //IP conexion PC sobremesa
-    private final String IP = "192.168.1.156";
-    private final String URL = setURL();
-    final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+    private String IP;
+    private String URL;
+    private final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+
+    public FuncionesVarias (){
+        this.IP = "192.168.1.156";
+        this.URL = "http://"+this.IP+"/tfg/app/API/";
+        System.out.println("IP: "+IP + " URL: "+ URL);
+    }
 
     /**
      * Metodo get
@@ -36,9 +38,9 @@ public class FuncionesVarias {
      * Metodo para montar la URL
      * @return -- Devuelve la URL
      */
-    private String setURL(){
-        return "http://"+getIP()+"/tfg/app/API/";
-    }
+    /*private String setURL(){
+        return "http://"+IP+"/tfg/app/API/";
+    }*/
 
     /**
      * Metodo para obtener la URL en las diferentes clases
