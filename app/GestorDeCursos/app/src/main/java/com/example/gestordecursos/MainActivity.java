@@ -138,48 +138,48 @@ public class MainActivity extends AppCompatActivity {
 
         if (fv.contieneTexto(us) && fv.contieneTexto(pass)) {
 
-        // URL del API a consultar
-        // final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkLogin.php?usuario=" + us + "&contra=" + pass;
-        final String URL = fv.getURL()+"checkLogin.php?usuario=" + us + "&contra=" + pass;
+            // URL del API a consultar
+            //final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkLogin.php?usuario=" + us + "&contra=" + pass;
+            final String URL = fv.getURL()+"checkLogin.php?usuario=" + us + "&contra=" + pass;
 
-        RequestQueue rq = Volley.newRequestQueue(this);
+            RequestQueue rq = Volley.newRequestQueue(this);
 
-        // Var para devolver la clase siguiente
-        String[] perfil = new String[2];
+            // Var para devolver la clase siguiente
+            String[] perfil = new String[2];
 
-        // Creamos un StringRequest con el metodo GET, al que le pasamos la URL de la API y realizamos la consulta
-        StringRequest sr = new StringRequest(Request.Method.GET, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+            // Creamos un StringRequest con el metodo GET, al que le pasamos la URL de la API y realizamos la consulta
+            StringRequest sr = new StringRequest(Request.Method.GET, URL,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
 
-                        try {
-                            JSONArray ja = new JSONArray(response);
-                            JSONObject json = ja.getJSONObject(0);
+                            try {
+                                JSONArray ja = new JSONArray(response);
+                                JSONObject json = ja.getJSONObject(0);
 
-                            String perfil_obtenido = json.getString("perfil");
-                            String dni = json.getString("dni");
-                            perfil[0] = perfil_obtenido.equalsIgnoreCase("a") ? "perfilAlumno" : "perfilGestor";
-                            perfil[1] = dni;
+                                String perfil_obtenido = json.getString("perfil");
+                                String dni = json.getString("dni");
+                                perfil[0] = perfil_obtenido.equalsIgnoreCase("a") ? "perfilAlumno" : "perfilGestor";
+                                perfil[1] = dni;
 
-                            consultaDatos.onConsultaExitosa(perfil[0], perfil[1]);
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
+                                consultaDatos.onConsultaExitosa(perfil[0], perfil[1]);
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            }
                         }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                        fv.mostrarMensaje(MainActivity.this, "El usuario introducido no existe, cree una cuenta para iniciar sesion.");
-                        consultaDatos.onConsultaError(error);
-                    }
-                });
-        // Anadimos la request a la cola
-        rq.add(sr);
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                            fv.mostrarMensaje(MainActivity.this, "El usuario introducido no existe, cree una cuenta para iniciar sesion.");
+                            consultaDatos.onConsultaError(error);
+                        }
+                    });
+            // Anadimos la request a la cola
+            rq.add(sr);
 
-        return perfil;
+            return perfil;
         }
         return null;
     }

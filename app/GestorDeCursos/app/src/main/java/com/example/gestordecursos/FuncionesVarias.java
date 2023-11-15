@@ -11,23 +11,19 @@ import java.util.regex.Pattern;
  */
 public class FuncionesVarias {
 
-    //IP conexion datos moviles
-    //private final String IP = "192.168.135.37";
-    //IP conexion portátil Movistar-334D
-    //private final String IP = "192.168.1.156";
     //IP conexion PC sobremesa
     private String IP;
     private String URL;
     private final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
     public FuncionesVarias (){
-        this.IP = "192.168.1.156";
+        this.IP = "192.168.135.37";
         this.URL = "http://"+this.IP+"/tfg/app/API/";
-        System.out.println("IP: "+IP + " URL: "+ URL);
+        //System.out.println("IP: "+IP + " URL: "+ URL);
     }
 
     /**
-     * Metodo get
+     * Metodo GET
      * @return -- Devuelve el valor de la IP
      */
     public String getIP(){
@@ -35,14 +31,15 @@ public class FuncionesVarias {
     }
 
     /**
-     * Metodo para montar la URL
+     * Metodo SET
      * @return -- Devuelve la URL
      */
-    private String setURL(){
-        return "http://"+IP+"/tfg/app/API/";
+    private void setURL(String URL){
+        this.URL = URL;
     }
 
     /**
+     * Metodo GET
      * Metodo para obtener la URL en las diferentes clases
      * @return -- Devuelve la URL
      */
