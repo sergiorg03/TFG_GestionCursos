@@ -783,11 +783,11 @@ public class cursosGestores extends AppCompatActivity {
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
         try {
-            System.out.println("url.toStrong--> " + url.toString());
+            System.out.println("url.toStrong--> " + url.getLastPathSegment());
 
-            File pdf = new File(getExternalFilesDir(null), fv.nombreCurso(url) + ".pdf");
+            File pdf = new File(fv.nombreCurso(url.getLastPathSegment()));
 
-            System.out.println("Ruta archivo pdfAGuardar--> "+ pdf.getPath());
+            System.out.println("Ruta para guardar el archivo pdf--> "+ pdf.getPath());
 
             InputStream is = getContentResolver().openInputStream(url);
             OutputStream os = new FileOutputStream(pdf);

@@ -140,11 +140,16 @@ public class FuncionesVarias {
         return clase;
     }
 
-    public String nombreCurso(Uri ruta){
+    /**
+     * Metodo que devuelve el nombre de un archivo
+     * @param ruta -- ruta del archivo del que sacar el nombre
+     * @return -- Nombre sin espacios en blanco
+     */
+    public String nombreCurso(String ruta){
 
-        System.out.println("FV > nombreCurso--> nombre--> "+ quitarEspaciosEnBlanco(ruta.getLastPathSegment()));
-
-        return quitarEspaciosEnBlanco(ruta.getLastPathSegment());
+        System.out.println("FV > nombreCurso--> nombre--> "+ quitarEspaciosEnBlanco(ruta));
+        String [] nombre = ruta.split("/");
+        return quitarEspaciosEnBlanco(nombre[nombre.length-1]);
     }
 
     /**

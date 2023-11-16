@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             error.printStackTrace();
-                            fv.mostrarMensaje(MainActivity.this, "El usuario introducido no existe, cree una cuenta para iniciar sesion.");
+                            fv.mostrarMensaje(MainActivity.this, "El usuario o la contraseña introducidas contienen un error.");
                             consultaDatos.onConsultaError(error);
                         }
                     });
