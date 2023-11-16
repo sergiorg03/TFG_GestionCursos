@@ -782,12 +782,14 @@ public class cursosGestores extends AppCompatActivity {
         fv.mostrarMensaje(this, "TERMINAR METODOOOOOO.   ");
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
+        File pdf = null;
         try {
             System.out.println("url.toStrong--> " + url.getLastPathSegment());
 
-            File pdf = new File("/storage/self/primary/Download" + File.separator + "cursos/"+ fv.nombreCurso(url.getLastPathSegment()));
+            pdf = new File("/storage/self/primary/Download" + File.separator + "cursos/", fv.nombreCurso(url.getLastPathSegment()));
 
             System.out.println("Ruta para guardar el archivo pdf--> "+ pdf.getPath());
+            System.out.println("Nombre curso: "+ pdf.getName());
 
             InputStream is = getContentResolver().openInputStream(url);
             OutputStream os = new FileOutputStream(pdf);
@@ -803,8 +805,35 @@ public class cursosGestores extends AppCompatActivity {
             System.out.println("ERRORRRRRRRRRRRRRRRRR");
             e.printStackTrace();
         }
-
-        // Añadir curso a la API
+        String nombre = pdf.getName()!=null? pdf.getName() : "N/A";
+        // Añadimos el curso a la API
+        addCourse(nombre);
         // crearTest(); Enviar dni, id_curso, clase
+    }
+
+    //Metodo para añadir el curso a la api
+    public void addCourse(String nombreCurso){
+        System.out.println("Nombre del curso = "+ nombreCurso);
+
+        final String URL = fv.getURL()+"addCourse.php";
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        // añadimos la peticion a la cola
+        rq.add(sr);
     }
 }
