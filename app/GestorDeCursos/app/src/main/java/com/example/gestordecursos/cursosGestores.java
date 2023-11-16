@@ -757,9 +757,9 @@ public class cursosGestores extends AppCompatActivity {
      * @param v
      */
     public void addCourse(View v){
-            /*Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Downloads.EXTERNAL_CONTENT_URI);
-            i.setType("pdf/");
-            startActivityForResult(i.createChooser(i, "Seleccione el curso a subir: "), 10);*/
+        /*Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Downloads.EXTERNAL_CONTENT_URI);
+        i.setType("pdf/");
+        startActivityForResult(i.createChooser(i, "Seleccione el curso a subir: "), 10);*/
 
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
         i.setType("application/pdf");// Asignamos el tipo de archivo
@@ -782,7 +782,7 @@ public class cursosGestores extends AppCompatActivity {
         fv.mostrarMensaje(this, "TERMINAR METODOOOOOO.   ");
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
-        /*try {
+        try {
             System.out.println("url.toStrong--> " + url.toString());
 
             File pdf = new File(getExternalFilesDir(null), fv.nombreCurso(url) + ".pdf");
@@ -800,8 +800,9 @@ public class cursosGestores extends AppCompatActivity {
             is.close();
             os.close();
         } catch (IOException e) {
+            System.out.println("ERRORRRRRRRRRRRRRRRRR");
             e.printStackTrace();
-        }*/
+        }
 
         // Añadir curso a la API
         // crearTest(); Enviar dni, id_curso, clase
