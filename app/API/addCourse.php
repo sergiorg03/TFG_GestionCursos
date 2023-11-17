@@ -18,6 +18,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$INSERT = 'INSERT INTO gestionCursos.cursos (nombre, ruta_pdf)
                             VALUES
                                 (:nombre, :ruta);';
+    $INSERT_gestionar = 'INSERT INTO gestionCursos.gestionar (dni, id_curso, last_updatedate)
+                                VALUES
+                                    (:dni, :id_curso, SYSDATE());';
 	$consulta = $conexion->prepare($INSERT);
 	// Asignamos los parametros a la consulta
 	$consulta->bindParam(':nombre', $datos['nombre']);
@@ -26,6 +29,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$consulta->execute();
         $id = $conexion->lastInsertId();
         $datos["id_curso"] = $id;
+        // Preparamos la consulta para añadir a la tabla de gestionar
+        $consulta = $conexion->prepare($INSERT_gestionar);
+        $consulta->bindParam(':dni', $datos['dni']);
+	    $consulta->bindParam(':id_curso', $id);
+        $consulta->execute();
 		// creamos el json de salida para comprobar que todo fue correcto
         $jsonDatos = json_encode($datos);
         header($headerJSON);

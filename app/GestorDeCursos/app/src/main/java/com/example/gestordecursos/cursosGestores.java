@@ -394,6 +394,7 @@ public class cursosGestores extends AppCompatActivity {
      * @param id_curso
      */
     public void editarCurso(String id_curso){
+        System.out.println("cursosGestores: editarCurso->");
         Intent i = new Intent(this, informacionEditarCursos.class);
         i.putExtra("dni", dni);
         i.putExtra("clase", "cursosgestores");
@@ -574,6 +575,7 @@ public class cursosGestores extends AppCompatActivity {
 
             @Override
             public void onConsultaError(VolleyError ve) {
+                System.out.println("CursosGestores: mostrarTodosCursos: onConsultaError->");
                 //fv.mostrarMensaje(cursosGesotres.this, "No se pudieron recopilar datos. ");
             }
         });
@@ -857,6 +859,7 @@ public class cursosGestores extends AppCompatActivity {
             public byte[] getBody() {
                 JSONObject jsonBody = new JSONObject();
                 try {
+                    jsonBody.put("dni", dni);
                     jsonBody.put("nombre", nombreCurso);
                     jsonBody.put("ruta_pdf", ruta_pdf);
                 } catch (JSONException e) {

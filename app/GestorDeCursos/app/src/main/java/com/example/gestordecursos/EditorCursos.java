@@ -438,6 +438,7 @@ public class EditorCursos extends AppCompatActivity {
             public void onConsultaError(VolleyError e) {
                 //fv.mostrarMensaje(EditorCursos.this, "No se pudieron recopilar datos. ");
                 existe = false; // No existe el test
+                System.out.println("No existe test");
             }
         });
     }
