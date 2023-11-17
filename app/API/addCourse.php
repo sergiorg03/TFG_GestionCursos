@@ -24,6 +24,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$consulta->bindParam(':ruta', $datos['ruta_pdf']);
 	try{
 		$consulta->execute();
+        $id = $conexion->lastInsertId();
+        $datos["id_curso"] = $id;
 		// creamos el json de salida para comprobar que todo fue correcto
         $jsonDatos = json_encode($datos);
         header($headerJSON);

@@ -755,7 +755,7 @@ public class RealizarCursos extends AppCompatActivity {
                 try {
                     jsonBody.put("dni", dni);
                     jsonBody.put("id_curso", id_curso);
-                    jsonBody.put("puntuacion", puntuacion);;
+                    jsonBody.put("puntuacion", puntuacion);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

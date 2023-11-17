@@ -779,7 +779,6 @@ public class cursosGestores extends AppCompatActivity {
     }
 
     public void copiarPDF(Uri url) {
-        fv.mostrarMensaje(this, "TERMINAR METODOOOOOO.   ");
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
         File pdf = null;
@@ -805,14 +804,16 @@ public class cursosGestores extends AppCompatActivity {
             System.out.println("ERRORRRRRRRRRRRRRRRRR");
             e.printStackTrace();
         }
-        String nombre = pdf.getName()!=null? pdf.getName() : "N/A";
+        String [] rutaNombre = url.getLastPathSegment().split("/");
+        String nombre = rutaNombre[(rutaNombre.length-1)];
+        System.out.println("Nombre: "+nombre+" ruta: "+ruta);
         // Añadimos el curso a la API
-        addCourse(nombre);
+        addCourse(nombre, ruta);
         // crearTest(); Enviar dni, id_curso, clase
     }
 
     //Metodo para añadir el curso a la api
-    public void addCourse(String nombreCurso){
+    public void addCourse(String nombreCurso, String ruta_pdf){
         System.out.println("Nombre del curso = "+ nombreCurso);
 
         final String URL = fv.getURL()+"addCourse.php";
@@ -823,16 +824,39 @@ public class cursosGestores extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            String id_curso = json.getString("id_curso");
+                            System.out.println("cursosGestores: addCourse: id_curso: "+id_curso);
+                            editarCurso(id_curso);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        fv.mostrarMensaje(cursosGestores.this, "No se pudo crear el curso, intentelo más tarde. ");
                     }
                 }
-        );
+        ){
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+            @Override
+            public byte[] getBody() {
+                JSONObject jsonBody = new JSONObject();
+                try {
+                    jsonBody.put("nombre", nombreCurso);
+                    jsonBody.put("ruta_pdf", ruta_pdf);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return jsonBody.toString().getBytes();
+            }
+        };
         // añadimos la peticion a la cola
         rq.add(sr);
     }
