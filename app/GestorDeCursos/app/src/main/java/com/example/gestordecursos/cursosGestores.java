@@ -772,6 +772,7 @@ public class cursosGestores extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 10 && resultCode == RESULT_OK && data != null) {
+            System.out.println("cursosGestores: onActivityResult: data.getData().getPath(): "+data.getData().getPath());
             Uri pdf = data.getData();
             System.out.println(pdf);
             copiarPDF(pdf);
@@ -788,8 +789,14 @@ public class cursosGestores extends AppCompatActivity {
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
         File pdf = null;
+        String [] rutaNombre = null;
+        String nombre = null;
+        String [] nombre_final = null;
         try {
             System.out.println("url.getLastPathSegment()--> " + url.getLastPathSegment());
+            rutaNombre = url.getLastPathSegment().split("/");
+            nombre = rutaNombre[(rutaNombre.length-1)];
+            nombre_final = nombre.split(":");
 
             pdf = new File("/storage/self/primary/Download" + File.separator + "cursos/", fv.nombreCurso(url.getLastPathSegment()));
 
@@ -810,11 +817,10 @@ public class cursosGestores extends AppCompatActivity {
             System.out.println("ERRORRRRRRRRRRRRRRRRR");
             e.printStackTrace();
         }
-        String [] rutaNombre = url.getLastPathSegment().split("/");
-        String nombre = rutaNombre[(rutaNombre.length-1)];
-        System.out.println("Nombre: "+nombre+" ruta: "+ruta);
+
+        System.out.println("Nombre: "+nombre_final[(rutaNombre.length-1)]+" ruta: "+ruta);
         // Añadimos el curso a la API
-        addCourse(nombre, ruta);
+        //addCourse(nombre, ruta);
         // crearTest(); Enviar dni, id_curso, clase
     }
 
