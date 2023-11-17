@@ -3,6 +3,7 @@ package com.example.gestordecursos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -20,9 +21,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -337,7 +341,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso1.getText().toString())){
-                    downloadPDF(ruta_pdf_curso1);
+                    downloadPDF(ruta_pdf_curso1, tv_curso1.getText().toString());
                     nextClass(id_curso1);
                 }
             }
@@ -347,7 +351,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso2.getText().toString())){
-                    downloadPDF(ruta_pdf_curso2);
+                    downloadPDF(ruta_pdf_curso2, tv_curso2.getText().toString());
                     nextClass(id_curso2);
                 }
             }
@@ -357,7 +361,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso3.getText().toString())){
-                    downloadPDF(ruta_pdf_curso3);
+                    downloadPDF(ruta_pdf_curso3, tv_curso3.getText().toString());
                     nextClass(id_curso3);
                 }
             }
@@ -367,7 +371,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso4.getText().toString())){
-                    downloadPDF(ruta_pdf_curso4);
+                    downloadPDF(ruta_pdf_curso4, tv_curso4.getText().toString());
                     nextClass(id_curso4);
                 }
             }
@@ -377,7 +381,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso5.getText().toString())){
-                    downloadPDF(ruta_pdf_curso5);
+                    downloadPDF(ruta_pdf_curso5, tv_curso5.getText().toString());
                     nextClass(id_curso5);
                 }
             }
@@ -387,7 +391,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso6.getText().toString())){
-                    downloadPDF(ruta_pdf_curso6);
+                    downloadPDF(ruta_pdf_curso6, tv_curso6.getText().toString());
                     nextClass(id_curso6);
                 }
 
@@ -398,7 +402,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso7.getText().toString())){
-                    downloadPDF(ruta_pdf_curso7);
+                    downloadPDF(ruta_pdf_curso7, tv_curso7.getText().toString());
                     nextClass(id_curso7);
                 }
 
@@ -409,7 +413,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso8.getText().toString())){
-                    downloadPDF(ruta_pdf_curso8);
+                    downloadPDF(ruta_pdf_curso8, tv_curso8.getText().toString());
                     nextClass(id_curso8);
                 }
             }
@@ -419,7 +423,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso9.getText().toString())){
-                    downloadPDF(ruta_pdf_curso9);
+                    downloadPDF(ruta_pdf_curso9, tv_curso9.getText().toString());
                     nextClass(id_curso9);
                 }
             }
@@ -429,7 +433,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso10.getText().toString())){
-                    downloadPDF(ruta_pdf_curso10);
+                    downloadPDF(ruta_pdf_curso10, tv_curso10.getText().toString());
                     nextClass(id_curso10);
                 }
             }
@@ -439,7 +443,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso11.getText().toString())){
-                    downloadPDF(ruta_pdf_curso11);
+                    downloadPDF(ruta_pdf_curso11, tv_curso11.getText().toString());
                     nextClass(id_curso11);
                 }
             }
@@ -449,7 +453,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso12.getText().toString())){
-                    downloadPDF(ruta_pdf_curso12);
+                    downloadPDF(ruta_pdf_curso12, tv_curso12.getText().toString());
                     nextClass(id_curso12);
                 }
             }
@@ -459,7 +463,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso13.getText().toString())){
-                    downloadPDF(ruta_pdf_curso13);
+                    downloadPDF(ruta_pdf_curso13, tv_curso13.getText().toString());
                     nextClass(id_curso13);
                 }
             }
@@ -469,7 +473,7 @@ public class cursosAlumnos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_curso14.getText().toString())){
-                    downloadPDF(ruta_pdf_curso14);
+                    downloadPDF(ruta_pdf_curso14, tv_curso14.getText().toString());
                     nextClass(id_curso14);
                 }
             }
@@ -494,7 +498,7 @@ public class cursosAlumnos extends AppCompatActivity {
      * Se descarga en la carperta downloads>cursos
      * @param ruta -- nombre del archivo
      */
-    public void downloadPDF(String ruta){
+    public void downloadPDF(String ruta, String nombre){
         try {
             int id = getResources().getIdentifier(ruta, "raw", getPackageName());
 
@@ -503,7 +507,7 @@ public class cursosAlumnos extends AppCompatActivity {
             System.out.println("Id personal--> "+ id);
             System.out.println("packageName--> "+ getPackageName());*/
 
-            InputStream is = getResources().openRawResource(id);
+            InputStream is = getInputStream(id, nombre);
 
             File carpetaCursos = new File("/storage/self/primary/Download" + File.separator + "cursos");
             if (!carpetaCursos.exists()) {
@@ -532,5 +536,32 @@ public class cursosAlumnos extends AppCompatActivity {
         }
         fv.mostrarMensaje(this, "PDF del curso descargado correctamente.");
         fv.mostrarMensaje(this, "El curso se descargo en la carpeta cursos dentro de descargas. ");
+    }
+
+    /**
+     * Metodo que devuelve el InputStream de un curso, por si se encuentra en la carpeta raw o en la carpeta Downloads
+     * @param id -- Id para obtener el curso de la carpeta raw
+     * @param nombre -- Nombre para obtener el curso de la carpeta downloads
+     * @return -- Devuelve el inputStream correcto
+     */
+    public InputStream getInputStream(int id, String nombre){
+        InputStream is = null;
+        try {
+            is = getResources().openRawResource(id);
+        } catch (Resources.NotFoundException e) {
+            // El recurso no se encontró en los recursos, seguirá siendo null
+        }
+
+        // Si el recurso no se encuentra en los recursos, intentar abrirlo desde el almacenamiento externo
+        if (is == null) {
+            File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "cursos/" + nombre);
+
+            try {
+                is = new FileInputStream(f);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return is;
     }
 }
