@@ -787,7 +787,7 @@ public class cursosGestores extends AppCompatActivity {
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
         File pdf = null;
         try {
-            System.out.println("url.toStrong--> " + url.getLastPathSegment());
+            System.out.println("url.getLastPathSegment()--> " + url.getLastPathSegment());
 
             pdf = new File("/storage/self/primary/Download" + File.separator + "cursos/", fv.nombreCurso(url.getLastPathSegment()));
 
