@@ -774,10 +774,14 @@ public class cursosGestores extends AppCompatActivity {
             System.out.println(pdf);
             copiarPDF(pdf);
         }else{
-            fv.mostrarMensaje(this, "Debe elegir un curso para subir. ");
+            fv.mostrarMensaje(this, "No eligio ningun archivo para subir. ");
         }
     }
 
+    /**
+     * Metodo que copia un archivo pdf de un lugar en el dispositivo movil a la carpeta de descargas
+     * @param url -- ruta del pdf
+     */
     public void copiarPDF(Uri url) {
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
@@ -812,7 +816,11 @@ public class cursosGestores extends AppCompatActivity {
         // crearTest(); Enviar dni, id_curso, clase
     }
 
-    //Metodo para añadir el curso a la api
+    /**
+     * Metodo que añade el curso a la base de datos
+     * @param nombreCurso -- Nombre del curso
+     * @param ruta_pdf -- ruta del pdf a guardar
+     */
     public void addCourse(String nombreCurso, String ruta_pdf){
         System.out.println("Nombre del curso = "+ nombreCurso);
 
