@@ -25,7 +25,7 @@ INSERT INTO gestionCursos.realizar (dni, id_curso, puntuacion)
 		('33387392V', 1, 3);
 		
 -- Tabla gestionar
-INSERT INTO gestionCursos.gestionar (dni, id_curso)
+INSERT INTO gestionCursos.gestionar (dni, id_curso, last_updateDate)
 	VALUES
 		('97939374S', 3, SYSDATE()),
 		('97939374S', 2, SYSDATE()),
