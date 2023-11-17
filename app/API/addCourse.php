@@ -1,5 +1,4 @@
 <?php
-<?php
 /**
  * 
  * Archivo para añadir un nuevo curso
@@ -22,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$consulta = $conexion->prepare($INSERT);
 	// Asignamos los parametros a la consulta
 	$consulta->bindParam(':nombre', $datos['nombre']);
-	$consulta->bindParam(':ruta', $datos['ruta']);
+	$consulta->bindParam(':ruta', $datos['ruta_pdf']);
 	try{
 		$consulta->execute();
 		// creamos el json de salida para comprobar que todo fue correcto
