@@ -27,9 +27,9 @@ INSERT INTO gestionCursos.realizar (dni, id_curso, puntuacion)
 -- Tabla gestionar
 INSERT INTO gestionCursos.gestionar (dni, id_curso)
 	VALUES
-		('97939374S', 3),
-		('97939374S', 2),
-		('97939374S', 1);
+		('97939374S', 3, SYSDATE()),
+		('97939374S', 2, SYSDATE()),
+		('97939374S', 1, SYSDATE());
 
 -- ----------------------------------------
 -- Curso Gestion de archivos en Linux 16.04 LTS

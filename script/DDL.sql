@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS gestionCursos.realizar(
 CREATE TABLE IF NOT EXISTS gestionCursos.gestionar(
 	dni				VARCHAR(9),
 	id_curso		INT(2),
+	last_updateDate DATE,
 	PRIMARY KEY (dni, id_curso),
 	FOREIGN KEY (dni) REFERENCES gestionCursos.personas (dni) ON DELETE CASCADE,
 	FOREIGN KEY (id_curso) REFERENCES gestionCursos.cursos (id) ON DELETE CASCADE
