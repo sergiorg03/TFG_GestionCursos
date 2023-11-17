@@ -863,6 +863,9 @@ public class cursosGestores extends AppCompatActivity {
             public byte[] getBody() {
                 JSONObject jsonBody = new JSONObject();
                 try {
+                    System.out.println("cursosGestores: addCourse: dni: "+ dni);
+                    System.out.println("cursosGestores: addCourse: nombre: "+ nombreCurso);
+                    System.out.println("cursosGestores: addCourse: ruta_pdf: "+ ruta_pdf);
                     jsonBody.put("dni", dni);
                     jsonBody.put("nombre", nombreCurso);
                     jsonBody.put("ruta_pdf", ruta_pdf);
