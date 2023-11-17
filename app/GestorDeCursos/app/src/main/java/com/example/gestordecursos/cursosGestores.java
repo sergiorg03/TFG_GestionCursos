@@ -3,8 +3,10 @@ package com.example.gestordecursos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -774,6 +776,7 @@ public class cursosGestores extends AppCompatActivity {
         if (requestCode == 10 && resultCode == RESULT_OK && data != null) {
             System.out.println("cursosGestores: onActivityResult: data.getData().getPath(): "+data.getData().getPath());
             Uri pdf = data.getData();
+            //System.out.println("Nombre: "+obtenerNombreArchivo(pdf));
             System.out.println(pdf);
             copiarPDF(pdf);
         }else{
@@ -789,16 +792,11 @@ public class cursosGestores extends AppCompatActivity {
         // Ruta a la carpeta donde estan todos los cursos almacenados.
         final String ruta = "/storage/self/primary/Download"+ File.separator + "cursos/";
         File pdf = null;
-        String [] rutaNombre = null;
-        String nombre = null;
-        String [] nombre_final = null;
+        String nombrePDF = obtenerNombreArchivo(url);
         try {
             System.out.println("url.getLastPathSegment()--> " + url.getLastPathSegment());
-            rutaNombre = url.getLastPathSegment().split("/");
-            nombre = rutaNombre[(rutaNombre.length-1)];
-            nombre_final = nombre.split(":");
 
-            pdf = new File("/storage/self/primary/Download" + File.separator + "cursos/", fv.nombreCurso(url.getLastPathSegment()));
+            pdf = new File("/storage/self/primary/Download" + File.separator + "cursos/", obtenerNombreArchivo(url));
 
             System.out.println("Ruta para guardar el archivo pdf--> "+ pdf.getPath());
             System.out.println("Nombre curso: "+ pdf.getName());
@@ -818,9 +816,9 @@ public class cursosGestores extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        System.out.println("Nombre: "+nombre_final[(rutaNombre.length-1)]+" ruta: "+ruta);
+        System.out.println("Nombre: "+obtenerNombreArchivo(url)+" ruta: "+ruta);
         // Añadimos el curso a la API
-        //addCourse(nombre, ruta);
+        addCourse(nombrePDF, ruta);
         // crearTest(); Enviar dni, id_curso, clase
     }
 
@@ -876,5 +874,30 @@ public class cursosGestores extends AppCompatActivity {
         };
         // añadimos la peticion a la cola
         rq.add(sr);
+    }
+
+    /**
+     * Metodo que obtiene el nombre de un archivo en el almacenamiento externo del didpositivo
+     * @param u -- ruta del archivo del que obtendremos el nombre
+     * @return -- Devolvemos el nombre del archivo.
+     */
+    public String obtenerNombreArchivo(Uri u){
+        String nombre = "";
+
+        if (u.getScheme().equals("content")){
+            try {
+                Cursor c = getContentResolver().query(u, null, null, null, null);
+                if (c != null && c.moveToFirst()) {
+                    int nombreIndex = c.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (nombreIndex != -1) {
+                        nombre = c.getString(nombreIndex);
+                    }
+                }
+            }catch (Exception e){
+                System.out.println("cursosGestores: obtenerNombreArchivo: error : "+e);
+            }
+        }
+
+        return nombre;
     }
 }
