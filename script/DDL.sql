@@ -140,8 +140,8 @@ DROP SEQUENCE IF EXISTS gestionCursos.idOpcion;
 -- CREACION DE SECUENCIAS
 -- ----------------------------------------
 	
--- Secuencia para la asignacion de los id de las preguntas
-CREATE SEQUENCE IF NOT EXISTS gestionCursos.idPreguntas
+-- Secuencia para la asignacion de los id de los cursos
+CREATE SEQUENCE IF NOT EXISTS gestionCursos.idCursos
 	START WITH 1
 	INCREMENT BY 1
 	MAXVALUE 999
