@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             if (resultado.length > 0 && resultado[0] == PackageManager.PERMISSION_GRANTED) {
                 //fv.mostrarMensaje(MainActivity.this, "Permisos concedidos. ");
             } else {
-                fv.mostrarMensaje(MainActivity.this, "Debe permitir a la aplicacion que lea y escriba en su dispositivo. ");
+                //fv.mostrarMensaje(MainActivity.this, "Debe permitir a la aplicacion que lea y escriba en su dispositivo. ");
 
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
             }
