@@ -45,12 +45,16 @@ public class MainActivity extends AppCompatActivity {
         usuario = findViewById(R.id.user);
         contra = findViewById(R.id.pass);
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-        }
+        // Pedimos al usuario los permisos necesarios
+        darPermisos();
+    }
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+    /**
+     * Metodo que pregunta al usuario si desea conceder permisos a la aplicación o no.
+     */
+    public void darPermisos(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.MANAGE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.MANAGE_EXTERNAL_STORAGE}, 1);
         }
     }
 
@@ -58,15 +62,22 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permisos, int [] resultado){
         super.onRequestPermissionsResult(requestCode, permisos, resultado);
 
-        if (requestCode == 1){
-            if (resultado.length > 0 && resultado[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 1) {
+            if (resultado.length > 0 && resultado[0] == PackageManager.PERMISSION_GRANTED) {
+                //fv.mostrarMensaje(MainActivity.this, "Permisos concedidos. ");
+            } else {
+                fv.mostrarMensaje(MainActivity.this, "Debe permitir a la aplicacion que lea y escriba en su dispositivo. ");
 
-        }else{
-                fv.mostrarMensaje(MainActivity.this, "Debe permitir a la aplicacion que lea y escriba en si dispositivo. ");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
             }
         }
+
     }
 
+    /**
+     * Metodo que va a la pantalla informacion
+     * @param view
+     */
     public void pantallaInfo(View view) {
         Intent i = new Intent(this, PantallaInfo.class); // Creamos la instancia de la clase intent para pasar a otra pantalla
         startActivity(i); // Cambiamos de pantalla
