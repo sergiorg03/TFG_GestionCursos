@@ -796,6 +796,7 @@ public class cursosGestores extends AppCompatActivity {
         try {
             System.out.println("url.getLastPathSegment()--> " + url.getLastPathSegment());
 
+            // Archivo a guardar en la carpeta cursos
             pdf = new File("/storage/self/primary/Download" + File.separator + "cursos/", obtenerNombreArchivo(url));
 
             System.out.println("Ruta para guardar el archivo pdf--> "+ pdf.getPath());
