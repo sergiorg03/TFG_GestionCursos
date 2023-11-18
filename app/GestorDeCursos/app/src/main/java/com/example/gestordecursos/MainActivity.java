@@ -44,16 +44,27 @@ public class MainActivity extends AppCompatActivity {
 
         usuario = findViewById(R.id.user);
         contra = findViewById(R.id.pass);
-/*
-        int concedidoPermisoEscritura = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int concedidoPermisoLectura = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if (concedidoPermisoEscritura == PackageManager.PERMISSION_GRANTED && concedidoPermisoLectura == PackageManager.PERMISSION_GRANTED){
-            fv.mostrarMensaje(this, "Permiso concedido. ");
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permisos, int [] resultado){
+        super.onRequestPermissionsResult(requestCode, permisos, resultado);
+
+        if (requestCode == 1){
+            if (resultado.length > 0 && resultado[0] == PackageManager.PERMISSION_GRANTED){
+
         }else{
-            fv.mostrarMensaje(this, "No tiene permisos");
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-        }*/
+                fv.mostrarMensaje(MainActivity.this, "Debe permitir a la aplicacion que lea y escriba en si dispositivo. ");
+            }
+        }
     }
 
     public void pantallaInfo(View view) {
