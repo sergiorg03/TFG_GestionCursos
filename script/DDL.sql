@@ -130,29 +130,3 @@ CREATE TABLE IF NOT EXISTS gestionCursos.gestionar(
 	FOREIGN KEY (dni) REFERENCES gestionCursos.personas (dni) ON DELETE CASCADE,
 	FOREIGN KEY (id_curso) REFERENCES gestionCursos.cursos (id) ON DELETE CASCADE
 );
--- ----------------------------------------
--- BORRADO DE SECUENCIAS
--- ----------------------------------------
-
-DROP SEQUENCE IF EXISTS gestionCursos.idPreguntas;
-DROP SEQUENCE IF EXISTS gestionCursos.idOpcion;
-
--- ----------------------------------------
--- CREACION DE SECUENCIAS
--- ----------------------------------------
-	
--- Secuencia para la asignacion de los id de los cursos
-CREATE SEQUENCE IF NOT EXISTS gestionCursos.idCursos
-	START WITH 1
-	INCREMENT BY 1
-	MAXVALUE 999
-	MINVALUE 1
-	CYCLE;
-
--- Secuencia para la asignacion de los id de las opciones de las preguntas
-CREATE SEQUENCE IF NOT EXISTS gestionCursos.idOpcion
-	START WITH 1
-	INCREMENT BY 1
-	MAXVALUE 99999
-	MINVALUE 1
-	CYCLE;	
