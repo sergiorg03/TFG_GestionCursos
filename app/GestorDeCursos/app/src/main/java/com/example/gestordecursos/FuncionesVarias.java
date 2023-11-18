@@ -22,6 +22,12 @@ public class FuncionesVarias {
         //System.out.println("IP: "+IP + " URL: "+ URL);
     }
 
+    public FuncionesVarias (String IP){
+        this.IP = IP;
+        this.URL = "http://"+IP+"/tfg/app/API/";
+        //System.out.println("IP: "+IP + " URL: "+ URL);
+    }
+
     /**
      * Metodo GET
      * @return -- Devuelve el valor de la IP
@@ -34,7 +40,7 @@ public class FuncionesVarias {
      * Metodo SET
      * @return -- Devuelve la URL
      */
-    private void setURL(String URL){
+    public void setURL(String URL){
         this.URL = URL;
     }
 
