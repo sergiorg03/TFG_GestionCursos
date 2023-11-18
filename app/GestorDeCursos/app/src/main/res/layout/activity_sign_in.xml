@@ -142,31 +142,29 @@
                 app:layout_constraintTop_toBottomOf="@+id/pass_signIn"
                 app:layout_constraintVertical_bias="0.0"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/Back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="175dp"
-                    android:onClick="volver"
-                    android:src="@drawable/flecha_hacia_atras" />
-
-                <ImageButton
-                    android:id="@+id/addUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:onClick="insertarUsuario"
-                    android:src="@drawable/crearcuenta" />
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="volver"
+        android:src="@drawable/flecha_hacia_atras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/addUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="insertarUsuario"
+        android:src="@drawable/crearcuenta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Back"
+        android:layout_marginStart="225dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

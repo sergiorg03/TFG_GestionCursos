@@ -291,41 +291,41 @@
                 </LinearLayout>
 
             </ScrollView>
-            <!-- Botones de acciones -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <ImageButton
-                    android:id="@+id/Back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="60dp"
-                    android:onClick="volver"
-                    android:src="@drawable/flecha_hacia_atras" />
-
-                <ImageButton
-                    android:id="@+id/delete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="20dp"
-                    android:onClick="deleteProfile"
-                    android:src="@drawable/eliminar_cuenta" />
-
-                <ImageButton
-                    android:id="@+id/updateProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="15dp"
-                    android:onClick="updateProfile"
-                    android:src="@drawable/update" />
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
+    <!-- Botones de acciones -->
+    <ImageButton
+        android:id="@+id/Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="volver"
+        android:src="@drawable/flecha_hacia_atras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="deleteProfile"
+        android:src="@drawable/eliminar_cuenta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Back"
+        android:layout_marginStart="70dp" />
+
+    <ImageButton
+        android:id="@+id/updateProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="updateProfile"
+        android:src="@drawable/update"
+        app:layout_constraintStart_toEndOf="@+id/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="90dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

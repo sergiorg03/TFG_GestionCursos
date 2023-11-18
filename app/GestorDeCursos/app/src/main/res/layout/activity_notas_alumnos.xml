@@ -409,30 +409,34 @@
                 </LinearLayout>
 
             </ScrollView>
-            <!-- Botones de acciones -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/Back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="180dp"
-                    android:onClick="volver"
-                    android:src="@drawable/flecha_hacia_atras" />
-
-                <ImageButton
-                    android:id="@+id/marks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:onClick="getMarks"
-                    android:src="@drawable/puntuacion" />
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <!-- Botones de acciones -->
+    <ImageButton
+        android:id="@+id/Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="180dp"
+        android:onClick="volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/flecha_hacia_atras" />
+
+    <ImageButton
+        android:id="@+id/marks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="getMarks"
+        android:layout_marginStart="215dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Back"
+        android:src="@drawable/puntuacion" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
