@@ -237,9 +237,9 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param v
      */
-    public void inicioRapido(View v){
+    /*public void inicioRapido(View v){
         usuario.setText("angomart");
         contra.setText("ana");
         checkUsNotNullAndPassNotNull(findViewById(R.id.login).getRootView());
-    }
+    }*/
 }
