@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "67b03edc-373c-4b2e-b1b4-15a8857ee622",
+		"name": "tfg_sergio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25590099"
+	},
+	"item": [
+		{
+			"name": "checkLogin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tfg/app/API/checkLogin.php?usuario=ju&contra=juan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"checkLogin.php"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "ju"
+						},
+						{
+							"key": "contra",
+							"value": "juan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tfg/app/API/checkUser.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"checkUser.php"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "jualopper",
+							"disabled": true
+						},
+						{
+							"key": "usuario",
+							"value": "hola",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\" : \"12345678k\",\r\n    \"nombre\" : \"a\",\r\n    \"apellido1\" : \"a\",\r\n    \"apellido2\" : \"a\",\r\n    \"telefono\" : \"123456789\",\r\n    \"email\" : \"hola@gmail.com\",\r\n    \"usuario\" : \"aaa\",\r\n    \"contra\" : \"a\",\r\n    \"perfil\" : \"a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/newPerson.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"newPerson.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMarks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tfg/app/API/getMarks.php?dni=33387392V",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"getMarks.php"
+					],
+					"query": [
+						{
+							"key": "dni",
+							"value": "33387392V"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProfileData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tfg/app/API/getProfileData.php?dni=33387392V",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"getProfileData.php"
+					],
+					"query": [
+						{
+							"key": "dni",
+							"value": "33387392V"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProfileData",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\":\"33387392V\",\r\n    \"nombre\":\"Juan\",\r\n    \"apellido1\":\"Lopez\",\r\n    \"apellido2\":\"Perez\",\r\n    \"telefono\":\"654654654\",\r\n    \"email\":\"hola@g.es\",\r\n    \"contra\":\"juan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/updateProfileData.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"updateProfileData.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCourses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tfg/app/API/getAllCourses.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"getAllCourses.php"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/tfg/app/API/getTest.php?idCurso=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"getTest.php"
+					],
+					"query": [
+						{
+							"key": "idCurso",
+							"value": "1",
+							"description": "Correcto"
+						},
+						{
+							"key": "idCurso",
+							"value": "6",
+							"description": "Inexistente",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProfile",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\":\"29157459Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/deleteProfile.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"deleteProfile.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setMarks Añadir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\":\"29157459Z\",\r\n    \"id_curso\":\"2\",\r\n    \"puntuacion\": \"6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/setMarks.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"setMarks.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setMarks Modificar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\":\"29157459Z\",\r\n    \"id_curso\":\"1\",\r\n    \"puntuacion\":\"9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/setMarks.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"setMarks.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCourse",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_curso\":\"3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/deleteCourse.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"deleteCourse.php"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_curso\":\"3\",\r\n    \"id_pregunta1\":\"1\",\r\n    \"enunciado_pregunta1\":\"rde\",\r\n    \"id_pregunta2\":\"2\",\r\n    \"enunciado_pregunta2\":\"asd\",\r\n    \"id_pregunta3\":\"3\",\r\n    \"enunciado_pregunta3\":\"asd\",\r\n    \"id_pregunta4\":\"4\",\r\n    \"enunciado_pregunta4\":\"asd\",\r\n    \"id_pregunta5\":\"5\",\r\n    \"enunciado_pregunta5\":\"asd\",\r\n    \"id_pregunta6\":\"6\",\r\n    \"enunciado_pregunta6\":\"fwe\",\r\n    \"id_pregunta7\":\"7\",\r\n    \"enunciado_pregunta7\":\"wef\",\r\n    \"id_pregunta8\":\"8\",\r\n    \"enunciado_pregunta8\":\"aS\",\r\n    \"id_pregunta9\":\"9\",\r\n    \"enunciado_pregunta9\":\"dasd\",\r\n    \"id_pregunta10\":\"10\",\r\n    \"enunciado_pregunta10\":\"egerg\",\r\n    \"id_op1_p1\":\"1\",\r\n    \"enun_op1_p1\":\"gerg\",\r\n    \"escor_op1_p1\":\"0\",\r\n    \"id_op2_p1\":\"2\",\r\n    \"enun_op2_p1\":\"dfgh\",\r\n    \"escor_op2_p1\":\"0\",\r\n    \"id_op3_p1\":\"3\",\r\n    \"enun_op3_p1\":\"b\",\r\n    \"escor_op3_p1\":\"1\",\r\n    \"id_op1_p2\":\"1\",\r\n    \"enun_op1_p2\":\"qw\",\r\n    \"escor_op1_p2\":\"0\",\r\n    \"id_op2_p2\":\"2\",\r\n    \"enun_op2_p2\":\"asd\",\r\n    \"escor_op2_p2\":\"0\",\r\n    \"id_op3_p2\":\"3\",\r\n    \"enun_op3_p2\":\"qwe\",\r\n    \"escor_op3_p2\":\"1\",\r\n    \"id_op1_p3\":\"1\",\r\n    \"enun_op1_p3\":\"qsd\",\r\n    \"escor_op1_p3\":\"1\",\r\n    \"id_op2_p3\":\"2\",\r\n    \"enun_op2_p3\":\"dsad\",\r\n    \"escor_op2_p3\":\"0\",\r\n    \"id_op3_p3\":\"3\",\r\n    \"enun_op3_p3\":\"bdv\",\r\n    \"escor_op3_p3\":\"0\",\r\n    \"id_op1_p4\":\"1\",\r\n    \"enun_op1_p4\":\"sdf\",\r\n    \"escor_op1_p4\":\"1\",\r\n    \"id_op2_p4\":\"2\",\r\n    \"enun_op2_p4\":\"asd\",\r\n    \"escor_op2_p4\":\"0\",\r\n    \"id_op3_p4\":\"3\",\r\n    \"enun_op3_p4\":\"qwe\",\r\n    \"escor_op3_p4\":\"0\",\r\n    \"id_op1_p5\":\"1\",\r\n    \"enun_op1_p5\":\"asd\",\r\n    \"escor_op1_p5\":\"1\",\r\n    \"id_op2_p5\":\"2\",\r\n    \"enun_op2_p5\":\"dsa\",\r\n    \"escor_op2_p5\":\"0\",\r\n    \"id_op3_p5\":\"3\",\r\n    \"enun_op3_p5\":\"sd\",\r\n    \"escor_op3_p5\":\"0\",\r\n    \"id_op1_p6\":\"1\",\r\n    \"enun_op1_p6\":\"ad\",\r\n    \"escor_op1_p6\":\"1\",\r\n    \"id_op2_p6\":\"2\",\r\n    \"enun_op2_p6\":\"fds\",\r\n    \"escor_op2_p6\":\"0\",\r\n    \"id_op3_p6\":\"3\",\r\n    \"enun_op3_p6\":\"asdd\",\r\n    \"escor_op3_p6\":\"0\",\r\n    \"id_op1_p7\":\"1\",\r\n    \"enun_op1_p7\":\"fghjk\",\r\n    \"escor_op1_p7\":\"1\",\r\n    \"id_op2_p7\":\"2\",\r\n    \"enun_op2_p7\":\"tyhj\",\r\n    \"escor_op2_p7\":\"0\",\r\n    \"id_op3_p7\":\"3\",\r\n    \"enun_op3_p7\":\"egw\",\r\n    \"escor_op3_p7\":\"0\",\r\n    \"id_op1_p8\":\"1\",\r\n    \"enun_op1_p8\":\"sdas\",\r\n    \"escor_op1_p8\":\"1\",\r\n    \"id_op2_p8\":\"2\",\r\n    \"enun_op2_p8\":\"gf\",\r\n    \"escor_op2_p8\":\"0\",\r\n    \"id_op3_p8\":\"3\",\r\n    \"enun_op3_p8\":\"gewg\",\r\n    \"escor_op3_p8\":\"0\",\r\n    \"id_op1_p9\":\"1\",\r\n    \"enun_op1_p9\":\"\",\r\n    \"escor_op1_p9\":\"1\",\r\n    \"id_op2_p9\":\"2\",\r\n    \"enun_op2_p9\":\"hrther\",\r\n    \"escor_op2_p9\":\"0\",\r\n    \"id_op3_p9\":\"3\",\r\n    \"enun_op3_p9\":\"agsg\",\r\n    \"escor_op3_p9\":\"0\",\r\n    \"id_op1_p10\":\"1\",\r\n    \"enun_op1_p10\":\"asdad\",\r\n    \"escor_op1_p10\":\"1\",\r\n    \"id_op2_p10\":\"2\",\r\n    \"enun_op2_p10\":\"asd\",\r\n    \"escor_op2_p10\":\"0\",\r\n    \"id_op3_p10\":\"3\",\r\n    \"enun_op3_p10\":\"asda\",\r\n    \"escor_op3_p10\":\"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/updateTest.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"updateTest.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_curso\":\"4\",\r\n    \"id_pregunta1\":\"1\",\r\n    \"enunciado_pregunta1\":\"rde\",\r\n    \"id_pregunta2\":\"2\",\r\n    \"enunciado_pregunta2\":\"asd\",\r\n    \"id_pregunta3\":\"3\",\r\n    \"enunciado_pregunta3\":\"asd\",\r\n    \"id_pregunta4\":\"4\",\r\n    \"enunciado_pregunta4\":\"asd\",\r\n    \"id_pregunta5\":\"5\",\r\n    \"enunciado_pregunta5\":\"asd\",\r\n    \"id_pregunta6\":\"6\",\r\n    \"enunciado_pregunta6\":\"fwe\",\r\n    \"id_pregunta7\":\"7\",\r\n    \"enunciado_pregunta7\":\"wef\",\r\n    \"id_pregunta8\":\"8\",\r\n    \"enunciado_pregunta8\":\"aS\",\r\n    \"id_pregunta9\":\"9\",\r\n    \"enunciado_pregunta9\":\"dasd\",\r\n    \"id_pregunta10\":\"10\",\r\n    \"enunciado_pregunta10\":\"egerg\",\r\n    \"id_op1_p1\":\"1\",\r\n    \"enun_op1_p1\":\"gerg\",\r\n    \"escor_op1_p1\":\"0\",\r\n    \"id_op2_p1\":\"2\",\r\n    \"enun_op2_p1\":\"dfgh\",\r\n    \"escor_op2_p1\":\"0\",\r\n    \"id_op3_p1\":\"3\",\r\n    \"enun_op3_p1\":\"b\",\r\n    \"escor_op3_p1\":\"1\",\r\n    \"id_op1_p2\":\"1\",\r\n    \"enun_op1_p2\":\"qw\",\r\n    \"escor_op1_p2\":\"0\",\r\n    \"id_op2_p2\":\"2\",\r\n    \"enun_op2_p2\":\"asd\",\r\n    \"escor_op2_p2\":\"0\",\r\n    \"id_op3_p2\":\"3\",\r\n    \"enun_op3_p2\":\"qwe\",\r\n    \"escor_op3_p2\":\"1\",\r\n    \"id_op1_p3\":\"1\",\r\n    \"enun_op1_p3\":\"qsd\",\r\n    \"escor_op1_p3\":\"1\",\r\n    \"id_op2_p3\":\"2\",\r\n    \"enun_op2_p3\":\"dsad\",\r\n    \"escor_op2_p3\":\"0\",\r\n    \"id_op3_p3\":\"3\",\r\n    \"enun_op3_p3\":\"bdv\",\r\n    \"escor_op3_p3\":\"0\",\r\n    \"id_op1_p4\":\"1\",\r\n    \"enun_op1_p4\":\"sdf\",\r\n    \"escor_op1_p4\":\"1\",\r\n    \"id_op2_p4\":\"2\",\r\n    \"enun_op2_p4\":\"asd\",\r\n    \"escor_op2_p4\":\"0\",\r\n    \"id_op3_p4\":\"3\",\r\n    \"enun_op3_p4\":\"qwe\",\r\n    \"escor_op3_p4\":\"0\",\r\n    \"id_op1_p5\":\"1\",\r\n    \"enun_op1_p5\":\"asd\",\r\n    \"escor_op1_p5\":\"1\",\r\n    \"id_op2_p5\":\"2\",\r\n    \"enun_op2_p5\":\"dsa\",\r\n    \"escor_op2_p5\":\"0\",\r\n    \"id_op3_p5\":\"3\",\r\n    \"enun_op3_p5\":\"sd\",\r\n    \"escor_op3_p5\":\"0\",\r\n    \"id_op1_p6\":\"1\",\r\n    \"enun_op1_p6\":\"ad\",\r\n    \"escor_op1_p6\":\"1\",\r\n    \"id_op2_p6\":\"2\",\r\n    \"enun_op2_p6\":\"fds\",\r\n    \"escor_op2_p6\":\"0\",\r\n    \"id_op3_p6\":\"3\",\r\n    \"enun_op3_p6\":\"asdd\",\r\n    \"escor_op3_p6\":\"0\",\r\n    \"id_op1_p7\":\"1\",\r\n    \"enun_op1_p7\":\"fghjk\",\r\n    \"escor_op1_p7\":\"1\",\r\n    \"id_op2_p7\":\"2\",\r\n    \"enun_op2_p7\":\"tyhj\",\r\n    \"escor_op2_p7\":\"0\",\r\n    \"id_op3_p7\":\"3\",\r\n    \"enun_op3_p7\":\"egw\",\r\n    \"escor_op3_p7\":\"0\",\r\n    \"id_op1_p8\":\"1\",\r\n    \"enun_op1_p8\":\"sdas\",\r\n    \"escor_op1_p8\":\"1\",\r\n    \"id_op2_p8\":\"2\",\r\n    \"enun_op2_p8\":\"gf\",\r\n    \"escor_op2_p8\":\"0\",\r\n    \"id_op3_p8\":\"3\",\r\n    \"enun_op3_p8\":\"gewg\",\r\n    \"escor_op3_p8\":\"0\",\r\n    \"id_op1_p9\":\"1\",\r\n    \"enun_op1_p9\":\"\",\r\n    \"escor_op1_p9\":\"1\",\r\n    \"id_op2_p9\":\"2\",\r\n    \"enun_op2_p9\":\"hrther\",\r\n    \"escor_op2_p9\":\"0\",\r\n    \"id_op3_p9\":\"3\",\r\n    \"enun_op3_p9\":\"agsg\",\r\n    \"escor_op3_p9\":\"0\",\r\n    \"id_op1_p10\":\"1\",\r\n    \"enun_op1_p10\":\"asdad\",\r\n    \"escor_op1_p10\":\"1\",\r\n    \"id_op2_p10\":\"2\",\r\n    \"enun_op2_p10\":\"asd\",\r\n    \"escor_op2_p10\":\"0\",\r\n    \"id_op3_p10\":\"3\",\r\n    \"enun_op3_p10\":\"asda\",\r\n    \"escor_op3_p10\":\"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/addTest.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"addTest.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addCourse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"a\",\r\n    \"ruta_pdf\":\"a\",\r\n    \"dni\":\"97939374S\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/tfg/app/API/addCourse.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"tfg",
+						"app",
+						"API",
+						"addCourse.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
