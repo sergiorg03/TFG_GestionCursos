@@ -130,9 +130,9 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="28dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="331dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="255dp"
         android:layout_marginTop="33dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="29dp"
