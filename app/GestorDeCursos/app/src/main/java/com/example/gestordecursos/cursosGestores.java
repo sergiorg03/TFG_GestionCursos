@@ -2,6 +2,8 @@ package com.example.gestordecursos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -23,8 +25,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -428,7 +428,7 @@ public class cursosGestores extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             error.printStackTrace();
-                            fv.mostrarMensaje(cursosGestores.this, "No se pudo borrar el perfil. ");
+                            fv.mostrarMensaje(cursosGestores.this, "No se pudo borrar el curso. ");
                         }
                     })
         {
@@ -632,59 +632,59 @@ public class cursosGestores extends AppCompatActivity {
      *
      */
     public void ib_DelCurso1(View v){
-        borrarCurso(id_curso1);
+        confirmacionBorradoCurso(id_curso1);
     }
 
     public void ib_DelCurso2(View v){
-        borrarCurso(id_curso2);
+        confirmacionBorradoCurso(id_curso2);
     }
 
     public void ib_DelCurso3(View v){
-        borrarCurso(id_curso3);
+        confirmacionBorradoCurso(id_curso3);
     }
 
     public void ib_DelCurso4(View v){
-        borrarCurso(id_curso4);
+        confirmacionBorradoCurso(id_curso4);
     }
 
     public void ib_DelCurso5(View v){
-        borrarCurso(id_curso5);
+        confirmacionBorradoCurso(id_curso5);
     }
 
     public void ib_DelCurso6(View v){
-        borrarCurso(id_curso6);
+        confirmacionBorradoCurso(id_curso6);
     }
 
     public void ib_DelCurso7(View v){
-        borrarCurso(id_curso7);
+        confirmacionBorradoCurso(id_curso7);
     }
 
     public void ib_DelCurso8(View v){
-        borrarCurso(id_curso8);
+        confirmacionBorradoCurso(id_curso8);
     }
 
     public void ib_DelCurso9(View v){
-        borrarCurso(id_curso9);
+        confirmacionBorradoCurso(id_curso9);
     }
 
     public void ib_DelCurso10(View v){
-        borrarCurso(id_curso10);
+        confirmacionBorradoCurso(id_curso10);
     }
 
     public void ib_DelCurso11(View v){
-        borrarCurso(id_curso11);
+        confirmacionBorradoCurso(id_curso11);
     }
 
     public void ib_DelCurso12(View v){
-        borrarCurso(id_curso12);
+        confirmacionBorradoCurso(id_curso12);
     }
 
     public void ib_DelCurso13(View v){
-        borrarCurso(id_curso13);
+        confirmacionBorradoCurso(id_curso13);
     }
 
     public void ib_DelCurso14(View v){
-        borrarCurso(id_curso13);
+        confirmacionBorradoCurso(id_curso13);
     }
 
     /**
@@ -905,5 +905,23 @@ public class cursosGestores extends AppCompatActivity {
         }
 
         return nombre;
+    }
+
+    /**
+     * Metodo que pide al usuario confirmacion para el borrado del curso
+     * @param id_curso -- Id del curso a borrar.
+     */
+    protected void confirmacionBorradoCurso(String id_curso){
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle("Confirmacion Borrado del curso. ")
+          .setMessage("¿Está seguro que desea borrar el curso?")
+          .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                System.out.println();
+                borrarCurso(id_curso);
+            }
+        }).setNegativeButton("No", null).show();
     }
 }
