@@ -2,6 +2,8 @@ package com.example.gestordecursos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -286,7 +288,24 @@ public class Perfil extends AppCompatActivity {
         rq.add(sr);
     }
 
-    public void deleteProfile(View v){
+    /**
+     * Metodo que pide al usuario confirmacion para el borrado del perfil
+     * @param v -- View del boton pulsado
+     */
+    protected void deleteProfile(View v){
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle("Confirmacion borrado del perfil. ")
+                .setMessage("¿Está seguro que desea borrar su perfil? \nPerderá todos sus datos")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteUser();
+                    }
+                }).setNegativeButton("No", null).show();
+    }
+
+    public void deleteUser(){
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/deleteProfile.php";
         final String URL = fv.getURL()+"deleteProfile.php";
         System.out.println("dni-->"+dni);
