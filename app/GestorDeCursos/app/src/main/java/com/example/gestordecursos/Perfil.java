@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -293,16 +294,59 @@ public class Perfil extends AppCompatActivity {
      * @param v -- View del boton pulsado
      */
     protected void deleteProfile(View v){
+        ImageButton ib = (ImageButton) v;
+        ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder adb = new AlertDialog.Builder(Perfil.this);
+                adb.setTitle("Confirmacion borrado del perfil. ")
+                        .setMessage("¿Está seguro que desea borrar su perfil? \nSe perderan todos sus datos")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.out.println("Se borra el perfil. ");
+                                // Procedemos a llamar a la API para el borrado del perfil.
+                                /*final String URL = fv.getURL()+"deleteProfile.php";
+                                System.out.println("dni-->"+dni);
 
-        AlertDialog.Builder adb = new AlertDialog.Builder(this);
-        adb.setTitle("Confirmacion borrado del perfil. ")
-                .setMessage("¿Está seguro que desea borrar su perfil? \nPerderá todos sus datos")
-                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        deleteUser();
-                    }
-                }).setNegativeButton("No", null).show();
+                                RequestQueue rq = Volley.newRequestQueue(Perfil.this);
+
+                                StringRequest sr = new StringRequest(Request.Method.POST, URL,
+                                        new Response.Listener<String>() {
+                                            @Override
+                                            public void onResponse(String response) {
+                                                fv.mostrarMensaje(Perfil.this, "Perfil borrado correctamente. ");
+                                            }
+                                        },
+                                        new Response.ErrorListener() {
+                                            @Override
+                                            public void onErrorResponse(VolleyError error) {
+                                                error.printStackTrace();
+                                                fv.mostrarMensaje(Perfil.this, "No se pudo borrar el perfil. ");
+                                            }
+                                        }) {
+                                    public String getBodyContentType() {
+                                        return "application/json";
+                                    }
+
+                                    @Override
+                                    public byte[] getBody() {
+                                        JSONObject jsonBody = null;
+                                        try {
+                                            jsonBody = new JSONObject();
+                                            jsonBody.put("dni", dni);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                        return jsonBody.toString().getBytes();
+                                    }
+                                };
+
+                                rq.add(sr);*/
+                            }
+                        }).setNegativeButton("No", null).show();
+            }
+        });
     }
 
     public void deleteUser(){
