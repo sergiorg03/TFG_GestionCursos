@@ -138,7 +138,7 @@ public class Perfil extends AppCompatActivity {
      */
     public String[] getDatos(ConsultarDatos cd){
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getProfileData.php?dni="+this.dni;
-        final String URL = fv.getURL()+"getProfileData.php?dni="+this.dni;
+        final String URL = fv.getURL()+"getProfileData.php?dni="+this.dni.trim();
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -290,69 +290,31 @@ public class Perfil extends AppCompatActivity {
     }
 
     /**
-     * Metodo que pide al usuario confirmacion para el borrado del perfil
-     * @param v -- View del boton pulsado
+     * Metodo que pide confirmación al usuario para borrar su perfil
+     * @param v -- View del ImageButton pulsado
      */
-    protected void deleteProfile(View v){
-        ImageButton ib = (ImageButton) v;
-        ib.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder adb = new AlertDialog.Builder(Perfil.this);
-                adb.setTitle("Confirmacion borrado del perfil. ")
-                        .setMessage("¿Está seguro que desea borrar su perfil? \nSe perderan todos sus datos")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                System.out.println("Se borra el perfil. ");
-                                // Procedemos a llamar a la API para el borrado del perfil.
-                                /*final String URL = fv.getURL()+"deleteProfile.php";
-                                System.out.println("dni-->"+dni);
-
-                                RequestQueue rq = Volley.newRequestQueue(Perfil.this);
-
-                                StringRequest sr = new StringRequest(Request.Method.POST, URL,
-                                        new Response.Listener<String>() {
-                                            @Override
-                                            public void onResponse(String response) {
-                                                fv.mostrarMensaje(Perfil.this, "Perfil borrado correctamente. ");
-                                            }
-                                        },
-                                        new Response.ErrorListener() {
-                                            @Override
-                                            public void onErrorResponse(VolleyError error) {
-                                                error.printStackTrace();
-                                                fv.mostrarMensaje(Perfil.this, "No se pudo borrar el perfil. ");
-                                            }
-                                        }) {
-                                    public String getBodyContentType() {
-                                        return "application/json";
-                                    }
-
-                                    @Override
-                                    public byte[] getBody() {
-                                        JSONObject jsonBody = null;
-                                        try {
-                                            jsonBody = new JSONObject();
-                                            jsonBody.put("dni", dni);
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
-                                        return jsonBody.toString().getBytes();
-                                    }
-                                };
-
-                                rq.add(sr);*/
-                            }
-                        }).setNegativeButton("No", null).show();
-            }
-        });
+    public void deleteProfile(View v){
+        // Creamos la pantalla de alerta
+        AlertDialog.Builder adb = new AlertDialog.Builder(Perfil.this);
+        adb.setTitle("Confirmacion borrado del perfil. ")
+                .setMessage("¿Está seguro que desea borrar su perfil? \nSe perderan todos sus datos")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) { // El usuario ha pulsado el boton SI
+                        System.out.println("Se borra el perfil. ");
+                        // Procedemos a llamar a la API para el borrado del perfil.
+                        System.out.println("Perfil: deleteProfile: aceptada: "+true);
+                        confirmarBorradoPerfil(); // Borramos el perfil
+                    }
+                }).setNegativeButton("No", null).show();
     }
 
-    public void deleteUser(){
-        // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/deleteProfile.php";
+    /**
+     * Metodo que lleva a cabo la llamada a la API para el borrado del perfil del usuario
+     */
+    protected void confirmarBorradoPerfil(){
+
         final String URL = fv.getURL()+"deleteProfile.php";
-        System.out.println("dni-->"+dni);
 
         RequestQueue rq = Volley.newRequestQueue(this);
 

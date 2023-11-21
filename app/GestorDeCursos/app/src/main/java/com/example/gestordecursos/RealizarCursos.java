@@ -409,7 +409,7 @@ public class RealizarCursos extends AppCompatActivity {
     public Map<String[], List<String[]>> getPreguntas(ConsultarDatos cd){
 
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getTest.php?idCurso="+id_curso;
-        final String URL = fv.getURL()+"getTest.php?idCurso="+id_curso;
+        final String URL = fv.getURL()+"getTest.php?idCurso="+id_curso.trim();
 
         RequestQueue rq = Volley.newRequestQueue(this);
 

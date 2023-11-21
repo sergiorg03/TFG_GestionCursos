@@ -160,7 +160,7 @@ public class signIn extends AppCompatActivity {
         String user = us.getText().toString();
 
         // URL del API a consultar
-        final String URL = fv.getURL()+"checkUser.php?usuario=" + user;
+        final String URL = fv.getURL()+"checkUser.php?usuario=" + user.trim();
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
