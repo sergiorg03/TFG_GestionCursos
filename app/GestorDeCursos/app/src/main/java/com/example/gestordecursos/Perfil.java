@@ -354,6 +354,9 @@ public class Perfil extends AppCompatActivity {
         salir();
     }
 
+    /**
+     * Metodo que sale a la pantalla de login una vez borrado el perfil
+     */
     public void salir(){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
