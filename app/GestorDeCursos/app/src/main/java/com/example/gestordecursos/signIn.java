@@ -56,6 +56,10 @@ public class signIn extends AppCompatActivity {
         listaUsuarios = listaDeUsuarios();
     }
 
+    /**
+     * Metodo que inserta un nuevo usuario en la base de datos
+     * @param v -- View del boton pulsado.
+     */
     public void insertarUsuario(View v){
 
         // Obtenemos los valores de los campos
@@ -206,6 +210,9 @@ public class signIn extends AppCompatActivity {
         return usuario_existente;
     }*/
 
+    /**
+     * Metodo que llama a la API para insertar un nuevo usuarios en la base de datos
+     */
     public void crearUsuario
             (String dni, String nombre, String ap1, String ap2, String telf, String email, String us, String contra, String perfil)
     {
@@ -270,6 +277,10 @@ public class signIn extends AppCompatActivity {
         void onConsultaError(VolleyError v);
     }
 
+    /**
+     * Metodo que obtiene los usuarios existentes en la BD
+     * @return -- Devuelve una lista de String con los usuarios
+     */
     public List<String> obtenerUsuarios(ConsultarDatosUsuarios cdu){
         // final String URL = "http://" + getString(R.string.ip) + "/tfg/app/API/checkUser.php";
         final String URL = fv.getURL()+"checkUser.php";
