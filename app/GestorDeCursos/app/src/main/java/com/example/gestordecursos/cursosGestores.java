@@ -821,7 +821,7 @@ public class cursosGestores extends AppCompatActivity {
 
         System.out.println("Nombre: "+obtenerNombreArchivo(url)+" ruta: "+ruta);
         // Añadimos el curso a la API
-        addCourse(nombrePDF, ruta);
+        addCourseBD(nombrePDF, ruta);
         // crearTest(); Enviar dni, id_curso, clase
     }
 
@@ -830,7 +830,7 @@ public class cursosGestores extends AppCompatActivity {
      * @param nombreCurso -- Nombre del curso
      * @param ruta_pdf -- ruta del pdf a guardar
      */
-    public void addCourse(String nombreCurso, String ruta_pdf){
+    public void addCourseBD(String nombreCurso, String ruta_pdf){
         System.out.println("Nombre del curso = "+ nombreCurso);
 
         final String URL = fv.getURL()+"addCourse.php";
