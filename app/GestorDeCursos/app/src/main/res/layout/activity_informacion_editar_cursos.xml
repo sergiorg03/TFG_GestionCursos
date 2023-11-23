@@ -36,6 +36,7 @@
                 android:text="Para la correcta modificación o inserción de tests que evaluen el conocimiento del alumno deberá en primer lugar escribir la pregunta en el cuadro de texto superior a las opciones, seguido a eso deberá escribir cada opcion en su lugar correspondiente, y para elección de la respuesta correcta deberá elegir una de las opciones mostradas. \nPara guardar los cambios realizados, deberá pulsar en el boton central de la pantalla."
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/floatingActionButton7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
