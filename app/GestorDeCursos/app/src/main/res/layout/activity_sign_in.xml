@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:focusable="false"
     app:guidelineUseRtl="false"
-    tools:context=".signIn">
+    tools:context=".signIn"
+    android:background="@color/fondo">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                 android:layout_width="266dp"
                 android:layout_height="50dp"
                 android:ems="10"
-                android:hint="dni"
+                android:hint="DNI"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="220dp"
@@ -41,7 +42,7 @@
                 android:layout_width="266dp"
                 android:layout_height="50dp"
                 android:ems="10"
-                android:hint="nombre"
+                android:hint="Nombre"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="220dp"
                 tools:layout_editor_absoluteY="68dp"
@@ -95,7 +96,7 @@
                 android:layout_width="266dp"
                 android:layout_height="50dp"
                 android:ems="10"
-                android:hint="email"
+                android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="218dp"
@@ -108,7 +109,7 @@
                 android:layout_width="266dp"
                 android:layout_height="50dp"
                 android:ems="10"
-                android:hint="usuario"
+                android:hint="Usuario"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="219dp"

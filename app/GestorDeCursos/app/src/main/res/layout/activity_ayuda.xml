@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ayuda">
+    tools:context=".ayuda"
+    android:background="@color/fondo">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,16 +21,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="321dp"
                 android:layout_height="165dp"
                 android:layout_marginStart="47dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="150dp"
                 android:layout_marginEnd="47dp"
                 android:layout_marginBottom="190dp"
-                android:layout_marginLeft="20dp"
                 android:text="Introduzca su nombre de usuario y su contraseña y haga clic sobre el botón &quot;Log In&quot;, si no dispone de una cuenta haga clic sobre el boton &quot;Sign Up&quot; y rellene todos sus datos pertinentes para la creación de la cuenta."
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/floatingActionButton7"
