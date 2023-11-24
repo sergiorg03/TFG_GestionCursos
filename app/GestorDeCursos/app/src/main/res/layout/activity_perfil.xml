@@ -7,6 +7,7 @@
     tools:context=".Perfil"
     android:background="@color/fondo">
 
+    <!-- Botones de acciones -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,13 +41,13 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                android:paddingBottom="10dp">
+                app:layout_constraintVertical_bias="0.0">
 
 
                 <!-- LinearLayout para los cursos con las notas -->
@@ -89,6 +90,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/apellido1"
                             android:layout_width="160dp"
@@ -118,6 +120,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/apellido2"
                             android:layout_width="160dp"
@@ -147,6 +150,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/telefono"
                             android:layout_width="160dp"
@@ -166,16 +170,18 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
-                            android:editable="false"
+                            android:editable="true"
                             android:enabled="true"
                             android:hint="Telefono"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            android:inputType="number"/>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/email"
                             android:layout_width="160dp"
@@ -204,6 +210,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/usuario"
                             android:layout_width="160dp"
@@ -235,6 +242,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/contra"
                             android:layout_width="160dp"
@@ -254,8 +262,8 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
-                            android:inputType="textPassword"
                             android:hint="contraseña"
+                            android:inputType="textPassword"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -263,6 +271,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/perfil"
                             android:layout_width="160dp"
@@ -331,4 +340,6 @@
                 android:layout_marginStart="90dp"/>
         </LinearLayout>
 
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

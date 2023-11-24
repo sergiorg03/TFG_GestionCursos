@@ -212,7 +212,12 @@ public class Perfil extends AppCompatActivity {
         if (bd_telf.equalsIgnoreCase(et_telf.getText().toString())){ // El telefono no se ha cambiado
             telf = bd_telf;
         }else{ // Se ha cambiado el telefono
-            telf = et_telf.getText().toString();
+            if (fv.esNumerico(et_telf.getText().toString()) && et_telf.getText().toString().length() == 9) {
+                telf = et_telf.getText().toString();
+            }else {
+                fv.mostrarMensaje(this, "No se ha podido modificar el telefono. ");
+                telf = bd_telf;
+            }
         }
 
         if (bd_email.equalsIgnoreCase(et_email.getText().toString())){ // No se ha cambiado el email
@@ -222,10 +227,13 @@ public class Perfil extends AppCompatActivity {
                 em = et_email.getText().toString();
             }else{
                 fv.mostrarMensaje(this, "El formato del email es incorrecto. ");
+                em = bd_email;
             }
         }
 
         if (fv.contieneTexto(et_contra.getText().toString())){ // La contraseña está modificada
+            contra = et_contra.getText().toString();
+        }else{
             contra = bd_contra;
         }
 
@@ -250,7 +258,7 @@ public class Perfil extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        fv.mostrarMensaje(Perfil.this, "Perfil modificado correctamente. ");
+                        //fv.mostrarMensaje(Perfil.this, "Perfil modificado correctamente. ");
                         Intent i = new Intent(Perfil.this, Perfil.class);
                         i.putExtra("dni", dni);
                         i.putExtra("clase", nombreClase);
