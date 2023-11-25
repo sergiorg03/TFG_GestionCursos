@@ -269,6 +269,7 @@ public class Perfil extends AppCompatActivity {
                 new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
+                                fv.guardadoLogs(error.toString(), "perfil_modificarDatos");
                                 fv.mostrarMensaje(Perfil.this, "No se pudo  modificar el perfil. ");
                             }
                 }){
@@ -337,6 +338,7 @@ public class Perfil extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
+                        fv.guardadoLogs(error.toString(), "perfil_BorradoPerfil");
                         fv.mostrarMensaje(Perfil.this, "No se pudo borrar el perfil. ");
                     }
                 }) {
