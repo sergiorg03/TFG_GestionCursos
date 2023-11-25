@@ -608,7 +608,7 @@ public class EditorCursos extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        fv.guardadoLogs(error.toString(), "editorCursos_crearTest");
+                        //fv.guardadoLogs(error.toString(), "editorCursos_crearTest");
                         fv.mostrarMensaje(EditorCursos.this, "No se pudo insertar el test, pruebe a insertarlo de nuevo en unos minutos. ");
                     }
                 }
@@ -861,7 +861,7 @@ public class EditorCursos extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        fv.guardadoLogs(error.toString(), "editorCursos_modificarTest");
+                        //fv.guardadoLogs(error.toString(), "editorCursos_modificarTest");
                         fv.mostrarMensaje(EditorCursos.this, "No se pudo actualizar el test. ");
                     }
                 }

@@ -428,7 +428,7 @@ public class cursosGestores extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             error.printStackTrace();
-                            fv.guardadoLogs(error.toString(), "cursosGestores_corrarCursos");
+                            //fv.guardadoLogs(error.toString(), "cursosGestores_corrarCursos");
                             fv.mostrarMensaje(cursosGestores.this, "No se pudo borrar el curso. ");
                         }
                     })
@@ -619,7 +619,7 @@ public class cursosGestores extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                fv.guardadoLogs(error.toString(), "cursosGestores_getCursos");
+                //fv.guardadoLogs(error.toString(), "cursosGestores_getCursos");
                 cd.onConsultaError(error);
             }
         });
@@ -856,7 +856,7 @@ public class cursosGestores extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        fv.guardadoLogs(error.toString(), "cursosGestores_crearTest");
+                        //fv.guardadoLogs(error.toString(), "cursosGestores_crearTest");
                         fv.mostrarMensaje(cursosGestores.this, "No se pudo crear el curso, intentelo más tarde. ");
                     }
                 }

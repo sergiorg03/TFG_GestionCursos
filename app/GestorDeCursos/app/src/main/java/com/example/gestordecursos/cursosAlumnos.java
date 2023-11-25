@@ -323,7 +323,7 @@ public class cursosAlumnos extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                fv.guardadoLogs(error.toString(), "cursosAlumnos_getCursos");
+                //fv.guardadoLogs(error.toString(), "cursosAlumnos_getCursos");
                 cd.onConsultaError(error);
             }
         });

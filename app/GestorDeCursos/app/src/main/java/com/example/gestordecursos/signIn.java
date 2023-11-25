@@ -231,7 +231,7 @@ public class signIn extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         fv.mostrarMensaje(signIn.this, "No se pudo crear el usuario. ");
                         error.printStackTrace();
-                        fv.guardadoLogs(error.toString(), "signIn_creacionUs");
+                        //fv.guardadoLogs(error.toString(), "signIn_creacionUs");
                     }
                 }) {
             public String getBodyContentType() {
@@ -310,7 +310,7 @@ public class signIn extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        fv.guardadoLogs(error.toString(), "sigmIn_obtenerUs");
+                        //fv.guardadoLogs(error.toString(), "sigmIn_obtenerUs");
                         cdu.onConsultaError(error);
                     }
                 });
