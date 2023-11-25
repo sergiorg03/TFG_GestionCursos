@@ -112,7 +112,7 @@
                             android:layout_marginTop="20dp"
                             android:editable="true"
                             android:enabled="true"
-                            android:hint="apellido1"
+                            android:hint="Apellido1"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -142,7 +142,7 @@
                             android:layout_marginTop="20dp"
                             android:editable="false"
                             android:enabled="true"
-                            android:hint="apellido2"
+                            android:hint="Apellido2"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -202,8 +202,10 @@
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
                             android:enabled="true"
-                            android:hint="email"
-                            android:textSize="20sp" />
+                            android:hint="Email"
+                            android:textSize="20sp"
+                            android:inputType="textEmailAddress"
+                            android:scrollHorizontally="true"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -262,7 +264,7 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
-                            android:hint="contraseña"
+                            android:hint="Contraseña"
                             android:inputType="textPassword"
                             android:textSize="20sp" />
                     </LinearLayout>

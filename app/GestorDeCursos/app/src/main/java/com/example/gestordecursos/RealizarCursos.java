@@ -741,6 +741,7 @@ public class RealizarCursos extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         System.out.println("Error PUT");
+                        fv.guardadoLogs(error.toString(), "RealizarCursos_updateMarks");
                         error.printStackTrace();
                         fv.mostrarMensaje(RealizarCursos.this, "No se pudo  actualizar su nota. ");
                     }

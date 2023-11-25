@@ -43,17 +43,17 @@
                     android:id="@+id/op1_p1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 2 -->
@@ -79,17 +79,17 @@
                     android:id="@+id/op1_p2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 3 -->
@@ -115,17 +115,17 @@
                     android:id="@+id/op1_p3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 4 -->
@@ -151,17 +151,17 @@
                     android:id="@+id/op1_p4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 5 -->
@@ -187,17 +187,17 @@
                     android:id="@+id/op1_p5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 6 -->
@@ -223,17 +223,17 @@
                     android:id="@+id/op1_p6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 7 -->
@@ -259,17 +259,17 @@
                     android:id="@+id/op1_p7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 8 -->
@@ -295,17 +295,17 @@
                     android:id="@+id/op1_p8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 9 -->
@@ -331,17 +331,17 @@
                     android:id="@+id/op1_p9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RadioButton" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
             <!-- Pregunta 10 -->
@@ -367,17 +367,17 @@
                     android:id="@+id/op1_p10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="op1" />
+                    android:text="Opción 1" />
                 <RadioButton
                     android:id="@+id/op2_p10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="op2" />
+                    android:text="Opción 2" />
                 <RadioButton
                     android:id="@+id/op3_p10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="op3" />
+                    android:text="Opción 3" />
             </RadioGroup>
 
         </LinearLayout>
