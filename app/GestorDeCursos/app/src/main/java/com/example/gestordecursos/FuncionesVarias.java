@@ -3,6 +3,17 @@ package com.example.gestordecursos;
 import android.content.Context;
 import android.net.Uri;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.LocalTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -187,5 +198,47 @@ public class FuncionesVarias {
             return cadena;
         }
         return cadenaADevolver;
+    }
+
+    public void guardadoLogs(String error, String clase){
+        BufferedWriter bw = null;
+        File carpetaLogs = null;
+        File ficheroLogs = null;
+        try {
+            carpetaLogs = new File("/storage/self/primary/Download"+File.separator+"LOGS");
+
+            if (!carpetaLogs.exists()){
+                carpetaLogs.mkdir();
+            }
+            String nombreArchivo = LocalTime.now().toString();
+            String nuevoNombre = "";
+            //Creamos el nuevo Nombre
+            for (int i = 0; i < nombreArchivo.length(); i++) {
+                if (nombreArchivo.charAt(i) == ':') {
+                    nuevoNombre = nuevoNombre + '_';
+                }else{
+                    if (nombreArchivo.charAt(i) == '.') {
+                        nuevoNombre = nuevoNombre + ',';
+                    }else{
+                        nuevoNombre = nuevoNombre + nombreArchivo.charAt(i);
+                    }
+                }
+            }
+            ficheroLogs = new File(carpetaLogs.getPath()+"log_"+clase+"_"+nuevoNombre+".txt");
+
+            // Creamos la instancia de BufferedWriter para escribir en el fichero
+            bw = new BufferedWriter(new FileWriter(ficheroLogs));
+            // Escribimos el error
+            bw.write(error);
+
+            // Cerramos el recurso
+            bw.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
