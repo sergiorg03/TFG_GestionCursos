@@ -199,46 +199,4 @@ public class FuncionesVarias {
         }
         return cadenaADevolver;
     }
-
-    public void guardadoLogs(String error, String clase){
-        BufferedWriter bw = null;
-        File carpetaLogs = null;
-        File ficheroLogs = null;
-        try {
-            carpetaLogs = new File("/storage/self/primary/Download"+File.separator+"LOGS");
-
-            if (!carpetaLogs.exists()){
-                carpetaLogs.mkdir();
-            }
-            String nombreArchivo = LocalTime.now().toString();
-            String nuevoNombre = "";
-            //Creamos el nuevo Nombre
-            for (int i = 0; i < nombreArchivo.length(); i++) {
-                if (nombreArchivo.charAt(i) == ':') {
-                    nuevoNombre = nuevoNombre + '_';
-                }else{
-                    if (nombreArchivo.charAt(i) == '.') {
-                        nuevoNombre = nuevoNombre + ',';
-                    }else{
-                        nuevoNombre = nuevoNombre + nombreArchivo.charAt(i);
-                    }
-                }
-            }
-            ficheroLogs = new File(carpetaLogs.getPath()+"log_"+clase+"_"+nuevoNombre+".txt");
-
-            // Creamos la instancia de BufferedWriter para escribir en el fichero
-            bw = new BufferedWriter(new FileWriter(ficheroLogs));
-            // Escribimos el error
-            bw.write(error);
-
-            // Cerramos el recurso
-            bw.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 }
