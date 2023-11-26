@@ -822,17 +822,19 @@ public class EditorCursos extends AppCompatActivity {
         //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/updateTest.php";
         final String URL = fv.getURL()+"updateTest.php";
 
-        Map<String[], List<String[]>> datosNuevos = obtenerNuevosDatos();
+        if (obtenerNuevosDatos() != null) {
 
-        List<String[]> preguntas = new ArrayList<>(datosNuevos.keySet());
-        List<String[]> opciones = new ArrayList<>();
-        for (List<String[]> valores : datosNuevos.values()) {
-            opciones.addAll(valores);
-        }
+            Map<String[], List<String[]>> datosNuevos = obtenerNuevosDatos();
 
-        /**
-         * Trazas
-         */
+            List<String[]> preguntas = new ArrayList<>(datosNuevos.keySet());
+            List<String[]> opciones = new ArrayList<>();
+            for (List<String[]> valores : datosNuevos.values()) {
+                opciones.addAll(valores);
+            }
+
+            /**
+             * Trazas
+             */
         /*for (int i = 0; i < preguntas.size(); i++) {
             System.out.println("EditorCursos: modificarTest: preguntas "+ preguntas.get(i)[0] + " ---> "+preguntas.get(i)[1]);
         }
@@ -845,349 +847,358 @@ public class EditorCursos extends AppCompatActivity {
                                 opciones.get(i)[4]);
         }*/
 
-        RequestQueue rq = Volley.newRequestQueue(this);
+            RequestQueue rq = Volley.newRequestQueue(this);
 
-        StringRequest sr = new StringRequest(Request.Method.PUT, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        fv.mostrarMensaje(EditorCursos.this, "Se modifico el test correctamente. ");
-                        Intent i = new Intent(EditorCursos.this, claseAnterior);
-                        i.putExtra("dni", dni);
-                        startActivity(i);
-                        finish();
+            StringRequest sr = new StringRequest(Request.Method.PUT, URL,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            fv.mostrarMensaje(EditorCursos.this, "Se modifico el test correctamente. ");
+                            Intent i = new Intent(EditorCursos.this, claseAnterior);
+                            i.putExtra("dni", dni);
+                            startActivity(i);
+                            finish();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            //fv.guardadoLogs(error.toString(), "editorCursos_modificarTest");
+                            fv.mostrarMensaje(EditorCursos.this, "No se pudo actualizar el test. ");
+                        }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //fv.guardadoLogs(error.toString(), "editorCursos_modificarTest");
-                        fv.mostrarMensaje(EditorCursos.this, "No se pudo actualizar el test. ");
+            ) {
+                public String getBodyContentType() {
+                    return "application/json";
+                }
+
+                @Override
+                public byte[] getBody() {
+                    JSONObject json = new JSONObject();
+                    try {
+                        json.put("id_curso", id_curso); // Id del curso
+                        // datos pregunta 1
+                        json.put("id_pregunta1", preguntas.get(0)[0]);
+                        json.put("enunciado_pregunta1", preguntas.get(0)[1]);
+                        // datos pregunta 2
+                        json.put("id_pregunta2", preguntas.get(1)[0]);
+                        json.put("enunciado_pregunta2", preguntas.get(1)[1]);
+                        // datos pregunta 3
+                        json.put("id_pregunta3", preguntas.get(2)[0]);
+                        json.put("enunciado_pregunta3", preguntas.get(2)[1]);
+                        // datos pregunta 4
+                        json.put("id_pregunta4", preguntas.get(3)[0]);
+                        json.put("enunciado_pregunta4", preguntas.get(3)[1]);
+                        // datos pregunta 5
+                        json.put("id_pregunta5", preguntas.get(4)[0]);
+                        json.put("enunciado_pregunta5", preguntas.get(4)[1]);
+                        // datos pregunta 6
+                        json.put("id_pregunta6", preguntas.get(5)[0]);
+                        json.put("enunciado_pregunta6", preguntas.get(5)[1]);
+                        // datos pregunta 7
+                        json.put("id_pregunta7", preguntas.get(6)[0]);
+                        json.put("enunciado_pregunta7", preguntas.get(6)[1]);
+                        // datos pregunta 8
+                        json.put("id_pregunta8", preguntas.get(7)[0]);
+                        json.put("enunciado_pregunta8", preguntas.get(7)[1]);
+                        // datos pregunta 9
+                        json.put("id_pregunta9", preguntas.get(8)[0]);
+                        json.put("enunciado_pregunta9", preguntas.get(8)[1]);
+                        // datos pregunta 10
+                        json.put("id_pregunta10", preguntas.get(9)[0]);
+                        json.put("enunciado_pregunta10", preguntas.get(9)[1]);
+
+                        // Datos Opciones
+                        // Pregunta 1
+                        // Opcion 1
+                        json.put("id_op1_p1", opciones.get(0)[0]);
+                        json.put("enun_op1_p1", opciones.get(0)[3]);
+                        json.put("escor_op1_p1", opciones.get(0)[4]);
+                        // Opcion 1
+                        json.put("id_op1_p1", opciones.get(0)[0]);
+                        json.put("enun_op1_p1", opciones.get(0)[3]);
+                        json.put("escor_op1_p1", opciones.get(0)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p1", opciones.get(1)[0]);
+                        json.put("enun_op2_p1", opciones.get(1)[3]);
+                        json.put("escor_op2_p1", opciones.get(1)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p1", opciones.get(2)[0]);
+                        json.put("enun_op2_p1", opciones.get(2)[3]);
+                        json.put("escor_op2_p1", opciones.get(2)[4]);
+
+                        // Pregunta 1
+                        // Opcion 1
+                        json.put("id_op1_p1", opciones.get(0)[0]);
+                        json.put("enun_op1_p1", opciones.get(0)[3]);
+                        json.put("escor_op1_p1", opciones.get(0)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p1", opciones.get(1)[0]);
+                        json.put("enun_op2_p1", opciones.get(1)[3]);
+                        json.put("escor_op2_p1", opciones.get(1)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p1", opciones.get(2)[0]);
+                        json.put("enun_op3_p1", opciones.get(2)[3]);
+                        json.put("escor_op3_p1", opciones.get(2)[4]);
+                        // Pregunta 2
+                        // Opcion 1
+                        json.put("id_op1_p2", opciones.get(3)[0]);
+                        json.put("enun_op1_p2", opciones.get(3)[3]);
+                        json.put("escor_op1_p2", opciones.get(3)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p2", opciones.get(4)[0]);
+                        json.put("enun_op2_p2", opciones.get(4)[3]);
+                        json.put("escor_op2_p2", opciones.get(4)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p2", opciones.get(5)[0]);
+                        json.put("enun_op3_p2", opciones.get(5)[3]);
+                        json.put("escor_op3_p2", opciones.get(5)[4]);
+                        // Pregunta 3
+                        // Opcion 1
+                        json.put("id_op1_p3", opciones.get(6)[0]);
+                        json.put("enun_op1_p3", opciones.get(6)[3]);
+                        json.put("escor_op1_p3", opciones.get(6)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p3", opciones.get(7)[0]);
+                        json.put("enun_op2_p3", opciones.get(7)[3]);
+                        json.put("escor_op2_p3", opciones.get(7)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p3", opciones.get(8)[0]);
+                        json.put("enun_op3_p3", opciones.get(8)[3]);
+                        json.put("escor_op3_p3", opciones.get(8)[4]);
+                        // Pregunta 4
+                        // Opcion 1
+                        json.put("id_op1_p4", opciones.get(9)[0]);
+                        json.put("enun_op1_p4", opciones.get(9)[3]);
+                        json.put("escor_op1_p4", opciones.get(9)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p4", opciones.get(10)[0]);
+                        json.put("enun_op2_p4", opciones.get(10)[3]);
+                        json.put("escor_op2_p4", opciones.get(10)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p4", opciones.get(11)[0]);
+                        json.put("enun_op3_p4", opciones.get(11)[3]);
+                        json.put("escor_op3_p4", opciones.get(11)[4]);
+                        // Pregunta 5
+                        // Opcion 1
+                        json.put("id_op1_p5", opciones.get(12)[0]);
+                        json.put("enun_op1_p5", opciones.get(12)[3]);
+                        json.put("escor_op1_p5", opciones.get(12)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p5", opciones.get(13)[0]);
+                        json.put("enun_op2_p5", opciones.get(13)[3]);
+                        json.put("escor_op2_p5", opciones.get(13)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p5", opciones.get(14)[0]);
+                        json.put("enun_op3_p5", opciones.get(14)[3]);
+                        json.put("escor_op3_p5", opciones.get(14)[4]);
+                        // Pregunta 6
+                        // Opcion 1
+                        json.put("id_op1_p6", opciones.get(15)[0]);
+                        json.put("enun_op1_p6", opciones.get(15)[3]);
+                        json.put("escor_op1_p6", opciones.get(15)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p6", opciones.get(16)[0]);
+                        json.put("enun_op2_p6", opciones.get(16)[3]);
+                        json.put("escor_op2_p6", opciones.get(16)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p6", opciones.get(17)[0]);
+                        json.put("enun_op3_p6", opciones.get(17)[3]);
+                        json.put("escor_op3_p6", opciones.get(17)[4]);
+                        // Pregunta 7
+                        // Opcion 1
+                        json.put("id_op1_p7", opciones.get(18)[0]);
+                        json.put("enun_op1_p7", opciones.get(18)[3]);
+                        json.put("escor_op1_p7", opciones.get(18)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p7", opciones.get(19)[0]);
+                        json.put("enun_op2_p7", opciones.get(19)[3]);
+                        json.put("escor_op2_p7", opciones.get(19)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p7", opciones.get(20)[0]);
+                        json.put("enun_op3_p7", opciones.get(20)[3]);
+                        json.put("escor_op3_p7", opciones.get(20)[4]);
+                        // Pregunta 8
+                        // Opcion 1
+                        json.put("id_op1_p8", opciones.get(21)[0]);
+                        json.put("enun_op1_p8", opciones.get(21)[3]);
+                        json.put("escor_op1_p8", opciones.get(21)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p8", opciones.get(22)[0]);
+                        json.put("enun_op2_p8", opciones.get(22)[3]);
+                        json.put("escor_op2_p8", opciones.get(22)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p8", opciones.get(23)[0]);
+                        json.put("enun_op3_p8", opciones.get(23)[3]);
+                        json.put("escor_op3_p8", opciones.get(23)[4]);
+                        // Pregunta 9
+                        // Opcion 1
+                        json.put("id_op1_p9", opciones.get(24)[0]);
+                        json.put("enun_op1_p9", opciones.get(24)[3]);
+                        json.put("escor_op1_p9", opciones.get(24)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p9", opciones.get(25)[0]);
+                        json.put("enun_op2_p9", opciones.get(25)[3]);
+                        json.put("escor_op2_p9", opciones.get(25)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p9", opciones.get(26)[0]);
+                        json.put("enun_op3_p9", opciones.get(26)[3]);
+                        json.put("escor_op3_p9", opciones.get(26)[4]);
+                        // Pregunta 10
+                        // Opcion 1
+                        json.put("id_op1_p10", opciones.get(27)[0]);
+                        json.put("enun_op1_p10", opciones.get(27)[3]);
+                        json.put("escor_op1_p10", opciones.get(27)[4]);
+                        // Opcion 2
+                        json.put("id_op2_p10", opciones.get(28)[0]);
+                        json.put("enun_op2_p10", opciones.get(28)[3]);
+                        json.put("escor_op2_p10", opciones.get(28)[4]);
+                        // Opcion 3
+                        json.put("id_op3_p10", opciones.get(29)[0]);
+                        json.put("enun_op3_p10", opciones.get(29)[3]);
+                        json.put("escor_op3_p10", opciones.get(29)[4]);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                    return json.toString().getBytes();
                 }
-        ){
-            public String getBodyContentType() {
-                return "application/json";
-            }
+            };
 
-            @Override
-            public byte[] getBody() {
-                JSONObject json = new JSONObject();
-                try {
-                    json.put("id_curso", id_curso); // Id del curso
-                    // datos pregunta 1
-                    json.put("id_pregunta1", preguntas.get(0)[0]);
-                    json.put("enunciado_pregunta1", preguntas.get(0)[1]);
-                    // datos pregunta 2
-                    json.put("id_pregunta2", preguntas.get(1)[0]);
-                    json.put("enunciado_pregunta2", preguntas.get(1)[1]);
-                    // datos pregunta 3
-                    json.put("id_pregunta3", preguntas.get(2)[0]);
-                    json.put("enunciado_pregunta3", preguntas.get(2)[1]);
-                    // datos pregunta 4
-                    json.put("id_pregunta4", preguntas.get(3)[0]);
-                    json.put("enunciado_pregunta4", preguntas.get(3)[1]);
-                    // datos pregunta 5
-                    json.put("id_pregunta5", preguntas.get(4)[0]);
-                    json.put("enunciado_pregunta5", preguntas.get(4)[1]);
-                    // datos pregunta 6
-                    json.put("id_pregunta6", preguntas.get(5)[0]);
-                    json.put("enunciado_pregunta6", preguntas.get(5)[1]);
-                    // datos pregunta 7
-                    json.put("id_pregunta7", preguntas.get(6)[0]);
-                    json.put("enunciado_pregunta7", preguntas.get(6)[1]);
-                    // datos pregunta 8
-                    json.put("id_pregunta8", preguntas.get(7)[0]);
-                    json.put("enunciado_pregunta8", preguntas.get(7)[1]);
-                    // datos pregunta 9
-                    json.put("id_pregunta9", preguntas.get(8)[0]);
-                    json.put("enunciado_pregunta9", preguntas.get(8)[1]);
-                    // datos pregunta 10
-                    json.put("id_pregunta10", preguntas.get(9)[0]);
-                    json.put("enunciado_pregunta10", preguntas.get(9)[1]);
-
-                    // Datos Opciones
-                    // Pregunta 1
-                    // Opcion 1
-                    json.put("id_op1_p1", opciones.get(0)[0]);
-                    json.put("enun_op1_p1", opciones.get(0)[3]);
-                    json.put("escor_op1_p1", opciones.get(0)[4]);
-                    // Opcion 1
-                    json.put("id_op1_p1", opciones.get(0)[0]);
-                    json.put("enun_op1_p1", opciones.get(0)[3]);
-                    json.put("escor_op1_p1", opciones.get(0)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p1", opciones.get(1)[0]);
-                    json.put("enun_op2_p1", opciones.get(1)[3]);
-                    json.put("escor_op2_p1", opciones.get(1)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p1", opciones.get(2)[0]);
-                    json.put("enun_op2_p1", opciones.get(2)[3]);
-                    json.put("escor_op2_p1", opciones.get(2)[4]);
-
-                    // Pregunta 1
-                    // Opcion 1
-                    json.put("id_op1_p1", opciones.get(0)[0]);
-                    json.put("enun_op1_p1", opciones.get(0)[3]);
-                    json.put("escor_op1_p1", opciones.get(0)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p1", opciones.get(1)[0]);
-                    json.put("enun_op2_p1", opciones.get(1)[3]);
-                    json.put("escor_op2_p1", opciones.get(1)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p1", opciones.get(2)[0]);
-                    json.put("enun_op3_p1", opciones.get(2)[3]);
-                    json.put("escor_op3_p1", opciones.get(2)[4]);
-                    // Pregunta 2
-                    // Opcion 1
-                    json.put("id_op1_p2", opciones.get(3)[0]);
-                    json.put("enun_op1_p2", opciones.get(3)[3]);
-                    json.put("escor_op1_p2", opciones.get(3)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p2", opciones.get(4)[0]);
-                    json.put("enun_op2_p2", opciones.get(4)[3]);
-                    json.put("escor_op2_p2", opciones.get(4)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p2", opciones.get(5)[0]);
-                    json.put("enun_op3_p2", opciones.get(5)[3]);
-                    json.put("escor_op3_p2", opciones.get(5)[4]);
-                    // Pregunta 3
-                    // Opcion 1
-                    json.put("id_op1_p3", opciones.get(6)[0]);
-                    json.put("enun_op1_p3", opciones.get(6)[3]);
-                    json.put("escor_op1_p3", opciones.get(6)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p3", opciones.get(7)[0]);
-                    json.put("enun_op2_p3", opciones.get(7)[3]);
-                    json.put("escor_op2_p3", opciones.get(7)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p3", opciones.get(8)[0]);
-                    json.put("enun_op3_p3", opciones.get(8)[3]);
-                    json.put("escor_op3_p3", opciones.get(8)[4]);
-                    // Pregunta 4
-                    // Opcion 1
-                    json.put("id_op1_p4", opciones.get(9)[0]);
-                    json.put("enun_op1_p4", opciones.get(9)[3]);
-                    json.put("escor_op1_p4", opciones.get(9)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p4", opciones.get(10)[0]);
-                    json.put("enun_op2_p4", opciones.get(10)[3]);
-                    json.put("escor_op2_p4", opciones.get(10)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p4", opciones.get(11)[0]);
-                    json.put("enun_op3_p4", opciones.get(11)[3]);
-                    json.put("escor_op3_p4", opciones.get(11)[4]);
-                    // Pregunta 5
-                    // Opcion 1
-                    json.put("id_op1_p5", opciones.get(12)[0]);
-                    json.put("enun_op1_p5", opciones.get(12)[3]);
-                    json.put("escor_op1_p5", opciones.get(12)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p5", opciones.get(13)[0]);
-                    json.put("enun_op2_p5", opciones.get(13)[3]);
-                    json.put("escor_op2_p5", opciones.get(13)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p5", opciones.get(14)[0]);
-                    json.put("enun_op3_p5", opciones.get(14)[3]);
-                    json.put("escor_op3_p5", opciones.get(14)[4]);
-                    // Pregunta 6
-                    // Opcion 1
-                    json.put("id_op1_p6", opciones.get(15)[0]);
-                    json.put("enun_op1_p6", opciones.get(15)[3]);
-                    json.put("escor_op1_p6", opciones.get(15)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p6", opciones.get(16)[0]);
-                    json.put("enun_op2_p6", opciones.get(16)[3]);
-                    json.put("escor_op2_p6", opciones.get(16)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p6", opciones.get(17)[0]);
-                    json.put("enun_op3_p6", opciones.get(17)[3]);
-                    json.put("escor_op3_p6", opciones.get(17)[4]);
-                    // Pregunta 7
-                    // Opcion 1
-                    json.put("id_op1_p7", opciones.get(18)[0]);
-                    json.put("enun_op1_p7", opciones.get(18)[3]);
-                    json.put("escor_op1_p7", opciones.get(18)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p7", opciones.get(19)[0]);
-                    json.put("enun_op2_p7", opciones.get(19)[3]);
-                    json.put("escor_op2_p7", opciones.get(19)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p7", opciones.get(20)[0]);
-                    json.put("enun_op3_p7", opciones.get(20)[3]);
-                    json.put("escor_op3_p7", opciones.get(20)[4]);
-                    // Pregunta 8
-                    // Opcion 1
-                    json.put("id_op1_p8", opciones.get(21)[0]);
-                    json.put("enun_op1_p8", opciones.get(21)[3]);
-                    json.put("escor_op1_p8", opciones.get(21)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p8", opciones.get(22)[0]);
-                    json.put("enun_op2_p8", opciones.get(22)[3]);
-                    json.put("escor_op2_p8", opciones.get(22)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p8", opciones.get(23)[0]);
-                    json.put("enun_op3_p8", opciones.get(23)[3]);
-                    json.put("escor_op3_p8", opciones.get(23)[4]);
-                    // Pregunta 9
-                    // Opcion 1
-                    json.put("id_op1_p9", opciones.get(24)[0]);
-                    json.put("enun_op1_p9", opciones.get(24)[3]);
-                    json.put("escor_op1_p9", opciones.get(24)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p9", opciones.get(25)[0]);
-                    json.put("enun_op2_p9", opciones.get(25)[3]);
-                    json.put("escor_op2_p9", opciones.get(25)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p9", opciones.get(26)[0]);
-                    json.put("enun_op3_p9", opciones.get(26)[3]);
-                    json.put("escor_op3_p9", opciones.get(26)[4]);
-                    // Pregunta 10
-                    // Opcion 1
-                    json.put("id_op1_p10", opciones.get(27)[0]);
-                    json.put("enun_op1_p10", opciones.get(27)[3]);
-                    json.put("escor_op1_p10", opciones.get(27)[4]);
-                    // Opcion 2
-                    json.put("id_op2_p10", opciones.get(28)[0]);
-                    json.put("enun_op2_p10", opciones.get(28)[3]);
-                    json.put("escor_op2_p10", opciones.get(28)[4]);
-                    // Opcion 3
-                    json.put("id_op3_p10", opciones.get(29)[0]);
-                    json.put("enun_op3_p10", opciones.get(29)[3]);
-                    json.put("escor_op3_p10", opciones.get(29)[4]);
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return json.toString().getBytes();
-            }
-        };
-
-        // Añadimos la peticion a la cola
-        rq.add(sr);
+            // Añadimos la peticion a la cola
+            rq.add(sr);
+        }
     }
 
     /**
      * Metodo para obtener los nuevos datos del test
      * @return
      */
-    public Map<String[], List<String[]>> obtenerNuevosDatos(){
-        Map<String[], List<String[]>> nuevosDatos = new HashMap<>(); // Preguntas y lsita de opciones
-        List<String[]> listaOpcionesPregunta = obtenerOpciones(); // Lista para las opciones de las preguntas
-        List<String[]> listaEnunciadosPreguntas = obtenerPreguntas(); // lista de todas las preguntas
+    public Map<String[], List<String[]>> obtenerNuevosDatos() {
 
-        // Pregunta 1 con sus respectivas opciones
-        List<String[]> opciones = new ArrayList<>();
-        String [] datosPreguntas = listaEnunciadosPreguntas.get(0);
-        String [] datosOpciones = listaOpcionesPregunta.get(0);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(1);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(2);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+        if(grupo1.getCheckedRadioButtonId() == -1 || grupo2.getCheckedRadioButtonId() == -1 || grupo3.getCheckedRadioButtonId() == -1 || grupo4.getCheckedRadioButtonId() == -1 ||
+           grupo5.getCheckedRadioButtonId() == -1 || grupo6.getCheckedRadioButtonId() == -1 || grupo7.getCheckedRadioButtonId() == -1 || grupo8.getCheckedRadioButtonId() == -1 ||
+           grupo9.getCheckedRadioButtonId() == -1 || grupo10.getCheckedRadioButtonId() == -1) {
+            fv.mostrarMensaje(EditorCursos.this, "Debe seleccionar una opción como correcta. ");
+            return null;
+        }else{
+            Map<String[], List<String[]>> nuevosDatos = new HashMap<>(); // Preguntas y lsita de opciones
+            List<String[]> listaOpcionesPregunta = obtenerOpciones(); // Lista para las opciones de las preguntas
+            List<String[]> listaEnunciadosPreguntas = obtenerPreguntas(); // lista de todas las preguntas
 
-        // Pregunta 2 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(1);
-        datosOpciones = listaOpcionesPregunta.get(3);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(4);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(5);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 1 con sus respectivas opciones
+            List<String[]> opciones = new ArrayList<>();
+            String[] datosPreguntas = listaEnunciadosPreguntas.get(0);
+            String[] datosOpciones = listaOpcionesPregunta.get(0);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(1);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(2);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 3 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(2);
-        datosOpciones = listaOpcionesPregunta.get(6);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(7);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(8);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 2 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(1);
+            datosOpciones = listaOpcionesPregunta.get(3);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(4);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(5);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 4 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(3);
-        datosOpciones = listaOpcionesPregunta.get(9);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(10);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(11);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 3 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(2);
+            datosOpciones = listaOpcionesPregunta.get(6);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(7);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(8);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 5 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(4);
-        datosOpciones = listaOpcionesPregunta.get(12);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(13);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(14);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 4 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(3);
+            datosOpciones = listaOpcionesPregunta.get(9);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(10);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(11);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 6 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(5);
-        datosOpciones = listaOpcionesPregunta.get(15);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(16);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(17);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 5 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(4);
+            datosOpciones = listaOpcionesPregunta.get(12);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(13);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(14);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 7 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(6);
-        datosOpciones = listaOpcionesPregunta.get(18);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(19);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(20);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 6 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(5);
+            datosOpciones = listaOpcionesPregunta.get(15);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(16);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(17);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 8 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(7);
-        datosOpciones = listaOpcionesPregunta.get(21);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(22);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(23);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 7 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(6);
+            datosOpciones = listaOpcionesPregunta.get(18);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(19);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(20);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 9 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(8);
-        datosOpciones = listaOpcionesPregunta.get(24);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(25);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(26);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 8 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(7);
+            datosOpciones = listaOpcionesPregunta.get(21);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(22);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(23);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        // Pregunta 9 con sus respectivas opciones
-        opciones = new ArrayList<>();
-        datosPreguntas = listaEnunciadosPreguntas.get(9);
-        datosOpciones = listaOpcionesPregunta.get(27);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(28);
-        opciones.add(datosOpciones);
-        datosOpciones = listaOpcionesPregunta.get(29);
-        opciones.add(datosOpciones);
-        nuevosDatos.put(datosPreguntas, opciones);
+            // Pregunta 9 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(8);
+            datosOpciones = listaOpcionesPregunta.get(24);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(25);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(26);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
 
-        return nuevosDatos;
+            // Pregunta 9 con sus respectivas opciones
+            opciones = new ArrayList<>();
+            datosPreguntas = listaEnunciadosPreguntas.get(9);
+            datosOpciones = listaOpcionesPregunta.get(27);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(28);
+            opciones.add(datosOpciones);
+            datosOpciones = listaOpcionesPregunta.get(29);
+            opciones.add(datosOpciones);
+            nuevosDatos.put(datosPreguntas, opciones);
+
+            return nuevosDatos;
+        }
     }
 
     /**
@@ -1483,7 +1494,6 @@ public class EditorCursos extends AppCompatActivity {
         datosOpciones[3] = fv.textoFinal(tv_ec_op3_p10.getText().toString().trim()); // OPCION
         datosOpciones[4] = obtenerOpcionSeleccionada(op3_p10); // CORRECTA?
         listaOpciones.add(datosOpciones);
-        datosOpciones = new String [5];
 
         //Devolvemos la lista de opciones
         return listaOpciones;

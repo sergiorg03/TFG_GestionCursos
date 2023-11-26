@@ -25,17 +25,6 @@ public class informacionEditarCursos extends AppCompatActivity {
     }
 
     /**
-     * Metodo para volver a la clase anterior
-     * @param v
-     */
-    public void volver(View v){
-        Intent i = new Intent(this, claseAnterior);
-        i.putExtra("dni", dni);
-        startActivity(i);
-        finish();
-    }
-
-    /**
      * Metodo para ir a la clase EditorCursos
      * @param v
      */
