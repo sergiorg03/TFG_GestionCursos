@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	// Creamos las consultas para la obtencion de los tests y sus opciones
     $SELECT = 'SELECT p.dni
                     FROM personas AS p
-                    WHERE p.perfil = a;';
+                    WHERE p.perfil = "a";';
     
     // Preparamos la consulta para obtener los DNI de los alumnos
     $consulta = $conexion->prepare($SELECT);
