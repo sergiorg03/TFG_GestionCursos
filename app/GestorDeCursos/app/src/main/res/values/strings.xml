@@ -20,4 +20,8 @@
         <item id="1">Gestor</item>
         <item id="2">Alumno</item>
     </string-array>
+    <string-array name="perfiles_pa">
+        <item id="0">Gestor</item>
+        <item id="1">Alumno</item>
+    </string-array>
 </resources>
