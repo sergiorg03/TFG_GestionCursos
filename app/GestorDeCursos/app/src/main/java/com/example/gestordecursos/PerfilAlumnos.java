@@ -46,6 +46,7 @@ public class PerfilAlumnos extends AppCompatActivity {
     String bd_us;
     String bd_contra;
     String bd_perfil;
+    int bd_posPerfil;
 
     // Atributos de la pantalla
     EditText et_dni;
@@ -210,6 +211,7 @@ public class PerfilAlumnos extends AppCompatActivity {
                 et_email.setText(listaDatos[5]);
                 et_us.setText(listaDatos[6]);
                 perfil.setSelection(listaDatos[8].equalsIgnoreCase("a")? 1: 0);
+                bd_posPerfil = listaDatos[8].equalsIgnoreCase("a")? 1: 0;
             }
 
             @Override
@@ -261,5 +263,144 @@ public class PerfilAlumnos extends AppCompatActivity {
         //Añadimos la request a la cola
         rq.add(sr);
         return datosPersona;
+    }
+
+    /**
+     * Metodo que obtiene los datos a modificar
+     * @return -- Devuelve una lista con los valores que van a ser actualizados.
+     */
+    public String [] obtenerNuevosDatos(){
+        String dni = "", nombre = "", ap1 = "", ap2 = "", telf = "", em = "", us = "", contra = "", profile = "";
+
+        // Comprobacion del DNI
+        if (fv.formatoDNI(et_dni.getText().toString())){
+            if (bd_dni.equalsIgnoreCase(et_dni.getText().toString())){
+                dni = bd_dni;
+            }else{
+                dni = et_dni.getText().toString();
+            }
+        }else dni = bd_dni;
+
+        // Comprobación del nombre
+        if (bd_nombre.equalsIgnoreCase(et_nombre.getText().toString())){ // El nombre es el mismo
+            nombre = bd_nombre;
+        }else{ // El nombre es diferente
+            nombre = et_nombre.getText().toString();
+        }
+
+        // Comprobación del primer apellido
+        if(bd_ape1.equalsIgnoreCase(et_ap1.getText().toString())){ // El primer apellido es el mismo, no se ha cambiado
+            ap1 = bd_ape1;
+        }else{ //Se ha cambiado el apellido
+            ap1 = et_ap1.getText().toString();
+        }
+
+        // Comprobación del segundo apellido
+        if (bd_ape2.equalsIgnoreCase(et_ap2.getText().toString())){ // El segundo apellido es el mismo, no se ha cambiado
+            ap2 = bd_ape2;
+        }else{ // Se  ha modificado
+            ap2 = et_ap2.getText().toString();
+        }
+
+        // Comprobacion del telefono
+        if (bd_telf.equalsIgnoreCase(et_telf.getText().toString())){ // El telefono no se ha cambiado
+            telf = bd_telf;
+        }else{ // Se ha cambiado el telefono
+            if (fv.esNumerico(et_telf.getText().toString()) && et_telf.getText().toString().length() == 9 && !telefonos.contains(et_telf.getText().toString())) {
+                telf = et_telf.getText().toString();
+            }else {
+                fv.mostrarMensaje(this, "No se ha podido modificar el telefono. ");
+                telf = bd_telf;
+            }
+        }
+
+        // Comprobación del email
+        if (bd_email.equalsIgnoreCase(et_email.getText().toString())){ // No se ha cambiado el email
+            em = bd_email;
+        }else{// Se ha cambiado el email
+            if (fv.formatoEmail(et_email.getText().toString())) { // El formato del email es correcto
+                em = et_email.getText().toString();
+            }else{
+                fv.mostrarMensaje(this, "El formato del email es incorrecto. ");
+                em = bd_email;
+            }
+        }
+
+        // Comprobacion de la contraseña
+        if (fv.contieneTexto(et_contra.getText().toString())){ // La contraseña está modificada
+            contra = et_contra.getText().toString();
+        }else{
+            contra = bd_contra;
+        }
+
+        if (perfil.getSelectedItemPosition() == bd_posPerfil){
+            profile = bd_perfil;
+        }else{
+            profile = "Alumno".equalsIgnoreCase(perfil.getSelectedItem().toString())? "a": "g";
+        }
+
+        if (bd_us.equalsIgnoreCase(et_us.getText().toString())){
+            us = bd_us;
+        }else {
+            if (fv.contieneTexto(et_us.getText().toString()) && !usuarios.contains(et_us.getText().toString())){
+                us = et_us.getText().toString();
+            }else{
+                fv.mostrarMensaje(this, "El usuario introducido contiene un error, pruebe con otro diferente. ");
+            }
+        }
+
+        String [] nuevosDatos = new String []{dni, nombre, ap1, ap2, telf, em, us, contra, profile};
+        return nuevosDatos;
+    }
+
+    /**
+     * Metodo que modifica el perfil del alumno
+     * @param v -- View del boton pulsado
+     */
+    public void updateProfile(View v){
+        String[] datosNuevos = obtenerNuevosDatos();
+        final String URL = fv.getURL()+"updateProfileData.php";
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.PUT, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        salir();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        fv.mostrarMensaje(PerfilAlumnos.this, "No se pudo actualizar el perfil. ");
+                    }
+                }){
+                public String getBodyContentType() {
+                    return "application/json";
+                }
+
+                @Override
+                public byte[] getBody() {
+                    JSONObject jsonBody = new JSONObject();
+                    try {
+                        jsonBody.put("dni_a", datosNuevos[0]);
+                        jsonBody.put("nombre", datosNuevos[1]);
+                        jsonBody.put("apellido1", datosNuevos[2]);
+                        jsonBody.put("apellido2", datosNuevos[3]);
+                        jsonBody.put("telefono", datosNuevos[4]);
+                        jsonBody.put("email", datosNuevos[5]);
+                        jsonBody.put("usuario", datosNuevos[6]);
+                        jsonBody.put("contra", datosNuevos[7]);
+                        jsonBody.put("perfil", datosNuevos[8]);
+                        jsonBody.put("dni_antiguo", datosNuevos[8]);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return jsonBody.toString().getBytes();
+                }
+        };
+
+        rq.add(sr);
     }
 }
