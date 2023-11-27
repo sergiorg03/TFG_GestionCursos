@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Transformamos el JSON de entrada de datos a un array asociativo 
     $datos = json_decode(file_get_contents('php://input'), true);
     // consulta preparada con el dato a insertar
-    $INSERT = 'INSERT INTO gestionCursos.realizar (dni, id_curso, puntuacion)
+    $INSERT = 'INSERT INTO gestionCursos.realizar (dni, id_curso, lastModifiedDate, puntuacion)
 	            VALUES
-		            (:dni, :id_curso, :puntuacion);';
+		            (:dni, :id_curso, SYSDATE(), :puntuacion);';
                     
     // preparamos la consulta
     $consulta = $conexion->prepare($INSERT);

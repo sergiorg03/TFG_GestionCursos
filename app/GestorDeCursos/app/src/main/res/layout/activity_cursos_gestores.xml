@@ -607,7 +607,7 @@
         android:id="@+id/AddCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
+        android:layout_marginStart="60dp"
         android:layout_marginEnd="105dp"
         android:layout_marginBottom="20dp"
         android:onClick="addCourse"
@@ -616,14 +616,25 @@
         app:srcCompat="@drawable/addcourse" />
 
     <ImageView
+        android:id="@+id/alumnos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="alumnos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AddCurso"
+        app:srcCompat="@drawable/alumnos" />
+
+    <ImageView
         android:id="@+id/perfil1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="20dp"
         android:onClick="perfil"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/AddCurso"
+        app:layout_constraintStart_toEndOf="@+id/alumnos"
         app:srcCompat="@drawable/usuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
