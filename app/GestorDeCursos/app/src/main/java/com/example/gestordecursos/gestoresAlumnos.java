@@ -18,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -78,6 +79,21 @@ public class gestoresAlumnos extends AppCompatActivity {
         tv_dni12    = findViewById(R.id.tv_dni12);
         tv_dni13    = findViewById(R.id.tv_dni13);
         tv_dni14    = findViewById(R.id.tv_dni14);
+
+        tv_dni1 .setVisibility(View.INVISIBLE);
+        tv_dni2 .setVisibility(View.INVISIBLE);
+        tv_dni3 .setVisibility(View.INVISIBLE);
+        tv_dni4 .setVisibility(View.INVISIBLE);
+        tv_dni5 .setVisibility(View.INVISIBLE);
+        tv_dni6 .setVisibility(View.INVISIBLE);
+        tv_dni7 .setVisibility(View.INVISIBLE);
+        tv_dni8 .setVisibility(View.INVISIBLE);
+        tv_dni9 .setVisibility(View.INVISIBLE);
+        tv_dni10.setVisibility(View.INVISIBLE);
+        tv_dni11.setVisibility(View.INVISIBLE);
+        tv_dni12.setVisibility(View.INVISIBLE);
+        tv_dni13.setVisibility(View.INVISIBLE);
+        tv_dni14.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -108,7 +124,7 @@ public class gestoresAlumnos extends AppCompatActivity {
      * @param dni_a -- DNI del alumno a modificar.
      */
     public void perfil_alumno(String dni_a){
-        Intent i = new Intent(this, Perfil.class);
+        Intent i = new Intent(this, PerfilAlumnos.class);
         i.putExtra("dni_g", dni_profesor);
         i.putExtra("dni_a", dni_a);
         i.putExtra("clase", "gestoresalumnos");
@@ -120,31 +136,109 @@ public class gestoresAlumnos extends AppCompatActivity {
      * Interfaz para la obtencion de los DNIs
      */
     public interface ConsultarDatos{
-        void onConsultaExitosa(String[] dnis);
+        void onConsultaExitosa(List<String> dnis);
         void onConsultaError(VolleyError error);
     }
 
     /**
-     *Metodo que muestra los DNI
+     *Metodo que obtiene los DNIs y los muestra los DNI
      */
     public void getDNIs(){
 
-        List<String> dnis = getDNIAlumnos(new ConsultarDatos(){
-
+        List<String> dnis = getDNIAlumnos(new ConsultarDatos() {
             @Override
-            public void onConsultaExitosa(String[] dnis) {
-
+            public void onConsultaExitosa(List<String> lista_dnis) {
+                for (int i = 0; i < lista_dnis.size(); i++) {
+                    switch (i){
+                        case 0:
+                            tv_dni1.setText(lista_dnis.get(i));
+                            tv_dni1.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni1);
+                            System.out.println("gestoresAlumnos: getDNIs: tv_DNI1: "+ tv_dni1.getText().toString());
+                            break;
+                        case 1:
+                            tv_dni2.setText(lista_dnis.get(i));
+                            tv_dni2.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni2);
+                            break;
+                        case 2:
+                            tv_dni3.setText(lista_dnis.get(i));
+                            tv_dni3.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni3);
+                            break;
+                        case 3:
+                            tv_dni4.setText(lista_dnis.get(i));
+                            tv_dni4.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni4);
+                            break;
+                        case 4:
+                            tv_dni5.setText(lista_dnis.get(i));
+                            tv_dni5.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni5);
+                            break;
+                        case 5:
+                            tv_dni6.setText(lista_dnis.get(i));
+                            tv_dni6.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni6);
+                            break;
+                        case 6:
+                            tv_dni7.setText(lista_dnis.get(i));
+                            tv_dni7.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni7);
+                            break;
+                        case 7:
+                            tv_dni8.setText(lista_dnis.get(i));
+                            tv_dni8.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni8);
+                            break;
+                        case 8:
+                            tv_dni9.setText(lista_dnis.get(i));
+                            tv_dni9.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni9);
+                            break;
+                        case 9:
+                            tv_dni10.setText(lista_dnis.get(i));
+                            tv_dni10.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni10);
+                            break;
+                        case 10:
+                            tv_dni11.setText(lista_dnis.get(i));
+                            tv_dni11.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni11);
+                            break;
+                        case 11:
+                            tv_dni12.setText(lista_dnis.get(i));
+                            tv_dni12.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni12);
+                            break;
+                        case 12:
+                            tv_dni13.setText(lista_dnis.get(i));
+                            tv_dni13.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni13);
+                            break;
+                        case 13:
+                            tv_dni14.setText(lista_dnis.get(i));
+                            tv_dni14.setVisibility(View.VISIBLE);
+                            setListeners(tv_dni14);
+                            break;
+                    }
+                }
             }
 
             @Override
             public void onConsultaError(VolleyError error) {
-
+                fv.mostrarMensaje(gestoresAlumnos.this, "No se pudieron recaudar datos. ");
             }
         });
     }
 
+    /**
+     * Metodo que obtiene todos los DNI de los alumnos
+     * @param cd -- Interfaz utilizada para los datos
+     * @return -- Lista de dni
+     */
     public List<String> getDNIAlumnos(ConsultarDatos cd){
-        List<String> dnis = null;
+        List<String> dnis = new ArrayList<>();
         final String URL = fv.getURL()+"getAllUsers.php";
 
         RequestQueue rq = Volley.newRequestQueue(this);
@@ -156,10 +250,12 @@ public class gestoresAlumnos extends AppCompatActivity {
                         try {
                             JSONArray ja = new JSONArray(response);
                             for (int i = 0; i < ja.length(); i++) {
-                                JSONObject jo = ja.getJSONObject(i);
+                                JSONArray ja1 = ja.getJSONArray(i);
+                                JSONObject jo = ja1.getJSONObject(0);
                                 String dni = jo.getString("dni");
                                 dnis.add(dni);
                             }
+                            cd.onConsultaExitosa(dnis);
                         }catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -175,5 +271,14 @@ public class gestoresAlumnos extends AppCompatActivity {
 
         rq.add(sr);
         return dnis;
+    }
+
+    public void setListeners(TextView tv){
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                perfil_alumno(tv.getText().toString());
+            }
+        });
     }
 }

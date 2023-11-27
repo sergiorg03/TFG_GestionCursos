@@ -32,7 +32,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 1"
+                android:hint="DNI 1"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_dni2"
@@ -44,7 +44,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 2"
+                android:hint="DNI 2"
                 android:textSize="20sp" />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 3"
+                android:hint="DNI 3"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_dni4"
@@ -69,7 +69,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 4"
+                android:hint="DNI 4"
                 android:textSize="20sp" />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 5"
+                android:hint="DNI 5"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_dni6"
@@ -94,7 +94,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 6"
+                android:hint="DNI 6"
                 android:textSize="20sp" />
 
             <TextView
@@ -107,7 +107,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 7"
+                android:hint="DNI 7"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_dni8"
@@ -119,7 +119,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 8"
+                android:hint="DNI 8"
                 android:textSize="20sp" />
 
             <TextView
@@ -132,7 +132,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 9"
+                android:hint="DNI 9"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_dni10"
@@ -144,7 +144,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 10"
+                android:hint="DNI 10"
                 android:textSize="20sp" />
 
             <TextView
@@ -157,7 +157,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 11"
+                android:hint="DNI 11"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_dni12"
@@ -169,7 +169,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 12"
+                android:hint="DNI 12"
                 android:textSize="20sp" />
 
             <TextView
@@ -182,7 +182,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 13"
+                android:hint="DNI 13"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_dni14"
@@ -194,7 +194,7 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:hint="Curso 14"
+                android:hint="DNI 14"
                 android:textSize="20sp" />
         </LinearLayout>
 
