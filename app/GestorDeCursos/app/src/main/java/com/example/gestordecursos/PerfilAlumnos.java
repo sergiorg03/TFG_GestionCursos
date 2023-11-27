@@ -22,6 +22,7 @@ public class PerfilAlumnos extends AppCompatActivity {
         dni_g = getIntent().getStringExtra("dni_g");
         dni_a = getIntent().getStringExtra("dni_a");
         clase = getIntent().getStringExtra("clase");
+        System.out.println("SRG: PerfilAlumnos: clase: "+clase);
         claseAnterior = fv.obtenerClase(clase);
     }
 
@@ -32,7 +33,10 @@ public class PerfilAlumnos extends AppCompatActivity {
     public void volver(View v){
         Intent i = new Intent(this, claseAnterior);
         i.putExtra("dni", dni_g);
+        i.putExtra("clase", "cursosGestores");
         startActivity(i);
         finish();
     }
+
+
 }
