@@ -4,6 +4,223 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gestoresAlumnos">
+    tools:context=".gestoresAlumnos"
+    android:background="@color/fondo">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_dni1"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 1"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_dni2"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_dni3"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 3"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_dni4"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 4"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_dni5"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 5"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_dni6"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 6"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_dni7"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 7"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_dni8"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 8"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_dni9"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 9"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_dni10"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 10"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_dni11"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 11"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_dni12"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 12"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_dni13"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 13"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_dni14"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:editable="false"
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso 14"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Boton de vuelta a la clase anterior -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/flecha_hacia_atras" />
+
+    <ImageView
+        android:id="@+id/perfil1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/usuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
