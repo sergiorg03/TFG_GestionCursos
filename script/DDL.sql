@@ -113,11 +113,12 @@ CREATE TABLE IF NOT EXISTS gestionCursos.respuestasTest(
 
 -- Tabla realizar
 CREATE TABLE IF NOT EXISTS gestionCursos.realizar(
-	dni				VARCHAR(9),
-	id_curso		INT(2),
-	puntuacion		INT(2),
-	PRIMARY KEY (dni, id_curso),
-	FOREIGN KEY (dni) REFERENCES gestionCursos.personas (dni) ON DELETE CASCADE,
+	dni					VARCHAR(9),
+	id_curso			INT(2),
+	lastModifiedDate	DATETIME,
+	puntuacion			INT(2),
+	PRIMARY KEY (dni, id_curso, lastModifiedDate),
+	FOREIGN KEY (dni) REFERENCES gestionCursos.personas (dni) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (id_curso) REFERENCES gestionCursos.cursos (id) ON DELETE CASCADE
 );
 

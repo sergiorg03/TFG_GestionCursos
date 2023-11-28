@@ -927,4 +927,16 @@ public class cursosGestores extends AppCompatActivity {
             }
         }).setNegativeButton("No", null).show();
     }
+
+    /**
+     * Metodo que nos dirige a la pantalla de perfil de alumnos
+     * @param v
+     */
+    public void alumnos(View v){
+        Intent i = new Intent(this, gestoresAlumnos.class);
+        i.putExtra("clase", "cursosgestores");
+        i.putExtra("dni_g", dni);
+        startActivity(i);
+        finish();
+    }
 }

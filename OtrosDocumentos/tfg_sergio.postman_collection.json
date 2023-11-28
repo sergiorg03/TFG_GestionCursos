@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "67b03edc-373c-4b2e-b1b4-15a8857ee622",
 		"name": "tfg_sergio",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "25590099"
 	},
 	"item": [
@@ -84,19 +84,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/newPerson.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"newPerson.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/newPerson.php"
 			},
 			"response": []
 		},
@@ -168,19 +156,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/updateProfileData.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"updateProfileData.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/updateProfileData.php"
 			},
 			"response": []
 		},
@@ -260,19 +236,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/deleteProfile.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"deleteProfile.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/deleteProfile.php"
 			},
 			"response": []
 		},
@@ -283,26 +247,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dni\":\"29157459Z\",\r\n    \"id_curso\":\"2\",\r\n    \"puntuacion\": \"6\"\r\n}",
+					"raw": "{\r\n    \"dni\":\"29157459Z\",\r\n    \"id_curso\":\"2\",\r\n    \"lastModifiedDate\":\"SYSDATE()\",\r\n    \"puntuacion\": \"6\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/setMarks.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"setMarks.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/setMarks.php"
 			},
 			"response": []
 		},
@@ -320,19 +272,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/setMarks.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"setMarks.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/setMarks.php"
 			},
 			"response": []
 		},
@@ -387,19 +327,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/updateTest.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"updateTest.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/updateTest.php"
 			},
 			"response": []
 		},
@@ -417,19 +345,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/addTest.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"addTest.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/addTest.php"
 			},
 			"response": []
 		},
@@ -447,19 +363,16 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost/tfg/app/API/addCourse.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"tfg",
-						"app",
-						"API",
-						"addCourse.php"
-					]
-				}
+				"url": "http://localhost/tfg/app/API/addCourse.php"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost/tfg/app/API/getAllUsers.php"
 			},
 			"response": []
 		}

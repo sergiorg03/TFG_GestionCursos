@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
             header($codigosHTTP['200']);
         }
     }  else {// Si no se define el usuario, creamos una consulta que devuelva todos los usuarios
-        $SELECT = 'SELECT usuario 
+        $SELECT = 'SELECT usuario, telefono
                         FROM personas;';
         
         $consulta = $conexion->prepare($SELECT);

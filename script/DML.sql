@@ -18,11 +18,11 @@ INSERT INTO gestionCursos.cursos (id, nombre, ruta_pdf)
 		(3, 'Bases de datos: Data Defining Languaje', 'ddl');
 		
 -- Tabla realizar
-INSERT INTO gestionCursos.realizar (dni, id_curso, puntuacion)
+INSERT INTO gestionCursos.realizar (dni, id_curso, lastModifiedDate, puntuacion)
 	VALUES
-		('33387392V', 3, 5),
-		('29157459Z', 3, 10),
-		('33387392V', 1, 3);
+		('33387392V', 3, SYSDATE(), 5),
+		('29157459Z', 3, SYSDATE(), 10),
+		('33387392V', 1, SYSDATE(), 3);
 		
 -- Tabla gestionar
 INSERT INTO gestionCursos.gestionar (dni, id_curso, last_updateDate)

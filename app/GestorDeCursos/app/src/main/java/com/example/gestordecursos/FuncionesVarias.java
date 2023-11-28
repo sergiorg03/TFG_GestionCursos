@@ -150,6 +150,10 @@ public class FuncionesVarias {
             }else {
                 if (claseAnterior.equalsIgnoreCase("editorcursos")){
                     clase = EditorCursos.class;
+                }else{
+                    if (claseAnterior.equalsIgnoreCase("gestoresalumnos")){
+                        clase = gestoresAlumnos.class;
+                    }
                 }
             }
         }
