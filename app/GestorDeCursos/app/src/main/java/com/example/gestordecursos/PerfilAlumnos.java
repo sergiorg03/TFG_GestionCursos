@@ -91,7 +91,7 @@ public class PerfilAlumnos extends AppCompatActivity {
         et_contra   = findViewById(R.id.contra_pa);
 
         obtenerDatos();
-        usuarios = obtenerUsuariosYTelfs();
+        obtenerUsuariosYTelfs();
     }
 
     /**
@@ -409,31 +409,89 @@ public class PerfilAlumnos extends AppCompatActivity {
     }
 
     public interface ConsultarDatosUsuarios{
-        void onConsultaExitosa(List<String> lista);
+        void onConsultaExitosa(List<String[]> listaUs);
         void onConsultaError(VolleyError v);
     }
 
     /**
      * Metodo que obtiene todos los usuarios y telefonos existentes 
      */
-    public List<String> obtenerUsuariosYTelfs(){
-        List<String> usuarios = obtenerDatosUsuarios(new ConsultarDatosUsuarios() {
+    public List<String[]> obtenerUsuariosYTelfs(){
+        List<String[]> usuarios_obuyt = obtenerDatosUsuarios(new ConsultarDatosUsuarios() {
             @Override
-            public void onConsultaExitosa(List<String> lista) {
-                for (int i = 0; i < listaUsuarios.size(); i++) {
-                    System.out.println("SignIn: onCreate: "+listaUsuarios.get(i));
+            public void onConsultaExitosa(List<String[]> listaUs) {
+                /*for (int i = 0; i < listaUs.size(); i++) {
+                    //System.out.println("PerfilAlumnos: obtenerUsuariosYTelfs: onConsultaExistosa: usuarios: "+ listaUs.get(i)[0]);
+                    //System.out.println("PerfilAlumnos: obtenerUsuariosYTelfs: onConsultaExistosa: telefonos: "+ listaUs.get(i)[1]);
+                    usuarios.add(listaUs.get(i)[0]);
+                    telefonos.add(listaUs.get(i)[1]);
+                }*/
+                System.out.println("Todos los usuarios y telefonos recaudados. ");
+                /*for (int i = 0; i < usuarios.size(); i++) {
+                    System.out.println("PerfilAlumnos: obtenerUsuariosYTelfs: onConsultaExitosa: usuarios: "+usuarios.get(i));
                 }
+                for (int i = 0; i < telefonos.size(); i++) {
+                    System.out.println("PerfilAlumnos: obtenerUsuariosYTelfs: onConsultaExitosa: telefonos: "+telefonos.get(i));
+                }*/
             }
 
             @Override
             public void onConsultaError(VolleyError v) {
-
+                v.printStackTrace();
             }
         });
-        return usuarios;
+
+        return usuarios_obuyt;
     }
 
-    public void obtenerDatosUsuarios(ConsultarDatosUsuarios cd){
-        final String URL = fv.getURL+"";
+    /**
+     * Metodo que realiza una peticion a la API para obtener los usuarios y telefonos registrados
+     */
+    public List<String[]> obtenerDatosUsuarios(ConsultarDatosUsuarios cd){
+        final String URL = fv.getURL()+"checkUser.php";
+        List<String[]> listaUs = new ArrayList<>();
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray ja = new JSONArray(response);
+                            for (int i = 0; i < ja.length(); i++) {
+                                JSONObject json = ja.getJSONObject(i);
+                                //System.out.println("PerfilAlumnos: obtenerDatosUsuarios: json: "+json.toString());
+                                String [] usTelf = {json.getString("usuario"), json.getString("telefono")};
+
+                                listaUs.add(usTelf);
+                            }
+                            for (int i = 0; i < listaUs.size(); i++) {
+                                System.out.println("aaaaaaaaaaaaaa: "+ listaUs.get(i)[0]);
+                                System.out.println("aaaaaaaaaaaaaa: "+ listaUs.get(i)[1]);
+                                usuarios.add(listaUs.get(i)[0]);
+                                telefonos.add(listaUs.get(i)[1]);
+                            }
+                            for (int i = 0; i < usuarios.size(); i++) {
+                                System.out.println("usuarios: "+ usuarios.get(i));
+                            }
+                            for (int i = 0; i < telefonos.size(); i++) {
+                                System.out.println("Telefonos: "+telefonos.get(i));
+                            }
+                            cd.onConsultaExitosa(listaUs);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        cd.onConsultaError(error);
+                    }
+                });
+
+        rq.add(sr);
+        return listaUs;
     }
 }
