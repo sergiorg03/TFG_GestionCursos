@@ -4,8 +4,398 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pantallaNotasCursos">
+    tools:context=".pantallaNotasCursos"
+    android:background="@color/fondo">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/pnc_nombreCurso"
+                android:layout_width="266dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="210px"
+                android:layout_marginTop="70px"
+                android:editable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Curso"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/Nombre_del_curso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:focusableInTouchMode="false"
+                    android:focusedByDefault="false"
+                    android:text="Fecha de realización"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Notas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:editable="false"
+                    android:enabled="true"
+                    android:focusableInTouchMode="false"
+                    android:focusedByDefault="false"
+                    android:text="Puntuación obtenida"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f1"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f2"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f3"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f4"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f5"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f6"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f7"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f8"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f9"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_f10"
+                            android:layout_width="185dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="Fecha"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_nota10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:editable="false"
+                            android:enabled="true"
+                            android:focusableInTouchMode="false"
+                            android:focusedByDefault="false"
+                            android:hint="nota curso"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
 
     <!-- Botones de acciones -->
     <ImageButton
