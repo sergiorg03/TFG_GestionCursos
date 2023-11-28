@@ -153,6 +153,10 @@ public class FuncionesVarias {
                 }else{
                     if (claseAnterior.equalsIgnoreCase("gestoresalumnos")){
                         clase = gestoresAlumnos.class;
+                    }else{
+                        if (claseAnterior.equalsIgnoreCase("notasalumnos")){
+                            clase = notasAlumnos.class;
+                        }
                     }
                 }
             }
