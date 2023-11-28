@@ -73,6 +73,9 @@ public class PerfilAlumnos extends AppCompatActivity {
         iniciarVars();
     }
 
+    /**
+     * Metodo para inicializar todas las variables
+     */
     public void iniciarVars(){
         ArrayAdapter<String> contenidoSpinner = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.perfiles_pa));
         perfil = findViewById(R.id.perfil_pa);
@@ -88,6 +91,7 @@ public class PerfilAlumnos extends AppCompatActivity {
         et_contra   = findViewById(R.id.contra_pa);
 
         obtenerDatos();
+        usuarios = obtenerUsuariosYTelfs();
     }
 
     /**
@@ -402,5 +406,34 @@ public class PerfilAlumnos extends AppCompatActivity {
         };
 
         rq.add(sr);
+    }
+
+    public interface ConsultarDatosUsuarios{
+        void onConsultaExitosa(List<String> lista);
+        void onConsultaError(VolleyError v);
+    }
+
+    /**
+     * Metodo que obtiene todos los usuarios y telefonos existentes 
+     */
+    public List<String> obtenerUsuariosYTelfs(){
+        List<String> usuarios = obtenerDatosUsuarios(new ConsultarDatosUsuarios() {
+            @Override
+            public void onConsultaExitosa(List<String> lista) {
+                for (int i = 0; i < listaUsuarios.size(); i++) {
+                    System.out.println("SignIn: onCreate: "+listaUsuarios.get(i));
+                }
+            }
+
+            @Override
+            public void onConsultaError(VolleyError v) {
+
+            }
+        });
+        return usuarios;
+    }
+
+    public void obtenerDatosUsuarios(ConsultarDatosUsuarios cd){
+        final String URL = fv.getURL+"";
     }
 }
