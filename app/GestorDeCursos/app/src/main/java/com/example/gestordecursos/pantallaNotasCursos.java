@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -163,7 +164,7 @@ public class pantallaNotasCursos extends AppCompatActivity {
                             JSONArray ja = new JSONArray(response);
 
                             for (int i = 0; i < ja.length(); i++) {
-                                JSONObject json = ja.getJsonObject(i);
+                                JSONObject json = ja.getJSONObject(i);
                                 String [] fechaYNota = new String []{json.getString("lastModifiedDate"), json.getString("puntuacion")};
                                 lista.add(fechaYNota);
                                 /*switch(i){
@@ -233,44 +234,44 @@ public class pantallaNotasCursos extends AppCompatActivity {
                     // mostramos los datos obtenidos
                     switch(i){
                         case 0:
-                            tv_f1   .setText(lista.get(i)[0]);
-                            tv_nota1.setText(lista.get(i)[1]);
+                            tv_f1   .setText(listaNotas.get(i)[0]);
+                            tv_nota1.setText(listaNotas.get(i)[1]);
                             break;
                         case 1:
-                            tv_f2   .setText(lista.get(i)[0]);
-                            tv_nota2.setText(lista.get(i)[1]);
+                            tv_f2   .setText(listaNotas.get(i)[0]);
+                            tv_nota2.setText(listaNotas.get(i)[1]);
                             break;
                         case 2:
-                            tv_f3   .setText(lista.get(i)[0]);
-                            tv_nota3.setText(lista.get(i)[1]);
+                            tv_f3   .setText(listaNotas.get(i)[0]);
+                            tv_nota3.setText(listaNotas.get(i)[1]);
                             break;
                         case 3:
-                            tv_f4   .setText(lista.get(i)[0]);
-                            tv_nota4.setText(lista.get(i)[1]);
+                            tv_f4   .setText(listaNotas.get(i)[0]);
+                            tv_nota4.setText(listaNotas.get(i)[1]);
                             break;
                         case 4:
-                            tv_f5   .setText(lista.get(i)[0]);
-                            tv_nota5.setText(lista.get(i)[1]);
+                            tv_f5   .setText(listaNotas.get(i)[0]);
+                            tv_nota5.setText(listaNotas.get(i)[1]);
                             break;
                          case 5:
-                            tv_f6   .setText(lista.get(i)[0]);
-                            tv_nota6.setText(lista.get(i)[1]);
+                            tv_f6   .setText(listaNotas.get(i)[0]);
+                            tv_nota6.setText(listaNotas.get(i)[1]);
                             break;
                         case 6:
-                            tv_f7   .setText(lista.get(i)[0]);
-                            tv_nota7.setText(lista.get(i)[1]);
+                            tv_f7   .setText(listaNotas.get(i)[0]);
+                            tv_nota7.setText(listaNotas.get(i)[1]);
                             break;
                         case 7:
-                            tv_f8   .setText(lista.get(i)[0]);
-                            tv_nota8.setText(lista.get(i)[1]);
+                            tv_f8   .setText(listaNotas.get(i)[0]);
+                            tv_nota8.setText(listaNotas.get(i)[1]);
                             break;
                         case 8:
-                            tv_f9   .setText(lista.get(i)[0]);
-                            tv_nota9.setText(lista.get(i)[1]);
+                            tv_f9   .setText(listaNotas.get(i)[0]);
+                            tv_nota9.setText(listaNotas.get(i)[1]);
                             break;
                         case 9:
-                            tv_f10   .setText(lista.get(i)[0]);
-                            tv_nota10.setText(lista.get(i)[1]);
+                            tv_f10   .setText(listaNotas.get(i)[0]);
+                            tv_nota10.setText(listaNotas.get(i)[1]);
                             break;
                     }
                 }
