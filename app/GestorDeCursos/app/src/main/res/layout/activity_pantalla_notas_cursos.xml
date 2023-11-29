@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".notasAlumnos"
+    tools:context=".pantallaNotasCursos"
     android:background="@color/fondo">
 
     <ScrollView
@@ -22,28 +21,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/dni_PA"
+            <TextView
+                android:id="@+id/pnc_nombreCurso"
                 android:layout_width="266dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="210px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="70px"
                 android:editable="false"
                 android:ems="10"
                 android:focusable="false"
-                android:hint="dni"
-                android:inputType="textPersonName"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="Curso"
                 android:textAlignment="center"
-                android:textSize="18sp" />
+                android:textSize="22sp"
+                android:textColor="@color/black"/>
 
-            <!-- LinearLayout para los encabezados -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/Nombre_del_curso"
+                    android:id="@+id/fecha_realizacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -52,8 +51,9 @@
                     android:enabled="true"
                     android:focusableInTouchMode="false"
                     android:focusedByDefault="false"
-                    android:text="Nombre del curso"
-                    android:textSize="20sp" />
+                    android:text="Fecha de realización"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/Notas"
@@ -65,37 +65,34 @@
                     android:enabled="true"
                     android:focusableInTouchMode="false"
                     android:focusedByDefault="false"
-                    android:text="Ver las notas del curso"
-                    android:textSize="20sp" />
+                    android:text="Puntuación obtenida"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
-
-            <!-- ScrollView para los cursos con las notas -->
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                android:paddingBottom="10dp">
+                app:layout_constraintVertical_bias="0.0">
 
-
-                <!-- LinearLayout para los cursos con las notas -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <!-- Primer curso -->
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/tv_nombre1"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f1"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -103,33 +100,31 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota1"
+                        <TextView
+                            android:id="@+id/tv_nota1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
 
-                    <!-- Segundo curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre2"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f2"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -137,33 +132,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota2"
+                        <TextView
+                            android:id="@+id/tv_nota2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Tercer curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre3"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f3"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -171,33 +163,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota3"
+                        <TextView
+                            android:id="@+id/tv_nota3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Cuarto curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre4"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f4"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -205,33 +194,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota4"
+                        <TextView
+                            android:id="@+id/tv_nota4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Quinto curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre5"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f5"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -239,33 +225,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota5"
+                        <TextView
+                            android:id="@+id/tv_nota5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Sexto curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre6"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f6"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -273,33 +256,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota6"
+                        <TextView
+                            android:id="@+id/tv_nota6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Septimo curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre7"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f7"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -307,33 +287,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota7"
+                        <TextView
+                            android:id="@+id/tv_nota7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Octavo curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre8"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f8"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -341,33 +318,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota8"
+                        <TextView
+                            android:id="@+id/tv_nota8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Noveno curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre9"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f9"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -375,33 +349,30 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota9"
+                        <TextView
+                            android:id="@+id/tv_nota9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
-
-                    <!-- Decimo curso -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:id="@+id/tv_nombre10"
-                            android:layout_width="155dp"
+                            android:id="@+id/tv_f10"
+                            android:layout_width="185dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
@@ -409,26 +380,23 @@
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
-                            android:hint="Nombre curso"
+                            android:hint="Fecha"
                             android:textSize="20sp" />
 
-                        <ImageView
-                            android:id="@+id/iv_nota10"
+                        <TextView
+                            android:id="@+id/tv_nota10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="105dp"
+                            android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:editable="false"
                             android:enabled="true"
                             android:focusableInTouchMode="false"
                             android:focusedByDefault="false"
                             android:hint="nota curso"
-                            android:textSize="20sp"
-                            android:src="@drawable/notascurso"
-                            android:onClick="verNotaCurso"/>
+                            android:textSize="20sp"/>
                     </LinearLayout>
                 </LinearLayout>
-
             </ScrollView>
         </LinearLayout>
     </ScrollView>
@@ -453,11 +421,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:onClick="getMarks"
+        android:onClick="perfil"
         android:layout_marginStart="215dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Back"
-        android:src="@drawable/puntuacion" />
-
+        android:src="@drawable/usuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>

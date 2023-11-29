@@ -28,7 +28,7 @@ public class FuncionesVarias {
     private final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
     public FuncionesVarias (){
-        this.IP = "192.168.1.106";
+        this.IP = "192.168.1.146";
         this.URL = "http://"+this.IP+"/tfg/app/API/";
         //System.out.println("IP: "+IP + " URL: "+ URL);
     }
@@ -153,6 +153,10 @@ public class FuncionesVarias {
                 }else{
                     if (claseAnterior.equalsIgnoreCase("gestoresalumnos")){
                         clase = gestoresAlumnos.class;
+                    }else{
+                        if (claseAnterior.equalsIgnoreCase("notasalumnos")){
+                            clase = notasAlumnos.class;
+                        }
                     }
                 }
             }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -46,16 +47,36 @@ public class notasAlumnos extends AppCompatActivity {
     TextView tv_curso8;
     TextView tv_curso9;
     TextView tv_curso10;
-    TextView tv_nota1;
-    TextView tv_nota2;
-    TextView tv_nota3;
-    TextView tv_nota4;
-    TextView tv_nota5;
-    TextView tv_nota6;
-    TextView tv_nota7;
-    TextView tv_nota8;
-    TextView tv_nota9;
-    TextView tv_nota10;
+    String idCurso1;
+    String idCurso2;
+    String idCurso3;
+    String idCurso4;
+    String idCurso5;
+    String idCurso6;
+    String idCurso7;
+    String idCurso8;
+    String idCurso9;
+    String idCurso10;
+    String nombre_Curso1;
+    String nombre_Curso2;
+    String nombre_Curso3;
+    String nombre_Curso4;
+    String nombre_Curso5;
+    String nombre_Curso6;
+    String nombre_Curso7;
+    String nombre_Curso8;
+    String nombre_Curso9;
+    String nombre_Curso10;
+    ImageView iv_1;
+    ImageView iv_2;
+    ImageView iv_3;
+    ImageView iv_4;
+    ImageView iv_5;
+    ImageView iv_6;
+    ImageView iv_7;
+    ImageView iv_8;
+    ImageView iv_9;
+    ImageView iv_10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,17 +98,16 @@ public class notasAlumnos extends AppCompatActivity {
         tv_curso9 = findViewById(R.id.tv_nombre9);
         tv_curso10 = findViewById(R.id.tv_nombre10);
 
-        // TextView de las notas de los cursos
-        tv_nota1 = findViewById(R.id.tv_nota1);
-        tv_nota2 = findViewById(R.id.tv_nota2);
-        tv_nota3 = findViewById(R.id.tv_nota3);
-        tv_nota4 = findViewById(R.id.tv_nota4);
-        tv_nota5 = findViewById(R.id.tv_nota5);
-        tv_nota6 = findViewById(R.id.tv_nota6);
-        tv_nota7 = findViewById(R.id.tv_nota7);
-        tv_nota8 = findViewById(R.id.tv_nota8);
-        tv_nota9 = findViewById(R.id.tv_nota9);
-        tv_nota10 = findViewById(R.id.tv_nota10);
+        iv_1    = findViewById(R.id.iv_nota1);
+        iv_2    = findViewById(R.id.iv_nota2);
+        iv_3    = findViewById(R.id.iv_nota3);
+        iv_4    = findViewById(R.id.iv_nota4);
+        iv_5    = findViewById(R.id.iv_nota5);
+        iv_6    = findViewById(R.id.iv_nota6);
+        iv_7    = findViewById(R.id.iv_nota7);
+        iv_8    = findViewById(R.id.iv_nota8);
+        iv_9    = findViewById(R.id.iv_nota9);
+        iv_10   = findViewById(R.id.iv_nota10);
 
         // Reseteamos los textos a mostrar
         tv_curso1.setText("");
@@ -100,16 +120,6 @@ public class notasAlumnos extends AppCompatActivity {
         tv_curso8.setText("");
         tv_curso9.setText("");
         tv_curso10.setText("");
-        tv_nota1.setText("");
-        tv_nota2.setText("");
-        tv_nota3.setText("");
-        tv_nota4.setText("");
-        tv_nota5.setText("");
-        tv_nota6.setText("");
-        tv_nota7.setText("");
-        tv_nota8.setText("");
-        tv_nota9.setText("");
-        tv_nota10.setText("");
 
         // Reseteamos los Hints a mostrar
         tv_curso1.setHint("");
@@ -122,16 +132,17 @@ public class notasAlumnos extends AppCompatActivity {
         tv_curso8.setHint("");
         tv_curso9.setHint("");
         tv_curso10.setHint("");
-        tv_nota1.setHint("");
-        tv_nota2.setHint("");
-        tv_nota3.setHint("");
-        tv_nota4.setHint("");
-        tv_nota5.setHint("");
-        tv_nota6.setHint("");
-        tv_nota7.setHint("");
-        tv_nota8.setHint("");
-        tv_nota9.setHint("");
-        tv_nota10.setHint("");
+
+        iv_1 .setVisibility(View.INVISIBLE);
+        iv_2 .setVisibility(View.INVISIBLE);
+        iv_3 .setVisibility(View.INVISIBLE);
+        iv_4 .setVisibility(View.INVISIBLE);
+        iv_5 .setVisibility(View.INVISIBLE);
+        iv_6 .setVisibility(View.INVISIBLE);
+        iv_7 .setVisibility(View.INVISIBLE);
+        iv_8 .setVisibility(View.INVISIBLE);
+        iv_9 .setVisibility(View.INVISIBLE);
+        iv_10.setVisibility(View.INVISIBLE);
 
         // Llamamos al método para obtener los cursos nada más entrar en la clase
         marks = findViewById(R.id.marks);
@@ -184,44 +195,64 @@ public class notasAlumnos extends AppCompatActivity {
                          // System.out.println("Clave: " + key + " Valor: " + cursoConNota.get(key));
                          switch (i) {
                              case 1:
-                                 tv_nota1.setText(key);
+                                 idCurso1 = key;
+                                 nombre_Curso1 = cursoConNota.get(key);
                                  tv_curso1.setText(cursoConNota.get(key));
+                                 iv_1.setVisibility(View.VISIBLE);
                                  break;
                              case 2:
-                                 tv_nota2.setText(key);
+                                 idCurso2 = key;
+                                 nombre_Curso2 = cursoConNota.get(key);
                                  tv_curso2.setText(cursoConNota.get(key));
+                                 iv_2.setVisibility(View.VISIBLE);
                                  break;
                              case 3:
-                                 tv_nota3.setText(key);
+                                 idCurso3 = key;
+                                 nombre_Curso3 = cursoConNota.get(key);
                                  tv_curso3.setText(cursoConNota.get(key));
+                                 iv_3.setVisibility(View.VISIBLE);
                                  break;
                              case 4:
-                                 tv_nota4.setText(key);
+                                 idCurso4 = key;
+                                 nombre_Curso4 = cursoConNota.get(key);
                                  tv_curso4.setText(cursoConNota.get(key));
+                                 iv_4.setVisibility(View.VISIBLE);
                                  break;
                              case 5:
-                                 tv_nota5.setText(key);
+                                 idCurso5 = key;
+                                 nombre_Curso5 = cursoConNota.get(key);
                                  tv_curso5.setText(cursoConNota.get(key));
+                                 iv_5.setVisibility(View.VISIBLE);
                                  break;
                              case 6:
-                                 tv_nota6.setText(key);
+                                 idCurso6 = key;
+                                 nombre_Curso6 = cursoConNota.get(key);
                                  tv_curso6.setText(cursoConNota.get(key));
+                                 iv_6.setVisibility(View.VISIBLE);
                                  break;
                              case 7:
-                                 tv_nota7.setText(key);
+                                 idCurso7 = key;
+                                 nombre_Curso7 = cursoConNota.get(key);
                                  tv_curso7.setText(cursoConNota.get(key));
+                                 iv_7.setVisibility(View.VISIBLE);
                                  break;
                              case 8:
-                                 tv_nota8.setText(key);
+                                 idCurso8 = key;
+                                 nombre_Curso8 = cursoConNota.get(key);
                                  tv_curso8.setText(cursoConNota.get(key));
+                                 iv_8.setVisibility(View.VISIBLE);
                                  break;
                              case 9:
-                                 tv_nota9.setText(key);
+                                 idCurso9 = key;
+                                 nombre_Curso9 = cursoConNota.get(key);
                                  tv_curso9.setText(cursoConNota.get(key));
+                                 iv_9.setVisibility(View.VISIBLE);
                                  break;
                              case 10:
-                                 tv_nota10.setText(key);
+                                 idCurso10 = key;
+                                 nombre_Curso10 = cursoConNota.get(key);
                                  tv_curso10.setText(cursoConNota.get(key));
+                                 iv_10.setVisibility(View.VISIBLE);
                                  break;
                          }
                          i++;
@@ -238,6 +269,11 @@ public class notasAlumnos extends AppCompatActivity {
          }
     }
 
+    /**
+     * Metodo que realiza una llamada a la API para obtener los cursos.
+     * @param cd
+     * @return
+     */
     public List<String[]> obtenerDatos(ConsultarDatos cd){
         String dni_usu = this.dni;
 
@@ -259,13 +295,13 @@ public class notasAlumnos extends AppCompatActivity {
                                 JSONObject json = ja.getJSONObject(i);
                                 /*String dniPersona = json.getString("dniPersona");
                                 String idCurso = json.getString("idCurso");*/
-                                String puntuacion = json.getString("puntuacion");
+                                String idCurso = json.getString("idCurso");
                                 String nombreCurso = json.getString("enunciado");
                                 // Creamos un array para guardar los datos
                                 String[] datos = new String[2];
                                 /*datos[0] = dniPersona;
                                 datos[1] = idCurso;*/
-                                datos[0] = puntuacion;
+                                datos[0] = idCurso;
                                 datos[1] = nombreCurso;
                                 // Guardamos los datos del curso en la lista
                                 notasCursos.add(datos);
@@ -285,5 +321,58 @@ public class notasAlumnos extends AppCompatActivity {
         // Añadimos la request a la cola
         rq.add(sr);
         return notasCursos;
+    }
+
+    /**
+     * Metodo que dependiendo el boton pulsado nos envia a la pantalla de notas de un curso enviando el ID como parametro
+     * @param v -- View del boton pulsado
+     */
+    public void verNotaCurso(View v){
+        switch (v.getId()){
+            case R.id.iv_nota1:
+                pantallaNotasCurso(idCurso1, nombre_Curso1);
+                break;
+            case R.id.iv_nota2:
+                pantallaNotasCurso(idCurso2, nombre_Curso2);
+                break;
+            case R.id.iv_nota3:
+                pantallaNotasCurso(idCurso3, nombre_Curso3);
+                break;
+            case R.id.iv_nota4:
+                pantallaNotasCurso(idCurso4, nombre_Curso4);
+                break;
+            case R.id.iv_nota5:
+                pantallaNotasCurso(idCurso5, nombre_Curso5);
+                break;
+            case R.id.iv_nota6:
+                pantallaNotasCurso(idCurso6, nombre_Curso6);
+                break;
+            case R.id.iv_nota7:
+                pantallaNotasCurso(idCurso7, nombre_Curso7);
+                break;
+            case R.id.iv_nota8:
+                pantallaNotasCurso(idCurso8, nombre_Curso8);
+                break;
+            case R.id.iv_nota9:
+                pantallaNotasCurso(idCurso9, nombre_Curso9);
+                break;
+            case R.id.iv_nota10:
+                pantallaNotasCurso(idCurso10, nombre_Curso10);
+                break;
+        }
+    }
+
+    /**
+     * Metodo que me lleva a la pantalla para ver las notas de un curso
+     * @param idCurso -- id del curso a buscar
+     */
+    public void pantallaNotasCurso(String idCurso, String nombreCurso){
+        Intent i = new Intent(this, pantallaNotasCursos.class);
+        i.putExtra("dni", dni);
+        i.putExtra("clase", "notasAlumnos");
+        i.putExtra("idcurso", idCurso);
+        i.putExtra("nombreCurso", nombreCurso);
+        startActivity(i);
+        finish();
     }
 }

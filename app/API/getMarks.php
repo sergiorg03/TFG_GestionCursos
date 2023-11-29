@@ -12,12 +12,13 @@ $datos = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') { // La solicitud es GET
     if (isset($_GET['dni'])) { // El dni del alumno está definido.
-        // Sentencia para obtener el nombre del curso, la puntuación, el dni de la persona y el id del curso
-        $SELECT = 'SELECT r.dni AS dniPersona, r.id_curso AS idCurso, r.puntuacion AS puntuacion, c.nombre AS enunciado
+        // Sentencia para obtener el nombre del curso, el dni de la persona y el id del curso
+        $SELECT = 'SELECT DISTINCT(r.id_curso) AS idCurso, r.dni AS dniPersona, c.nombre AS enunciado
                         FROM realizar r
                             INNER JOIN personas p ON p.dni = r.dni
                             INNER JOIN cursos c   ON c.id = r.id_curso
-                        WHERE r.dni = :dni;';
+                        WHERE r.dni = :dni
+                        GROUP BY r.dni, c.nombre;';
         
         // Preparamos la consulta
         $consulta = $conexion->prepare($SELECT);
