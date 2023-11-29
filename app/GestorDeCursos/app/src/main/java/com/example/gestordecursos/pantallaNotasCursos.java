@@ -31,6 +31,28 @@ public class pantallaNotasCursos extends AppCompatActivity {
     String clase;
     Class claseAnterior;
 
+    TextView pnc_nombreCurso;
+    TextView tv_f1;
+    TextView tv_nota1;
+    TextView tv_f2;
+    TextView tv_nota2;
+    TextView tv_f3;
+    TextView tv_nota3;
+    TextView tv_f4;
+    TextView tv_nota4;
+    TextView tv_f5;
+    TextView tv_nota5;
+    TextView tv_f6;
+    TextView tv_nota6;
+    TextView tv_f7;
+    TextView tv_nota7;
+    TextView tv_f8;
+    TextView tv_nota8;
+    TextView tv_f9;
+    TextView tv_nota9;
+    TextView tv_f10;
+    TextView tv_nota10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +71,48 @@ public class pantallaNotasCursos extends AppCompatActivity {
      */
     public void iniciarVars(){
         // textviews
+        pnc_nombreCurso = findViewById(R.id.pnc_nombreCurso);
+        tv_f1       = findViewById(R.id.tv_f1);
+        tv_nota1    = findViewById(R.id.tv_nota1);
+        tv_f2       = findViewById(R.id.tv_f2);
+        tv_nota2    = findViewById(R.id.tv_nota2);
+        tv_f3       = findViewById(R.id.tv_f3);
+        tv_nota3    = findViewById(R.id.tv_nota3);
+        tv_f4       = findViewById(R.id.tv_f4);
+        tv_nota4    = findViewById(R.id.tv_nota4);
+        tv_f5       = findViewById(R.id.tv_f5);
+        tv_nota5    = findViewById(R.id.tv_nota5);
+        tv_f6       = findViewById(R.id.tv_f6);
+        tv_nota6    = findViewById(R.id.tv_nota6);
+        tv_f7       = findViewById(R.id.tv_f7);
+        tv_nota7    = findViewById(R.id.tv_nota7);
+        tv_f8       = findViewById(R.id.tv_f8);
+        tv_nota8    = findViewById(R.id.tv_nota8);
+        tv_f9       = findViewById(R.id.tv_f9);
+        tv_nota9    = findViewById(R.id.tv_nota9);
+        tv_f10      = findViewById(R.id.tv_f10);
+        tv_nota10   = findViewById(R.id.tv_nota10);
 
+        tv_f1.setText("");
+        tv_nota1.setText("");
+        tv_f2.setText("");
+        tv_nota2.setText("");
+        tv_f3.setText("");
+        tv_nota3.setText("");
+        tv_f4.setText("");
+        tv_nota4.setText("");
+        tv_f5.setText("");
+        tv_nota5.setText("");
+        tv_f6.setText("");
+        tv_nota6.setText("");
+        tv_f7.setText("");
+        tv_nota7.setText("");
+        tv_f8.setText("");
+        tv_nota8.setText("");
+        tv_f9.setText("");
+        tv_nota9.setText("");
+        tv_f10.setText("");
+        tv_nota10.setText("");
 
         obtenerDatos();
     }
@@ -78,7 +141,7 @@ public class pantallaNotasCursos extends AppCompatActivity {
     }
 
     public interface ConsultarDatos{
-        void onConsultaExitosa();
+        void onConsultaExitosa(List<String[]> listaNotas);
         void onConsultaError(VolleyError e);
     }
 
@@ -100,14 +163,53 @@ public class pantallaNotasCursos extends AppCompatActivity {
                             JSONArray ja = new JSONArray(response);
 
                             for (int i = 0; i < ja.length(); i++) {
-
+                                JSONObject json = ja.getJsonObject(i);
+                                String [] fechaYNota = new String []{json.getString("lastModifiedDate"), json.getString("puntuacion")};
+                                lista.add(fechaYNota);
+                                /*switch(i){
+                                    case 0:
+                                        tv_f1.setText(json.getString("lastModifiedDate"));
+                                        tv_nota1.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 1:
+                                        tv_f2.setText(json.getString("lastModifiedDate"));
+                                        tv_nota2.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 2:
+                                        tv_f3.setText(json.getString("lastModifiedDate"));
+                                        tv_nota3.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 3:
+                                        tv_f4.setText(json.getString("lastModifiedDate"));
+                                        tv_nota4.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 4:
+                                        tv_f5.setText(json.getString("lastModifiedDate"));
+                                        tv_nota5.setText(json.getString("puntuacion"));
+                                        break;
+                                     case 5:
+                                        tv_f6.setText(json.getString("lastModifiedDate"));
+                                        tv_nota6.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 6:
+                                        tv_f7.setText(json.getString("lastModifiedDate"));
+                                        tv_nota7.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 7:
+                                        tv_f8.setText(json.getString("lastModifiedDate"));
+                                        tv_nota8.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 8:
+                                        tv_f9.setText(json.getString("lastModifiedDate"));
+                                        tv_nota9.setText(json.getString("puntuacion"));
+                                        break;
+                                    case 9:
+                                        tv_f10.setText(json.getString("lastModifiedDate"));
+                                        tv_nota10.setText(json.getString("puntuacion"));
+                                        break;
+                                }*/
                             }
-                            /**
-                             *
-                             * TERMINAR
-                             *
-                             */
-                            cd.onConsultaExitosa();
+                            cd.onConsultaExitosa(lista);
                         }catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -124,15 +226,59 @@ public class pantallaNotasCursos extends AppCompatActivity {
     }
 
     public void obtenerDatos(){
-        List<String[]> listaNotas = mostrarDatos(new ConsultarDatos() {
+        List<String[]> listaFecYNotas = mostrarDatos(new ConsultarDatos() {
             @Override
-            public void onConsultaExitosa() {
-                
+            public void onConsultaExitosa(List<String[]> listaNotas) {
+                for(int i = 0; i < listaNotas.size(); i++){
+                    // mostramos los datos obtenidos
+                    switch(i){
+                        case 0:
+                            tv_f1   .setText(lista.get(i)[0]);
+                            tv_nota1.setText(lista.get(i)[1]);
+                            break;
+                        case 1:
+                            tv_f2   .setText(lista.get(i)[0]);
+                            tv_nota2.setText(lista.get(i)[1]);
+                            break;
+                        case 2:
+                            tv_f3   .setText(lista.get(i)[0]);
+                            tv_nota3.setText(lista.get(i)[1]);
+                            break;
+                        case 3:
+                            tv_f4   .setText(lista.get(i)[0]);
+                            tv_nota4.setText(lista.get(i)[1]);
+                            break;
+                        case 4:
+                            tv_f5   .setText(lista.get(i)[0]);
+                            tv_nota5.setText(lista.get(i)[1]);
+                            break;
+                         case 5:
+                            tv_f6   .setText(lista.get(i)[0]);
+                            tv_nota6.setText(lista.get(i)[1]);
+                            break;
+                        case 6:
+                            tv_f7   .setText(lista.get(i)[0]);
+                            tv_nota7.setText(lista.get(i)[1]);
+                            break;
+                        case 7:
+                            tv_f8   .setText(lista.get(i)[0]);
+                            tv_nota8.setText(lista.get(i)[1]);
+                            break;
+                        case 8:
+                            tv_f9   .setText(lista.get(i)[0]);
+                            tv_nota9.setText(lista.get(i)[1]);
+                            break;
+                        case 9:
+                            tv_f10   .setText(lista.get(i)[0]);
+                            tv_nota10.setText(lista.get(i)[1]);
+                            break;
+                    }
+                }
             }
 
             @Override
             public void onConsultaError(VolleyError e) {
-                fv.mostrarMensaje(pantallaNotasCursos.this, "No se pudieron obtener datos. ");
+                pnc_nombreCurso.setText("No hay datos a mostrar. ");
                 e.printStackTrace();
             }
         });
