@@ -47,42 +47,52 @@ public class RealizarCursos extends AppCompatActivity {
     RadioButton op1_p1;
     RadioButton op2_p1;
     RadioButton op3_p1;
+    RadioButton op4_p1;
     // Opciones pregunta 2
     RadioButton op1_p2;
     RadioButton op2_p2;
     RadioButton op3_p2;
+    RadioButton op4_p2;
     // Opciones pregunta 3
     RadioButton op1_p3;
     RadioButton op2_p3;
     RadioButton op3_p3;
+    RadioButton op4_p3;
     // Opciones pregunta 4
     RadioButton op1_p4;
     RadioButton op2_p4;
     RadioButton op3_p4;
+    RadioButton op4_p4;
     // Opciones pregunta 5
     RadioButton op1_p5;
     RadioButton op2_p5;
     RadioButton op3_p5;
+    RadioButton op4_p5;
     // Opciones pregunta 6
     RadioButton op1_p6;
     RadioButton op2_p6;
     RadioButton op3_p6;
+    RadioButton op4_p6;
     // Opciones pregunta 7
     RadioButton op1_p7;
     RadioButton op2_p7;
     RadioButton op3_p7;
+    RadioButton op4_p7;
     // Opciones pregunta 8
     RadioButton op1_p8;
     RadioButton op2_p8;
     RadioButton op3_p8;
+    RadioButton op4_p8;
     // Opciones pregunta 9
     RadioButton op1_p9;
     RadioButton op2_p9;
     RadioButton op3_p9;
+    RadioButton op4_p9;
     // Opciones pregunta 10
     RadioButton op1_p10;
     RadioButton op2_p10;
     RadioButton op3_p10;
+    RadioButton op4_p10;
 
     // RadioGroups
     RadioGroup grupo1;
@@ -151,33 +161,43 @@ public class RealizarCursos extends AppCompatActivity {
         op1_p1  = findViewById(R.id.op1_p1);
         op2_p1  = findViewById(R.id.op2_p1);
         op3_p1  = findViewById(R.id.op3_p1);
+        op4_p1  = findViewById(R.id.op4_p1);
         op1_p2  = findViewById(R.id.op1_p2);
         op2_p2  = findViewById(R.id.op2_p2);
         op3_p2  = findViewById(R.id.op3_p2);
+        op4_p2  = findViewById(R.id.op4_p2);
         op1_p3  = findViewById(R.id.op1_p3);
         op2_p3  = findViewById(R.id.op2_p3);
         op3_p3  = findViewById(R.id.op3_p3);
+        op4_p3  = findViewById(R.id.op4_p3);
         op1_p4  = findViewById(R.id.op1_p4);
         op2_p4  = findViewById(R.id.op2_p4);
         op3_p4  = findViewById(R.id.op3_p4);
+        op4_p4  = findViewById(R.id.op4_p4);
         op1_p5  = findViewById(R.id.op1_p5);
         op2_p5  = findViewById(R.id.op2_p5);
         op3_p5  = findViewById(R.id.op3_p5);
+        op4_p5  = findViewById(R.id.op4_p5);
         op1_p6  = findViewById(R.id.op1_p6);
         op2_p6  = findViewById(R.id.op2_p6);
         op3_p6  = findViewById(R.id.op3_p6);
+        op4_p6  = findViewById(R.id.op4_p6);
         op1_p7  = findViewById(R.id.op1_p7);
         op2_p7  = findViewById(R.id.op2_p7);
         op3_p7  = findViewById(R.id.op3_p7);
+        op4_p7  = findViewById(R.id.op4_p7);
         op1_p8  = findViewById(R.id.op1_p8);
         op2_p8  = findViewById(R.id.op2_p8);
         op3_p8  = findViewById(R.id.op3_p8);
+        op4_p8  = findViewById(R.id.op4_p8);
         op1_p9  = findViewById(R.id.op1_p9);
         op2_p9  = findViewById(R.id.op2_p9);
         op3_p9  = findViewById(R.id.op3_p9);
+        op4_p9  = findViewById(R.id.op4_p9);
         op1_p10 = findViewById(R.id.op1_p10);
         op2_p10 = findViewById(R.id.op2_p10);
         op3_p10 = findViewById(R.id.op3_p10);
+        op4_p10 = findViewById(R.id.op4_p10);
 
         grupo1  = findViewById(R.id.grupo1);
         grupo2  = findViewById(R.id.grupo2);
@@ -236,7 +256,25 @@ public class RealizarCursos extends AppCompatActivity {
         getSelectedItem();
         int nota = calcularNotas();
         fv.mostrarMensaje(this, "Su puntuació ha sido: "+nota);
-        addMarks(String.valueOf(nota));
+
+        ArrayList<Integer> lista = new ArrayList<>();
+        lista.add(opSelec_p1);
+        lista.add(opSelec_p2);
+        lista.add(opSelec_p3);
+        lista.add(opSelec_p4);
+        lista.add(opSelec_p5);
+        lista.add(opSelec_p6);
+        lista.add(opSelec_p7);
+        lista.add(opSelec_p8);
+        lista.add(opSelec_p9);
+        lista.add(opSelec_p10);
+
+        // Comprobamos que todas las perguntas esten respondidas
+        if (lista.contains(-1)) {// No ha respondido alguna pregunta
+            fv.mostrarMensaje(this, "Debe responder todas las preguntas. ");
+        }else{// Ha respondido todas las preguntas
+            addMarks(String.valueOf(nota));
+        }
     }
 
     public interface ConsultarDatos{
@@ -271,6 +309,10 @@ public class RealizarCursos extends AppCompatActivity {
                     String id_op3 = preguntas.get(test).get(2)[0];
                     String enun_op3 = preguntas.get(test).get(2)[1];
                     String esCorrecta_op3 = preguntas.get(test).get(2)[2];
+                    // Opcion 3
+                    String id_op4 = preguntas.get(test).get(3)[0];
+                    String enun_op4 = preguntas.get(test).get(3)[1];
+                    String esCorrecta_op4 = preguntas.get(test).get(3)[2];
 
                     /**
                      * Trazas
@@ -301,70 +343,80 @@ public class RealizarCursos extends AppCompatActivity {
                             op1_p1.setText(enun_op1);
                             op2_p1.setText(enun_op2);
                             op3_p1.setText(enun_op3);
-                            bd_opCor_p1 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p1.setText(enun_op4);
+                            bd_opCor_p1 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 2:
                             pregunta2.setText(enunciado_preg);
                             op1_p2.setText(enun_op1);
                             op2_p2.setText(enun_op2);
                             op3_p2.setText(enun_op3);
-                            bd_opCor_p2 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p2.setText(enun_op4);
+                            bd_opCor_p2 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 3:
                             pregunta3.setText(enunciado_preg);
                             op1_p3.setText(enun_op1);
                             op2_p3.setText(enun_op2);
                             op3_p3.setText(enun_op3);
-                            bd_opCor_p3 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p3.setText(enun_op4);
+                            bd_opCor_p3 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 4:
                             pregunta4.setText(enunciado_preg);
                             op1_p4.setText(enun_op1);
                             op2_p4.setText(enun_op2);
                             op3_p4.setText(enun_op3);
-                            bd_opCor_p4 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p4.setText(enun_op4);
+                            bd_opCor_p4 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 5:
                             pregunta5.setText(enunciado_preg);
                             op1_p5.setText(enun_op1);
                             op2_p5.setText(enun_op2);
                             op3_p5.setText(enun_op3);
-                            bd_opCor_p5 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p5.setText(enun_op4);
+                            bd_opCor_p5 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 6:
                             pregunta6.setText(enunciado_preg);
                             op1_p6.setText(enun_op1);
                             op2_p6.setText(enun_op2);
                             op3_p6.setText(enun_op3);
-                            bd_opCor_p6 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p6.setText(enun_op4);
+                            bd_opCor_p6 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 7:
                             pregunta7.setText(enunciado_preg);
                             op1_p7.setText(enun_op1);
                             op2_p7.setText(enun_op2);
                             op3_p7.setText(enun_op3);
-                            bd_opCor_p7 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p7.setText(enun_op4);
+                            bd_opCor_p7 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 8:
                             pregunta8.setText(enunciado_preg);
                             op1_p8.setText(enun_op1);
                             op2_p8.setText(enun_op2);
                             op3_p8.setText(enun_op3);
-                            bd_opCor_p8 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p8.setText(enun_op4);
+                            bd_opCor_p8 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 9:
                             pregunta9.setText(enunciado_preg);
                             op1_p9.setText(enun_op1);
                             op2_p9.setText(enun_op2);
                             op3_p9.setText(enun_op3);
-                            bd_opCor_p9 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p9.setText(enun_op4);
+                            bd_opCor_p9 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                         case 10:
                             pregunta10.setText(enunciado_preg);
                             op1_p10.setText(enun_op1);
                             op2_p10.setText(enun_op2);
                             op3_p10.setText(enun_op3);
-                            bd_opCor_p10 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
+                            op4_p10.setText(enun_op4);
+                            bd_opCor_p10 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                             break;
                     }
                 }
@@ -384,7 +436,7 @@ public class RealizarCursos extends AppCompatActivity {
      * @param op3
      * @return -- Opcion correcta
      */
-    public int opcionCorrecta(String op1, String op2, String op3){
+    public int opcionCorrecta(String op1, String op2, String op3, String op4){
         int respuesta = 0;
         if (op1.equalsIgnoreCase("1")){
             respuesta = 1;
@@ -394,6 +446,8 @@ public class RealizarCursos extends AppCompatActivity {
             }else {
                 if (op3.equalsIgnoreCase("1")){
                     respuesta = 3;
+                }else{
+                    respuesta = (op4.equalsIgnoreCase("1"))? 4: 0;
                 }
             }
         }
@@ -503,6 +557,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo1.getCheckedRadioButtonId() == op3_p1.getId()){
                     opSelec_p1 = 3;
+                }else{
+                    if (grupo1.getCheckedRadioButtonId() == op4_p1.getId()){
+                        opSelec_p1 = 4;
+                    }
                 }
             }
         }
@@ -516,6 +574,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo2.getCheckedRadioButtonId() == op3_p2.getId()){
                     opSelec_p2 = 3;
+                }else{
+                    if (grupo2.getCheckedRadioButtonId() == op4_p2.getId()){
+                        opSelec_p2 = 4;
+                    }
                 }
             }
         }
@@ -528,6 +590,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo3.getCheckedRadioButtonId() == op3_p3.getId()){
                     opSelec_p3 = 3;
+                }else{
+                    if (grupo3.getCheckedRadioButtonId() == op4_p3.getId()){
+                        opSelec_p3 = 4;
+                    }
                 }
             }
         }
@@ -540,6 +606,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo4.getCheckedRadioButtonId() == op3_p4.getId()){
                     opSelec_p4 = 3;
+                }else{
+                    if (grupo4.getCheckedRadioButtonId() == op4_p4.getId()){
+                        opSelec_p4 = 4;
+                    }
                 }
             }
         }
@@ -552,6 +622,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo5.getCheckedRadioButtonId() == op3_p5.getId()){
                     opSelec_p5 = 3;
+                }else{
+                    if (grupo5.getCheckedRadioButtonId() == op4_p5.getId()){
+                        opSelec_p5 = 4;
+                    }
                 }
             }
         }
@@ -564,6 +638,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo6.getCheckedRadioButtonId() == op3_p6.getId()){
                     opSelec_p6 = 3;
+                }else{
+                    if (grupo6.getCheckedRadioButtonId() == op4_p6.getId()){
+                        opSelec_p6 = 4;
+                    }
                 }
             }
         }
@@ -576,6 +654,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo7.getCheckedRadioButtonId() == op3_p7.getId()){
                     opSelec_p7 = 3;
+                }else{
+                    if (grupo7.getCheckedRadioButtonId() == op4_p7.getId()){
+                        opSelec_p7 = 4;
+                    }
                 }
             }
         }
@@ -588,6 +670,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo8.getCheckedRadioButtonId() == op3_p8.getId()){
                     opSelec_p8 = 3;
+                }else{
+                    if (grupo8.getCheckedRadioButtonId() == op4_p8.getId()){
+                        opSelec_p8 = 4;
+                    }
                 }
             }
         }
@@ -600,6 +686,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo9.getCheckedRadioButtonId() == op3_p9.getId()){
                     opSelec_p9 = 3;
+                }else{
+                    if (grupo9.getCheckedRadioButtonId() == op4_p9.getId()){
+                        opSelec_p9 = 4;
+                    }
                 }
             }
         }
@@ -612,6 +702,10 @@ public class RealizarCursos extends AppCompatActivity {
             }else{
                 if (grupo10.getCheckedRadioButtonId() == op3_p10.getId()){
                     opSelec_p10 = 3;
+                }else{
+                    if (grupo10.getCheckedRadioButtonId() == op4_p10.getId()){
+                        opSelec_p10 = 4;
+                    }
                 }
             }
         }

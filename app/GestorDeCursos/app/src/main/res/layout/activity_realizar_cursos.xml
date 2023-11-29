@@ -54,6 +54,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 2 -->
@@ -90,6 +95,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 3 -->
@@ -126,6 +136,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 4 -->
@@ -162,6 +177,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 5 -->
@@ -198,6 +218,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 6 -->
@@ -234,6 +259,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 7 -->
@@ -270,6 +300,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 8 -->
@@ -306,6 +341,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 9 -->
@@ -342,6 +382,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
             <!-- Pregunta 10 -->
@@ -378,6 +423,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Opción 3" />
+                <RadioButton
+                    android:id="@+id/op4_p10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Opción 4" />
             </RadioGroup>
 
         </LinearLayout>

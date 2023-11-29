@@ -44,7 +44,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 1, 1, 'ls', 1),
 		(2, 1, 1, 'cp', 0),
-		(3, 1, 1, 'cd', 0);
+		(3, 1, 1, 'cd', 0),
+		(4, 1, 1, 'list', 0);
 
 -- Pregunta 2
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -55,7 +56,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 2, 1, './documentos/file.txt', 0),
 		(2, 2, 1, '/home/usuario/documentos/file.txt', 1),
-		(3, 2, 1, 'ninguna es correcta', 0);
+		(3, 2, 1, '//file.txt', 0),
+		(4, 2, 1, 'ninguna es correcta', 0);
 		
 -- Pregunta 3
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -66,7 +68,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 3, 1, 'mkdir', 1),
 		(2, 3, 1, 'touch', 0),
-		(3, 3, 1, 'cat', 0);
+		(3, 3, 1, 'cat', 0),
+		(4, 3, 1, 'createDir', 0);
 		
 -- Pregunta 4
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -77,7 +80,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 4, 1, 'rm', 1),
 		(2, 4, 1, 'rd', 0),
-		(3, 4, 1, 'del', 0);
+		(3, 4, 1, 'del', 0),
+		(4, 4, 1, 'delete', 0);
 
 -- Pregunta 5
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -88,7 +92,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 5, 1, 'locate', 0),
 		(2, 5, 1, 'find', 1),
-		(3, 5, 1, 'search', 0);
+		(3, 5, 1, 'search', 0),
+		(4, 5, 1, 'buscar', 0);
 
 -- Pregunta 6
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -99,7 +104,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 6, 1, 'cd c:', 0),
 		(2, 6, 1, '/', 0),
-		(3, 6, 1, 'cd /', 1);
+		(3, 6, 1, 'cd /', 1),
+		(4, 6, 1, 'root', 0);
 
 -- Pregunta 7
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -110,7 +116,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 7, 1, 'change', 0),
 		(2, 7, 1, 'cd', 1),
-		(3, 7, 1, 'switchdir', 0);
+		(3, 7, 1, 'switchdir', 0),
+		(4, 7, 1, 'changeDir', 0);
 
 -- Pregunta 8
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -121,7 +128,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 8, 1, 'duplicity', 1),
 		(2, 8, 1, 'BackUp', 0),
-		(3, 8, 1, 'save', 0);
+		(3, 8, 1, 'save', 0),
+		(4, 8, 1, 'keep', 0);
 
 -- Pregunta 9
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -132,7 +140,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 9, 1, 'cat', 0),
 		(2, 9, 1, 'more', 0),
-		(3, 9, 1, 'Ambas son correctas', 1);
+		(3, 9, 1, 'Ambas son correctas', 1),
+		(4, 9, 1, 'Ninguna es correcta', 0);
 
 -- Pregunta 10
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
@@ -143,7 +152,8 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 	VALUES
 		(1, 10, 1, 'cop', 0),
 		(2, 10, 1, 'copyDir', 0),
-		(3, 10, 1, 'cp', 1);
+		(3, 10, 1, 'cp', 1),
+		(4, 10, 1, 'mvdir', 0);
 		
 -- ----------------------------------------
 -- Curso Bases de datos: Data Manipulation Languaje
