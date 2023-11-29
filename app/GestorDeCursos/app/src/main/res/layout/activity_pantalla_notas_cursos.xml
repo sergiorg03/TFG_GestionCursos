@@ -21,26 +21,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <EditText
+            <TextView
                 android:id="@+id/pnc_nombreCurso"
                 android:layout_width="266dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="210px"
                 android:layout_marginTop="70px"
                 android:editable="false"
                 android:ems="10"
                 android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
                 android:hint="Curso"
-                android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:textColor="@color/black"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/Nombre_del_curso"
+                    android:id="@+id/fecha_realizacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -50,7 +52,8 @@
                     android:focusableInTouchMode="false"
                     android:focusedByDefault="false"
                     android:text="Fecha de realización"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/Notas"
@@ -63,7 +66,8 @@
                     android:focusableInTouchMode="false"
                     android:focusedByDefault="false"
                     android:text="Puntuación obtenida"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
             <ScrollView
                 android:layout_width="match_parent"

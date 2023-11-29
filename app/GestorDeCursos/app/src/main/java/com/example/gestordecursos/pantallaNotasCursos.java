@@ -28,7 +28,8 @@ public class pantallaNotasCursos extends AppCompatActivity {
 
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
-    String curso;
+    String idcurso;
+    String nombreCurso;
     String clase;
     Class claseAnterior;
 
@@ -60,7 +61,8 @@ public class pantallaNotasCursos extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_notas_cursos);
 
         dni = getIntent().getStringExtra("dni");
-        curso = getIntent().getStringExtra("curso");
+        idcurso = getIntent().getStringExtra("idcurso");
+        nombreCurso = getIntent().getStringExtra("nombreCurso");
         clase = getIntent().getStringExtra("clase");
         claseAnterior = fv.obtenerClase(clase);
 
@@ -73,6 +75,7 @@ public class pantallaNotasCursos extends AppCompatActivity {
     public void iniciarVars(){
         // textviews
         pnc_nombreCurso = findViewById(R.id.pnc_nombreCurso);
+        pnc_nombreCurso.setText(nombreCurso);
         tv_f1       = findViewById(R.id.tv_f1);
         tv_nota1    = findViewById(R.id.tv_nota1);
         tv_f2       = findViewById(R.id.tv_f2);
@@ -115,6 +118,27 @@ public class pantallaNotasCursos extends AppCompatActivity {
         tv_f10.setText("");
         tv_nota10.setText("");
 
+        tv_f1.setHint("");
+        tv_nota1.setHint("");
+        tv_f2.setHint("");
+        tv_nota2.setHint("");
+        tv_f3.setHint("");
+        tv_nota3.setHint("");
+        tv_f4.setHint("");
+        tv_nota4.setHint("");
+        tv_f5.setHint("");
+        tv_nota5.setHint("");
+        tv_f6.setHint("");
+        tv_nota6.setHint("");
+        tv_f7.setHint("");
+        tv_nota7.setHint("");
+        tv_f8.setHint("");
+        tv_nota8.setHint("");
+        tv_f9.setHint("");
+        tv_nota9.setHint("");
+        tv_f10.setHint("");
+        tv_nota10.setHint("");
+
         obtenerDatos();
     }
 
@@ -150,7 +174,7 @@ public class pantallaNotasCursos extends AppCompatActivity {
      * Metodo que muestra las notas de los alumnos
      */
     public List<String[]> mostrarDatos(ConsultarDatos cd){
-        final String URL = fv.getURL()+"getAllMarksForStudent.php?dni="+dni.trim()+"&id_curso="+curso.trim();
+        final String URL = fv.getURL()+"getAllMarksForStudent.php?dni="+dni.trim()+"&id_curso="+ idcurso.trim();
 
         RequestQueue rq = Volley.newRequestQueue(this);
 

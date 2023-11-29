@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     $curso = $_GET['id_curso'];
 
     // Preparamos la consulta
-    $consulta = $conexion->prepare();
+    $consulta = $conexion->prepare($SELECT);
 
     // Asignamos los parametros a la consulta
     $consulta->bindParam(':dni', $dni);
