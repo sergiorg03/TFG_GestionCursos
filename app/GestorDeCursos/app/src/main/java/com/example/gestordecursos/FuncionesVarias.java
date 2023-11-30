@@ -201,7 +201,7 @@ public class FuncionesVarias {
      * @return -- Devuelve la cadena introducida si está contiene texto, si no, devuelve "Texto por defecto"
      */
     public String textoFinal(String cadena){
-        final String cadenaADevolver = "Texto por defecto";
+        final String cadenaADevolver = "N/A";
         if (!cadena.isEmpty()){
             return cadena;
         }

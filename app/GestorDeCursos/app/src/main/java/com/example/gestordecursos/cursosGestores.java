@@ -43,6 +43,7 @@ public class cursosGestores extends AppCompatActivity {
 
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
+    int lineaSalto;
     String id_curso1;
     String id_curso2;
     String id_curso3;
@@ -53,10 +54,6 @@ public class cursosGestores extends AppCompatActivity {
     String id_curso8;
     String id_curso9;
     String id_curso10;
-    String id_curso11;
-    String id_curso12;
-    String id_curso13;
-    String id_curso14;
 
     // TextViews
     TextView tv_cg1;
@@ -69,10 +66,6 @@ public class cursosGestores extends AppCompatActivity {
     TextView tv_cg8;
     TextView tv_cg9;
     TextView tv_cg10;
-    TextView tv_cg11;
-    TextView tv_cg12;
-    TextView tv_cg13;
-    TextView tv_cg14;
     ImageView ib_edit1;
     ImageView ib_del1;
     ImageView ib_edit2;
@@ -93,14 +86,6 @@ public class cursosGestores extends AppCompatActivity {
     ImageView ib_del9;
     ImageView ib_edit10;
     ImageView ib_del10;
-    ImageView ib_edit11;
-    ImageView ib_del11;
-    ImageView ib_edit12;
-    ImageView ib_del12;
-    ImageView ib_edit13;
-    ImageView ib_del13;
-    ImageView ib_edit14;
-    ImageView ib_del14;
 
 
     @Override
@@ -108,6 +93,7 @@ public class cursosGestores extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cursos_gestores);
         dni = getIntent().getStringExtra("dni");
+        lineaSalto = getIntent().getIntExtra("lineaSalto", 0);
 
         inicializarVariables();
     }
@@ -126,10 +112,6 @@ public class cursosGestores extends AppCompatActivity {
         tv_cg8  = findViewById(R.id.tv_cg8);
         tv_cg9  = findViewById(R.id.tv_cg9);
         tv_cg10 = findViewById(R.id.tv_cg10);
-        tv_cg11 = findViewById(R.id.tv_cg11);
-        tv_cg12 = findViewById(R.id.tv_cg12);
-        tv_cg13 = findViewById(R.id.tv_cg13);
-        tv_cg14 = findViewById(R.id.tv_cg14);
 
         tv_cg1.setText("");
         tv_cg2.setText("");
@@ -141,10 +123,6 @@ public class cursosGestores extends AppCompatActivity {
         tv_cg8.setText("");
         tv_cg9.setText("");
         tv_cg10.setText("");
-        tv_cg11.setText("");
-        tv_cg12.setText("");
-        tv_cg13.setText("");
-        tv_cg14.setText("");
 
 
         tv_cg1.setHint("");
@@ -157,10 +135,6 @@ public class cursosGestores extends AppCompatActivity {
         tv_cg8.setHint("");
         tv_cg9.setHint("");
         tv_cg10.setHint("");
-        tv_cg11.setHint("");
-        tv_cg12.setHint("");
-        tv_cg13.setHint("");
-        tv_cg14.setHint("");
 
         ib_edit1    = findViewById(R.id.edit1);
         ib_del1     = findViewById(R.id.del1);
@@ -192,18 +166,6 @@ public class cursosGestores extends AppCompatActivity {
         ib_edit10   = findViewById(R.id.edit10);
         ib_del10    = findViewById(R.id.del10);
 
-        ib_edit11   = findViewById(R.id.edit11);
-        ib_del11    = findViewById(R.id.del11);
-
-        ib_edit12   = findViewById(R.id.edit12);
-        ib_del12    = findViewById(R.id.del12);
-
-        ib_edit13   = findViewById(R.id.edit13);
-        ib_del13    = findViewById(R.id.del13);
-
-        ib_edit14   = findViewById(R.id.edit14);
-        ib_del14    = findViewById(R.id.del14);
-
         ib_edit1.setVisibility(View.INVISIBLE);
         ib_del1.setVisibility(View.INVISIBLE);
         ib_edit2.setVisibility(View.INVISIBLE);
@@ -224,14 +186,6 @@ public class cursosGestores extends AppCompatActivity {
         ib_del9.setVisibility(View.INVISIBLE);
         ib_edit10.setVisibility(View.INVISIBLE);
         ib_del10.setVisibility(View.INVISIBLE);
-        ib_edit11.setVisibility(View.INVISIBLE);
-        ib_del11.setVisibility(View.INVISIBLE);
-        ib_edit12.setVisibility(View.INVISIBLE);
-        ib_del12.setVisibility(View.INVISIBLE);
-        ib_edit13.setVisibility(View.INVISIBLE);
-        ib_del13.setVisibility(View.INVISIBLE);
-        ib_edit14.setVisibility(View.INVISIBLE);
-        ib_del14.setVisibility(View.GONE);
 
         mostrarTodosCursos();
         setListeners();
@@ -352,42 +306,6 @@ public class cursosGestores extends AppCompatActivity {
             public void onClick(View view) {
                 if(fv.contieneTexto(tv_cg10.getText().toString())){
                     editarCurso(id_curso10);
-                }
-            }
-        });
-
-        tv_cg11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_cg11.getText().toString())){
-                    editarCurso(id_curso11);
-                }
-            }
-        });
-
-        tv_cg12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_cg12.getText().toString())){
-                    editarCurso(id_curso12);
-                }
-            }
-        });
-
-        tv_cg13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_cg13.getText().toString())){
-                    editarCurso(id_curso13);
-                }
-            }
-        });
-
-        tv_cg14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_cg14.getText().toString())){
-                    editarCurso(id_curso14);
                 }
             }
         });
@@ -549,30 +467,6 @@ public class cursosGestores extends AppCompatActivity {
                             ib_edit10.setVisibility(View.VISIBLE);
                             ib_del10.setVisibility(View.VISIBLE);
                             break;
-                        case 11:
-                            id_curso11 = key;
-                            tv_cg11.setText(todoDatosCurso.get(key)[0]);
-                            ib_edit11.setVisibility(View.VISIBLE);
-                            ib_del11.setVisibility(View.VISIBLE);
-                            break;
-                        case 12:
-                            id_curso12 = key;
-                            tv_cg12.setText(todoDatosCurso.get(key)[0]);
-                            ib_edit12.setVisibility(View.VISIBLE);
-                            ib_del12.setVisibility(View.VISIBLE);
-                            break;
-                        case 13:
-                            id_curso13 = key;
-                            tv_cg1.setText(todoDatosCurso.get(key)[0]);
-                            ib_edit13.setVisibility(View.VISIBLE);
-                            ib_del13.setVisibility(View.VISIBLE);
-                            break;
-                        case 14:
-                            id_curso14 = key;
-                            tv_cg14.setText(todoDatosCurso.get(key)[0]);
-                            ib_edit14.setVisibility(View.VISIBLE);
-                            ib_del14.setVisibility(View.VISIBLE);
-                            break;
                     }
                     i++;
                 }
@@ -591,7 +485,7 @@ public class cursosGestores extends AppCompatActivity {
         List<String[]> listaCursos = new ArrayList<>();
 
         //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getAllCourses.php";
-        final String URL = fv.getURL()+"getAllCourses.php";
+        final String URL = fv.getURL()+"getAllCourses.php?lineaSalto="+lineaSalto;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -613,6 +507,7 @@ public class cursosGestores extends AppCompatActivity {
 
                             cd.onConsultaExitosa(listaCursos);
                         } catch (JSONException e) {
+                            System.out.println("Esta correcto, intenta convertir un array vacio en un JSONArray. ");
                             e.printStackTrace();
                         }
                     }
@@ -673,22 +568,6 @@ public class cursosGestores extends AppCompatActivity {
         confirmacionBorradoCurso(id_curso10);
     }
 
-    public void ib_DelCurso11(View v){
-        confirmacionBorradoCurso(id_curso11);
-    }
-
-    public void ib_DelCurso12(View v){
-        confirmacionBorradoCurso(id_curso12);
-    }
-
-    public void ib_DelCurso13(View v){
-        confirmacionBorradoCurso(id_curso13);
-    }
-
-    public void ib_DelCurso14(View v){
-        confirmacionBorradoCurso(id_curso13);
-    }
-
     /**
      *
      * METODOS PARA EDITAR UN CURSO
@@ -732,22 +611,6 @@ public class cursosGestores extends AppCompatActivity {
 
     public void ib_ed10(View v){
         editarCurso(id_curso10);
-    }
-
-    public void ib_ed11(View v){
-        editarCurso(id_curso11);
-    }
-
-    public void ib_ed12(View v){
-        editarCurso(id_curso12);
-    }
-
-    public void ib_ed13(View v){
-        editarCurso(id_curso13);
-    }
-
-    public void ib_ed14(View v){
-        editarCurso(id_curso13);
     }
 
     /**
@@ -936,6 +799,32 @@ public class cursosGestores extends AppCompatActivity {
         Intent i = new Intent(this, gestoresAlumnos.class);
         i.putExtra("clase", "cursosgestores");
         i.putExtra("dni_g", dni);
+        startActivity(i);
+        finish();
+    }
+
+    /**
+     * Metodo que muestra los siguiente 14 cursos.
+     * @param v -- View del boton pulsado
+     */
+    public void siguientes10Cursos(View v){
+        Intent i = new Intent(this, cursosGestores.class);
+        i.putExtra("dni", dni);
+        int siguientesCursos = lineaSalto + 10;
+        i.putExtra("lineaSalto", siguientesCursos);
+        startActivity(i);
+        finish();
+    }
+
+    /**
+     * Metodo que muestra los 14 cursos anteriores
+     * @param v -- View del boton pulsado para obtener los cursos anteriores
+     */
+    public void cursosAnteriores(View v){
+        Intent i = new Intent(this, cursosGestores.class);
+        i.putExtra("dni", dni);
+        int siguientesCursos = (lineaSalto-10 <= 0)? 0: lineaSalto-10;
+        i.putExtra("lineaSalto", siguientesCursos);
         startActivity(i);
         finish();
     }

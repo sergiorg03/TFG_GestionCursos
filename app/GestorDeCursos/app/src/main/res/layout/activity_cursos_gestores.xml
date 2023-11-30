@@ -427,168 +427,30 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/borrar" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tv_cg11"
-                    android:layout_width="290dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:editable="false"
-                    android:enabled="true"
-                    android:focusableInTouchMode="false"
-                    android:focusedByDefault="false"
-                    android:hint="Curso 11"
-                    android:textSize="20sp" />
-                <ImageView
-                    android:id="@+id/edit11"
+                <Button
+                    android:id="@+id/lastQuestion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="40dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_ed11"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/editar" />
-                <ImageView
-                    android:id="@+id/del11"
+                    android:backgroundTint="@color/azulBotonera"
+                    android:onClick="cursosAnteriores"
+                    android:text="Ver cursos \nanteriores"/>
+                <Button
+                    android:id="@+id/nextQuestion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_DelCurso11"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/borrar" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tv_cg12"
-                    android:layout_width="290dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:editable="false"
-                    android:enabled="true"
-                    android:focusableInTouchMode="false"
-                    android:focusedByDefault="false"
-                    android:hint="Curso 12"
-                    android:textSize="20sp" />
-                <ImageView
-                    android:id="@+id/edit12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_ed12"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/editar" />
-                <ImageView
-                    android:id="@+id/del12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_DelCurso12"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/borrar" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tv_cg13"
-                    android:layout_width="290dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:editable="false"
-                    android:enabled="true"
-                    android:focusableInTouchMode="false"
-                    android:focusedByDefault="false"
-                    android:hint="Curso 13"
-                    android:textSize="20sp" />
-                <ImageView
-                    android:id="@+id/edit13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_ed13"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/editar" />
-                <ImageView
-                    android:id="@+id/del13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_DelCurso13"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/borrar" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tv_cg14"
-                    android:layout_width="290dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:editable="false"
-                    android:enabled="true"
-                    android:focusableInTouchMode="false"
-                    android:focusedByDefault="false"
-                    android:hint="Curso 14"
-                    android:textSize="20sp" />
-                <ImageView
-                    android:id="@+id/edit14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_ed14"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/editar" />
-                <ImageView
-                    android:id="@+id/del14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:onClick="ib_DelCurso14"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/borrar" />
+                    android:backgroundTint="@color/azulBotonera"
+                    android:onClick="siguientes10Cursos"
+                    android:text="Mostrar mas \ncursos"/>
             </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 
     <!-- Boton de vuelta a la clase anterior -->
