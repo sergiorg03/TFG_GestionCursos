@@ -50,7 +50,7 @@
                 <EditText
                     android:id="@+id/tv_ec_op1"
                     android:layout_width="290dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:editable="true"
                     android:enabled="true"
                     android:hint="Opcion 1 "
@@ -73,7 +73,7 @@
                 <EditText
                     android:id="@+id/tv_ec_op2"
                     android:layout_width="290dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:editable="true"
                     android:enabled="true"
                     android:layout_marginTop="5dp"
@@ -97,7 +97,7 @@
                 <EditText
                     android:id="@+id/tv_ec_op3"
                     android:layout_width="290dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:editable="true"
                     android:enabled="true"
                     android:layout_marginTop="5dp"
@@ -120,7 +120,7 @@
                 <EditText
                     android:id="@+id/tv_ec_op4"
                     android:layout_width="290dp"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:editable="true"
                     android:enabled="true"
                     android:layout_marginTop="5dp"

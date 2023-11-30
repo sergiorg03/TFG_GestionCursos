@@ -536,18 +536,35 @@ public class EditorCursos extends AppCompatActivity {
                     try {
                         json.put("id_curso", id_curso); // Id del curso
                         json.put("id_pregunta", id_pregunta); // Id de la pregunta
-                        json.put("enunciado_pregunta", et_p1.getText().toString()); // Enunciado pregunta
+                        json.put("enunciado_pregunta", fv.textoFinal(et_p1.getText().toString())); // Enunciado pregunta
                         json.put("id_op1", "1"); // Opcion 1
                         json.put("enun_op1", fv.textoFinal(tv_ec_op1.getText().toString())); // enunciado 1
-                        /*json.put("escor_op1", ); // Correcto 1
-                        json.put();
-                        json.put();
-                        json.put();
-                        json.put();
-                        json.put();
-                        json.put();
-                        json.put();
-                        json.put();*/
+                        json.put("escor_op1", (op1.isChecked()? 1: 0)); // Correcto 1
+                        json.put("id_op2", "2");
+                        json.put("enun_op2", fv.textoFinal(tv_ec_op2.getText().toString()));
+                        json.put("escor_op2", (op2.isChecked()? 1: 0));
+                        json.put("id_op3", "3");
+                        json.put("enun_op3", fv.textoFinal(tv_ec_op3.getText().toString()));
+                        json.put("escor_op3", (op3.isChecked()? 1: 0));
+                        json.put("id_op4", "4");
+                        json.put("enun_op4", fv.textoFinal(tv_ec_op4.getText().toString()));
+                        json.put("escor_op4", (op4.isChecked()? 1: 0));
+
+                        System.out.println("id_curso --> " + id_curso);
+                        System.out.println("id_pregunta --> " + id_pregunta);
+                        System.out.println("enunciado_pregunta --> " + fv.textoFinal(et_p1.getText().toString()));
+                        System.out.println("id_op1 --> " + "1");
+                        System.out.println("enun_op1 --> " + fv.textoFinal(tv_ec_op1.getText().toString()));
+                        System.out.println("escor_op1 --> " + (op1.isChecked()? 1: 0));
+                        System.out.println("id_op2 --> " + "2");
+                        System.out.println("enun_op2 --> " + fv.textoFinal(tv_ec_op2.getText().toString()));
+                        System.out.println("escor_op2 --> " + (op2.isChecked()? 1: 0));
+                        System.out.println("id_op3 --> " + "3");
+                        System.out.println("enun_op3 --> " + fv.textoFinal(tv_ec_op3.getText().toString()));
+                        System.out.println("escor_op3 --> " + (op3.isChecked()? 1: 0));
+                        System.out.println("id_op4 --> " + "4");
+                        System.out.println("enun_op4 --> " + fv.textoFinal(tv_ec_op4.getText().toString()));
+                        System.out.println("escor_op4 --> " + (op4.isChecked()? 1: 0));
                     }catch (JSONException j){
                         j.printStackTrace();
                     }
@@ -654,12 +671,15 @@ public class EditorCursos extends AppCompatActivity {
         datosOpciones[4] = obtenerOpcionSeleccionada(op4); // CORRECTA?
         listaOpciones.add(datosOpciones);
 
+        /**
+         * Trazas
+         */
         for (int i = 0; i < listaOpciones.size(); i++) {
-            System.out.println("EditorCursos: ObtenerOpciones: id:   "    +listaOpciones.get(i)[0]);
-            System.out.println("EditorCursos: ObtenerOpciones: preg  "    +listaOpciones.get(i)[1]);
-            System.out.println("EditorCursos: ObtenerOpciones: curso "    +listaOpciones.get(i)[2]);
-            System.out.println("EditorCursos: ObtenerOpciones: texto "    +listaOpciones.get(i)[3]);
-            System.out.println("EditorCursos: ObtenerOpciones: correcto? "+listaOpciones.get(i)[4]);
+            System.out.println("EditorCursos: ObtenerOpciones: id:    "    +listaOpciones.get(i)[0]);
+            System.out.println("EditorCursos: ObtenerOpciones: preg:  "    +listaOpciones.get(i)[1]);
+            System.out.println("EditorCursos: ObtenerOpciones: curso: "    +listaOpciones.get(i)[2]);
+            System.out.println("EditorCursos: ObtenerOpciones: texto: "    +listaOpciones.get(i)[3]);
+            System.out.println("EditorCursos: ObtenerOpciones: correcto: " +listaOpciones.get(i)[4]);
         }
 
         //Devolvemos la lista de opciones
@@ -681,12 +701,20 @@ public class EditorCursos extends AppCompatActivity {
      */
     public void siguientePregunta(View v){
         crearOModifTest();
+        int pregunta = id_pregunta+1;
+        mostrarPregunta(pregunta);
+    }
+
+    /**
+     * Metodo que muestra la pantalla con la siguiente pregunta
+     * @param preg -- Numero de pregunta a obtener
+     */
+    public void mostrarPregunta(int preg){
         Intent i = new Intent(this, EditorCursos.class);
         i.putExtra("dni", dni);
         i.putExtra("clase", clase);
-        int pregunta = id_pregunta+1;
-        System.out.println(pregunta);
-        i.putExtra("id_pregunta", pregunta);
+        System.out.println("EditorCursos: mostrarPregunta: pregunta: "+preg);
+        i.putExtra("id_pregunta", preg);
         i.putExtra("id_curso", id_curso);
         startActivity(i);
         finish();
@@ -697,15 +725,8 @@ public class EditorCursos extends AppCompatActivity {
      * @param v -- View del botón pulsado.
      */
     public void anteriorPregunta(View v){
-        Intent i = new Intent(this, EditorCursos.class);
-        i.putExtra("dni", dni);
-        i.putExtra("clase", clase);
         int pregunta = (id_pregunta-1 == -1)? 0: id_pregunta-1;
-        System.out.println(pregunta);
-        i.putExtra("id_pregunta", pregunta);
-        i.putExtra("id_curso", id_curso);
-        startActivity(i);
-        finish();
+        mostrarPregunta(pregunta);
     }
 
     /**
