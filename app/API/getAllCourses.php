@@ -11,9 +11,14 @@ $errores = [];
 $datos = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+    // Variable para la obtencion de más cursos
+    $lineaSalto = $_GET['lineaSalto'];
+
     // Creamos la consulta para obtener todos los cursos
     $SELECT = 'SELECT id, nombre, ruta_pdf
-                    FROM cursos;';
+                    FROM cursos
+                    LIMIT 10 OFFSET '.$lineaSalto.';';
 	// Preparamos la consulta
     $consulta = $conexion->prepare($SELECT);
 	// Ejecutamos la consulta

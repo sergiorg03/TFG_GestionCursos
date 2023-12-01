@@ -33,91 +33,26 @@ public class RealizarCursos extends AppCompatActivity {
     String id_curso;
     String clase;
     Class claseAnterior;
-    TextView pregunta1;
-    TextView pregunta2;
-    TextView pregunta3;
-    TextView pregunta4;
-    TextView pregunta5;
-    TextView pregunta6;
-    TextView pregunta7;
-    TextView pregunta8;
-    TextView pregunta9;
-    TextView pregunta10;
-    // Opciones pregunta 1
-    RadioButton op1_p1;
-    RadioButton op2_p1;
-    RadioButton op3_p1;
-    // Opciones pregunta 2
-    RadioButton op1_p2;
-    RadioButton op2_p2;
-    RadioButton op3_p2;
-    // Opciones pregunta 3
-    RadioButton op1_p3;
-    RadioButton op2_p3;
-    RadioButton op3_p3;
-    // Opciones pregunta 4
-    RadioButton op1_p4;
-    RadioButton op2_p4;
-    RadioButton op3_p4;
-    // Opciones pregunta 5
-    RadioButton op1_p5;
-    RadioButton op2_p5;
-    RadioButton op3_p5;
-    // Opciones pregunta 6
-    RadioButton op1_p6;
-    RadioButton op2_p6;
-    RadioButton op3_p6;
-    // Opciones pregunta 7
-    RadioButton op1_p7;
-    RadioButton op2_p7;
-    RadioButton op3_p7;
-    // Opciones pregunta 8
-    RadioButton op1_p8;
-    RadioButton op2_p8;
-    RadioButton op3_p8;
-    // Opciones pregunta 9
-    RadioButton op1_p9;
-    RadioButton op2_p9;
-    RadioButton op3_p9;
-    // Opciones pregunta 10
-    RadioButton op1_p10;
-    RadioButton op2_p10;
-    RadioButton op3_p10;
+    int numeroPreguntasTest;
+    int lineasSalto;
+    ArrayList<Integer> listaNotas;
+    float nota;
+
+    TextView pregunta;
+    // Opciones pregunta
+    RadioButton op1;
+    RadioButton op2;
+    RadioButton op3;
+    RadioButton op4;
+
 
     // RadioGroups
     RadioGroup grupo1;
-    RadioGroup grupo2;
-    RadioGroup grupo3;
-    RadioGroup grupo4;
-    RadioGroup grupo5;
-    RadioGroup grupo6;
-    RadioGroup grupo7;
-    RadioGroup grupo8;
-    RadioGroup grupo9;
-    RadioGroup grupo10;
 
     // Opciones correctas de cada pregunta
-    int bd_opCor_p1;
-    int bd_opCor_p2;
-    int bd_opCor_p3;
-    int bd_opCor_p4;
-    int bd_opCor_p5;
-    int bd_opCor_p6;
-    int bd_opCor_p7;
-    int bd_opCor_p8;
-    int bd_opCor_p9;
-    int bd_opCor_p10;
-
-    int opSelec_p1;
-    int opSelec_p2;
-    int opSelec_p3;
-    int opSelec_p4;
-    int opSelec_p5;
-    int opSelec_p6;
-    int opSelec_p7;
-    int opSelec_p8;
-    int opSelec_p9;
-    int opSelec_p10;
+    int bd_opCor;
+    // Opcion seleccionada
+    int opSelec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,84 +71,28 @@ public class RealizarCursos extends AppCompatActivity {
      */
     public void inicializarVars(){
         // Asignamos los TextView de la pregunta a su recurso correspodiente
-        pregunta1   = findViewById(R.id.pregunta1);
-        pregunta2   = findViewById(R.id.pregunta2);
-        pregunta3   = findViewById(R.id.pregunta3);
-        pregunta4   = findViewById(R.id.pregunta4);
-        pregunta5   = findViewById(R.id.pregunta5);
-        pregunta6   = findViewById(R.id.pregunta6);
-        pregunta7   = findViewById(R.id.pregunta7);
-        pregunta8   = findViewById(R.id.pregunta8);
-        pregunta9   = findViewById(R.id.pregunta9);
-        pregunta10  = findViewById(R.id.pregunta10);
+        pregunta = findViewById(R.id.pregunta);
 
         // Asignamos los RadioButton a su recurso correspondiente
-        op1_p1  = findViewById(R.id.op1_p1);
-        op2_p1  = findViewById(R.id.op2_p1);
-        op3_p1  = findViewById(R.id.op3_p1);
-        op1_p2  = findViewById(R.id.op1_p2);
-        op2_p2  = findViewById(R.id.op2_p2);
-        op3_p2  = findViewById(R.id.op3_p2);
-        op1_p3  = findViewById(R.id.op1_p3);
-        op2_p3  = findViewById(R.id.op2_p3);
-        op3_p3  = findViewById(R.id.op3_p3);
-        op1_p4  = findViewById(R.id.op1_p4);
-        op2_p4  = findViewById(R.id.op2_p4);
-        op3_p4  = findViewById(R.id.op3_p4);
-        op1_p5  = findViewById(R.id.op1_p5);
-        op2_p5  = findViewById(R.id.op2_p5);
-        op3_p5  = findViewById(R.id.op3_p5);
-        op1_p6  = findViewById(R.id.op1_p6);
-        op2_p6  = findViewById(R.id.op2_p6);
-        op3_p6  = findViewById(R.id.op3_p6);
-        op1_p7  = findViewById(R.id.op1_p7);
-        op2_p7  = findViewById(R.id.op2_p7);
-        op3_p7  = findViewById(R.id.op3_p7);
-        op1_p8  = findViewById(R.id.op1_p8);
-        op2_p8  = findViewById(R.id.op2_p8);
-        op3_p8  = findViewById(R.id.op3_p8);
-        op1_p9  = findViewById(R.id.op1_p9);
-        op2_p9  = findViewById(R.id.op2_p9);
-        op3_p9  = findViewById(R.id.op3_p9);
-        op1_p10 = findViewById(R.id.op1_p10);
-        op2_p10 = findViewById(R.id.op2_p10);
-        op3_p10 = findViewById(R.id.op3_p10);
+        op1  = findViewById(R.id.op1);
+        op2  = findViewById(R.id.op2);
+        op3  = findViewById(R.id.op3);
+        op4  = findViewById(R.id.op4);
 
-        grupo1  = findViewById(R.id.grupo1);
-        grupo2  = findViewById(R.id.grupo2);
-        grupo3  = findViewById(R.id.grupo3);
-        grupo4  = findViewById(R.id.grupo4);
-        grupo5  = findViewById(R.id.grupo5);
-        grupo6  = findViewById(R.id.grupo6);
-        grupo7  = findViewById(R.id.grupo7);
-        grupo8  = findViewById(R.id.grupo8);
-        grupo9  = findViewById(R.id.grupo9);
-        grupo10 = findViewById(R.id.grupo10);
+        grupo1  = findViewById(R.id.grupo);
+        bd_opCor = -1;
+        opSelec = -1;
+
+        numeroPreguntasTest = (getIntent().getStringExtra("numeroPreguntas") == null) ? obtenerNumeroPreguntasTest(): Integer.parseInt(getIntent().getStringExtra("numeroPreguntas"));
+        lineasSalto = getIntent().getIntExtra("lineasSalto", 0);
+        System.out.println("NumeroPreguntasTest: "+ numeroPreguntasTest);
+        System.out.println("Lineas a saltar: "+ lineasSalto);
+        System.out.println("iniciarVars: devolucion intent: "+ getIntent().getIntegerArrayListExtra("listaNotas"));
+        listaNotas = (getIntent().getIntegerArrayListExtra("listaNotas") == null)? new ArrayList<Integer>(): getIntent().getIntegerArrayListExtra("listaNotas");
+        nota = -1;
 
         // Mostramos las preguntas
         cargarPreguntas();
-
-        bd_opCor_p1     = -1;
-        bd_opCor_p2     = -1;
-        bd_opCor_p3     = -1;
-        bd_opCor_p4     = -1;
-        bd_opCor_p5     = -1;
-        bd_opCor_p6     = -1;
-        bd_opCor_p7     = -1;
-        bd_opCor_p8     = -1;
-        bd_opCor_p9     = -1;
-        bd_opCor_p10    = -1;
-
-        opSelec_p1  = -1;
-        opSelec_p2  = -1;
-        opSelec_p3  = -1;
-        opSelec_p4  = -1;
-        opSelec_p5  = -1;
-        opSelec_p6  = -1;
-        opSelec_p7  = -1;
-        opSelec_p8  = -1;
-        opSelec_p9  = -1;
-        opSelec_p10 = -1;
     }
 
     /**
@@ -233,10 +112,7 @@ public class RealizarCursos extends AppCompatActivity {
      */
     public void comprobarRespuestas(View v){
         //fv.mostrarMensaje(this, "Comprobar respuestas. ");
-        getSelectedItem();
-        int nota = calcularNotas();
-        fv.mostrarMensaje(this, "Su puntuació ha sido: "+nota);
-        addMarks(String.valueOf(nota));
+        obtenerNotaTest(listaNotas);
     }
 
     public interface ConsultarDatos{
@@ -271,6 +147,10 @@ public class RealizarCursos extends AppCompatActivity {
                     String id_op3 = preguntas.get(test).get(2)[0];
                     String enun_op3 = preguntas.get(test).get(2)[1];
                     String esCorrecta_op3 = preguntas.get(test).get(2)[2];
+                    // Opcion 3
+                    String id_op4 = preguntas.get(test).get(3)[0];
+                    String enun_op4 = preguntas.get(test).get(3)[1];
+                    String esCorrecta_op4 = preguntas.get(test).get(3)[2];
 
                     /**
                      * Trazas
@@ -295,84 +175,23 @@ public class RealizarCursos extends AppCompatActivity {
                     System.out.println("enun_op3-->"+ enun_op3);
                     System.out.println("esCorrecta_op3-->"+ esCorrecta_op3);*/
 
-                    switch (id_preg){
-                        case 1:
-                            pregunta1.setText(enunciado_preg);
-                            op1_p1.setText(enun_op1);
-                            op2_p1.setText(enun_op2);
-                            op3_p1.setText(enun_op3);
-                            bd_opCor_p1 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 2:
-                            pregunta2.setText(enunciado_preg);
-                            op1_p2.setText(enun_op1);
-                            op2_p2.setText(enun_op2);
-                            op3_p2.setText(enun_op3);
-                            bd_opCor_p2 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 3:
-                            pregunta3.setText(enunciado_preg);
-                            op1_p3.setText(enun_op1);
-                            op2_p3.setText(enun_op2);
-                            op3_p3.setText(enun_op3);
-                            bd_opCor_p3 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 4:
-                            pregunta4.setText(enunciado_preg);
-                            op1_p4.setText(enun_op1);
-                            op2_p4.setText(enun_op2);
-                            op3_p4.setText(enun_op3);
-                            bd_opCor_p4 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 5:
-                            pregunta5.setText(enunciado_preg);
-                            op1_p5.setText(enun_op1);
-                            op2_p5.setText(enun_op2);
-                            op3_p5.setText(enun_op3);
-                            bd_opCor_p5 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 6:
-                            pregunta6.setText(enunciado_preg);
-                            op1_p6.setText(enun_op1);
-                            op2_p6.setText(enun_op2);
-                            op3_p6.setText(enun_op3);
-                            bd_opCor_p6 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 7:
-                            pregunta7.setText(enunciado_preg);
-                            op1_p7.setText(enun_op1);
-                            op2_p7.setText(enun_op2);
-                            op3_p7.setText(enun_op3);
-                            bd_opCor_p7 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 8:
-                            pregunta8.setText(enunciado_preg);
-                            op1_p8.setText(enun_op1);
-                            op2_p8.setText(enun_op2);
-                            op3_p8.setText(enun_op3);
-                            bd_opCor_p8 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 9:
-                            pregunta9.setText(enunciado_preg);
-                            op1_p9.setText(enun_op1);
-                            op2_p9.setText(enun_op2);
-                            op3_p9.setText(enun_op3);
-                            bd_opCor_p9 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                        case 10:
-                            pregunta10.setText(enunciado_preg);
-                            op1_p10.setText(enun_op1);
-                            op2_p10.setText(enun_op2);
-                            op3_p10.setText(enun_op3);
-                            bd_opCor_p10 = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3);
-                            break;
-                    }
+                    pregunta.setText(enunciado_preg);
+                    op1.setText(enun_op1);
+                    op2.setText(enun_op2);
+                    op3.setText(enun_op3);
+                    op4.setText(enun_op4);
+                    bd_opCor = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                 }
             }
 
             @Override
             public void onConsultaError(VolleyError e) {
-                fv.mostrarMensaje(RealizarCursos.this, "No se pudieron obtener tests para este curso. ");
+                //fv.mostrarMensaje(RealizarCursos.this, "No se pudieron obtener tests para este curso. ");
+                pregunta.setText("Fin del test. ");
+                op1.setText("N/A");
+                op2.setText("N/A");
+                op3.setText("N/A");
+                op4.setText("N/A");
             }
         });
     }
@@ -384,7 +203,7 @@ public class RealizarCursos extends AppCompatActivity {
      * @param op3
      * @return -- Opcion correcta
      */
-    public int opcionCorrecta(String op1, String op2, String op3){
+    public int opcionCorrecta(String op1, String op2, String op3, String op4){
         int respuesta = 0;
         if (op1.equalsIgnoreCase("1")){
             respuesta = 1;
@@ -394,6 +213,8 @@ public class RealizarCursos extends AppCompatActivity {
             }else {
                 if (op3.equalsIgnoreCase("1")){
                     respuesta = 3;
+                }else{
+                    respuesta = (op4.equalsIgnoreCase("1"))? 4: 0;
                 }
             }
         }
@@ -409,7 +230,7 @@ public class RealizarCursos extends AppCompatActivity {
     public Map<String[], List<String[]>> getPreguntas(ConsultarDatos cd){
 
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getTest.php?idCurso="+id_curso;
-        final String URL = fv.getURL()+"getTest.php?idCurso="+id_curso.trim();
+        final String URL = fv.getURL()+"getTest.php?idCurso="+id_curso.trim()+"&lineasSalto="+lineasSalto;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -495,123 +316,18 @@ public class RealizarCursos extends AppCompatActivity {
      */
     public void getSelectedItem(){
 
-        if (grupo1.getCheckedRadioButtonId() == op1_p1.getId()){
-            opSelec_p1 = 1;
+        if (grupo1.getCheckedRadioButtonId() == op1.getId()){
+            opSelec = 1;
         }else{
-            if (grupo1.getCheckedRadioButtonId() == op2_p1.getId()){
-                opSelec_p1 = 2;
+            if (grupo1.getCheckedRadioButtonId() == op2.getId()){
+                opSelec = 2;
             }else{
-                if (grupo1.getCheckedRadioButtonId() == op3_p1.getId()){
-                    opSelec_p1 = 3;
-                }
-            }
-        }
-        // System.out.println("Metodo getSelectecItem opSelec_p1-->"+ opSelec_p1);
-
-        if (grupo2.getCheckedRadioButtonId() == op1_p2.getId()){
-            opSelec_p2 = 1;
-        }else{
-            if (grupo2.getCheckedRadioButtonId() == op2_p2.getId()){
-                opSelec_p2 = 2;
-            }else{
-                if (grupo2.getCheckedRadioButtonId() == op3_p2.getId()){
-                    opSelec_p2 = 3;
-                }
-            }
-        }
-
-        if (grupo3.getCheckedRadioButtonId() == op1_p3.getId()){
-            opSelec_p3 = 1;
-        }else{
-            if (grupo3.getCheckedRadioButtonId() == op2_p3.getId()){
-                opSelec_p3 = 2;
-            }else{
-                if (grupo3.getCheckedRadioButtonId() == op3_p3.getId()){
-                    opSelec_p3 = 3;
-                }
-            }
-        }
-
-        if (grupo4.getCheckedRadioButtonId() == op1_p4.getId()){
-            opSelec_p4 = 1;
-        }else{
-            if (grupo4.getCheckedRadioButtonId() == op2_p4.getId()){
-                opSelec_p4 = 2;
-            }else{
-                if (grupo4.getCheckedRadioButtonId() == op3_p4.getId()){
-                    opSelec_p4 = 3;
-                }
-            }
-        }
-
-        if (grupo5.getCheckedRadioButtonId() == op1_p5.getId()){
-            opSelec_p5 = 1;
-        }else{
-            if (grupo5.getCheckedRadioButtonId() == op2_p5.getId()){
-                opSelec_p5 = 2;
-            }else{
-                if (grupo5.getCheckedRadioButtonId() == op3_p5.getId()){
-                    opSelec_p5 = 3;
-                }
-            }
-        }
-
-        if (grupo6.getCheckedRadioButtonId() == op1_p6.getId()){
-            opSelec_p6 = 1;
-        }else{
-            if (grupo6.getCheckedRadioButtonId() == op2_p6.getId()){
-                opSelec_p6 = 2;
-            }else{
-                if (grupo6.getCheckedRadioButtonId() == op3_p6.getId()){
-                    opSelec_p6 = 3;
-                }
-            }
-        }
-
-        if (grupo7.getCheckedRadioButtonId() == op1_p7.getId()){
-            opSelec_p7 = 1;
-        }else{
-            if (grupo7.getCheckedRadioButtonId() == op2_p7.getId()){
-                opSelec_p7 = 2;
-            }else{
-                if (grupo7.getCheckedRadioButtonId() == op3_p7.getId()){
-                    opSelec_p7 = 3;
-                }
-            }
-        }
-
-        if (grupo8.getCheckedRadioButtonId() == op1_p8.getId()){
-            opSelec_p8 = 1;
-        }else{
-            if (grupo8.getCheckedRadioButtonId() == op2_p8.getId()){
-                opSelec_p8 = 2;
-            }else{
-                if (grupo8.getCheckedRadioButtonId() == op3_p8.getId()){
-                    opSelec_p8 = 3;
-                }
-            }
-        }
-
-        if (grupo9.getCheckedRadioButtonId() == op1_p9.getId()){
-            opSelec_p9 = 1;
-        }else{
-            if (grupo9.getCheckedRadioButtonId() == op2_p9.getId()){
-                opSelec_p9 = 2;
-            }else{
-                if (grupo9.getCheckedRadioButtonId() == op3_p9.getId()){
-                    opSelec_p9 = 3;
-                }
-            }
-        }
-
-        if (grupo10.getCheckedRadioButtonId() == op1_p10.getId()){
-            opSelec_p10 = 1;
-        }else{
-            if (grupo10.getCheckedRadioButtonId() == op2_p10.getId()){
-                opSelec_p10 = 2;
-            }else{
-                if (grupo10.getCheckedRadioButtonId() == op3_p10.getId()){
-                    opSelec_p10 = 3;
+                if (grupo1.getCheckedRadioButtonId() == op3.getId()){
+                    opSelec = 3;
+                }else{
+                    if (grupo1.getCheckedRadioButtonId() == op4.getId()){
+                        opSelec = 4;
+                    }
                 }
             }
         }
@@ -621,57 +337,20 @@ public class RealizarCursos extends AppCompatActivity {
      * Metodo utilizado para calcular las notas de los alumnos al realizar el test
      */
     public int calcularNotas(){
-        int suma = 0;
-
-        if(bd_opCor_p1 == opSelec_p1) {
-            suma = suma + 1;
+        int correcto = 0;
+        System.out.println("RealizarCursos: calcularNotas: bd_opCor: "+ bd_opCor +" == "+ opSelec);
+        if(bd_opCor == opSelec) {
+            correcto = correcto + 1;
         }
-        if(bd_opCor_p2 == opSelec_p2){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p3 == opSelec_p3){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p4 == opSelec_p4){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p5 == opSelec_p5){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p6 == opSelec_p6){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p7 == opSelec_p7){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p8 == opSelec_p8){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p9 == opSelec_p9){
-            suma = suma + 1;
-        }
-        if(bd_opCor_p10 == opSelec_p10){
-            suma = suma + 1;
-        }
-        /*System.out.println("Metodo calcular notas: ");
-        System.out.println(bd_opCor_p1+" --> opSelect: "+opSelec_p1);
-        System.out.println(bd_opCor_p2+" --> opSelect: "+opSelec_p2);
-        System.out.println(bd_opCor_p3+" --> opSelect: "+opSelec_p3);
-        System.out.println(bd_opCor_p4+" --> opSelect: "+opSelec_p4);
-        System.out.println(bd_opCor_p5+" --> opSelect: "+opSelec_p5);
-        System.out.println(bd_opCor_p6+" --> opSelect: "+opSelec_p6);
-        System.out.println(bd_opCor_p7+" --> opSelect: "+opSelec_p7);
-        System.out.println(bd_opCor_p8+" --> opSelect: "+opSelec_p8);
-        System.out.println(bd_opCor_p9+" --> opSelect: "+opSelec_p9);
-        System.out.println(bd_opCor_p10+" --> opSelect: "+opSelec_p10);*/
-        return suma;
+        System.out.println("RealizarCursos: calcularNotas: correcto: "+ correcto);
+        return correcto;
     }
 
     /**
      * Metodo para añadir la nota del curso obtenida por el usuario en la base de datos
-     * @param puntuacion
+     *
      */
-    public void addMarks(String puntuacion){
+    public void addMarks(){
 
         //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
         final String URL = fv.getURL()+"setMarks.php";
@@ -693,7 +372,7 @@ public class RealizarCursos extends AppCompatActivity {
                         System.out.println("Error POST");
                         error.printStackTrace();
                         error.getMessage();
-                        updateMarks(puntuacion);
+                        //updateMarks(puntuacion);
 
                     }
                 }){
@@ -707,7 +386,7 @@ public class RealizarCursos extends AppCompatActivity {
                 try {
                     jsonBody.put("dni", dni);
                     jsonBody.put("id_curso", id_curso);
-                    jsonBody.put("puntuacion", puntuacion);
+                    jsonBody.put("puntuacion", nota);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -720,9 +399,9 @@ public class RealizarCursos extends AppCompatActivity {
 
     /**
      * Metodo para modificar la nota obtenida por el usuario en el curso
-     * @param puntuacion
+     * @param //puntuacion
      */
-    public void updateMarks(String puntuacion){
+    /*public void updateMarks(String puntuacion){
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
         final String URL = fv.getURL()+"setMarks.php";
 
@@ -765,5 +444,133 @@ public class RealizarCursos extends AppCompatActivity {
         };
         // Añadimos la query a la cola
         rq.add(sr);
+    }*/
+
+    public interface ConsultarDatosNumeroPregs{
+        void onConsultaExitosa(int numeroPregs);
+        void onConsultaError(VolleyError e);
+    }
+
+    public int obtenerNumeroPreguntasTest(){
+        int numeroPreguntas = 0;
+
+        getNumPreg(new ConsultarDatosNumeroPregs(){
+            @Override
+            public void onConsultaExitosa(int numeroPregs) {
+                 numeroPreguntasTest = numeroPregs;
+            }
+
+            @Override
+            public void onConsultaError(VolleyError e) {
+                numeroPreguntasTest = 0;
+                e.printStackTrace();
+            }
+        });
+
+        return numeroPreguntas;
+    }
+
+    /**
+     * Metodo que realiza la peticion a la API para obtener el numero de preguntas que tiene el test
+     * @param cd -- Interfaz utilizada para la obtencion del numero de preguntas
+     *
+     */
+    public void getNumPreg(ConsultarDatosNumeroPregs cd){
+        final String URL = fv.getURL()+"getNumberOfQuestions.php?id_curso="+id_curso;
+
+        RequestQueue rq = Volley.newRequestQueue(this);
+
+        StringRequest sr = new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray ja = new JSONArray(response);
+                            JSONObject json = ja.getJSONObject(0);
+                            System.out.println("RealizarCursos: getNumPreg: "+ json.getString("numeroPreguntas"));
+                            cd.onConsultaExitosa(Integer.parseInt(json.getString("numeroPreguntas")));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        cd.onConsultaError(error);
+                    }
+                });
+
+        rq.add(sr);
+    }
+
+    /**
+     * Metodo que crea la nueva activity mostrando la siguiente pregunta
+     * @param numeroPreg
+     */
+    public void mostrarPregunta(int numeroPreg){
+        Intent i = new Intent(this, RealizarCursos.class);
+        i.putExtra("dni", dni);
+        i.putExtra("idCurso", id_curso);
+        i.putExtra("clase", clase);
+        i.putExtra("lineasSalto", numeroPreg);
+        i.putExtra("numeroPreguntas", String.valueOf(numeroPreguntasTest));
+        i.putIntegerArrayListExtra("listaNotas", listaNotas);
+        startActivity(i);
+        finish();
+    }
+
+    /**
+     * Metodo que muestra la siguiente pregunta
+     * @param v -- Vista del boton pulsado
+     */
+    public void siguientePregunta_rc(View v){
+        System.out.println("lineasSalto: "+lineasSalto);
+        getSelectedItem();
+        int esCorrecto = calcularNotas();
+        if (listaNotas.size() == 0){
+            for (int i = 0; i < numeroPreguntasTest; i++) {
+                listaNotas.add(0);
+            }
+        }
+
+        int numeroPreg = lineasSalto+1;
+        if(numeroPreg != numeroPreguntasTest+1) {
+            listaNotas.set(lineasSalto, esCorrecto);
+            mostrarPregunta(numeroPreg);
+        }else{
+            fv.mostrarMensaje(this, "Ha completado el curso correctamente. ");
+            obtenerNotaTest(listaNotas);
+        }
+    }
+
+    /**
+     * Metodo que muestra la pregunta anterior
+     * @param v -- View del boton pulsado
+     */
+    public void anteriorPregunta_rc(View v){
+        int numeroPreg = (lineasSalto-1 <= 0)?0 : lineasSalto-1 ;
+
+        mostrarPregunta(numeroPreg);
+
+    }
+
+    public void obtenerNotaTest(ArrayList<Integer> notas){
+        int sumaNotas = 0;
+        for (int i = 0; i < notas.size(); i++) {
+            if (notas.get(i) == 1){
+                sumaNotas = sumaNotas+1;
+            }
+        }
+        System.out.println("RealizarCursos: obtenerNotaTest: numeroPreguntasTest: "+numeroPreguntasTest);
+        if (numeroPreguntasTest != 0) {
+            int resultado = ((10 * sumaNotas) / numeroPreguntasTest);
+
+            nota = (Math.round(resultado * 100) / 100);
+            System.out.println("RealizarCursos: ObtenerRespuestas: nota: " + nota);
+            addMarks();
+        }else{
+            fv.mostrarMensaje(this, "Se produjo un error. Vuelva a intentarlo más tarde. ");
+        }
     }
 }

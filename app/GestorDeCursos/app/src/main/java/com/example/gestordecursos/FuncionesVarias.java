@@ -28,7 +28,7 @@ public class FuncionesVarias {
     private final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
     public FuncionesVarias (){
-        this.IP = "192.168.1.146";
+        this.IP = "192.168.1.156";
         this.URL = "http://"+this.IP+"/tfg/app/API/";
         //System.out.println("IP: "+IP + " URL: "+ URL);
     }
@@ -201,7 +201,7 @@ public class FuncionesVarias {
      * @return -- Devuelve la cadena introducida si está contiene texto, si no, devuelve "Texto por defecto"
      */
     public String textoFinal(String cadena){
-        final String cadenaADevolver = "Texto por defecto";
+        final String cadenaADevolver = "N/A";
         if (!cadena.isEmpty()){
             return cadena;
         }

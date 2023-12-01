@@ -43,6 +43,8 @@ public class cursosAlumnos extends AppCompatActivity {
     // Variables
     FuncionesVarias fv = new FuncionesVarias();
     String dni;
+    int lineaSalto;
+
     String id_curso1;
     String id_curso2;
     String id_curso3;
@@ -53,10 +55,6 @@ public class cursosAlumnos extends AppCompatActivity {
     String id_curso8;
     String id_curso9;
     String id_curso10;
-    String id_curso11;
-    String id_curso12;
-    String id_curso13;
-    String id_curso14;
 
     String ruta_pdf_curso1;
     String ruta_pdf_curso2;
@@ -68,10 +66,6 @@ public class cursosAlumnos extends AppCompatActivity {
     String ruta_pdf_curso8;
     String ruta_pdf_curso9;
     String ruta_pdf_curso10;
-    String ruta_pdf_curso11;
-    String ruta_pdf_curso12;
-    String ruta_pdf_curso13;
-    String ruta_pdf_curso14;
 
     // TextViews
     TextView tv_curso1;
@@ -84,16 +78,13 @@ public class cursosAlumnos extends AppCompatActivity {
     TextView tv_curso8;
     TextView tv_curso9;
     TextView tv_curso10;
-    TextView tv_curso11;
-    TextView tv_curso12;
-    TextView tv_curso13;
-    TextView tv_curso14;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cursos_alumnos);
         dni = getIntent().getStringExtra("dni");
+        lineaSalto = getIntent().getIntExtra("lineaSalto", 0);
 
         tv_curso1  = findViewById(R.id.tv_curso1);
         tv_curso2  = findViewById(R.id.tv_curso2);
@@ -105,10 +96,6 @@ public class cursosAlumnos extends AppCompatActivity {
         tv_curso8  = findViewById(R.id.tv_curso8);
         tv_curso9  = findViewById(R.id.tv_curso9);
         tv_curso10 = findViewById(R.id.tv_curso10);
-        tv_curso11 = findViewById(R.id.tv_curso11);
-        tv_curso12 = findViewById(R.id.tv_curso12);
-        tv_curso13 = findViewById(R.id.tv_curso13);
-        tv_curso14 = findViewById(R.id.tv_curso14);
 
         // asignamos el texto
         tv_curso1.setText("");
@@ -121,10 +108,6 @@ public class cursosAlumnos extends AppCompatActivity {
         tv_curso8.setText("");
         tv_curso9.setText("");
         tv_curso10.setText("");
-        tv_curso11.setText("");
-        tv_curso12.setText("");
-        tv_curso13.setText("");
-        tv_curso14.setText("");
 
         tv_curso1.setHint("");
         tv_curso2.setHint("");
@@ -136,10 +119,6 @@ public class cursosAlumnos extends AppCompatActivity {
         tv_curso8.setHint("");
         tv_curso9.setHint("");
         tv_curso10.setHint("");
-        tv_curso11.setHint("");
-        tv_curso12.setHint("");
-        tv_curso13.setHint("");
-        tv_curso14.setHint("");
 
         setListeners();
         mostrarTodosCursos();
@@ -258,26 +237,6 @@ public class cursosAlumnos extends AppCompatActivity {
                             tv_curso10.setText(todoDatosCurso.get(key)[0]);
                             ruta_pdf_curso10 = todoDatosCurso.get(key)[1];
                             break;
-                        case 11:
-                            id_curso11 = key;
-                            tv_curso11.setText(todoDatosCurso.get(key)[0]);
-                            ruta_pdf_curso11 = todoDatosCurso.get(key)[1];
-                            break;
-                        case 12:
-                            id_curso12 = key;
-                            tv_curso12.setText(todoDatosCurso.get(key)[0]);
-                            ruta_pdf_curso12 = todoDatosCurso.get(key)[1];
-                            break;
-                        case 13:
-                            id_curso13 = key;
-                            tv_curso13.setText(todoDatosCurso.get(key)[0]);
-                            ruta_pdf_curso13 = todoDatosCurso.get(key)[1];
-                            break;
-                        case 14:
-                            id_curso14 = key;
-                            tv_curso14.setText(todoDatosCurso.get(key)[0]);
-                            ruta_pdf_curso14 = todoDatosCurso.get(key)[1];
-                            break;
                     }
                     i++;
                 }
@@ -293,7 +252,7 @@ public class cursosAlumnos extends AppCompatActivity {
     public List<String []> getCursos(ConsultarDatos cd){
 
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getAllCourses.php";
-        final String URL = fv.getURL()+"getAllCourses.php";
+        final String URL = fv.getURL()+"getAllCourses.php?lineaSalto="+lineaSalto;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -439,46 +398,6 @@ public class cursosAlumnos extends AppCompatActivity {
                 }
             }
         });
-
-        tv_curso11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_curso11.getText().toString())){
-                    downloadPDF(ruta_pdf_curso11, tv_curso11.getText().toString());
-                    nextClass(id_curso11);
-                }
-            }
-        });
-
-        tv_curso12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_curso12.getText().toString())){
-                    downloadPDF(ruta_pdf_curso12, tv_curso12.getText().toString());
-                    nextClass(id_curso12);
-                }
-            }
-        });
-
-        tv_curso13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_curso13.getText().toString())){
-                    downloadPDF(ruta_pdf_curso13, tv_curso13.getText().toString());
-                    nextClass(id_curso13);
-                }
-            }
-        });
-
-        tv_curso14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(fv.contieneTexto(tv_curso14.getText().toString())){
-                    downloadPDF(ruta_pdf_curso14, tv_curso14.getText().toString());
-                    nextClass(id_curso14);
-                }
-            }
-        });
     }
 
     /**
@@ -564,5 +483,31 @@ public class cursosAlumnos extends AppCompatActivity {
             }
         }
         return is;
+    }
+
+    /**
+     * Metodo para mostrar los 10 cursos anteriores
+     * @param v -- View del boton pulsado
+     */
+    public void cursosAnteriores(View v){
+        Intent i = new Intent(this, cursosAlumnos.class);
+        i.putExtra("dni", dni);
+        int linea = (lineaSalto-10 <= 0)?0:lineaSalto-10;
+        i.putExtra("lineaSalto", linea);
+        startActivity(i);
+        finish();
+    }
+
+    /**
+     * Metodo que muestra los siguiente 10 cursos
+     * @param v -- View del boton pulsado
+     */
+    public void siguientes10Cursos(View v){
+        Intent i = new Intent(this, cursosAlumnos.class);
+        i.putExtra("dni", dni);
+        int linea = lineaSalto+10;
+        i.putExtra("lineaSalto", linea);
+        startActivity(i);
+        finish();
     }
 }
