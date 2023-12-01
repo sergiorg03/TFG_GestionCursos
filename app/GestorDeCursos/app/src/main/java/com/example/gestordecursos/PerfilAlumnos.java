@@ -354,6 +354,9 @@ public class PerfilAlumnos extends AppCompatActivity {
         }
 
         String [] nuevosDatos = new String []{dni, nombre, ap1, ap2, telf, em, us, contra, profile};
+        for (int i = 0; i < nuevosDatos.length; i++) {
+            System.out.println("ObtenerNuevosDatos: nuevosDatos: "+nuevosDatos[i]);
+        }
         return nuevosDatos;
     }
 
@@ -392,12 +395,16 @@ public class PerfilAlumnos extends AppCompatActivity {
                         jsonBody.put("nombre", datosNuevos[1]);
                         jsonBody.put("apellido1", datosNuevos[2]);
                         jsonBody.put("apellido2", datosNuevos[3]);
-                        jsonBody.put("telefono", datosNuevos[4]);
+                        if (!usuarios.contains(datosNuevos[4])) {
+                            jsonBody.put("telefono", datosNuevos[4]);
+                        }
                         jsonBody.put("email", datosNuevos[5]);
-                        jsonBody.put("usuario", datosNuevos[6]);
+                        if (!usuarios.contains(datosNuevos[6])) {
+                            jsonBody.put("usuario", datosNuevos[6]);
+                        }
                         jsonBody.put("contra", datosNuevos[7]);
                         jsonBody.put("perfil", datosNuevos[8]);
-                        jsonBody.put("dni_antiguo", datosNuevos[8]);
+                        jsonBody.put("dni_antiguo", dni_a);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -467,16 +474,10 @@ public class PerfilAlumnos extends AppCompatActivity {
                                 listaUs.add(usTelf);
                             }
                             for (int i = 0; i < listaUs.size(); i++) {
-                                System.out.println("aaaaaaaaaaaaaa: "+ listaUs.get(i)[0]);
-                                System.out.println("aaaaaaaaaaaaaa: "+ listaUs.get(i)[1]);
+                                System.out.println("PerfilAlumnos: obtenerDatosUsuarios: "+ listaUs.get(i)[0]);
+                                System.out.println("PerfilAlumnos: obtenerDatosUsuarios: "+ listaUs.get(i)[1]);
                                 usuarios.add(listaUs.get(i)[0]);
                                 telefonos.add(listaUs.get(i)[1]);
-                            }
-                            for (int i = 0; i < usuarios.size(); i++) {
-                                System.out.println("usuarios: "+ usuarios.get(i));
-                            }
-                            for (int i = 0; i < telefonos.size(); i++) {
-                                System.out.println("Telefonos: "+telefonos.get(i));
                             }
                             cd.onConsultaExitosa(listaUs);
                         } catch (JSONException e) {
