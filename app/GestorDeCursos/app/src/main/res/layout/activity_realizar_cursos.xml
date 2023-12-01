@@ -32,8 +32,9 @@
                 android:enabled="true"
                 android:focusableInTouchMode="false"
                 android:focusedByDefault="false"
-                android:text="Pregunta1: "
-                android:textSize="20sp" />
+                android:text="Pregunta: "
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
 
             <RadioGroup
                 android:id="@+id/grupo"

@@ -35,6 +35,8 @@ public class RealizarCursos extends AppCompatActivity {
     Class claseAnterior;
     int numeroPreguntasTest;
     int lineasSalto;
+    ArrayList<Integer> listaNotas;
+    float nota;
 
     TextView pregunta;
     // Opciones pregunta
@@ -81,10 +83,13 @@ public class RealizarCursos extends AppCompatActivity {
         bd_opCor = -1;
         opSelec = -1;
 
-        numeroPreguntasTest = getIntent().getIntExtra("numeroPreguntas", obtenerNumeroPreguntasTest());
+        numeroPreguntasTest = (getIntent().getStringExtra("numeroPreguntas") == null) ? obtenerNumeroPreguntasTest(): Integer.parseInt(getIntent().getStringExtra("numeroPreguntas"));
         lineasSalto = getIntent().getIntExtra("lineasSalto", 0);
         System.out.println("NumeroPreguntasTest: "+ numeroPreguntasTest);
         System.out.println("Lineas a saltar: "+ lineasSalto);
+        System.out.println("iniciarVars: devolucion intent: "+ getIntent().getIntegerArrayListExtra("listaNotas"));
+        listaNotas = (getIntent().getIntegerArrayListExtra("listaNotas") == null)? new ArrayList<Integer>(): getIntent().getIntegerArrayListExtra("listaNotas");
+        nota = -1;
 
         // Mostramos las preguntas
         cargarPreguntas();
@@ -107,19 +112,7 @@ public class RealizarCursos extends AppCompatActivity {
      */
     public void comprobarRespuestas(View v){
         //fv.mostrarMensaje(this, "Comprobar respuestas. ");
-        getSelectedItem();
-        int nota = calcularNotas();
-        fv.mostrarMensaje(this, "Su puntuació ha sido: "+nota);
-
-        ArrayList<Integer> lista = new ArrayList<>();
-        lista.add(opSelec);
-
-        // Comprobamos que todas las perguntas esten respondidas
-        if (lista.contains(-1)) {// No ha respondido alguna pregunta
-            fv.mostrarMensaje(this, "Debe responder todas las preguntas. ");
-        }else{// Ha respondido todas las preguntas
-            addMarks(String.valueOf(nota));
-        }
+        obtenerNotaTest(listaNotas);
     }
 
     public interface ConsultarDatos{
@@ -344,22 +337,20 @@ public class RealizarCursos extends AppCompatActivity {
      * Metodo utilizado para calcular las notas de los alumnos al realizar el test
      */
     public int calcularNotas(){
-        int suma = 0;
-
+        int correcto = 0;
+        System.out.println("RealizarCursos: calcularNotas: bd_opCor: "+ bd_opCor +" == "+ opSelec);
         if(bd_opCor == opSelec) {
-            suma = suma + 1;
+            correcto = correcto + 1;
         }
-
-        /*System.out.println("Metodo calcular notas: ");
-        System.out.println(bd_opCor_p1+" --> opSelect: "+opSelec_p1);*/
-        return suma;
+        System.out.println("RealizarCursos: calcularNotas: correcto: "+ correcto);
+        return correcto;
     }
 
     /**
      * Metodo para añadir la nota del curso obtenida por el usuario en la base de datos
-     * @param puntuacion
+     *
      */
-    public void addMarks(String puntuacion){
+    public void addMarks(){
 
         //final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
         final String URL = fv.getURL()+"setMarks.php";
@@ -395,7 +386,7 @@ public class RealizarCursos extends AppCompatActivity {
                 try {
                     jsonBody.put("dni", dni);
                     jsonBody.put("id_curso", id_curso);
-                    jsonBody.put("puntuacion", puntuacion);
+                    jsonBody.put("puntuacion", nota);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -496,6 +487,7 @@ public class RealizarCursos extends AppCompatActivity {
                         try {
                             JSONArray ja = new JSONArray(response);
                             JSONObject json = ja.getJSONObject(0);
+                            System.out.println("RealizarCursos: getNumPreg: "+ json.getString("numeroPreguntas"));
                             cd.onConsultaExitosa(Integer.parseInt(json.getString("numeroPreguntas")));
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -522,7 +514,8 @@ public class RealizarCursos extends AppCompatActivity {
         i.putExtra("idCurso", id_curso);
         i.putExtra("clase", clase);
         i.putExtra("lineasSalto", numeroPreg);
-        i.putExtra("numeroPreguntas", numeroPreguntasTest);
+        i.putExtra("numeroPreguntas", String.valueOf(numeroPreguntasTest));
+        i.putIntegerArrayListExtra("listaNotas", listaNotas);
         startActivity(i);
         finish();
     }
@@ -533,8 +526,22 @@ public class RealizarCursos extends AppCompatActivity {
      */
     public void siguientePregunta_rc(View v){
         System.out.println("lineasSalto: "+lineasSalto);
+        getSelectedItem();
+        int esCorrecto = calcularNotas();
+        if (listaNotas.size() == 0){
+            for (int i = 0; i < numeroPreguntasTest; i++) {
+                listaNotas.add(0);
+            }
+        }
+
         int numeroPreg = lineasSalto+1;
-        mostrarPregunta(numeroPreg);
+        if(numeroPreg != numeroPreguntasTest+1) {
+            listaNotas.set(lineasSalto, esCorrecto);
+            mostrarPregunta(numeroPreg);
+        }else{
+            fv.mostrarMensaje(this, "Ha completado el curso correctamente. ");
+            obtenerNotaTest(listaNotas);
+        }
     }
 
     /**
@@ -546,5 +553,24 @@ public class RealizarCursos extends AppCompatActivity {
 
         mostrarPregunta(numeroPreg);
 
+    }
+
+    public void obtenerNotaTest(ArrayList<Integer> notas){
+        int sumaNotas = 0;
+        for (int i = 0; i < notas.size(); i++) {
+            if (notas.get(i) == 1){
+                sumaNotas = sumaNotas+1;
+            }
+        }
+        System.out.println("RealizarCursos: obtenerNotaTest: numeroPreguntasTest: "+numeroPreguntasTest);
+        if (numeroPreguntasTest != 0) {
+            int resultado = ((10 * sumaNotas) / numeroPreguntasTest);
+
+            nota = (Math.round(resultado * 100) / 100);
+            System.out.println("RealizarCursos: ObtenerRespuestas: nota: " + nota);
+            addMarks();
+        }else{
+            fv.mostrarMensaje(this, "Se produjo un error. Vuelva a intentarlo más tarde. ");
+        }
     }
 }
