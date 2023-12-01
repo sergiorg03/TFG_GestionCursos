@@ -389,7 +389,8 @@ public class EditorCursos extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             //fv.guardadoLogs(error.toString(), "editorCursos_crearTest");
-                            fv.mostrarMensaje(EditorCursos.this, "No se pudo insertar el test, pruebe a insertarlo de nuevo en unos minutos. ");
+                            modificarTest();
+                            //fv.mostrarMensaje(EditorCursos.this, "No se pudo insertar el test, pruebe a insertarlo de nuevo en unos minutos. ");
                         }
                     }
             ) {
@@ -549,7 +550,7 @@ public class EditorCursos extends AppCompatActivity {
                         json.put("id_op4", "4");
                         json.put("enun_op4", fv.textoFinal(tv_ec_op4.getText().toString()));
                         json.put("escor_op4", (op4.isChecked()? 1: 0));
-
+                        System.out.println("EditorCursos: modificarTest: datos a enviar a la API: ");
                         System.out.println("id_curso --> " + id_curso);
                         System.out.println("id_pregunta --> " + id_pregunta);
                         System.out.println("enunciado_pregunta --> " + fv.textoFinal(et_p1.getText().toString()));
@@ -733,10 +734,11 @@ public class EditorCursos extends AppCompatActivity {
      * Metodo que añade o modifica el test
      */
     public void crearOModifTest(){
-        if (!this.existe) {
+        /*if (!this.existe) {
             crearTest();
         }else{
             modificarTest();
-        }
+        }*/
+        crearTest();
     }
 }
