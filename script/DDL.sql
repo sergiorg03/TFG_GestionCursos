@@ -37,9 +37,9 @@ GRANT ALL PRIVILEGES
 		MAX_CONNECTIONS_PER_HOUR 0 
 		MAX_UPDATES_PER_HOUR 0 
 		MAX_USER_CONNECTIONS 0;
-GRANT ALL PRIVILEGES 
+/* GRANT ALL PRIVILEGES 
 	ON `tfg\_sergio\_%`.* 
-	TO 'tfg_sergio'@'localhost';
+	TO 'tfg_sergio'@'localhost';*/
 
 -- ----------------------------------------
 -- CREACION DEL SCHEMA

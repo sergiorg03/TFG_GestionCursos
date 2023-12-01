@@ -34,13 +34,14 @@ public class RealizarCursos extends AppCompatActivity {
     String clase;
     Class claseAnterior;
     int numeroPreguntasTest;
+    int lineasSalto;
 
     TextView pregunta;
     // Opciones pregunta
-    RadioButton op1_p1;
-    RadioButton op2_p1;
-    RadioButton op3_p1;
-    RadioButton op4_p1;
+    RadioButton op1;
+    RadioButton op2;
+    RadioButton op3;
+    RadioButton op4;
 
 
     // RadioGroups
@@ -71,20 +72,22 @@ public class RealizarCursos extends AppCompatActivity {
         pregunta = findViewById(R.id.pregunta);
 
         // Asignamos los RadioButton a su recurso correspondiente
-        op1_p1  = findViewById(R.id.op1);
-        op2_p1  = findViewById(R.id.op2);
-        op3_p1  = findViewById(R.id.op3);
-        op4_p1  = findViewById(R.id.op4);
+        op1  = findViewById(R.id.op1);
+        op2  = findViewById(R.id.op2);
+        op3  = findViewById(R.id.op3);
+        op4  = findViewById(R.id.op4);
 
         grupo1  = findViewById(R.id.grupo);
-
-        // Mostramos las preguntas
-        cargarPreguntas();
-
         bd_opCor = -1;
         opSelec = -1;
 
         numeroPreguntasTest = getIntent().getIntExtra("numeroPreguntas", obtenerNumeroPreguntasTest());
+        lineasSalto = getIntent().getIntExtra("lineasSalto", 0);
+        System.out.println("NumeroPreguntasTest: "+ numeroPreguntasTest);
+        System.out.println("Lineas a saltar: "+ lineasSalto);
+
+        // Mostramos las preguntas
+        cargarPreguntas();
     }
 
     /**
@@ -180,17 +183,22 @@ public class RealizarCursos extends AppCompatActivity {
                     System.out.println("esCorrecta_op3-->"+ esCorrecta_op3);*/
 
                     pregunta.setText(enunciado_preg);
-                    op1_p1.setText(enun_op1);
-                    op2_p1.setText(enun_op2);
-                    op3_p1.setText(enun_op3);
-                    op4_p1.setText(enun_op4);
+                    op1.setText(enun_op1);
+                    op2.setText(enun_op2);
+                    op3.setText(enun_op3);
+                    op4.setText(enun_op4);
                     bd_opCor = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
                 }
             }
 
             @Override
             public void onConsultaError(VolleyError e) {
-                fv.mostrarMensaje(RealizarCursos.this, "No se pudieron obtener tests para este curso. ");
+                //fv.mostrarMensaje(RealizarCursos.this, "No se pudieron obtener tests para este curso. ");
+                pregunta.setText("Fin del test. ");
+                op1.setText("N/A");
+                op2.setText("N/A");
+                op3.setText("N/A");
+                op4.setText("N/A");
             }
         });
     }
@@ -229,7 +237,7 @@ public class RealizarCursos extends AppCompatActivity {
     public Map<String[], List<String[]>> getPreguntas(ConsultarDatos cd){
 
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/getTest.php?idCurso="+id_curso;
-        final String URL = fv.getURL()+"getTest.php?idCurso="+id_curso.trim();
+        final String URL = fv.getURL()+"getTest.php?idCurso="+id_curso.trim()+"&lineasSalto="+lineasSalto;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -315,16 +323,16 @@ public class RealizarCursos extends AppCompatActivity {
      */
     public void getSelectedItem(){
 
-        if (grupo1.getCheckedRadioButtonId() == op1_p1.getId()){
+        if (grupo1.getCheckedRadioButtonId() == op1.getId()){
             opSelec = 1;
         }else{
-            if (grupo1.getCheckedRadioButtonId() == op2_p1.getId()){
+            if (grupo1.getCheckedRadioButtonId() == op2.getId()){
                 opSelec = 2;
             }else{
-                if (grupo1.getCheckedRadioButtonId() == op3_p1.getId()){
+                if (grupo1.getCheckedRadioButtonId() == op3.getId()){
                     opSelec = 3;
                 }else{
-                    if (grupo1.getCheckedRadioButtonId() == op4_p1.getId()){
+                    if (grupo1.getCheckedRadioButtonId() == op4.getId()){
                         opSelec = 4;
                     }
                 }
@@ -373,7 +381,7 @@ public class RealizarCursos extends AppCompatActivity {
                         System.out.println("Error POST");
                         error.printStackTrace();
                         error.getMessage();
-                        updateMarks(puntuacion);
+                        //updateMarks(puntuacion);
 
                     }
                 }){
@@ -400,9 +408,9 @@ public class RealizarCursos extends AppCompatActivity {
 
     /**
      * Metodo para modificar la nota obtenida por el usuario en el curso
-     * @param puntuacion
+     * @param //puntuacion
      */
-    public void updateMarks(String puntuacion){
+    /*public void updateMarks(String puntuacion){
         // final String URL = "http://"+getString(R.string.ip)+"/tfg/app/API/setMarks.php";
         final String URL = fv.getURL()+"setMarks.php";
 
@@ -445,7 +453,7 @@ public class RealizarCursos extends AppCompatActivity {
         };
         // Añadimos la query a la cola
         rq.add(sr);
-    }
+    }*/
 
     public interface ConsultarDatosNumeroPregs{
         void onConsultaExitosa(int numeroPregs);
@@ -477,7 +485,7 @@ public class RealizarCursos extends AppCompatActivity {
      *
      */
     public void getNumPreg(ConsultarDatosNumeroPregs cd){
-        final String URL = fv.getURL()+"getNumberOfQuestions.php?id_curso"+id_curso;
+        final String URL = fv.getURL()+"getNumberOfQuestions.php?id_curso="+id_curso;
 
         RequestQueue rq = Volley.newRequestQueue(this);
 
@@ -502,5 +510,41 @@ public class RealizarCursos extends AppCompatActivity {
                 });
 
         rq.add(sr);
+    }
+
+    /**
+     * Metodo que crea la nueva activity mostrando la siguiente pregunta
+     * @param numeroPreg
+     */
+    public void mostrarPregunta(int numeroPreg){
+        Intent i = new Intent(this, RealizarCursos.class);
+        i.putExtra("dni", dni);
+        i.putExtra("idCurso", id_curso);
+        i.putExtra("clase", clase);
+        i.putExtra("lineasSalto", numeroPreg);
+        i.putExtra("numeroPreguntas", numeroPreguntasTest);
+        startActivity(i);
+        finish();
+    }
+
+    /**
+     * Metodo que muestra la siguiente pregunta
+     * @param v -- Vista del boton pulsado
+     */
+    public void siguientePregunta_rc(View v){
+        System.out.println("lineasSalto: "+lineasSalto);
+        int numeroPreg = lineasSalto+1;
+        mostrarPregunta(numeroPreg);
+    }
+
+    /**
+     * Metodo que muestra la pregunta anterior
+     * @param v -- View del boton pulsado
+     */
+    public void anteriorPregunta_rc(View v){
+        int numeroPreg = (lineasSalto-1 <= 0)?0 : lineasSalto-1 ;
+
+        mostrarPregunta(numeroPreg);
+
     }
 }

@@ -61,6 +61,29 @@
                     android:layout_height="wrap_content"
                     android:text="Opción 4" />
             </RadioGroup>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/lastQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/azulBotonera"
+                    android:onClick="anteriorPregunta_rc"
+                    android:text="Pregunta \nanterior"/>
+                <Button
+                    android:id="@+id/nextQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/azulBotonera"
+                    android:onClick="siguientePregunta_rc"
+                    android:text="Siguiente \npregunta"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
     <!-- Botones de acciones -->

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Creamos la consulta para obtener todos los cursos
     $SELECT = 'SELECT id, nombre, ruta_pdf
                     FROM cursos
-                    LIMIT 14 OFFSET '.$lineaSalto.';';
+                    LIMIT 10 OFFSET '.$lineaSalto.';';
 	// Preparamos la consulta
     $consulta = $conexion->prepare($SELECT);
 	// Ejecutamos la consulta
