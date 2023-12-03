@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -443,19 +444,20 @@ public class cursosAlumnos extends AppCompatActivity {
 
             System.out.println(archivo.getAbsolutePath());
 
-            FileOutputStream fos = new FileOutputStream(archivo, false);
+            try(FileOutputStream fos = new FileOutputStream(archivo, false)) { // Try with resources para la gestion automatica de recursos
 
-            // Copiamos el archivo al almacenamiento interno
-            byte[] buffer = new byte[1024];
-            int i;
-            while ((i = is.read(buffer)) != -1) {
-                fos.write(buffer, 0, i);
+                // Copiamos el archivo al almacenamiento interno
+                byte[] buffer = new byte[1024];
+                int i;
+                while ((i = is.read(buffer)) != -1) {
+                    fos.write(buffer, 0, i);
+                }
             }
-
-            // Cerramos las instancias
+            // Cerramos los flujos
             is.close();
-            fos.close();
         } catch (IOException e) {
+            System.out.println("\n\n\n\nDEBE CONCEDER PERMISOS PARA GESTIONAR TODOS LOS ARCHIVOS. \n\n\n\n");
+            Log.i("PERMISOS DE ESCRITURA","\n\n\n\nDEBE CONCEDER PERMISOS PARA GESTIONAR TODOS LOS ARCHIVOS. \n\n\n\n");
             e.printStackTrace();
         }
         fv.mostrarMensaje(this, "PDF del curso descargado correctamente.");
