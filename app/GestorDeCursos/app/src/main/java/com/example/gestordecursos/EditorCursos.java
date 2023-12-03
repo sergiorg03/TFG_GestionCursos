@@ -7,7 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -273,6 +275,8 @@ public class EditorCursos extends AppCompatActivity {
                             cd.onConsultaExitosa(test);
                         } catch (JSONException jsone) {
                             jsone.printStackTrace();
+                            Button siguientePregunta = findViewById(R.id.nextQuestion);
+                            siguientePregunta.setText("Añadir pregunta al test. ");
                         }
                     }
                 },
@@ -280,6 +284,8 @@ public class EditorCursos extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             cd.onConsultaError(error);
+                            Button siguientePregunta = findViewById(R.id.nextQuestion);
+                            siguientePregunta.setText("Añadir pregunta. ");
                         }
                     }
                     );

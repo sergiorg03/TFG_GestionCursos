@@ -276,7 +276,11 @@ public class cursosAlumnos extends AppCompatActivity {
 
                             cd.onConsultaExitosa(cursos);
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            //e.printStackTrace();
+                            tv_curso1.setText("No hay más cursos a mostrar. ");
+                            tv_curso1.setOnClickListener(null);
+                            findViewById(R.id.nextQuestion).setOnClickListener(null);
+                            //cursosAnteriores(findViewById(R.id.lastQuestion).getRootView());
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -437,7 +441,7 @@ public class cursosAlumnos extends AppCompatActivity {
 
             File archivo = new File(carpetaCursos.getPath().toString()+ File.separator + ruta +".pdf");
 
-            //System.out.println(archivo.getAbsolutePath());
+            System.out.println(archivo.getAbsolutePath());
 
             FileOutputStream fos = new FileOutputStream(archivo, false);
 

@@ -508,6 +508,9 @@ public class cursosGestores extends AppCompatActivity {
                             cd.onConsultaExitosa(listaCursos);
                         } catch (JSONException e) {
                             System.out.println("Esta correcto, intenta convertir un array vacio en un JSONArray. ");
+                            tv_cg1.setText("No hay más cursos a mostrar. ");
+                            tv_cg1.setOnClickListener(null);
+                            findViewById(R.id.nextQuestion).setOnClickListener(null);
                             e.printStackTrace();
                         }
                     }
