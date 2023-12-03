@@ -192,6 +192,8 @@ public class RealizarCursos extends AppCompatActivity {
                 op2.setText("N/A");
                 op3.setText("N/A");
                 op4.setText("N/A");
+                findViewById(R.id.nextQuestion).setOnClickListener(null);
+                comprobarRespuestas(findViewById(R.id.comprobarRespuestas).getRootView());
             }
         });
     }

@@ -202,7 +202,7 @@ public class FuncionesVarias {
      */
     public String textoFinal(String cadena){
         final String cadenaADevolver = "N/A";
-        if (!cadena.isEmpty()){
+        if (contieneTexto(cadena) && !cadena.isEmpty()){
             return cadena;
         }
         return cadenaADevolver;
