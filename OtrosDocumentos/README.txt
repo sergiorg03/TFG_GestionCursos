@@ -33,11 +33,14 @@ Una vez abierto se modificaran dos archivos.
 Una vez completada la configuración del servidor XAMPP iniciaremos los servicios de apache y mysql del panel de control de XAMPP.
 
 Inserción de los datos en la Base de Datos:
-Para este paso desde el panel de control de XAMPP se hará click en el botón "Admin" del módulo MySQL el cual nos llevará al navegador e iniciaremos sesión como 'root' (la contraseña por defecto es vacia). 
-Seguidamente iremos al apartado de importar y seleccionaremos los archivos SQL de la carpeta "script" del proyecto. El orden de importación de datos es: 
+Para este paso desde el panel de control de XAMPP se hará click en el botón "Admin" del módulo MySQL el cual nos llevará al navegador e iniciaremos sesión como 'root' (la contraseña por defecto está vacia). 
+Seguidamente iremos al apartado "importar" y seleccionaremos los archivos SQL de la carpeta "script" del proyecto. 
+
+El orden de importación de datos es: 
 	1 --> DDL.sql
 	2 --> DML.sql
 
-Una vez completada la importación de datos se deberá obtener la IP del propio ordenador que se utilizará como servido, es decir, el ordenador en el que se instaló XAMPP y se deberá cambiar el valor de la variable IP creada en la clase FuncionesVarias.java por el valor de la IP del ordenador.
+Una vez completada la importación de datos se deberá obtener la IP del propio ordenador que se utilizará como servidor, es decir, el ordenador en el que se instaló XAMPP y se deberá cambiar el valor de la variable IP creada en el archivo FuncionesVarias.java por el valor de la IP del ordenador.
+Deberá quedar de esta manera: this.IP = "192.168.0.1";
 
-Una vez completados estos pasos se podrá disfrutar de la App funcionando correctamente.
+Una vez completados estos pasos se podrá disfrutar de la Aplicación funcionando correctamente.
