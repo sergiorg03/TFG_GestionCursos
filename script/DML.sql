@@ -38,7 +38,7 @@ INSERT INTO gestionCursos.gestionar (dni, id_curso, last_updateDate)
 -- Pregunta 1
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
 	VALUES
-		(0, 1, '¿Cuál comando se utiliza para mostrar el contenido de un directorio?');
+		(0, 1, '¿Qué comando se utiliza para mostrar el contenido de un directorio?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -50,7 +50,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 2
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(1, 1, '¿Qué ruta se corresponde con una ruta absoluta?');
+		(1, 1, '¿Qué opción se corresponde con una ruta absoluta?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -74,7 +74,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 4
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(3, 1, '¿Cuál comando se utiliza para eliminar un archivo?');
+		(3, 1, '¿Qué comando se utiliza para eliminar un archivo?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -122,7 +122,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 8
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(7, 1, '¿Cuál comando se utiliza para crear una copia de seguridad?');
+		(7, 1, '¿Qué comando se utiliza para crear una copia de seguridad?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -134,19 +134,19 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 9
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(8, 1, '¿Qué comando se usa para mostrar el contenido de archivos?');
+		(8, 1, '¿Qué comando se usa para mostrar el contenido de un archivo?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
 		(1, 8, 1, 'cat', 0),
 		(2, 8, 1, 'more', 0),
-		(3, 8, 1, 'Ambas son correctas', 1),
+		(3, 8, 1, 'Las dos anteriores son correctas', 1),
 		(4, 8, 1, 'Ninguna es correcta', 0);
 
 -- Pregunta 10
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(9, 1, '¿Cuál comando se utiliza para copiar archivos y directorios?');
+		(9, 1, '¿Qué instrucción nos permite copiar archivos y directorios?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -162,7 +162,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 1
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(0, 2, '¿Cuál es la instrucción SQL utilizada para insertar datos en una tabla?');
+		(0, 2, '¿Qué es la instrucción SQL utilizada para insertar datos en una tabla?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -186,7 +186,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 3
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(2, 2, '¿Qué cláusula SQL se utiliza para actualizar datos en una tabla?');
+		(2, 2, '¿Qué declaración SQL se utiliza para actualizar datos en una tabla?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -210,7 +210,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 5
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(4, 2, '¿Qué cláusula SQL se usa para filtrar resultados en una consulta?');
+		(4, 2, '¿Qué declaración SQL se usa para filtrar resultados en una consulta?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -229,7 +229,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(1, 5, 2, 'JOIN', 0),
 		(2, 5, 2, ',', 0),
 		(3, 5, 2, 'MERGE', 0),
-		(4, 5, 2, 'A Y B SON CORRECTAS', 1);
+		(4, 5, 2, 'Las dos primeras son correctas', 1);
 
 -- Pregunta 7
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
@@ -298,7 +298,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 2
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado)
 	VALUES
-		(1, 3, '¿Cuál comando se utiliza para eliminar una tabla en SQL?');
+		(1, 3, '¿Qué comando se utiliza para eliminar una tabla en SQL?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -346,7 +346,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 6
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
 	VALUES
-		(5, 3, '¿Qué comando SQL se utiliza para añadir una restricción de clave primaria a una tabla?');
+		(5, 3, '¿Qué declaración SQL se utiliza para añadir una restricción de clave primaria a una tabla?');
 
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -365,12 +365,12 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(1, 6, 3, 'REMOVE KEY', 0),
 		(2, 6, 3, 'DELETE PRIMARY', 0),
 		(3, 6, 3, 'DROP PRIMARY KEY', 1),
-		(4, 6, 3, 'NINGUNA OPCION ES CORRECTA', 0);
+		(4, 6, 3, 'Ninguna de las anteriores son correctas', 0);
 
 -- Pregunta 8
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
 	VALUES
-		(7, 3, '¿Qué comando SQL se utiliza para agregar un índice a una tabla?');
+		(7, 3, '¿Qué declaración SQL se utiliza para agregar un índice a una tabla?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -382,7 +382,7 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 -- Pregunta 9
 INSERT INTO gestionCursos.preguntas(id, id_curso, Enunciado) 
 	VALUES
-		(8, 3, '¿Qué comando SQL se utiliza para eliminar un índice de una tabla?');
+		(8, 3, '¿Qué declaración SQL se utiliza para eliminar un índice de una tabla?');
 		
 INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCorrecta) 
 	VALUES
@@ -401,4 +401,4 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(1, 9, 3, 'RENAME TABLE', 1),
 		(2, 9, 3, 'ALTER TABLE', 0),
 		(3, 9, 3, 'CHANGE TABLE', 0),
-		(4, 9, 3, 'A Y B SON CORRECTAS', 0);
+		(4, 9, 3, 'La primear y la segunda son correctas', 0);
