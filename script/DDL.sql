@@ -1,25 +1,5 @@
 -- Script Base de Datos P.I.
 
--- Configuración de los ficheros de XAMPP
-
--- Fichero Apache (httpd.conf)
-/*
-# Sergio. 22/09/2023. Asignacion de la carpeta para la realizacion del proyecto integrado.
-	Alias /tfg "C:\Users\srgye\OneDrive\Escritorio\Sergio\Instituto\2DAM\TFG_Nomada"
-	<Directory "C:\Users\srgye\OneDrive\Escritorio\Sergio\Instituto\2DAM\TFG_Nomada">
-		Options Indexes FollowSymLinks Includes ExecCGI
-		AllowOverride All
-		Require all granted
-	</Directory>
-*/
-
--- Fichero phpMyAdmin (config.inc.php)
-/*
-$cfg['Servers'][$i]['auth_type'] = 'cookie';
-$cfg['Servers'][$i]['user'] = '';
-$cfg['Servers'][$i]['password'] = '';
-*/
-
 -- ----------------------------------------
 -- CREACION DEL USUARIO
 -- ----------------------------------------
@@ -37,9 +17,6 @@ GRANT ALL PRIVILEGES
 		MAX_CONNECTIONS_PER_HOUR 0 
 		MAX_UPDATES_PER_HOUR 0 
 		MAX_USER_CONNECTIONS 0;
-/* GRANT ALL PRIVILEGES 
-	ON `tfg\_sergio\_%`.* 
-	TO 'tfg_sergio'@'localhost';*/
 
 -- ----------------------------------------
 -- CREACION DEL SCHEMA

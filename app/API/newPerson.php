@@ -29,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $consulta->bindParam(":telf", $datos['telefono']);
     $consulta->bindParam(":email", $datos['email']);
     $consulta->bindParam(":usuario", $datos['usuario']);
-    $consulta->bindParam(":contra", cadToMD5($datos['contra']));
+    $contrase = cadToMD5($datos['contra']);
+    $consulta->bindParam(":contra", $contrase);
     $consulta->bindParam(":perfil", $datos['perfil']);
 
     try {

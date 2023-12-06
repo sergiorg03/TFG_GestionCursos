@@ -28,7 +28,7 @@ public class FuncionesVarias {
     private final char[] LETRAS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
     public FuncionesVarias (){
-        this.IP = "192.168.1.156"; // Se deberá cambiar el valor de esta variable por el valor de la IP del propio ordenador para el correcto funcionamiento de la APP. 
+        this.IP = "192.168.135.37"; // Se deberá cambiar el valor de esta variable por el valor de la IP del propio ordenador para el correcto funcionamiento de la APP.
         this.URL = "http://"+this.IP+"/tfg/app/API/";
         //System.out.println("IP: "+IP + " URL: "+ URL);
     }
