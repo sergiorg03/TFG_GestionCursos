@@ -128,59 +128,63 @@ public class RealizarCursos extends AppCompatActivity {
         Map<String[], List<String[]>> preguntas = getPreguntas(new ConsultarDatos() {
             @Override
             public void onConsultaExitosa(Map<String[], List<String[]>> preguntas) {
+                try{
+                    for (String[] test: preguntas.keySet()) {
+                        //System.out.println("Clave: " + test[0]+test[1] + " Valor: " + preguntas.get(test));
 
-                for (String[] test: preguntas.keySet()) {
-                    //System.out.println("Clave: " + test[0]+test[1] + " Valor: " + preguntas.get(test));
+                        int id_preg = Integer.parseInt(test[0]);
+                        String enunciado_preg = test[1];
 
-                    int id_preg = Integer.parseInt(test[0]);
-                    String enunciado_preg = test[1];
+                        // Opcion 1
+                        String id_op1 = preguntas.get(test).get(0)[0];
+                        String enun_op1 = preguntas.get(test).get(0)[1];
+                        String esCorrecta_op1 = preguntas.get(test).get(0)[2];
+                        // Opcion 2
+                        String id_op2 = preguntas.get(test).get(1)[0];
+                        String enun_op2 = preguntas.get(test).get(1)[1];
+                        String esCorrecta_op2 = preguntas.get(test).get(1)[2];
+                        // Opcion 3
+                        String id_op3 = preguntas.get(test).get(2)[0];
+                        String enun_op3 = preguntas.get(test).get(2)[1];
+                        String esCorrecta_op3 = preguntas.get(test).get(2)[2];
+                        // Opcion 3
+                        String id_op4 = preguntas.get(test).get(3)[0];
+                        String enun_op4 = preguntas.get(test).get(3)[1];
+                        String esCorrecta_op4 = preguntas.get(test).get(3)[2];
 
-                    // Opcion 1
-                    String id_op1 = preguntas.get(test).get(0)[0];
-                    String enun_op1 = preguntas.get(test).get(0)[1];
-                    String esCorrecta_op1 = preguntas.get(test).get(0)[2];
-                    // Opcion 2
-                    String id_op2 = preguntas.get(test).get(1)[0];
-                    String enun_op2 = preguntas.get(test).get(1)[1];
-                    String esCorrecta_op2 = preguntas.get(test).get(1)[2];
-                    // Opcion 3
-                    String id_op3 = preguntas.get(test).get(2)[0];
-                    String enun_op3 = preguntas.get(test).get(2)[1];
-                    String esCorrecta_op3 = preguntas.get(test).get(2)[2];
-                    // Opcion 3
-                    String id_op4 = preguntas.get(test).get(3)[0];
-                    String enun_op4 = preguntas.get(test).get(3)[1];
-                    String esCorrecta_op4 = preguntas.get(test).get(3)[2];
+                        /**
+                         * Trazas
+                         */
+                        /*System.out.println("Pregunta: ");
+                        System.out.println("id--> "+ id_preg);
+                        System.out.println("enunciado--> "+ enunciado_preg);
+                        System.out.println("Opciones: ");
+                        // Opcion 1
+                        System.out.println("Opcion 1-->");
+                        System.out.println("id_op1-->"+ id_op1);
+                        System.out.println("enun_op1-->"+ enun_op1);
+                        System.out.println("esCorrecta_op1-->"+ esCorrecta_op1);
+                        // Opcion 2
+                        System.out.println("Opcion 2-->");
+                        System.out.println("id_op2-->"+ id_op2);
+                        System.out.println("enun_op2-->"+ enun_op2);
+                        System.out.println("esCorrecta_op2-->"+ esCorrecta_op2);
+                        // Opcion 3
+                        System.out.println("Opcion 3-->");
+                        System.out.println("id_op3-->"+ id_op3);
+                        System.out.println("enun_op3-->"+ enun_op3);
+                        System.out.println("esCorrecta_op3-->"+ esCorrecta_op3);*/
 
-                    /**
-                     * Trazas
-                     */
-                    /*System.out.println("Pregunta: ");
-                    System.out.println("id--> "+ id_preg);
-                    System.out.println("enunciado--> "+ enunciado_preg);
-                    System.out.println("Opciones: ");
-                    // Opcion 1
-                    System.out.println("Opcion 1-->");
-                    System.out.println("id_op1-->"+ id_op1);
-                    System.out.println("enun_op1-->"+ enun_op1);
-                    System.out.println("esCorrecta_op1-->"+ esCorrecta_op1);
-                    // Opcion 2
-                    System.out.println("Opcion 2-->");
-                    System.out.println("id_op2-->"+ id_op2);
-                    System.out.println("enun_op2-->"+ enun_op2);
-                    System.out.println("esCorrecta_op2-->"+ esCorrecta_op2);
-                    // Opcion 3
-                    System.out.println("Opcion 3-->");
-                    System.out.println("id_op3-->"+ id_op3);
-                    System.out.println("enun_op3-->"+ enun_op3);
-                    System.out.println("esCorrecta_op3-->"+ esCorrecta_op3);*/
-
-                    pregunta.setText(enunciado_preg);
-                    op1.setText(enun_op1);
-                    op2.setText(enun_op2);
-                    op3.setText(enun_op3);
-                    op4.setText(enun_op4);
-                    bd_opCor = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
+                        pregunta.setText(enunciado_preg);
+                        op1.setText(enun_op1);
+                        op2.setText(enun_op2);
+                        op3.setText(enun_op3);
+                        op4.setText(enun_op4);
+                        bd_opCor = opcionCorrecta(esCorrecta_op1, esCorrecta_op2, esCorrecta_op3, esCorrecta_op4);
+                    }
+                }catch(IndexOutOfBoundsException i){
+                    lineasSalto += 1;
+                    cargarPreguntas();
                 }
             }
 
