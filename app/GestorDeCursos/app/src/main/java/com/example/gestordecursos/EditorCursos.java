@@ -732,7 +732,7 @@ public class EditorCursos extends AppCompatActivity {
      * @param v -- View del botón pulsado.
      */
     public void anteriorPregunta(View v){
-        int pregunta = (id_pregunta-1 == -1)? 0: id_pregunta-1;
+        int pregunta = (id_pregunta-1 <= 0)? 0: id_pregunta-1;
         mostrarPregunta(pregunta);
     }
 

@@ -401,4 +401,4 @@ INSERT INTO gestionCursos.respuestasTest(id, id_pregunta, id_curso, opcion, esCo
 		(1, 9, 3, 'RENAME TABLE', 1),
 		(2, 9, 3, 'ALTER TABLE', 0),
 		(3, 9, 3, 'CHANGE TABLE', 0),
-		(4, 9, 3, 'La primear y la segunda son correctas', 0);
+		(4, 9, 3, 'La primera y la segunda son correctas', 0);
