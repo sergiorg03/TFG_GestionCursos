@@ -100,6 +100,7 @@ public class PerfilAlumnos extends AppCompatActivity {
      */
     public void volver(View v){
         Intent i = new Intent(this, claseAnterior);
+        System.out.println("PerfilALumnos: volver: dni_gestor--> "+ dni_g);
         i.putExtra("dni", dni_g);
         i.putExtra("clase", "cursosGestores");
         startActivity(i);
