@@ -53,7 +53,7 @@ public class gestoresAlumnos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gestores_alumnos);
-        dni_profesor = getIntent().getStringExtra("dni_g");
+        dni_profesor = (getIntent().getStringExtra("dni_g") == null)? getIntent().getStringExtra("dni") : getIntent().getStringExtra("dni_g");
         clase = getIntent().getStringExtra("clase");
         claseAnterior = fv.obtenerClase(clase);
 

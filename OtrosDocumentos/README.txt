@@ -2,7 +2,7 @@ DOCUMENTO DE COFIGURACIÓN PARA EL CORRECTO FUNCIONAMIENTO DE LA APP "STUDYHUB".
 
 COFIGURACIÓN DEL SERVIDOR XAMPP:
 
-En primer lugar se deberá instalar XAMPP con los módulos de PHP, phpMyAdmin como requisito imprescindible.
+En primer lugar se deberá instalar XAMPP con los módulos de MySQL y phpMyAdmin como requisito imprescindible.
 
 Seguidamente se deberá ejecutar XAMPP como administrador.
 
